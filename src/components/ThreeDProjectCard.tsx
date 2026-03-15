@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ExternalLink } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { getProjectImageUrl, type PortfolioProject } from '../data/portfolio';
 
 interface ThreeDProjectCardProps {
@@ -53,7 +55,7 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
         
         {/* Overlay text that fades in */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-          <Link to="/portfolio" className="text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2 rounded-lg">
+          <Link href="/portfolio" className="text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2 rounded-lg">
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
               whileHover={{ opacity: 1, scale: 1 }}
@@ -87,7 +89,7 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
               </motion.div>
             </div>
             <Link
-              to="/portfolio"
+              href="/portfolio"
               className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#FDF8EC] text-[#2F281D] flex items-center justify-center cursor-pointer self-start md:self-end group/btn overflow-hidden relative pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2"
               aria-label={`View ${project.title} project`}
             >

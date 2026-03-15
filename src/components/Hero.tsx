@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -85,11 +87,11 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <Link to="/contact" className="w-full sm:w-auto px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#997F6C] transition-all transform hover:scale-105 flex items-center justify-center gap-2 group shadow-xl shadow-[#2F281D]/10">
-            Start Your Project
+          <Link href="/contact#main-content" className="w-full sm:w-auto px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#997F6C] transition-all transform hover:scale-105 flex items-center justify-center gap-2 group shadow-xl shadow-[#2F281D]/10">
+            Get a Free Quote
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/portfolio" className="w-full sm:w-auto px-8 py-4 bg-white/50 border border-[#2F281D]/10 backdrop-blur-md rounded-full font-bold text-lg hover:bg-white transition-all flex items-center justify-center gap-2 group text-[#2F281D]">
+          <Link href="/portfolio" className="w-full sm:w-auto px-8 py-4 bg-white/50 border border-[#2F281D]/10 backdrop-blur-md rounded-full font-bold text-lg hover:bg-white transition-all flex items-center justify-center gap-2 group text-[#2F281D]">
             View Our Work
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>

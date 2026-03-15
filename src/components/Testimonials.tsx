@@ -3,24 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
-  {
-    name: 'Ahmed Khan',
-    role: 'Startup Founder',
-    content: 'CodexStudio built our website quickly and the performance is amazing. Highly recommend for any business looking to go digital.',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    name: 'Rachel Foster',
-    role: 'Founder of Nova',
-    content: 'The team is incredibly talented. They didn\'t just build a website; they built an experience that our customers love. The UI/UX work alone has set us apart from competitors.',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-  },
-  {
-    name: 'David Park',
-    role: 'Marketing Director, Zenith',
-    content: 'Working with CodexStudio was the best decision for our brand. Our conversion rates have increased by 40% since the launch. Professional, responsive, and results-driven.',
-    avatar: 'https://randomuser.me/api/portraits/men/51.jpg',
-  },
+  { name: 'Ahmed Khan', company: 'TechFlow', role: 'Startup Founder', content: 'CodexStudio built our website quickly and the performance is amazing. Highly recommend for any business looking to go digital.', avatar: 'https://randomuser.me/api/portraits/men/32.jpg' },
+  { name: 'Rachel Foster', company: 'Nova', role: 'Founder', content: 'The team is incredibly talented. They didn\'t just build a website; they built an experience that our customers love. The UI/UX work alone has set us apart from competitors.', avatar: 'https://randomuser.me/api/portraits/women/44.jpg' },
+  { name: 'David Park', company: 'Zenith', role: 'Marketing Director', content: 'Working with CodexStudio was the best decision for our brand. Our conversion rates have increased by 40% since the launch. Professional, responsive, and results-driven.', avatar: 'https://randomuser.me/api/portraits/men/51.jpg' },
 ];
 
 export const Testimonials = () => {
@@ -117,7 +102,7 @@ export const Testimonials = () => {
                     </div>
                     <div>
                       <h4 className="text-lg lg:text-2xl font-display font-bold text-[#2F281D]">{testimonials[current].name}</h4>
-                      <p className="text-[#997F6C] text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">{testimonials[current].role}</p>
+                      <p className="text-[#997F6C] text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">{testimonials[current].company}, {testimonials[current].role}</p>
                     </div>
                   </div>
                 </div>

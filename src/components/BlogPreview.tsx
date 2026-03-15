@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { blogPosts } from '../data/blog';
 
 export const BlogPreview = () => {
@@ -26,10 +28,10 @@ export const BlogPreview = () => {
             </motion.h2>
           </div>
           <div className="mt-8 md:mt-0 flex flex-wrap gap-4">
-            <Link to="/blog" className="px-8 py-4 border border-[#2F281D]/10 rounded-full font-bold hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all flex items-center gap-2 text-[#2F281D]">
+            <Link href="/blog" className="px-8 py-4 border border-[#2F281D]/10 rounded-full font-bold hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all flex items-center gap-2 text-[#2F281D]">
               View All Posts <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link to="/services" className="px-8 py-4 rounded-full font-bold bg-[#2F281D]/5 hover:bg-[#2F281D]/10 text-[#2F281D] transition-all flex items-center gap-2">
+            <Link href="/services" className="px-8 py-4 rounded-full font-bold bg-[#2F281D]/5 hover:bg-[#2F281D]/10 text-[#2F281D] transition-all flex items-center gap-2">
               Explore Services
             </Link>
           </div>
@@ -37,7 +39,7 @@ export const BlogPreview = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {blogPosts.map((post, i) => (
-            <Link key={post.title} to="/blog" className="group">
+            <Link key={post.title} href="/blog" className="group">
               <motion.article
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

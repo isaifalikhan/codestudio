@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ThreeDProjectCard } from './ThreeDProjectCard';
 import { featuredPortfolioProjects } from '../data/portfolio';
 
@@ -38,7 +40,7 @@ export const Portfolio = () => {
               Featured <span className="text-[#2F281D]/40 italic">Branding</span> & <span className="text-[#997F6C]">Websites</span>
             </motion.h2>
           </div>
-          <Link to="/portfolio">
+          <Link href="/portfolio">
             <motion.span
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

@@ -1,6 +1,8 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export const TermsConditions = () => {
   return (
@@ -68,7 +70,7 @@ export const TermsConditions = () => {
         </div>
 
         <p className="mt-16">
-          <Link to="/" className="text-[#997F6C] font-bold hover:underline">← Back to Home</Link>
+          <Link href="/" className="text-[#997F6C] font-bold hover:underline">← Back to Home</Link>
         </p>
       </section>
     </motion.div>

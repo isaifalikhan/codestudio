@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export const AboutPreview = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -76,13 +78,13 @@ export const AboutPreview = () => {
               transition={{ delay: 0.2 }}
               className="flex flex-wrap gap-6"
             >
-              <Link to="/about" className="inline-flex items-center gap-3 text-[#2F281D] font-bold group">
+              <Link href="/about" className="inline-flex items-center gap-3 text-[#2F281D] font-bold group">
                 Learn More About Us
                 <div className="w-10 h-10 rounded-full border border-[#2F281D]/10 flex items-center justify-center group-hover:bg-[#2F281D] group-hover:text-[#FDF8EC] transition-all">
                   <ArrowRight className="w-5 h-5" />
                 </div>
               </Link>
-              <Link to="/services" className="inline-flex items-center gap-2 text-[#2F281D]/70 hover:text-[#997F6C] font-bold transition-colors">
+              <Link href="/services" className="inline-flex items-center gap-2 text-[#2F281D]/70 hover:text-[#997F6C] font-bold transition-colors">
                 Our Services
               </Link>
             </motion.div>

@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-const MagneticButton = ({ children, className, to }: { children: React.ReactNode, className?: string, to: string }) => {
+const MagneticButton = ({ children, className, href }: { children: React.ReactNode, className?: string, href: string }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -35,7 +37,7 @@ const MagneticButton = ({ children, className, to }: { children: React.ReactNode
       }}
     >
       <Link
-        to={to}
+        href={href}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         className={className}
@@ -83,13 +85,13 @@ export const CTA = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8"
             >
               <MagneticButton
-                to="/contact"
+                href="/contact"
                 className="w-full sm:w-auto px-12 py-6 bg-[#FDF8EC] text-[#2F281D] rounded-full font-bold text-lg hover:bg-[#997F6C] hover:text-[#FDF8EC] hover:shadow-[0_0_20px_rgba(253,248,236,0.3)] transition-all flex items-center justify-center gap-3 group"
               >
                 Get a Free Consultation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </MagneticButton>
               <MagneticButton
-                to="/portfolio"
+                href="/portfolio"
                 className="w-full sm:w-auto px-12 py-6 border border-[#FDF8EC]/20 text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#FDF8EC]/10 hover:shadow-[0_0_20px_rgba(253,248,236,0.1)] transition-all flex items-center justify-center"
               >
                 View Our Work

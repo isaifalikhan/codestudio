@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { Code, Layout, ShoppingCart, Palette, Search, Sparkles, Smartphone, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const services = [
   {
@@ -66,7 +68,7 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
       whileHover={{ y: -8, boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)' }}
       className="group relative rounded-3xl bg-[#E8E2D2] border border-[#2F281D]/5 hover:border-[#997F6C]/50 transition-all duration-300 overflow-hidden flex flex-col h-full"
     >
-      <Link to={service.to} className="flex flex-col h-full">
+      <Link href={service.to} className="flex flex-col h-full">
         <div className="relative h-48 overflow-hidden">
           <img
             src={service.image}
@@ -136,7 +138,7 @@ export const Services = () => {
         </div>
         <div className="mt-12 text-center">
           <Link
-            to="/services"
+            href="/services"
             className="inline-flex items-center gap-2 text-[#2F281D] font-bold hover:text-[#997F6C] transition-colors"
           >
             View all services <ArrowRight className="w-5 h-5" />

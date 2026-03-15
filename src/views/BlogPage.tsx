@@ -1,6 +1,10 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Calendar, User, Tag } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { CTA } from '../components/CTA';
 import { blogPosts } from '../data/blog';
 
@@ -46,12 +50,13 @@ export const BlogPage = () => {
               viewport={{ once: true }}
               className="group relative rounded-[4rem] overflow-hidden bg-[#2F281D] flex flex-col lg:flex-row"
             >
-              <div className="flex-1 aspect-[16/10] lg:aspect-auto overflow-hidden">
-                <img
+              <div className="flex-1 aspect-[16/10] lg:aspect-auto overflow-hidden relative">
+                <Image
                   src={featuredPost.image}
                   alt={`${featuredPost.title} - CodexStudio blog featured`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-                  loading="lazy"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
               <div className="flex-1 p-8 md:p-16 flex flex-col justify-center space-y-8">
@@ -69,12 +74,12 @@ export const BlogPage = () => {
                   <User className="w-5 h-5 text-[#997F6C]" />
                   <span className="font-bold">{featuredPost.author}</span>
                 </div>
-                <button className="inline-flex items-center gap-3 text-[#FDF8EC] font-bold group/btn">
+                <Link href={`/blog/${featuredPost.slug}`} className="inline-flex items-center gap-3 text-[#FDF8EC] font-bold group/btn">
                   Read Full Article 
                   <div className="w-12 h-12 rounded-full border border-[#FDF8EC]/20 flex items-center justify-center group-hover/btn:bg-[#FDF8EC] group-hover/btn:text-[#2F281D] transition-all">
                     <ArrowRight className="w-6 h-6" />
                   </div>
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -85,22 +90,23 @@ export const BlogPage = () => {
       <section className="pb-32 px-6" aria-label="Blog posts">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {regularPosts.map((post, i) => (
-            <motion.article
-              key={post.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group cursor-pointer"
-            >
-              <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-8">
-                <img
-                  src={post.image}
-                  alt={`${post.title} - CodexStudio blog`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
+            <Link key={post.title} href={`/blog/${post.slug}`}>
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group cursor-pointer"
+              >
+                <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-8 relative">
+                  <Image
+                    src={post.image}
+                    alt={`${post.title} - CodexStudio blog`}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#997F6C]">
                   <span>{post.category}</span>
@@ -115,6 +121,7 @@ export const BlogPage = () => {
                 </p>
               </div>
             </motion.article>
+            </Link>
           ))}
         </div>
       </section>

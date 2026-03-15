@@ -1,7 +1,10 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { cn } from '../utils/cn';
 
 const navLinks = [
@@ -10,13 +13,14 @@ const navLinks = [
   { name: 'Services', path: '/services' },
   { name: 'Portfolio', path: '/portfolio' },
   { name: 'Blog', path: '/blog' },
+  { name: 'Team', path: '/team' },
   { name: 'Contact', path: '/contact' },
 ];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +39,7 @@ export const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 bg-[#2F281D] rounded-lg flex items-center justify-center font-bold text-xl text-[#FDF8EC] transform group-hover:rotate-12 transition-transform">
             C
           </div>
@@ -54,16 +58,16 @@ export const Navbar = () => {
               transition={{ delay: i * 0.1 }}
             >
               <Link
-                to={link.path}
+                href={link.path}
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-[#997F6C] relative group/link',
-                  location.pathname === link.path ? 'text-[#2F281D] font-bold' : 'text-[#2F281D]/60'
+                  pathname === link.path ? 'text-[#2F281D] font-bold' : 'text-[#2F281D]/60'
                 )}
               >
                 {link.name}
                 <motion.span 
                   className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#997F6C] transition-all group-hover/link:w-full"
-                  layoutId={location.pathname === link.path ? "nav-underline" : undefined}
+                  layoutId={pathname === link.path ? "nav-underline" : undefined}
                 />
               </Link>
             </motion.div>
@@ -74,7 +78,7 @@ export const Navbar = () => {
             transition={{ delay: navLinks.length * 0.1 }}
           >
             <Link
-              to="/contact"
+              href="/contact"
               className="bg-[#2F281D] text-[#FDF8EC] px-6 py-2 rounded-full text-sm font-bold hover:bg-[#997F6C] transition-colors flex items-center gap-2 group"
             >
               Start a Project
@@ -106,7 +110,7 @@ export const Navbar = () => {
             className="fixed inset-0 z-[60] bg-[#2F281D] p-8 flex flex-col md:hidden"
           >
             <div className="flex items-center justify-between mb-12">
-              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                 <div className="w-10 h-10 bg-[#FDF8EC] rounded-lg flex items-center justify-center font-bold text-xl text-[#2F281D]">
                   C
                 </div>
@@ -131,11 +135,11 @@ export const Navbar = () => {
                   transition={{ delay: i * 0.1 }}
                 >
                   <Link
-                    to={link.path}
+                    href={link.path}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
                       'text-4xl font-display font-bold transition-colors',
-                      location.pathname === link.path ? 'text-[#997F6C]' : 'text-[#FDF8EC]/60'
+                      pathname === link.path ? 'text-[#997F6C]' : 'text-[#FDF8EC]/60'
                     )}
                   >
                     {link.name}
@@ -146,7 +150,7 @@ export const Navbar = () => {
 
             <div className="mt-auto pt-12 border-t border-[#FDF8EC]/10">
               <Link
-                to="/contact"
+                href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full bg-[#997F6C] text-[#FDF8EC] py-5 rounded-2xl text-center font-bold text-lg flex items-center justify-center gap-3"
               >

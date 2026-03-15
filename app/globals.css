@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts loaded via next/font in layout for font-display: swap */
+
+@layer base {
+  body {
+    @apply bg-[#FDF8EC] text-[#2F281D] selection:bg-[#997F6C] selection:text-white;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-[#2F281D];
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/40 backdrop-blur-xl border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2F281D] via-[#997F6C] to-[#5F634D];
+  }
+
+  .bg-gradient-mesh {
+    background-image:
+      radial-gradient(at 0% 0%, rgba(153, 127, 108, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(95, 99, 77, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(188, 175, 155, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(47, 40, 29, 0.05) 0px, transparent 50%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* NProgress bar styling */
+#nprogress .bar {
+  background: #997F6C !important;
+  height: 3px !important;
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px #997F6C, 0 0 5px #997F6C !important;
+}

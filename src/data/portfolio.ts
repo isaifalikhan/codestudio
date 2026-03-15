@@ -4,13 +4,14 @@
  * Local project images use paths relative to site root (no leading slash) so they work with Vite's base URL.
  */
 
-const BASE = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+const BASE = (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_SITE_URL) || '';
 
 /** Resolve image URL: external URLs unchanged, local paths get base URL prepended */
 export function getProjectImageUrl(imagePath: string): string {
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) return imagePath;
   const path = imagePath.replace(/^\//, '');
-  return BASE.replace(/\/?$/, '') + '/' + path;
+  const base = BASE ? BASE.replace(/\/?$/, '') + '/' : '/';
+  return base + path;
 }
 
 export interface PortfolioProject {

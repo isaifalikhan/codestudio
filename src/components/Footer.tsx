@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { Github, Twitter, Linkedin, Instagram, Facebook, ArrowUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -19,7 +21,7 @@ export const Footer = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"
         >
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-8">
+            <Link href="/" className="flex items-center gap-2 mb-8">
               <div className="w-10 h-10 bg-[#2F281D] rounded-lg flex items-center justify-center font-bold text-xl text-[#FDF8EC]">
                 C
               </div>
@@ -89,10 +91,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Quick Links</h4>
             <ul className="space-y-4">
-              {['Home', 'About', 'Services', 'Portfolio', 'Blog', 'Contact'].map((item) => (
+              {['Home', 'About', 'Services', 'Portfolio', 'Blog', 'Team', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                     className="text-[#2F281D]/50 hover:text-[#997F6C] transition-colors"
                   >
                     {item}
@@ -135,8 +137,8 @@ export const Footer = () => {
             © 2026 CodexStudio. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-[#2F281D]/30">
-            <Link to="/privacy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-[#2F281D] transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#2F281D] transition-colors">Terms & Conditions</Link>
           </div>
           <motion.button
             type="button"
