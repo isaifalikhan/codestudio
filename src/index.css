@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --color-brand-primary: #2F281D;
+  --color-brand-accent-brown: #997F6C;
+  --color-brand-olive: #5F634D;
+  --color-brand-beige: #BCAF9B;
+  --color-brand-soft: #E8E2D2;
+  --color-brand-light: #FDF8EC;
+  
+  --background-main: #FDF8EC;
+  --background-card: #E8E2D2;
+  --border-subtle: rgba(47, 40, 29, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-[#FDF8EC] text-[#2F281D] selection:bg-[#997F6C] selection:text-white;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply text-[#2F281D];
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/40 backdrop-blur-xl border border-white/20;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2F281D] via-[#997F6C] to-[#5F634D];
+  }
+  
+  .bg-gradient-mesh {
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(153, 127, 108, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(95, 99, 77, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(188, 175, 155, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(47, 40, 29, 0.05) 0px, transparent 50%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
