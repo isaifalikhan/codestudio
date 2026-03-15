@@ -30,7 +30,7 @@ export const AboutPreview = () => {
           >
             <div className="aspect-square rounded-[3rem] overflow-hidden">
               <img
-                src="/images/saif.jpeg"
+                src="/images/unnamed.jpg"
                 alt="Saif Ali - Founder of CodexStudio digital agency"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

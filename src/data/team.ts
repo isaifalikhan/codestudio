@@ -9,7 +9,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Saif Ali',
     role: 'Founder & CEO',
-    photo: '/images/saif.jpeg',
+    photo: '/images/unnamed.jpg',
     linkedin: 'https://linkedin.com/in/saifali',
   },
 ];
