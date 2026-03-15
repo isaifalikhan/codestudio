@@ -93,7 +93,7 @@ export const About = () => {
               Born from a passion for <span className="text-[#997F6C]">excellence</span>.
             </h2>
             <p className="text-lg text-[#2F281D]/60 leading-relaxed">
-              Founded in 2016, CodexStudio began with a simple mission: to bridge the gap between complex technology and human-centric design. We believed that digital experiences should be as beautiful as they are functional.
+              Our founder has been in web development since 2016. CodexStudio was formally launched in 2026 with a simple mission: to bridge the gap between complex technology and human-centric design. We believe that digital experiences should be as beautiful as they are functional.
             </p>
             <p className="text-lg text-[#2F281D]/60 leading-relaxed">
               Today, we are a global team of creators, thinkers, and builders. We partner with ambitious brands to navigate the digital landscape and create lasting impact.

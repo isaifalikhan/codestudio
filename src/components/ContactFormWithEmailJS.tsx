@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
 import { Send } from 'lucide-react';
 
 export type ContactFormFields = {
@@ -12,6 +11,7 @@ export type ContactFormFields = {
   projectType: string;
   message: string;
   company?: string;
+  website?: string; // honeypot
 };
 
 const projectTypeOptions = [
@@ -40,34 +40,31 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
   const labelClass = isDark ? labelClassDark : labelClassLight;
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormFields>({
-    defaultValues: { name: '', email: '', budget: '', projectType: '', message: '', company: '' },
+    defaultValues: { name: '', email: '', budget: '', projectType: '', message: '', company: '', website: '' },
   });
 
   const onSubmit = async (data: ContactFormFields) => {
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setStatus('error');
-      return;
-    }
-
+    if (data.website) return; // honeypot
     setStatus('sending');
     try {
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: data.name,
-          from_email: data.email,
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
           budget: data.budget,
-          project_type: data.projectType,
+          projectType: data.projectType,
           message: data.message,
           company: data.company || '',
-        },
-        publicKey
-      );
+          website: data.website || '',
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setStatus('error');
+        return;
+      }
       setStatus('success');
       reset();
     } catch {
@@ -77,6 +74,11 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
 
   return (
     <form className="space-y-6" onSubmit={handleSubmit(onSubmit)} aria-label="Contact form">
+      {/* Honeypot: leave empty; bots often fill it */}
+      <div className="absolute -left-[9999px] top-0" aria-hidden>
+        <label htmlFor="contact-website">Website</label>
+        <input id="contact-website" type="text" tabIndex={-1} autoComplete="off" {...register('website')} />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="contact-name" className={labelClass}>Name</label>
@@ -98,7 +100,7 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
             placeholder="you@company.com"
             autoComplete="email"
             className={inputClass}
-            {...register('email', { required: 'Email is required' })}
+            {...register('email', { required: 'Email is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email address' } })}
           />
           {errors.email && <p className="text-red-500 text-sm mt-1" role="alert">{errors.email.message}</p>}
         </div>
@@ -156,12 +158,12 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
           placeholder="Tell us about your project..."
           className={`${inputClass} resize-none`}
           aria-label="Your message"
-          {...register('message', { required: 'Message is required' })}
+          {...register('message', { required: 'Message is required', minLength: { value: 10, message: 'Message must be at least 10 characters' } })}
         />
         {errors.message && <p className="text-red-500 text-sm mt-1" role="alert">{errors.message.message}</p>}
       </div>
-      {status === 'success' && <p className="text-green-500 font-medium" role="status">Thanks! We&apos;ll get back to you within 24 hours.</p>}
-      {status === 'error' && <p className="text-red-500 font-medium" role="alert">Something went wrong. Please email us at hello@codexstudio.com.</p>}
+      {status === 'success' && <p className="text-green-500 font-medium" role="status">Message sent! We&apos;ll reply within 24 hours.</p>}
+      {status === 'error' && <p className="text-red-500 font-medium" role="alert">Something went wrong. Please WhatsApp us directly.</p>}
       <button
         type="submit"
         disabled={status === 'sending'}

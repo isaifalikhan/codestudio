@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { CTA } from '../components/CTA';
@@ -9,7 +11,26 @@ import { getProjectImageUrl, portfolioProjects } from '../data/portfolio';
 const categories = ['All', 'Web Design', 'Branding', 'Development'];
 
 export const PortfolioPage = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  const [activeCategory, setActiveCategory] = useState(
+    categories.includes(categoryParam || '') ? categoryParam! : 'All'
+  );
+
+  useEffect(() => {
+    const valid = categories.includes(categoryParam || '') ? categoryParam! : 'All';
+    setActiveCategory(valid);
+  }, [categoryParam]);
+
+  const setCategory = (cat: string) => {
+    setActiveCategory(cat);
+    const params = new URLSearchParams(searchParams.toString());
+    if (cat === 'All') params.delete('category');
+    else params.set('category', cat);
+    const q = params.toString();
+    router.push(q ? `/portfolio?${q}` : '/portfolio', { scroll: false });
+  };
 
   const filteredProjects = activeCategory === 'All'
     ? portfolioProjects
@@ -49,7 +70,7 @@ export const PortfolioPage = () => {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => setCategory(cat)}
               className={`px-8 py-3 rounded-full font-bold transition-all ${
                 activeCategory === cat 
                   ? 'bg-[#2F281D] text-[#FDF8EC]' 
@@ -99,9 +120,15 @@ export const PortfolioPage = () => {
                     </div>
                     <div className="flex items-center justify-between">
                       <h3 className="text-2xl md:text-3xl font-display font-bold text-[#FDF8EC]">{project.title}</h3>
-                      <span className="px-4 py-2 rounded-full bg-[#FDF8EC] text-[#2F281D] text-sm font-bold flex items-center gap-2">
-                        View Project <ArrowUpRight className="w-4 h-4" />
-                      </span>
+                      {project.projectUrl ? (
+                        <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full bg-[#FDF8EC] text-[#2F281D] text-sm font-bold flex items-center gap-2 hover:bg-[#FDF8EC]/90 transition-colors">
+                          View Project <ArrowUpRight className="w-4 h-4" />
+                        </a>
+                      ) : (
+                        <span className="px-4 py-2 rounded-full bg-[#FDF8EC]/60 text-[#2F281D]/80 text-sm font-bold cursor-default" aria-hidden>
+                          In Portfolio
+                        </span>
+                      )}
                     </div>
                   </div>
                 </motion.article>

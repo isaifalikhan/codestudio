@@ -105,24 +105,16 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Newsletter</h4>
+            <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Stay in touch</h4>
             <p className="text-[#2F281D]/50 text-sm mb-6">
-              Subscribe to get the latest insights and digital trends.
+              Want updates or have a project in mind? Get in touch.
             </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="bg-[#2F281D]/5 border border-[#2F281D]/10 rounded-xl px-4 py-3 flex-1 focus:outline-none focus:border-[#997F6C] transition-colors text-sm text-[#2F281D]"
-              />
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-[#2F281D] text-[#FDF8EC] px-4 py-3 rounded-xl font-bold hover:bg-[#997F6C] transition-colors"
-              >
-                Join
-              </motion.button>
-            </div>
+            <Link
+              href="/contact"
+              className="inline-block bg-[#2F281D] text-[#FDF8EC] px-5 py-3 rounded-xl font-bold hover:bg-[#997F6C] transition-colors"
+            >
+              Contact us
+            </Link>
           </div>
         </motion.div>
 

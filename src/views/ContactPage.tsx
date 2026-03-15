@@ -41,9 +41,17 @@ export const ContactPage = () => {
             <div className="space-y-8">
               <h2 className="text-4xl font-display font-bold text-[#2F281D]">Ready to start your next big project?</h2>
               <p className="text-xl text-[#2F281D]/60 leading-relaxed">
-                We're always looking for new challenges and exciting collaborations. 
+                We&apos;re always looking for new challenges and exciting collaborations. 
                 Fill out the form or reach out directly to our team.
               </p>
+              <a
+                href="https://calendly.com/codexstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold border-2 border-[#997F6C] text-[#2F281D] hover:bg-[#997F6C] hover:text-[#FDF8EC] transition-colors"
+              >
+                Book a Free 30-min Call →
+              </a>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -54,12 +62,12 @@ export const ContactPage = () => {
                 <h3 className="font-bold text-[#2F281D]">Email Us</h3>
                 <p className="text-[#2F281D]/60">Use the form to send a message. We reply within 24 hours.</p>
               </div>
-              <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4 block hover:bg-[#E8E2D2]/90 transition-colors">
+              <a href={`https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+44 7923 122356').replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4 block hover:bg-[#E8E2D2]/90 transition-colors">
                 <div className="w-12 h-12 rounded-2xl bg-[#997F6C] text-[#FDF8EC] flex items-center justify-center">
                   <Phone className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-[#2F281D]">WhatsApp Us</h3>
-                <p className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">+44 7923 122356</p>
+                <p className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">{process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY || '+44 7923 122356'}</p>
               </a>
               <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#5F634D] text-[#FDF8EC] flex items-center justify-center">

@@ -9,7 +9,6 @@ import { Testimonials } from '../components/Testimonials';
 import { ContactForm } from '../components/ContactForm';
 import { RevealSection } from '../components/RevealSection';
 import { ProjectSlider } from '../components/ProjectSlider';
-import { LogoSlider } from '../components/LogoSlider';
 import { AboutPreview } from '../components/AboutPreview';
 import { TechStack } from '../components/TechStack';
 import { WhyChooseUs } from '../components/WhyChooseUs';
@@ -66,7 +65,6 @@ export const Home = () => {
       className="bg-[#FDF8EC]"
     >
       <Hero />
-      <LogoSlider />
       <Reveal width="100%">
         <Stats />
       </Reveal>

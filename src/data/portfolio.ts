@@ -21,6 +21,8 @@ export interface PortfolioProject {
   technology: string[];
   image: string;
   slug?: string;
+  /** If set, "View Project" links here; otherwise show non-clickable "In Portfolio" */
+  projectUrl?: string;
 }
 
 /** Featured portfolio projects – high-quality Unsplash images for showcase */

@@ -2,15 +2,23 @@ import { ServicesPage } from '@/src/views/ServicesPage';
 import { SITE_URL } from '@/lib/constants';
 
 export const metadata = {
-  title: 'Services',
-  description: 'CodexStudio digital solutions: website development, UI/UX design, e-commerce, branding, SEO, and more. Starting from $2,500.',
+  title: 'Web Development & Design Services in Pakistan | CodexStudio',
+  description: 'Explore CodexStudio\'s services: website development from $2,500, UI/UX design, branding, SEO, social media management, and more.',
   openGraph: {
-    title: 'Services | CodexStudio — Web Development Agency',
-    description: 'Website development, UI/UX design, e-commerce, branding, SEO. Starting from $2,500.',
+    title: 'Web Development & Design Services in Pakistan | CodexStudio',
+    description: 'Explore CodexStudio\'s services: website development from $2,500, UI/UX design, branding, SEO, social media management, and more.',
     url: `${SITE_URL}/services`,
+    siteName: 'CodexStudio',
+    images: [{ url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630 }],
+    locale: 'en_US',
     type: 'website',
   },
-  twitter: { card: 'summary_large_image', title: 'Services | CodexStudio — Web Development Agency' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Web Development & Design Services in Pakistan | CodexStudio',
+    description: 'Explore CodexStudio\'s services: website development from $2,500, UI/UX design, branding, SEO, and more.',
+    images: [`${SITE_URL}/og-image.jpg`],
+  },
   alternates: { canonical: `${SITE_URL}/services` },
 };
 

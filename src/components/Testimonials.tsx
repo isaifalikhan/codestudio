@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
-  { name: 'Ahmed Khan', company: 'TechFlow', role: 'Startup Founder', content: 'CodexStudio built our website quickly and the performance is amazing. Highly recommend for any business looking to go digital.', avatar: 'https://randomuser.me/api/portraits/men/32.jpg' },
-  { name: 'Rachel Foster', company: 'Nova', role: 'Founder', content: 'The team is incredibly talented. They didn\'t just build a website; they built an experience that our customers love. The UI/UX work alone has set us apart from competitors.', avatar: 'https://randomuser.me/api/portraits/women/44.jpg' },
-  { name: 'David Park', company: 'Zenith', role: 'Marketing Director', content: 'Working with CodexStudio was the best decision for our brand. Our conversion rates have increased by 40% since the launch. Professional, responsive, and results-driven.', avatar: 'https://randomuser.me/api/portraits/men/51.jpg' },
+  { name: 'Ahmed K.', role: 'Startup Founder', content: 'CodexStudio built our website quickly and the performance is amazing. Highly recommend for any business looking to go digital.' },
+  { name: 'Rachel F.', role: 'Founder, Nova', content: 'The team is incredibly talented. They didn\'t just build a website; they built an experience that our customers love. The UI/UX work alone has set us apart from competitors.' },
+  { name: 'David P.', role: 'Marketing Director', content: 'Working with CodexStudio was the best decision for our brand. Our conversion rates have increased since the launch. Professional, responsive, and results-driven.' },
 ];
 
 export const Testimonials = () => {
@@ -90,19 +90,12 @@ export const Testimonials = () => {
                   </p>
                   
                   <div className="flex items-center gap-4 lg:gap-6">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-[#997F6C] rounded-full blur-md opacity-20" />
-                      <img
-                        src={testimonials[current].avatar}
-                        alt={`${testimonials[current].name}, ${testimonials[current].role}`}
-                        className="w-14 h-14 lg:w-20 lg:h-20 rounded-full object-cover border-2 lg:border-4 border-white relative z-10"
-                        referrerPolicy="no-referrer"
-                        loading="lazy"
-                      />
+                    <div className="relative flex items-center justify-center w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#997F6C] text-[#FDF8EC] font-display font-bold text-xl lg:text-2xl border-2 lg:border-4 border-white shrink-0">
+                      {testimonials[current].name.charAt(0)}
                     </div>
                     <div>
                       <h4 className="text-lg lg:text-2xl font-display font-bold text-[#2F281D]">{testimonials[current].name}</h4>
-                      <p className="text-[#997F6C] text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">{testimonials[current].company}, {testimonials[current].role}</p>
+                      <p className="text-[#997F6C] text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">{testimonials[current].role}</p>
                     </div>
                   </div>
                 </div>

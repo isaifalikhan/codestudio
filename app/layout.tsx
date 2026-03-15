@@ -7,18 +7,20 @@ import { Footer } from '@/src/components/Footer';
 import { CustomCursor } from '@/src/components/CustomCursor';
 import { NProgressBar } from '@/src/components/NProgressBar';
 import { WhatsAppFloat } from '@/src/components/WhatsAppFloat';
+import { CookieBanner } from '@/app/components/CookieBanner';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://codexstudio.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.codexstudio2026.com'),
   title: {
-    default: 'Home | CodexStudio — Web Development Agency',
-    template: '%s | CodexStudio — Web Development Agency',
+    default: 'Web Development Agency in Islamabad, Pakistan | CodexStudio',
+    template: '%s | CodexStudio',
   },
-  description: 'CodexStudio builds modern websites, web apps, and digital products for startups and businesses worldwide.',
+  description: 'CodexStudio is a web development agency in Islamabad, Pakistan. We build modern websites, web apps & e-commerce stores. Get a free quote today.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'CodexStudio',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CodexStudio — Web Development Agency' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -59,6 +61,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppFloat />
+        <CookieBanner />
         {gaId && <GoogleAnalytics gaId={gaId} />}
         <Analytics />
       </body>

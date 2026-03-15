@@ -46,7 +46,7 @@ export const TeamPage = () => {
 
       <section className="pb-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {teamMembers.map((member, i) => (
               <motion.article
                 key={member.name}
@@ -56,13 +56,13 @@ export const TeamPage = () => {
                 transition={{ delay: i * 0.1 }}
                 className="group text-center"
               >
-                <div className="relative aspect-square rounded-3xl overflow-hidden mb-6">
+                <div className="relative aspect-square rounded-3xl overflow-hidden mb-6 max-w-xs mx-auto">
                   <Image
                     src={member.photo}
                     alt={`${member.name} - ${member.role} at CodexStudio`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, 320px"
                   />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-[#2F281D]">{member.name}</h3>
@@ -78,6 +78,19 @@ export const TeamPage = () => {
                 </a>
               </motion.article>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-3xl bg-[#E8E2D2] border border-[#2F281D]/10 p-12 flex flex-col items-center justify-center text-center"
+            >
+              <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm mb-4">We&apos;re growing</p>
+              <h3 className="text-2xl font-display font-bold text-[#2F281D] mb-2">Join us</h3>
+              <p className="text-[#2F281D]/60 text-sm mb-8 max-w-xs">Want to build great digital products? Get in touch.</p>
+              <Link href="/contact" className="px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold hover:bg-[#997F6C] transition-colors">
+                Get in touch
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
