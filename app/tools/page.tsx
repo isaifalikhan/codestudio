@@ -50,15 +50,45 @@ export default function ToolsHubPage() {
       <JsonLd data={collectionSchema} />
 
       {/* Hero */}
-      <section className="pt-12 pb-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="h-screen flex items-center justify-center pt-12 pb-16 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm mb-4">
+            Free Tools
+          </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#2F281D] mb-6 leading-tight">
             40 Free Online Tools — No Signup, Works in Browser
           </h1>
-          <p className="text-lg text-[#2F281D]/70 leading-relaxed mb-10">
+          <p className="max-w-3xl mx-auto text-lg text-[#2F281D]/70 leading-relaxed mb-10">
             CodexStudio built these tools for developers, designers, and businesses. All tools run
             100% in your browser — nothing is ever uploaded to our servers.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#tools-grid"
+              className="inline-flex items-center gap-2 bg-[#2F281D] text-[#FDF8EC] px-6 py-3 rounded-full font-bold hover:bg-[#997F6C] transition-colors"
+            >
+              Browse Tools ↓
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 border border-[#2F281D]/30 text-[#2F281D] px-6 py-3 rounded-full font-bold hover:bg-[#2F281D]/5 transition-colors"
+            >
+              Start a Project <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-6 px-6 border-y border-[#2F281D]/10 bg-[#E8E2D2]/50">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center">
+          <span className="text-[#2F281D] font-bold">40 Tools</span>
+          <span className="text-[#2F281D]/60">·</span>
+          <span className="text-[#2F281D] font-bold">8 Categories</span>
+          <span className="text-[#2F281D]/60">·</span>
+          <span className="text-[#2F281D] font-bold">100% Free</span>
+          <span className="text-[#2F281D]/60">·</span>
+          <span className="text-[#2F281D] font-bold">No Signup</span>
         </div>
       </section>
 
