@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 
 const technologies = [
@@ -41,11 +42,14 @@ export const TechStack = () => {
               whileHover={{ y: -10 }}
               className="p-8 rounded-3xl bg-[#FDF8EC] border border-[#2F281D]/5 flex flex-col items-center justify-center gap-4 group hover:shadow-xl transition-all"
             >
-              <img
+              <Image
                 src={tech.icon}
                 alt={`${tech.name} - Technology used by CodexStudio`}
-                className="w-12 h-12 grayscale group-hover:grayscale-0 transition-all duration-500"
+                width={80}
+                height={40}
+                className="w-12 h-12 grayscale group-hover:grayscale-0 transition-all duration-500 object-contain"
                 loading="lazy"
+                sizes="80px"
               />
               <span className="font-bold text-[#2F281D]/40 group-hover:text-[#2F281D] transition-colors">
                 {tech.name}

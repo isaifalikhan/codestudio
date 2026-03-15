@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -28,13 +29,14 @@ export const AboutPreview = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square rounded-[3rem] overflow-hidden">
-              <img
+            <div className="aspect-square rounded-[3rem] overflow-hidden relative">
+              <Image
                 src="/images/unnamed.jpg"
                 alt="Saif Ali - Founder of CodexStudio digital agency"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                fill
+                className="object-cover"
                 loading="lazy"
+                sizes="(max-width: 768px) 50vw, 200px"
               />
             </div>
             <motion.div

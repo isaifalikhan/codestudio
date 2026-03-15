@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Code, Palette, Share2, PenTool, Globe, Search, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -111,8 +112,15 @@ export const ServicesPage = () => {
                 </div>
               </div>
               <div className="flex-1 w-full">
-                <div className="aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl">
-                  <img src={service.image} alt={`${service.title} - CodexStudio service`} className="w-full h-full object-cover" loading="lazy" />
+                <div className="aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl relative">
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} - CodexStudio service`}
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
               </div>
             </motion.div>

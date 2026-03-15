@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
@@ -101,11 +102,13 @@ export const PortfolioPage = () => {
                   transition={{ duration: 0.5 }}
                   className="group relative aspect-[16/10] rounded-[3rem] overflow-hidden"
                 >
-                  <img
+                  <Image
                     src={getProjectImageUrl(project.image)}
                     alt={`${project.title} - ${project.category} project by CodexStudio`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D] via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
                   <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">

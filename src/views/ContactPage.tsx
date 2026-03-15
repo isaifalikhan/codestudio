@@ -62,7 +62,7 @@ export const ContactPage = () => {
                 <h3 className="font-bold text-[#2F281D]">Email Us</h3>
                 <p className="text-[#2F281D]/60">Use the form to send a message. We reply within 24 hours.</p>
               </div>
-              <a href={`https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+44 7923 122356').replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4 block hover:bg-[#E8E2D2]/90 transition-colors">
+              <a href={`https://wa.me/447923122356`} target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4 block hover:bg-[#E8E2D2]/90 transition-colors">
                 <div className="w-12 h-12 rounded-2xl bg-[#997F6C] text-[#FDF8EC] flex items-center justify-center">
                   <Phone className="w-6 h-6" />
                 </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Users, Target, Eye, Heart } from 'lucide-react';
 import { CTA } from '../components/CTA';
@@ -10,26 +11,8 @@ const team = [
     name: 'Saif Ali',
     role: 'Founder & CEO',
     image: '/images/unnamed.jpg',
-    bio: 'Visionary entrepreneur dedicated to redefining digital excellence.'
+    bio: 'Visionary entrepreneur dedicated to redefining digital excellence.',
   },
-  {
-    name: 'Alex Rivera',
-    role: 'Creative Director',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
-    bio: 'Visionary leader with 15+ years in digital design.'
-  },
-  {
-    name: 'Sarah Chen',
-    role: 'Head of Development',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400',
-    bio: 'Full-stack expert obsessed with performance and clean code.'
-  },
-  {
-    name: 'Marcus Thorne',
-    role: 'UX Strategist',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400',
-    bio: 'Crafting intuitive journeys for global brands.'
-  }
 ];
 
 const values = [
@@ -66,11 +49,13 @@ export const About = () => {
       {/* Hero Section */}
       <section className="relative h-[40vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1920"
             alt="CodexStudio modern office and workspace"
-            className="w-full h-full object-cover opacity-20"
+            fill
+            className="object-cover opacity-20"
             loading="lazy"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#FDF8EC]/0 to-[#FDF8EC]" />
         </div>
@@ -101,12 +86,20 @@ export const About = () => {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" className="rounded-3xl aspect-[3/4] object-cover" alt="CodexStudio team collaboration" loading="lazy" />
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600" className="rounded-3xl aspect-square object-cover" alt="Creative workshop at CodexStudio" loading="lazy" />
+              <div className="relative rounded-3xl aspect-[3/4] overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="CodexStudio team collaboration" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
+              </div>
+              <div className="relative rounded-3xl aspect-square overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600" alt="Creative workshop at CodexStudio" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
+              </div>
             </div>
             <div className="space-y-4 pt-12">
-              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600" className="rounded-3xl aspect-square object-cover" alt="Digital strategy session" loading="lazy" />
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600" className="rounded-3xl aspect-[3/4] object-cover" alt="CodexStudio team meeting" loading="lazy" />
+              <div className="relative rounded-3xl aspect-square overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600" alt="Digital strategy session" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
+              </div>
+              <div className="relative rounded-3xl aspect-[3/4] overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600" alt="CodexStudio team meeting" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
+              </div>
             </div>
           </div>
         </div>
@@ -122,11 +115,13 @@ export const About = () => {
               viewport={{ once: true }}
               className="relative aspect-[4/5] rounded-[3rem] overflow-hidden"
             >
-              <img
+              <Image
                 src="/images/unnamed.jpg"
                 alt="Saif Ali - Founder and CEO of CodexStudio"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
                 loading="lazy"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </motion.div>
             <div className="space-y-8">
@@ -213,14 +208,16 @@ export const About = () => {
                 className="group"
               >
                 <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-6 relative perspective-1000">
-                  <motion.img
-                    whileHover={{ scale: 1.1, rotate: 2 }}
-                    transition={{ duration: 0.6 }}
-                    src={member.image}
-                    alt={`${member.name} - ${member.role} at CodexStudio`}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    loading="lazy"
-                  />
+                  <motion.div whileHover={{ scale: 1.1, rotate: 2 }} transition={{ duration: 0.6 }} className="w-full h-full relative">
+                    <Image
+                      src={member.image}
+                      alt={`${member.name} - ${member.role} at CodexStudio`}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 50vw, 200px"
+                    />
+                  </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D] to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />
                   <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <p className="text-[#FDF8EC] text-sm leading-relaxed">{member.bio}</p>

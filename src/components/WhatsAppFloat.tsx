@@ -1,10 +1,10 @@
 'use client';
 
 import { MessageCircle } from 'lucide-react';
-import { WHATSAPP_NUMBER } from '@/lib/constants';
+import { WHATSAPP_LINK_NUMBER } from '@/lib/constants';
 
 export function WhatsAppFloat() {
-  const waUrl = `https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || WHATSAPP_NUMBER).replace(/\D/g, '')}`;
+  const waUrl = `https://wa.me/${WHATSAPP_LINK_NUMBER}`;
   return (
     <a
       href={waUrl}

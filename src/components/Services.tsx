@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Code, Layout, ShoppingCart, Palette, Search, Sparkles, Smartphone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -70,12 +71,13 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
     >
       <Link href={service.to} className="flex flex-col h-full">
         <div className="relative h-48 overflow-hidden">
-          <img
+          <Image
             src={service.image}
             alt={`${service.title} - CodexStudio service`}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            referrerPolicy="no-referrer"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
           <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg">

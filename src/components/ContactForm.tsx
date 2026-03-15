@@ -47,7 +47,7 @@ export const ContactForm = () => {
               </div>
               
               <div className="flex items-center gap-6 group">
-                <a href={`https://wa.me/${(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+44 7923 122356').replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group w-full">
+                <a href="https://wa.me/447923122356" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group w-full">
                   <div className="w-14 h-14 rounded-2xl bg-[#2F281D]/5 flex items-center justify-center group-hover:bg-[#997F6C] transition-colors">
                     <Phone className="w-6 h-6 text-[#997F6C] group-hover:text-[#FDF8EC] transition-colors" aria-hidden />
                   </div>

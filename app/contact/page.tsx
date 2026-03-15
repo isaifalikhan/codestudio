@@ -1,26 +1,20 @@
+import type { Metadata } from 'next';
 import { ContactPage } from '@/src/views/ContactPage';
 import { SITE_URL } from '@/lib/constants';
 import { JsonLd } from '../components/JsonLd';
 
-export const metadata = {
-  title: 'Contact',
-  description: 'Contact CodexStudio for a free project consultation. Based in Islamabad, Pakistan. Reply within 24 hours.',
+export const metadata: Metadata = {
+  title: 'Contact CodexStudio — Start Your Project Today',
+  description:
+    'Contact CodexStudio for a free project consultation. Based in Islamabad, Pakistan. WhatsApp +44 7923 122356. We reply within 24 hours.',
   openGraph: {
-    title: 'Contact | CodexStudio',
-    description: 'Contact CodexStudio for a free project consultation. Based in Islamabad, Pakistan. Reply within 24 hours.',
-    url: `${SITE_URL}/contact`,
-    siteName: 'CodexStudio',
-    images: [{ url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630 }],
-    locale: 'en_US',
-    type: 'website',
+    title: 'Contact CodexStudio — Start Your Project',
+    description: 'Get in touch with CodexStudio. Free consultation. Based in Islamabad. Reply within 24 hours.',
+    url: 'https://www.codexstudio2026.com/contact',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact | CodexStudio',
-    description: 'Contact CodexStudio for a free project consultation. Based in Islamabad, Pakistan. Reply within 24 hours.',
-    images: [`${SITE_URL}/og-image.jpg`],
-  },
-  alternates: { canonical: `${SITE_URL}/contact` },
+  twitter: { card: 'summary_large_image', images: ['/og-image.jpg'] },
+  alternates: { canonical: 'https://www.codexstudio2026.com/contact' },
 };
 
 export default function ContactRoute() {

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';
@@ -44,14 +45,16 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
         }}
         className="group relative aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#2F281D]/5"
       >
-        <motion.img
-          src={getProjectImageUrl(project.image)}
-          alt={`${project.title} - ${project.category} project by CodexStudio`}
-          style={{ scale: springImageScale }}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-        />
+        <motion.div style={{ scale: springImageScale }} className="absolute inset-0">
+          <Image
+            src={getProjectImageUrl(project.image)}
+            alt={`${project.title} - ${project.category} project by CodexStudio`}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </motion.div>
         
         {/* Overlay text that fades in */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { blogPosts } from '@/src/data/blog';
 import { SITE_URL } from '@/lib/constants';
+import { JsonLd } from '@/app/components/JsonLd';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -31,8 +32,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: { '@type': 'Organization', name: 'CodexStudio', url: SITE_URL },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CodexStudio',
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/og-image.jpg` },
+    },
+  };
+
   return (
-    <article className="bg-[#FDF8EC] min-h-screen">
+    <>
+      <JsonLd data={articleSchema} />
+      <article className="bg-[#FDF8EC] min-h-screen">
       <header className="pt-40 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           <Link href="/blog" className="text-[#997F6C] font-bold text-sm hover:underline mb-6 inline-block">
@@ -78,5 +97,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </div>
     </article>
+    </>
   );
 }

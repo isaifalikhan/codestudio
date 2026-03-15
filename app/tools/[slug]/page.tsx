@@ -34,15 +34,17 @@ export async function generateMetadata({
   };
 }
 
-function buildToolSchema(tool: { name: string; slug: string }) {
+function buildToolSchema(tool: { name: string; slug: string; description: string }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: `${tool.name} — Free Online Tool`,
+    name: tool.name,
     applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Web',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    operatingSystem: 'Web Browser',
     url: `${SITE_URL}/tools/${tool.slug}`,
+    description: tool.description,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    author: { '@type': 'Organization', name: 'CodexStudio', url: SITE_URL },
   };
 }
 

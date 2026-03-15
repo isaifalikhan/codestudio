@@ -7,48 +7,17 @@ import { ResourcesFilter } from '@/app/components/ResourcesFilter';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '50 Best Free Online Tools for Developers & Businesses | CodexStudio Resources',
+  title: '50 Best Free Online Resources for Developers & Businesses | CodexStudio',
   description:
-    'Curated list of 50 free tools every developer, designer, and business owner needs. Design, SEO, writing, AI, video, and productivity tools — handpicked by CodexStudio.',
-  keywords: [
-    'free online tools',
-    'best free tools for developers',
-    'free design tools',
-    'free SEO tools',
-    'free tools for small business',
-    'online productivity tools',
-    'free web development tools',
-    'best free AI tools 2026',
-    'free tools for startups',
-    'digital tools for business',
-  ],
-  alternates: {
-    canonical: `${SITE_URL}/resources`,
-  },
+    'Curated list of 50 free tools every developer and business owner needs. Design, SEO, AI, writing, video tools — handpicked by CodexStudio.',
   openGraph: {
-    title: '50 Best Free Online Tools for Developers & Businesses | CodexStudio',
-    description:
-      'Curated list of 50 free tools every developer, designer, and business owner needs. Handpicked by the CodexStudio team.',
-    url: `${SITE_URL}/resources`,
-    siteName: 'CodexStudio',
-    images: [
-      {
-        url: `${SITE_URL}/og-resources.jpg`,
-        width: 1200,
-        height: 630,
-        alt: '50 Free Tools for Developers and Businesses — CodexStudio Resources',
-      },
-    ],
-    type: 'website',
-    locale: 'en_US',
+    title: '50 Best Free Online Resources | CodexStudio',
+    description: 'Curated free tools for designers, developers, and businesses. Handpicked by CodexStudio.',
+    url: 'https://www.codexstudio2026.com/resources',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: '50 Best Free Online Tools for Developers & Businesses',
-    description:
-      'Curated list of 50 free tools every developer and business owner needs. Handpicked by CodexStudio.',
-    images: [`${SITE_URL}/og-resources.jpg`],
-  },
+  twitter: { card: 'summary_large_image', images: ['/og-image.jpg'] },
+  alternates: { canonical: 'https://www.codexstudio2026.com/resources' },
 };
 
 const resourcesSchema = {

@@ -91,7 +91,7 @@ export const Testimonials = () => {
                   
                   <div className="flex items-center gap-4 lg:gap-6">
                     <div className="relative flex items-center justify-center w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#997F6C] text-[#FDF8EC] font-display font-bold text-xl lg:text-2xl border-2 lg:border-4 border-white shrink-0">
-                      {testimonials[current].name.charAt(0)}
+                      {testimonials[current].name.split(/\s+/).map((p) => p.charAt(0)).join(' ')}
                     </div>
                     <div>
                       <h4 className="text-lg lg:text-2xl font-display font-bold text-[#2F281D]">{testimonials[current].name}</h4>

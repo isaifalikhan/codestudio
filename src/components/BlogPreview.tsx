@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -46,13 +47,14 @@ export const BlogPreview = () => {
                 transition={{ delay: i * 0.1 }}
                 className="cursor-pointer"
               >
-                <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-6">
-                  <img
+                <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-6 relative">
+                  <Image
                     src={post.image}
                     alt={`${post.title} - CodexStudio blog`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <div className="space-y-3">

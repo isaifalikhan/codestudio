@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
@@ -82,12 +83,13 @@ export const ProjectSlider = () => {
           className="absolute inset-0"
         >
           <div className="absolute inset-0 bg-black/50 z-10" />
-          <img
+          <Image
             src={slides[current].image}
             alt={`${slides[current].title} - CodexStudio project showcase`}
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+            fill
+            className="object-cover"
             loading="lazy"
+            sizes="100vw"
           />
         </motion.div>
       </AnimatePresence>
