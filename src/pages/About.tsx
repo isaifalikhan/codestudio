@@ -7,7 +7,7 @@ const team = [
   {
     name: 'Saif Ali',
     role: 'Founder & CEO',
-    image: '/saif.jpeg',
+    image: '/images/saif.jpeg',
     bio: 'Visionary entrepreneur dedicated to redefining digital excellence.'
   },
   {
@@ -121,7 +121,7 @@ export const About = () => {
               className="relative aspect-[4/5] rounded-[3rem] overflow-hidden"
             >
               <img
-                src="/saif.jpeg"
+                src="/images/saif.jpeg"
                 alt="Saif Ali - Founder and CEO of CodexStudio"
                 className="w-full h-full object-cover"
                 loading="lazy"
