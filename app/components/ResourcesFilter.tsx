@@ -1,0 +1,92 @@
+'use client';
+
+import React, { useMemo, useState } from 'react';
+import { ResourceCard } from './ResourceCard';
+import type { Tool } from '@/lib/resources-data';
+import type { categories as categoriesType } from '@/lib/resources-data';
+import Link from 'next/link';
+
+interface ResourcesFilterProps {
+  tools: Tool[];
+  categories: typeof categoriesType;
+}
+
+export function ResourcesFilter({ tools, categories }: ResourcesFilterProps) {
+  const [search, setSearch] = useState('');
+  const [categoryId, setCategoryId] = useState('all');
+
+  const filteredTools = useMemo(() => {
+    let result = tools;
+    if (categoryId !== 'all') {
+      result = result.filter((t) => t.category === categoryId);
+    }
+    if (search.trim()) {
+      const q = search.trim().toLowerCase();
+      result = result.filter(
+        (t) =>
+          t.name.toLowerCase().includes(q) ||
+          t.tagline.toLowerCase().includes(q) ||
+          t.description.toLowerCase().includes(q) ||
+          t.tags.some((tag) => tag.toLowerCase().includes(q))
+      );
+    }
+    return result;
+  }, [tools, categoryId, search]);
+
+  return (
+    <div className="space-y-8">
+      <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
+        <input
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search tools..."
+          aria-label="Search tools"
+          className="w-full sm:max-w-xs px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 focus:border-[#997F6C]"
+        />
+        <p className="text-sm text-[#2F281D]/60 font-medium">
+          Showing {filteredTools.length} tool{filteredTools.length !== 1 ? 's' : ''}
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {categories.map((cat) =>
+          cat.id === 'all' ? (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setCategoryId('all')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                categoryId === 'all'
+                  ? 'bg-[#2F281D] text-[#FDF8EC]'
+                  : 'bg-[#2F281D]/10 text-[#2F281D]/70 hover:bg-[#2F281D]/20'
+              }`}
+            >
+              {cat.emoji} {cat.label}
+            </button>
+          ) : (
+            <Link
+              key={cat.id}
+              href={`/resources/${cat.id}`}
+              className="px-4 py-2 rounded-full text-sm font-medium transition-colors bg-[#2F281D]/10 text-[#2F281D]/70 hover:bg-[#2F281D]/20"
+            >
+              {cat.emoji} {cat.label}
+            </Link>
+          )
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredTools.map((tool) => (
+          <ResourceCard key={tool.id} tool={tool} />
+        ))}
+      </div>
+
+      {filteredTools.length === 0 && (
+        <p className="text-center text-[#2F281D]/60 py-12">
+          No tools match your search. Try a different term or category.
+        </p>
+      )}
+    </div>
+  );
+}

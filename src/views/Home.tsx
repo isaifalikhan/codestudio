@@ -12,6 +12,7 @@ import { ProjectSlider } from '../components/ProjectSlider';
 import { AboutPreview } from '../components/AboutPreview';
 import { TechStack } from '../components/TechStack';
 import { WhyChooseUs } from '../components/WhyChooseUs';
+import { ResourcesBanner } from '../components/ResourcesBanner';
 import { BlogPreview } from '../components/BlogPreview';
 import { FAQ } from '../components/FAQ';
 import { CTA } from '../components/CTA';
@@ -74,6 +75,9 @@ export const Home = () => {
       <ProjectSlider />
       <Reveal width="100%">
         <Services />
+      </Reveal>
+      <Reveal width="100%">
+        <ResourcesBanner />
       </Reveal>
       <Reveal width="100%">
         <WhyChooseUs />

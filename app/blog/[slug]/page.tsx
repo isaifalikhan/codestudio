@@ -64,6 +64,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               return <p key={i} className="mt-4 leading-relaxed">{block}</p>;
             })}
           </div>
+          <div className="mt-12 pt-8 border-t border-[#2F281D]/10">
+            <p className="text-[#2F281D]/70">
+              Looking for free tools?{' '}
+              <Link href="/resources" className="text-[#997F6C] font-semibold hover:underline">
+                Browse our resource directory →
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </article>
