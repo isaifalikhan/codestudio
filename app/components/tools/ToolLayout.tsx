@@ -12,9 +12,9 @@ interface ToolLayoutProps {
 
 export function ToolLayout({ tool, children }: ToolLayoutProps) {
   return (
-    <article className="max-w-4xl mx-auto px-6 pb-24">
+    <article className="max-w-4xl mx-auto px-6 py-20 mt-[100px] pt-12 pb-24">
       {/* Breadcrumb for individual tool page */}
-      <nav aria-label="Breadcrumb" className="pt-6 pb-4">
+      <nav aria-label="Breadcrumb" className="pb-4">
         <ol className="flex flex-wrap items-center gap-2 text-sm text-[#2F281D]/70">
           <li>
             <Link href="/" className="hover:text-[#997F6C] transition-colors">

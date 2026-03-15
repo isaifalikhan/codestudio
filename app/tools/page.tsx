@@ -7,9 +7,9 @@ import { JsonLd } from '@/app/components/JsonLd';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '40 Free Online Tools — Image, PDF, SEO & Dev Tools | CodexStudio',
+  title: '140+ Free Online Tools — Image, PDF, Video, SEO & Dev Tools | CodexStudio',
   description:
-    'Free online tools built by CodexStudio. Image compressor, PDF merger, password generator, word counter, QR code maker & 35 more. No signup, works in browser.',
+    'Free online tools built by CodexStudio. Image compressor, PDF merger, video downloaders, password generator, word counter, QR code maker & 130+ more. No signup, works in browser.',
   alternates: {
     canonical: `${SITE_URL}/tools`,
   },
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
 const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: '40 Free Online Tools — No Signup, Works in Browser',
+  name: '140+ Free Online Tools — No Signup, Works in Browser',
   description:
-    'Free online tools built by CodexStudio. Image compressor, PDF merger, password generator, word counter, QR code maker and more. All run 100% in your browser.',
+    'Free online tools built by CodexStudio. Image compressor, PDF merger, video downloaders, password generator, word counter, QR code maker and 130+ more. All run 100% in your browser.',
   url: `${SITE_URL}/tools`,
   publisher: { '@type': 'Organization', name: 'CodexStudio', url: SITE_URL },
   mainEntity: {
@@ -56,7 +56,7 @@ export default function ToolsHubPage() {
             Free Tools
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#2F281D] mb-6 leading-tight">
-            40 Free Online Tools — No Signup, Works in Browser
+            140+ Free Online Tools — No Signup, Works in Browser
           </h1>
           <p className="max-w-3xl mx-auto text-lg text-[#2F281D]/70 leading-relaxed mb-10">
             CodexStudio built these tools for developers, designers, and businesses. All tools run
@@ -82,9 +82,9 @@ export default function ToolsHubPage() {
       {/* Stats */}
       <section className="py-6 px-6 border-y border-[#2F281D]/10 bg-[#E8E2D2]/50">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center">
-          <span className="text-[#2F281D] font-bold">40 Tools</span>
+          <span className="text-[#2F281D] font-bold">140 Tools</span>
           <span className="text-[#2F281D]/60">·</span>
-          <span className="text-[#2F281D] font-bold">8 Categories</span>
+          <span className="text-[#2F281D] font-bold">17 Categories</span>
           <span className="text-[#2F281D]/60">·</span>
           <span className="text-[#2F281D] font-bold">100% Free</span>
           <span className="text-[#2F281D]/60">·</span>
