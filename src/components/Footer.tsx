@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Github, Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
+import { Github, Twitter, Linkedin, Instagram, Facebook, ArrowUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
@@ -34,7 +34,7 @@ export const Footer = () => {
             </p>
             <div className="flex gap-4" role="list">
               <motion.a
-                href="https://instagram.com/codexstudio"
+                href="https://www.instagram.com/codexstudio2026/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="CodexStudio on Instagram"
@@ -42,6 +42,16 @@ export const Footer = () => {
                 className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
               >
                 <Instagram className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="https://www.facebook.com/profile.php?id=61582748907285"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CodexStudio on Facebook"
+                whileHover={{ y: -5, scale: 1.1 }}
+                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+              >
+                <Facebook className="w-5 h-5" />
               </motion.a>
               <motion.a
                 href="https://linkedin.com/company/codexstudio"

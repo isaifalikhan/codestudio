@@ -51,13 +51,13 @@ export const ContactPage = () => {
                 <h3 className="font-bold text-[#2F281D]">Email Us</h3>
                 <a href="mailto:hello@codexstudio.com" className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">hello@codexstudio.com</a>
               </div>
-              <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
+              <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4 block hover:bg-[#E8E2D2]/90 transition-colors">
                 <div className="w-12 h-12 rounded-2xl bg-[#997F6C] text-[#FDF8EC] flex items-center justify-center">
                   <Phone className="w-6 h-6" />
                 </div>
-                <h3 className="font-bold text-[#2F281D]">Call Us</h3>
-                <p className="text-[#2F281D]/60">+44 7923 122356</p>
-              </div>
+                <h3 className="font-bold text-[#2F281D]">WhatsApp Us</h3>
+                <p className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">+92 300 1234567</p>
+              </a>
               <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#5F634D] text-[#FDF8EC] flex items-center justify-center">
                   <MapPin className="w-6 h-6" />
@@ -70,7 +70,10 @@ export const ContactPage = () => {
                   <Globe className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-[#2F281D]">Socials</h3>
-                <p className="text-[#2F281D]/60">@codexstudio</p>
+                <div className="flex flex-wrap gap-3">
+                  <a href="https://www.instagram.com/codexstudio2026/" target="_blank" rel="noopener noreferrer" className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">Instagram</a>
+                  <a href="https://www.facebook.com/profile.php?id=61582748907285" target="_blank" rel="noopener noreferrer" className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">Facebook</a>
+                </div>
               </div>
             </div>
           </div>

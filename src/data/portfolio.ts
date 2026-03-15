@@ -1,6 +1,6 @@
 /**
  * Shared portfolio projects for homepage and portfolio page.
- * Uses high-quality Unsplash images and SEO-friendly content.
+ * Uses images from public/projects and SEO-friendly content.
  */
 
 export interface PortfolioProject {
@@ -12,47 +12,90 @@ export interface PortfolioProject {
   slug?: string;
 }
 
+/** Projects from public/projects folder – paths are relative to site root */
 export const portfolioProjects: PortfolioProject[] = [
   {
-    title: 'Analytics Dashboard',
+    title: 'Developer Portfolio Website',
     category: 'Web Design',
-    description: 'Real-time business analytics platform with interactive charts and team collaboration.',
-    technology: ['React', 'TypeScript', 'D3.js', 'Node.js'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
+    description: 'Modern developer portfolio with project showcases and clean typography.',
+    technology: ['React', 'Tailwind', 'Vite'],
+    image: '/projects/developer_portfolio_website_examples.webp',
   },
   {
-    title: 'E-Commerce Brand Store',
-    category: 'Development',
-    description: 'Full-featured online store with checkout, inventory, and marketing integrations.',
-    technology: ['Next.js', 'Stripe', 'Tailwind', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=1200',
-  },
-  {
-    title: 'Fintech Mobile Banking App',
-    category: 'Development',
-    description: 'Secure mobile banking experience with biometric login and instant transfers.',
-    technology: ['React Native', 'Node.js', 'AWS', 'REST API'],
-    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1200',
-  },
-  {
-    title: 'SaaS Product Dashboard',
+    title: 'Landing & Home Experience',
     category: 'Web Design',
-    description: 'Clean, scalable dashboard for SaaS teams to manage users and subscriptions.',
-    technology: ['Vue.js', 'Firebase', 'Tailwind', 'Figma'],
-    image: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=1200',
+    description: 'High-converting landing page with clear CTAs and responsive layout.',
+    technology: ['HTML', 'CSS', 'JavaScript'],
+    image: '/projects/home.png',
   },
   {
-    title: 'Developer Portfolio & Blog',
+    title: 'CRM HubSpot Dashboard',
+    category: 'Development',
+    description: 'Custom CRM dashboard for HubSpot with analytics and pipeline views.',
+    technology: ['React', 'HubSpot API', 'Charts'],
+    image: '/projects/crm-for-hubspot-dashboard.png',
+  },
+  {
+    title: 'Restaurant Menu App',
+    category: 'Development',
+    description: 'Digital menu and ordering experience for restaurants.',
+    technology: ['React', 'UI/UX', 'Mobile-first'],
+    image: '/projects/popup_Restaurant_Menu_NM20210045.jpg',
+  },
+  {
+    title: 'Blog & Single Post Layout',
+    category: 'Web Design',
+    description: 'Content-focused blog layout with readable typography and sharing.',
+    technology: ['Next.js', 'MDX', 'Tailwind'],
+    image: '/projects/single-post.webp',
+  },
+  {
+    title: 'Portfolio Template UI',
     category: 'Branding',
-    description: 'Modern portfolio site with blog, dark mode, and contact integration.',
-    technology: ['Next.js', 'MDX', 'Vercel', 'Tailwind'],
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200',
+    description: 'Designer portfolio template with project grid and case studies.',
+    technology: ['Figma', 'Webflow', 'Responsive'],
+    image: '/projects/margon-designer-portfolio-website-design-template-ui8-preview-18_1754145350829.webp',
   },
   {
-    title: 'Code Editor Web App',
+    title: 'ML Monitoring Dashboard',
     category: 'Development',
-    description: 'Browser-based code editor with live preview and team sharing.',
-    technology: ['Monaco', 'WebSocket', 'React', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200',
+    description: 'Machine learning monitoring and model performance dashboard.',
+    technology: ['React', 'Python', 'Data Viz'],
+    image: '/projects/6625e0d443fc3144a6037626_64ba6af883918b941bcedf85_01_mlmonitoring_header-min.png',
+  },
+  {
+    title: 'SaaS Product Cover',
+    category: 'Web Design',
+    description: 'SaaS product landing and feature showcase design.',
+    technology: ['React', 'Tailwind', 'Framer'],
+    image: '/projects/9a87e5b8-db7e-4041-982b-26587dde52cc-cover.png',
+  },
+  {
+    title: 'Creative Agency Cover',
+    category: 'Branding',
+    description: 'Bold cover and hero section for creative agencies.',
+    technology: ['Design', 'Branding', 'Web'],
+    image: '/projects/cover.avif',
+  },
+  {
+    title: 'App Interface Design',
+    category: 'Web Design',
+    description: 'Modern app interface with clear hierarchy and components.',
+    technology: ['UI/UX', 'Figma', 'React'],
+    image: '/projects/40eac85a-8712-455d-b8c3-fa057b591342-cover.png',
+  },
+  {
+    title: 'Marketing & Analytics',
+    category: 'Development',
+    description: 'Marketing analytics and campaign tracking dashboard.',
+    technology: ['React', 'Analytics', 'Charts'],
+    image: '/projects/615d34124229923.60ffe9a997396.png',
+  },
+  {
+    title: 'Brand Identity Project',
+    category: 'Branding',
+    description: 'Full brand identity and visual system for a product launch.',
+    technology: ['Branding', 'Illustration', 'Web'],
+    image: '/projects/8fdca325876813.56352d5c10e3a.jpg',
   },
 ];

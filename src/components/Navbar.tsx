@@ -154,8 +154,8 @@ export const Navbar = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <div className="mt-8 flex justify-center gap-6">
-                <a href="https://twitter.com/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Twitter">TW</a>
-                <a href="https://instagram.com/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Instagram">IG</a>
+                <a href="https://www.instagram.com/codexstudio2026/" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Instagram">IG</a>
+                <a href="https://www.facebook.com/profile.php?id=61582748907285" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Facebook">FB</a>
                 <a href="https://linkedin.com/company/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="LinkedIn">LI</a>
                 <a href="https://github.com/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="GitHub">GH</a>
               </div>
