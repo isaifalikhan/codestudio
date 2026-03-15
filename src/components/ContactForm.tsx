@@ -49,7 +49,7 @@ export const ContactForm = () => {
                   </div>
                   <div>
                     <p className="text-[#2F281D]/40 text-xs font-bold uppercase tracking-widest mb-1">WhatsApp Us</p>
-                    <p className="text-xl font-bold text-[#2F281D] group-hover:text-[#997F6C] transition-colors">+92 300 1234567</p>
+                    <p className="text-xl font-bold text-[#2F281D] group-hover:text-[#997F6C] transition-colors">+44 7923 122356</p>
                   </div>
                 </a>
               </div>
