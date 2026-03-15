@@ -12,6 +12,7 @@
     "@emailjs/browser": "^4.4.1",
     "@next/third-parties": "^14.2.0",
     "@vercel/analytics": "^1.4.0",
+    "@ybd-project/ytdl-core": "^6.0.8",
     "clsx": "^2.1.1",
     "html2canvas": "^1.4.1",
     "js-beautify": "^1.15.4",
