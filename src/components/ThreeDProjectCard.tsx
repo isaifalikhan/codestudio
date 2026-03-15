@@ -1,13 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import type { PortfolioProject } from '../data/portfolio';
 
 interface ThreeDProjectCardProps {
-  project: {
-    title: string;
-    category: string;
-    image: string;
-  };
+  project: PortfolioProject;
   index: number;
 }
 
@@ -46,22 +44,25 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
       >
         <motion.img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} - ${project.category} project by CodexStudio`}
           style={{ scale: springImageScale }}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
           referrerPolicy="no-referrer"
+          loading="lazy"
         />
         
         {/* Overlay text that fades in */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileHover={{ opacity: 1, scale: 1 }}
-            className="text-center"
-          >
-            <span className="text-[#FDF8EC] font-bold uppercase tracking-[0.2em] text-sm mb-2 block">View Project</span>
+          <Link to="/portfolio" className="text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2 rounded-lg">
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileHover={{ opacity: 1, scale: 1 }}
+              className="text-[#FDF8EC] font-bold uppercase tracking-[0.2em] text-sm mb-2 block"
+            >
+              View Project
+            </motion.span>
             <div className="w-12 h-0.5 bg-[#997F6C] mx-auto" />
-          </motion.div>
+          </Link>
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D]/80 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none" />
@@ -85,15 +86,16 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
                 </h3>
               </motion.div>
             </div>
-            <motion.div 
-              whileHover={{ scale: 1.1 }}
-              className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#FDF8EC] text-[#2F281D] flex items-center justify-center cursor-pointer self-start md:self-end group/btn overflow-hidden relative pointer-events-auto"
+            <Link
+              to="/portfolio"
+              className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#FDF8EC] text-[#2F281D] flex items-center justify-center cursor-pointer self-start md:self-end group/btn overflow-hidden relative pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2"
+              aria-label={`View ${project.title} project`}
             >
               <motion.div
                 className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"
               />
               <ExternalLink className="w-6 h-6 md:w-8 md:h-8 relative z-10 group-hover/btn:text-white transition-colors" />
-            </motion.div>
+            </Link>
           </div>
         </div>
       </motion.div>

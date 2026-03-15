@@ -49,21 +49,21 @@ export const ContactPage = () => {
                   <Mail className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-[#2F281D]">Email Us</h3>
-                <p className="text-[#2F281D]/60">hello@codexstudio.com</p>
+                <a href="mailto:hello@codexstudio.com" className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">hello@codexstudio.com</a>
               </div>
               <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#997F6C] text-[#FDF8EC] flex items-center justify-center">
                   <Phone className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-[#2F281D]">Call Us</h3>
-                <p className="text-[#2F281D]/60">+1 (555) 000-0000</p>
+                <p className="text-[#2F281D]/60">+44 7923 122356</p>
               </div>
               <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#5F634D] text-[#FDF8EC] flex items-center justify-center">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-[#2F281D]">Visit Us</h3>
-                <p className="text-[#2F281D]/60">123 Design St, Creative City</p>
+                <p className="text-[#2F281D]/60">Islamabad, Pakistan</p>
               </div>
               <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#BCAF9B] text-[#2F281D] flex items-center justify-center">

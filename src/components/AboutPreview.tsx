@@ -27,11 +27,12 @@ export const AboutPreview = () => {
             className="relative"
           >
             <div className="aspect-square rounded-[3rem] overflow-hidden">
-              <img 
-                src="/saif.jpeg" 
-                alt="Saif Ali - Founder of CodexStudio"
+              <img
+                src="/saif.jpeg"
+                alt="Saif Ali - Founder of CodexStudio digital agency"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
             <motion.div

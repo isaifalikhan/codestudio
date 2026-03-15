@@ -2,46 +2,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Calendar, User, Tag } from 'lucide-react';
 import { CTA } from '../components/CTA';
-
-const posts = [
-  {
-    title: 'The Future of Web Design in 2026',
-    excerpt: 'Exploring the latest trends in immersive digital experiences and AI-driven design.',
-    category: 'Design',
-    author: 'Alex Rivera',
-    date: 'Mar 12, 2026',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200',
-    featured: true
-  },
-  {
-    title: 'Maximizing ROI with Digital Marketing',
-    excerpt: 'How to leverage data-driven strategies to grow your business effectively.',
-    category: 'Marketing',
-    author: 'Elena Vance',
-    date: 'Mar 10, 2026',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    title: 'Why Next.js is the King of Frameworks',
-    excerpt: 'A deep dive into why Next.js is the preferred choice for modern web development.',
-    category: 'Development',
-    author: 'Sarah Chen',
-    date: 'Mar 08, 2026',
-    image: 'https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    title: 'The Power of Minimalist Branding',
-    excerpt: 'Why less is more when it comes to building a memorable brand identity.',
-    category: 'Branding',
-    author: 'Marcus Thorne',
-    date: 'Mar 05, 2026',
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
-  }
-];
+import { blogPosts } from '../data/blog';
 
 export const BlogPage = () => {
-  const featuredPost = posts.find(p => p.featured);
-  const regularPosts = posts.filter(p => !p.featured);
+  const featuredPost = blogPosts.find((p) => p.featured);
+  const regularPosts = blogPosts.filter((p) => !p.featured);
 
   return (
     <motion.div
@@ -82,10 +47,11 @@ export const BlogPage = () => {
               className="group relative rounded-[4rem] overflow-hidden bg-[#2F281D] flex flex-col lg:flex-row"
             >
               <div className="flex-1 aspect-[16/10] lg:aspect-auto overflow-hidden">
-                <img 
-                  src={featuredPost.image} 
-                  alt={featuredPost.title} 
+                <img
+                  src={featuredPost.image}
+                  alt={`${featuredPost.title} - CodexStudio blog featured`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  loading="lazy"
                 />
               </div>
               <div className="flex-1 p-8 md:p-16 flex flex-col justify-center space-y-8">
@@ -116,10 +82,10 @@ export const BlogPage = () => {
       )}
 
       {/* Regular Posts Grid */}
-      <section className="pb-32 px-6">
+      <section className="pb-32 px-6" aria-label="Blog posts">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {regularPosts.map((post, i) => (
-            <motion.div
+            <motion.article
               key={post.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -128,10 +94,11 @@ export const BlogPage = () => {
               className="group cursor-pointer"
             >
               <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-8">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
+                <img
+                  src={post.image}
+                  alt={`${post.title} - CodexStudio blog`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
                 />
               </div>
               <div className="space-y-4">
@@ -147,7 +114,7 @@ export const BlogPage = () => {
                   {post.excerpt}
                 </p>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </section>

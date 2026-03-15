@@ -26,7 +26,7 @@ export default function App() {
       <CustomCursor />
       <div className="min-h-screen bg-[#FDF8EC] flex flex-col">
         <Navbar />
-        <main className="flex-grow">
+        <main id="main-content" className="flex-grow" role="main">
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />

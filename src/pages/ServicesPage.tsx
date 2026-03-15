@@ -117,7 +117,7 @@ export const ServicesPage = () => {
               </div>
               <div className="flex-1 w-full">
                 <div className="aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+                  <img src={service.image} alt={`${service.title} - CodexStudio service`} className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </div>
             </motion.div>

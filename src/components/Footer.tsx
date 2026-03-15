@@ -32,17 +32,47 @@ export const Footer = () => {
               creating high-end digital experiences that push the boundaries 
               of what's possible.
             </p>
-            <div className="flex gap-4">
-              {[Twitter, Github, Linkedin, Instagram].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
-                >
-                  <Icon className="w-5 h-5" />
-                </motion.a>
-              ))}
+            <div className="flex gap-4" role="list">
+              <motion.a
+                href="https://instagram.com/codexstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CodexStudio on Instagram"
+                whileHover={{ y: -5, scale: 1.1 }}
+                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+              >
+                <Instagram className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com/company/codexstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CodexStudio on LinkedIn"
+                whileHover={{ y: -5, scale: 1.1 }}
+                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+              >
+                <Linkedin className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="https://twitter.com/codexstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CodexStudio on Twitter"
+                whileHover={{ y: -5, scale: 1.1 }}
+                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+              >
+                <Twitter className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="https://github.com/codexstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CodexStudio on GitHub"
+                whileHover={{ y: -5, scale: 1.1 }}
+                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+              >
+                <Github className="w-5 h-5" />
+              </motion.a>
             </div>
           </div>
 
@@ -95,12 +125,14 @@ export const Footer = () => {
             © 2026 CodexStudio. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-[#2F281D]/30">
-            <a href="#" className="hover:text-[#2F281D] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#2F281D] transition-colors">Terms of Service</a>
+            <a href="#privacy" className="hover:text-[#2F281D] transition-colors" aria-label="Privacy Policy">Privacy Policy</a>
+            <a href="#terms" className="hover:text-[#2F281D] transition-colors" aria-label="Terms of Service">Terms of Service</a>
           </div>
           <motion.button
+            type="button"
             onClick={scrollToTop}
             whileHover={{ y: -5 }}
+            aria-label="Scroll back to top"
             className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all group"
           >
             <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />

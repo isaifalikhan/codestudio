@@ -61,11 +61,12 @@ const ServiceCard: React.FC<{ service: any, index: number }> = ({ service, index
       className="group relative rounded-3xl bg-[#E8E2D2] border border-[#2F281D]/5 hover:border-[#997F6C]/50 transition-all duration-300 overflow-hidden flex flex-col h-full"
     >
       <div className="relative h-48 overflow-hidden">
-        <img 
-          src={service.image} 
-          alt={service.title}
+        <img
+          src={service.image}
+          alt={`${service.title} - CodexStudio digital agency service`}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           referrerPolicy="no-referrer"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
         <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg">

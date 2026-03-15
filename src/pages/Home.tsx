@@ -18,7 +18,7 @@ import { motion } from 'motion/react';
 import { Reveal } from '../components/Reveal';
 
 const ProcessSection = () => (
-  <section className="py-24 px-6 bg-[#FDF8EC] perspective-1000">
+  <section className="py-24 px-6 bg-[#FDF8EC] perspective-1000" aria-label="Our process">
     <div className="max-w-7xl mx-auto">
       <Reveal width="100%">
         <div className="text-center mb-20">

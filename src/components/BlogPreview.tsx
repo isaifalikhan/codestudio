@@ -2,27 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const posts = [
-  {
-    title: 'The Future of Web Design in 2026',
-    category: 'Design',
-    date: 'Mar 12, 2026',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    title: 'Maximizing ROI with Digital Marketing',
-    category: 'Marketing',
-    date: 'Mar 10, 2026',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    title: 'Why Next.js is the King of Frameworks',
-    category: 'Development',
-    date: 'Mar 08, 2026',
-    image: 'https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?auto=format&fit=crop&q=80&w=800',
-  },
-];
+import { blogPosts } from '../data/blog';
 
 export const BlogPreview = () => {
   return (
@@ -54,33 +34,35 @@ export const BlogPreview = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {posts.map((post, i) => (
-            <motion.div
-              key={post.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="group cursor-pointer"
-            >
-              <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-6">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#997F6C]">
-                  <span>{post.category}</span>
-                  <span className="w-1 h-1 rounded-full bg-[#2F281D]/20" />
-                  <span>{post.date}</span>
+          {blogPosts.map((post, i) => (
+            <Link key={post.title} to="/blog" className="group">
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="cursor-pointer"
+              >
+                <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-6">
+                  <img
+                    src={post.image}
+                    alt={`${post.title} - CodexStudio blog`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                    loading="lazy"
+                  />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-[#2F281D] group-hover:text-[#997F6C] transition-colors">
-                  {post.title}
-                </h3>
-              </div>
-            </motion.div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#997F6C]">
+                    <span>{post.category}</span>
+                    <span className="w-1 h-1 rounded-full bg-[#2F281D]/20" />
+                    <span>{post.date}</span>
+                  </div>
+                  <h3 className="text-2xl font-display font-bold text-[#2F281D] group-hover:text-[#997F6C] transition-colors">
+                    {post.title}
+                  </h3>
+                </div>
+              </motion.article>
+            </Link>
           ))}
         </div>
       </div>

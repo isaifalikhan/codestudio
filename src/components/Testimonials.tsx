@@ -4,22 +4,22 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
+    name: 'James Mitchell',
     role: 'CEO at TechFlow',
-    content: 'CodexStudio transformed our vision into a digital reality. Their attention to detail and innovative approach is unmatched.',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150',
+    content: 'CodexStudio transformed our vision into a digital reality. Their attention to detail and innovative approach is unmatched. We saw a 35% increase in user engagement within three months.',
+    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
   },
   {
-    name: 'Michael Chen',
+    name: 'Rachel Foster',
     role: 'Founder of Nova',
-    content: 'The team is incredibly talented. They didn\'t just build a website; they built an experience that our customers love.',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150',
+    content: 'The team is incredibly talented. They didn\'t just build a website; they built an experience that our customers love. The UI/UX work alone has set us apart from competitors.',
+    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
   },
   {
-    name: 'Elena Rodriguez',
-    role: 'Marketing Director',
-    content: 'Working with CodexStudio was the best decision for our brand. Our conversion rates have increased by 40% since the launch.',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=150',
+    name: 'David Park',
+    role: 'Marketing Director, Zenith',
+    content: 'Working with CodexStudio was the best decision for our brand. Our conversion rates have increased by 40% since the launch. Professional, responsive, and results-driven.',
+    avatar: 'https://randomuser.me/api/portraits/men/51.jpg',
   },
 ];
 
@@ -37,7 +37,7 @@ export const Testimonials = () => {
   const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="py-20 lg:py-32 px-6 bg-[#FDF8EC] overflow-hidden">
+    <section className="py-20 lg:py-32 px-6 bg-[#FDF8EC] overflow-hidden" aria-label="Client testimonials">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5">
@@ -109,9 +109,10 @@ export const Testimonials = () => {
                       <div className="absolute inset-0 bg-[#997F6C] rounded-full blur-md opacity-20" />
                       <img
                         src={testimonials[current].avatar}
-                        alt={testimonials[current].name}
+                        alt={`${testimonials[current].name}, ${testimonials[current].role}`}
                         className="w-14 h-14 lg:w-20 lg:h-20 rounded-full object-cover border-2 lg:border-4 border-white relative z-10"
                         referrerPolicy="no-referrer"
+                        loading="lazy"
                       />
                     </div>
                     <div>

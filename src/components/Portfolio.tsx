@@ -1,30 +1,9 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { ThreeDProjectCard } from './ThreeDProjectCard';
-
-const projects = [
-  {
-    title: 'Sokon Branding Identity',
-    category: 'Branding / Strategy',
-    image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&q=80&w=1200',
-  },
-  {
-    title: 'Khubza House Digital',
-    category: 'Website / E-commerce',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
-  },
-  {
-    title: 'Milkor Corporate Identity',
-    category: 'Branding / Print',
-    image: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e12?auto=format&fit=crop&q=80&w=1200',
-  },
-  {
-    title: 'Sanbun Web Experience',
-    category: 'Website / UI/UX',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200',
-  },
-];
+import { portfolioProjects } from '../data/portfolio';
 
 export const Portfolio = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -59,17 +38,19 @@ export const Portfolio = () => {
               Featured <span className="text-[#2F281D]/40 italic">Branding</span> & <span className="text-[#997F6C]">Websites</span>
             </motion.h2>
           </div>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-12 md:mt-0 px-10 py-5 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold hover:bg-[#997F6C] transition-all flex items-center gap-3"
-          >
-            View All Projects <ArrowUpRight className="w-5 h-5" />
-          </motion.button>
+          <Link to="/portfolio">
+            <motion.span
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-12 md:mt-0 inline-flex px-10 py-5 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold hover:bg-[#997F6C] transition-all items-center gap-3"
+            >
+              View All Projects <ArrowUpRight className="w-5 h-5" />
+            </motion.span>
+          </Link>
         </div>
 
         <div className="space-y-12">
-          {projects.map((project, index) => (
+          {portfolioProjects.map((project, index) => (
             <ThreeDProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>

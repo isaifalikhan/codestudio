@@ -84,9 +84,10 @@ export const ProjectSlider = () => {
           <div className="absolute inset-0 bg-black/50 z-10" />
           <img
             src={slides[current].image}
-            alt={slides[current].title}
+            alt={`${slides[current].title} - CodexStudio project showcase`}
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
+            loading="lazy"
           />
         </motion.div>
       </AnimatePresence>

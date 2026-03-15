@@ -28,6 +28,7 @@ export const Navbar = () => {
 
   return (
     <nav
+      aria-label="Main navigation"
       className={cn(
         'fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4',
         isScrolled ? 'bg-[#FDF8EC]/80 backdrop-blur-md py-3 border-b border-[#2F281D]/10' : 'bg-transparent'
@@ -84,10 +85,13 @@ export const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
+          type="button"
           className="md:hidden text-[#2F281D]"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? <X /> : <Menu />}
+          {isMobileMenuOpen ? <X aria-hidden /> : <Menu aria-hidden />}
         </button>
       </div>
 
@@ -150,11 +154,10 @@ export const Navbar = () => {
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <div className="mt-8 flex justify-center gap-6">
-                {['TW', 'IG', 'LI', 'GH'].map((social) => (
-                  <a key={social} href="#" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors">
-                    {social}
-                  </a>
-                ))}
+                <a href="https://twitter.com/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Twitter">TW</a>
+                <a href="https://instagram.com/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Instagram">IG</a>
+                <a href="https://linkedin.com/company/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="LinkedIn">LI</a>
+                <a href="https://github.com/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="GitHub">GH</a>
               </div>
             </div>
           </motion.div>

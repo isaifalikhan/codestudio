@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ArrowRight, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Hero = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -85,10 +86,10 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <button className="w-full sm:w-auto px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#997F6C] transition-all transform hover:scale-105 flex items-center justify-center gap-2 group shadow-xl shadow-[#2F281D]/10">
+          <Link to="/portfolio" className="w-full sm:w-auto px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#997F6C] transition-all transform hover:scale-105 flex items-center justify-center gap-2 group shadow-xl shadow-[#2F281D]/10">
             Explore Our Work
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
           <button className="w-full sm:w-auto px-8 py-4 bg-white/50 border border-[#2F281D]/10 backdrop-blur-md rounded-full font-bold text-lg hover:bg-white transition-all flex items-center justify-center gap-2 group text-[#2F281D]">
             <div className="w-8 h-8 rounded-full bg-[#997F6C]/20 flex items-center justify-center">
               <Play className="w-4 h-4 text-[#997F6C] fill-[#997F6C]" />

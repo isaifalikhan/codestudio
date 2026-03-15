@@ -38,7 +38,7 @@ export const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-[#2F281D]/40 text-xs font-bold uppercase tracking-widest mb-1">Email Us</p>
-                  <p className="text-xl font-bold text-[#2F281D]">hello@codexstudio.com</p>
+                  <a href="mailto:hello@codexstudio.com" className="text-xl font-bold text-[#2F281D] hover:text-[#997F6C] transition-colors">hello@codexstudio.com</a>
                 </div>
               </div>
               
@@ -48,7 +48,7 @@ export const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-[#2F281D]/40 text-xs font-bold uppercase tracking-widest mb-1">Call Us</p>
-                  <p className="text-xl font-bold text-[#2F281D]">+1 (555) 000-1234</p>
+                  <p className="text-xl font-bold text-[#2F281D]">+44 7923 122356</p>
                 </div>
               </div>
               
@@ -58,7 +58,7 @@ export const ContactForm = () => {
                 </div>
                 <div>
                   <p className="text-[#2F281D]/40 text-xs font-bold uppercase tracking-widest mb-1">Visit Us</p>
-                  <p className="text-xl font-bold text-[#2F281D]">Innovation Hub, San Francisco</p>
+                  <p className="text-xl font-bold text-[#2F281D]">Islamabad, Pakistan</p>
                 </div>
               </div>
             </div>
