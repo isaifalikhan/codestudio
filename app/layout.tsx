@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     template: '%s | CodexStudio',
   },
   description: 'CodexStudio is a web development agency in Islamabad, Pakistan. We build modern websites, web apps & e-commerce stores. Get a free quote today.',
+  icons: {
+    icon: '/images/logo.png',
+    shortcut: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
