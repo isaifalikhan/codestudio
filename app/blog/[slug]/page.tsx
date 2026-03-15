@@ -66,10 +66,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           <div className="mt-12 pt-8 border-t border-[#2F281D]/10">
             <p className="text-[#2F281D]/70">
-              Looking for free tools?{' '}
-              <Link href="/resources" className="text-[#997F6C] font-semibold hover:underline">
-                Browse our resource directory →
-              </Link>
+              Looking for free tools? Try our{' '}
+              <Link href="/tools/word-counter" className="text-[#997F6C] font-semibold hover:underline">word counter</Link>
+              ,{' '}
+              <Link href="/tools/image-compressor" className="text-[#997F6C] font-semibold hover:underline">image compressor</Link>
+              , or{' '}
+              <Link href="/tools/password-generator" className="text-[#997F6C] font-semibold hover:underline">password generator</Link>
+              — or browse all 40 free tools in our <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Tools</Link> section.
             </p>
           </div>
         </div>

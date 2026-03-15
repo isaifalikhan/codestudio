@@ -2,9 +2,19 @@ import { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/constants';
 import { SERVICE_SLUGS } from '@/lib/servicesData';
 import { categories } from '@/lib/resources-data';
+import { tools } from '@/lib/tools-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastmod = new Date().toISOString().split('T')[0];
+  const toolEntries = [
+    { url: `${SITE_URL}/tools`, lastModified: lastmod, changeFrequency: 'weekly' as const, priority: 0.9 },
+    ...tools.map((tool) => ({
+      url: `${SITE_URL}/tools/${tool.slug}`,
+      lastModified: lastmod,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+  ];
   const serviceEntries = SERVICE_SLUGS.map((slug) => ({
     url: `${SITE_URL}/services/${slug}`,
     lastModified: lastmod,
@@ -23,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL, lastModified: lastmod, changeFrequency: 'weekly', priority: 1 },
     { url: `${SITE_URL}/about`, lastModified: lastmod, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/services`, lastModified: lastmod, changeFrequency: 'monthly', priority: 0.9 },
+    ...toolEntries,
     ...serviceEntries,
     { url: `${SITE_URL}/portfolio`, lastModified: lastmod, changeFrequency: 'weekly', priority: 0.9 },
     { url: `${SITE_URL}/blog`, lastModified: lastmod, changeFrequency: 'weekly', priority: 0.8 },

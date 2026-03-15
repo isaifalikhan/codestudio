@@ -305,11 +305,14 @@ export default function ResourcesPage() {
           <h2 className="text-xl font-display font-bold text-[#2F281D] mb-6 text-center">
             Explore Our Work
           </h2>
+          <p className="text-[#2F281D]/70 text-center mb-6">
+            We also build our own tools — try them free at <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">/tools</Link>.
+          </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link
-              href="/portfolio"
-              className="text-[#997F6C] font-semibold hover:underline"
-            >
+            <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">
+              Free Tools (40)
+            </Link>
+            <Link href="/portfolio" className="text-[#997F6C] font-semibold hover:underline">
               Portfolio
             </Link>
             <Link href="/services" className="text-[#997F6C] font-semibold hover:underline">
