@@ -135,8 +135,8 @@ export const Footer = () => {
             © 2026 CodexStudio. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-[#2F281D]/30">
-            <a href="#privacy" className="hover:text-[#2F281D] transition-colors" aria-label="Privacy Policy">Privacy Policy</a>
-            <a href="#terms" className="hover:text-[#2F281D] transition-colors" aria-label="Terms of Service">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-[#2F281D] transition-colors">Terms & Conditions</Link>
           </div>
           <motion.button
             type="button"

@@ -50,8 +50,8 @@ export const Portfolio = () => {
         </div>
 
         <div className="space-y-12">
-          {portfolioProjects.map((project, index) => (
-            <ThreeDProjectCard key={project.title} project={project} index={index} />
+          {portfolioProjects.slice(0, 6).map((project, index) => (
+            <ThreeDProjectCard key={`${project.title}-${index}`} project={project} index={index} />
           ))}
         </div>
       </motion.div>

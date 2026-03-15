@@ -1,103 +1,102 @@
 import React from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
-import { Code, Palette, Share2, Search, Zap, Globe, ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Code, Layout, ShoppingCart, Palette, Search, Sparkles, Smartphone, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
-    title: 'Website Development',
-    description: 'High-performance, scalable web applications built with the latest technologies.',
+    title: 'Custom Website Development',
+    description: 'Tailored websites built for your business goals, with clean code and scalable architecture.',
     icon: Code,
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800',
-    color: 'from-blue-500 to-cyan-400',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+    to: '/services',
+  },
+  {
+    title: 'Next.js Web Applications',
+    description: 'Fast, SEO-friendly web applications using Next.js and modern React patterns.',
+    icon: Layout,
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
+    to: '/services',
+  },
+  {
+    title: 'E-commerce Development',
+    description: 'Online stores with secure checkout, inventory, and payment integrations.',
+    icon: ShoppingCart,
+    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800',
+    to: '/services',
   },
   {
     title: 'UI/UX Design',
-    description: 'Immersive and intuitive user experiences that captivate and convert.',
+    description: 'User-centered interfaces that improve engagement and conversion rates.',
     icon: Palette,
-    image: 'https://images.unsplash.com/photo-1581291518151-0e07553d2085?auto=format&fit=crop&q=80&w=800',
-    color: 'from-purple-500 to-pink-400',
-  },
-  {
-    title: 'Digital Marketing',
-    description: 'Data-driven strategies to amplify your brand presence and reach.',
-    icon: Share2,
-    image: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&q=80&w=800',
-    color: 'from-orange-500 to-yellow-400',
+    image: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=800',
+    to: '/services',
   },
   {
     title: 'SEO Optimization',
-    description: 'Boosting your visibility and ranking on global search engines.',
+    description: 'Technical and content SEO so your site ranks higher and attracts more traffic.',
     icon: Search,
-    image: 'https://images.unsplash.com/photo-1562577353-f5d4030c463f?auto=format&fit=crop&q=80&w=800',
-    color: 'from-green-500 to-emerald-400',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
+    to: '/services',
   },
   {
-    title: 'Branding',
-    description: 'Creating unique identities that resonate with your target audience.',
-    icon: Zap,
+    title: 'Brand Identity Design',
+    description: 'Logo, guidelines, and visual identity that make your brand memorable.',
+    icon: Sparkles,
     image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
-    color: 'from-red-500 to-orange-400',
+    to: '/services',
   },
   {
-    title: 'Cloud Solutions',
-    description: 'Modern infrastructure to ensure your business stays online and fast.',
-    icon: Globe,
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
-    color: 'from-indigo-500 to-blue-400',
+    title: 'Mobile App Development',
+    description: 'Native and cross-platform mobile apps for iOS and Android.',
+    icon: Smartphone,
+    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800',
+    to: '/services',
   },
 ];
 
-const ServiceCard: React.FC<{ service: any, index: number }> = ({ service, index }) => {
+const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = ({ service, index }) => {
+  const Icon = service.icon;
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ 
-        y: -8,
-        boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
-      }}
+      whileHover={{ y: -8, boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)' }}
       className="group relative rounded-3xl bg-[#E8E2D2] border border-[#2F281D]/5 hover:border-[#997F6C]/50 transition-all duration-300 overflow-hidden flex flex-col h-full"
     >
-      <div className="relative h-48 overflow-hidden">
-        <img
-          src={service.image}
-          alt={`${service.title} - CodexStudio digital agency service`}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
-        <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg">
-          <motion.div
-            whileHover={{ scale: 1.2, rotate: 15 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <service.icon className="w-6 h-6 text-[#2F281D]" />
-          </motion.div>
+      <Link to={service.to} className="flex flex-col h-full">
+        <div className="relative h-48 overflow-hidden">
+          <img
+            src={service.image}
+            alt={`${service.title} - CodexStudio service`}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            referrerPolicy="no-referrer"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+          <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg">
+            <Icon className="w-6 h-6 text-[#2F281D]" />
+          </div>
         </div>
-      </div>
-      
-      <div className="p-8 flex-grow flex flex-col">
-        <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-[#997F6C] transition-colors text-[#2F281D]">
-          {service.title}
-        </h3>
-        <p className="text-[#2F281D]/50 leading-relaxed mb-6">
-          {service.description}
-        </p>
-        
-        <div className="mt-auto flex items-center gap-2 text-sm font-bold text-[#2F281D]/30 group-hover:text-[#2F281D] transition-colors">
-          Learn More <ArrowRight className="w-4 h-4" />
+        <div className="p-8 flex-grow flex flex-col">
+          <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-[#997F6C] transition-colors text-[#2F281D]">
+            {service.title}
+          </h3>
+          <p className="text-[#2F281D]/50 leading-relaxed mb-6">{service.description}</p>
+          <span className="mt-auto flex items-center gap-2 text-sm font-bold text-[#2F281D]/30 group-hover:text-[#2F281D] transition-colors">
+            Learn More <ArrowRight className="w-4 h-4" />
+          </span>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };
 
 export const Services = () => {
   return (
-    <section className="py-24 px-6 bg-[#FDF8EC] relative overflow-hidden">
+    <section className="py-24 px-6 bg-[#FDF8EC] relative overflow-hidden" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
@@ -107,9 +106,10 @@ export const Services = () => {
               viewport={{ once: true }}
               className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-4 block"
             >
-              Our Expertise
+              Our Services
             </motion.span>
             <motion.h2
+              id="services-heading"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -125,8 +125,7 @@ export const Services = () => {
             viewport={{ once: true }}
             className="max-w-md text-[#2F281D]/50 text-lg"
           >
-            We provide a comprehensive suite of services designed to help your business 
-            thrive in an ever-changing digital landscape.
+            From websites to web apps and branding—we help startups and businesses grow with digital products that perform.
           </motion.p>
         </div>
 
@@ -134,6 +133,14 @@ export const Services = () => {
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 text-[#2F281D] font-bold hover:text-[#997F6C] transition-colors"
+          >
+            View all services <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </section>

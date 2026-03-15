@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Code, Palette, Share2, PenTool, Globe, Search, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { TechStack } from '../components/TechStack';
 import { CTA } from '../components/CTA';
 
@@ -83,6 +84,14 @@ export const ServicesPage = () => {
           >
             We provide a comprehensive suite of services designed to elevate your brand and drive digital success.
           </motion.p>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="flex flex-wrap justify-center gap-4 mt-8">
+            <Link to="/portfolio" className="px-6 py-3 rounded-full font-bold bg-[#2F281D] text-[#FDF8EC] hover:bg-[#997F6C] transition-colors inline-flex items-center gap-2">
+              View Portfolio <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link to="/contact" className="px-6 py-3 rounded-full font-bold border border-[#2F281D]/20 text-[#2F281D] hover:bg-[#2F281D]/5 transition-colors">
+              Start a Project
+            </Link>
+          </motion.div>
         </div>
       </section>
 

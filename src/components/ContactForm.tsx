@@ -72,46 +72,76 @@ export const ContactForm = () => {
             viewport={{ once: true }}
             className="p-10 rounded-[2.5rem] bg-[#E8E2D2] border border-[#2F281D]/10 shadow-xl"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={(e) => e.preventDefault()} aria-label="Contact form">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Full Name</label>
+                  <label htmlFor="contact-name" className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Name</label>
                   <input
+                    id="contact-name"
                     type="text"
-                    placeholder="John Doe"
+                    placeholder="Your name"
+                    autoComplete="name"
                     className="w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors text-[#2F281D]"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Email Address</label>
+                  <label htmlFor="contact-email" className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Email</label>
                   <input
+                    id="contact-email"
                     type="email"
-                    placeholder="john@example.com"
+                    placeholder="you@company.com"
+                    autoComplete="email"
                     className="w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors text-[#2F281D]"
                   />
                 </div>
               </div>
-              
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Subject</label>
-                <select className="w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors appearance-none text-[#2F281D]/60">
-                  <option>Website Development</option>
-                  <option>UI/UX Design</option>
-                  <option>Digital Marketing</option>
-                  <option>Other</option>
-                </select>
+                <label htmlFor="contact-company" className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Company</label>
+                <input
+                  id="contact-company"
+                  type="text"
+                  placeholder="Company name (optional)"
+                  autoComplete="organization"
+                  className="w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors text-[#2F281D]"
+                />
               </div>
-              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="contact-project-type" className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Project Type</label>
+                  <select id="contact-project-type" className="w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors appearance-none text-[#2F281D]/60" aria-label="Project type">
+                    <option value="">Select type</option>
+                    <option>Website Development</option>
+                    <option>Web Application</option>
+                    <option>E-commerce</option>
+                    <option>UI/UX Design</option>
+                    <option>SEO / Marketing</option>
+                    <option>Mobile App</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-budget" className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Budget</label>
+                  <select id="contact-budget" className="w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors appearance-none text-[#2F281D]/60" aria-label="Budget range">
+                    <option value="">Select range</option>
+                    <option>$1k – $5k</option>
+                    <option>$5k – $15k</option>
+                    <option>$15k – $50k</option>
+                    <option>$50k+</option>
+                  </select>
+                </div>
+              </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Message</label>
+                <label htmlFor="contact-message" className="text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2">Message</label>
                 <textarea
+                  id="contact-message"
                   rows={5}
                   placeholder="Tell us about your project..."
                   className="w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors resize-none text-[#2F281D]"
+                  aria-label="Your message"
                 />
               </div>
               
-              <button className="w-full py-5 bg-[#2F281D] text-[#FDF8EC] rounded-2xl font-bold text-lg hover:bg-[#997F6C] transition-all flex items-center justify-center gap-3 group shadow-lg shadow-[#2F281D]/20">
+              <button type="button" className="w-full py-5 bg-[#2F281D] text-[#FDF8EC] rounded-2xl font-bold text-lg hover:bg-[#997F6C] transition-all flex items-center justify-center gap-3 group shadow-lg shadow-[#2F281D]/20">
                 Send Message
                 <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>

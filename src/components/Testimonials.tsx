@@ -4,9 +4,9 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'James Mitchell',
-    role: 'CEO at TechFlow',
-    content: 'CodexStudio transformed our vision into a digital reality. Their attention to detail and innovative approach is unmatched. We saw a 35% increase in user engagement within three months.',
+    name: 'Ahmed Khan',
+    role: 'Startup Founder',
+    content: 'CodexStudio built our website quickly and the performance is amazing. Highly recommend for any business looking to go digital.',
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
   },
   {

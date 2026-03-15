@@ -66,7 +66,7 @@ export const CTA = () => {
               whileInView={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-7xl font-display font-bold text-[#FDF8EC] leading-tight"
             >
-              Ready to build something <span className="text-[#FDF8EC]/40 italic">extraordinary?</span>
+              Start Your Project <span className="text-[#FDF8EC]/40 italic">Today</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export const CTA = () => {
               transition={{ delay: 0.1 }}
               className="text-xl text-[#FDF8EC]/60"
             >
-              Let's collaborate to bring your vision to life with precision and style.
+              We help businesses build modern digital products.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ export const CTA = () => {
                 to="/contact"
                 className="w-full sm:w-auto px-12 py-6 bg-[#FDF8EC] text-[#2F281D] rounded-full font-bold text-lg hover:bg-[#997F6C] hover:text-[#FDF8EC] hover:shadow-[0_0_20px_rgba(253,248,236,0.3)] transition-all flex items-center justify-center gap-3 group"
               >
-                Start a Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                Get a Free Consultation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </MagneticButton>
               <MagneticButton
                 to="/portfolio"

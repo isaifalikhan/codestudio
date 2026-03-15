@@ -25,16 +25,17 @@ const Counter = ({ value }: { value: string }) => {
 };
 
 const stats = [
-  { label: 'Projects Completed', value: '250+' },
-  { label: 'Happy Clients', value: '120+' },
-  { label: 'Years Experience', value: '8+' },
-  { label: 'Design Awards', value: '15' },
+  { label: 'Projects Delivered', value: '50+' },
+  { label: 'Happy Clients', value: '30+' },
+  { label: 'Years Experience', value: '5+' },
+  { label: 'Countries Served', value: '10+' },
 ];
 
 export const Stats = () => {
   return (
-    <section className="py-20 px-6 border-y border-[#2F281D]/5 bg-[#FDF8EC]">
+    <section className="py-20 px-6 border-y border-[#2F281D]/5 bg-[#FDF8EC]" aria-labelledby="stats-heading">
       <div className="max-w-7xl mx-auto">
+        <h2 id="stats-heading" className="sr-only">Trust statistics</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
           {stats.map((stat, index) => (
             <motion.div

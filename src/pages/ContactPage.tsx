@@ -90,43 +90,51 @@ export const ContactPage = () => {
               <p className="text-[#FDF8EC]/60">Tell us about your project and we'll get back to you within 24 hours.</p>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" aria-label="Contact form">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Full Name</label>
-                  <input 
-                    type="text" 
-                    placeholder="John Doe"
-                    className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors"
-                  />
+                  <label htmlFor="contact-page-name" className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Name</label>
+                  <input id="contact-page-name" type="text" placeholder="Your name" autoComplete="name" className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Email Address</label>
-                  <input 
-                    type="email" 
-                    placeholder="john@example.com"
-                    className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors"
-                  />
+                  <label htmlFor="contact-page-email" className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Email</label>
+                  <input id="contact-page-email" type="email" placeholder="you@company.com" autoComplete="email" className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors" />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Subject</label>
-                <select className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors appearance-none">
-                  <option className="bg-[#2F281D]">Web Development</option>
-                  <option className="bg-[#2F281D]">UI/UX Design</option>
-                  <option className="bg-[#2F281D]">Branding</option>
-                  <option className="bg-[#2F281D]">Marketing</option>
-                </select>
+                <label htmlFor="contact-page-company" className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Company</label>
+                <input id="contact-page-company" type="text" placeholder="Company name (optional)" autoComplete="organization" className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="contact-page-type" className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Project Type</label>
+                  <select id="contact-page-type" className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors appearance-none" aria-label="Project type">
+                    <option value="" className="bg-[#2F281D]">Select type</option>
+                    <option className="bg-[#2F281D]">Website Development</option>
+                    <option className="bg-[#2F281D]">Web Application</option>
+                    <option className="bg-[#2F281D]">E-commerce</option>
+                    <option className="bg-[#2F281D]">UI/UX Design</option>
+                    <option className="bg-[#2F281D]">SEO / Marketing</option>
+                    <option className="bg-[#2F281D]">Mobile App</option>
+                    <option className="bg-[#2F281D]">Other</option>
+                  </select>
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-page-budget" className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Budget</label>
+                  <select id="contact-page-budget" className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors appearance-none" aria-label="Budget range">
+                    <option value="" className="bg-[#2F281D]">Select range</option>
+                    <option className="bg-[#2F281D]">$1k – $5k</option>
+                    <option className="bg-[#2F281D]">$5k – $15k</option>
+                    <option className="bg-[#2F281D]">$15k – $50k</option>
+                    <option className="bg-[#2F281D]">$50k+</option>
+                  </select>
+                </div>
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Message</label>
-                <textarea 
-                  rows={4}
-                  placeholder="Tell us about your project..."
-                  className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors resize-none"
-                />
+                <label htmlFor="contact-page-message" className="text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40">Message</label>
+                <textarea id="contact-page-message" rows={4} placeholder="Tell us about your project..." className="w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors resize-none" aria-label="Your message" />
               </div>
-              <button className="w-full bg-[#997F6C] hover:bg-[#997F6C]/90 text-[#FDF8EC] font-bold py-6 rounded-2xl flex items-center justify-center gap-3 transition-all group">
+              <button type="button" className="w-full bg-[#997F6C] hover:bg-[#997F6C]/90 text-[#FDF8EC] font-bold py-6 rounded-2xl flex items-center justify-center gap-3 transition-all group">
                 Send Message
                 <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>

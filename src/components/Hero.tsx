@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Hero = () => {
@@ -56,7 +56,7 @@ export const Hero = () => {
         >
           <span className="w-2 h-2 rounded-full bg-[#5F634D] animate-ping" />
           <span className="text-xs font-bold tracking-widest uppercase text-[#2F281D]/60">
-            Premium Digital Agency
+            Web Development & Digital Solutions
           </span>
         </motion.div>
 
@@ -66,8 +66,8 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-6xl md:text-8xl font-display font-bold leading-[1.1] mb-8 tracking-tighter text-[#2F281D]"
         >
-          Crafting Digital <br />
-          <span className="text-gradient font-serif italic font-light">Experiences</span> of Tomorrow
+          Build Powerful <br />
+          <span className="text-gradient font-serif italic font-light">Websites</span> & Digital Products
         </motion.h1>
 
         <motion.p
@@ -76,8 +76,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="max-w-2xl mx-auto text-lg md:text-xl text-[#2F281D]/60 mb-12 leading-relaxed"
         >
-          We blend artisanal design with visionary technology to build brands that 
-          resonate. From concept to code, we are your partner in digital evolution.
+          CodexStudio helps startups and businesses build modern websites, web apps, and digital experiences that grow revenue.
         </motion.p>
 
         <motion.div
@@ -86,16 +85,14 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <Link to="/portfolio" className="w-full sm:w-auto px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#997F6C] transition-all transform hover:scale-105 flex items-center justify-center gap-2 group shadow-xl shadow-[#2F281D]/10">
-            Explore Our Work
+          <Link to="/contact" className="w-full sm:w-auto px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#997F6C] transition-all transform hover:scale-105 flex items-center justify-center gap-2 group shadow-xl shadow-[#2F281D]/10">
+            Start Your Project
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <button className="w-full sm:w-auto px-8 py-4 bg-white/50 border border-[#2F281D]/10 backdrop-blur-md rounded-full font-bold text-lg hover:bg-white transition-all flex items-center justify-center gap-2 group text-[#2F281D]">
-            <div className="w-8 h-8 rounded-full bg-[#997F6C]/20 flex items-center justify-center">
-              <Play className="w-4 h-4 text-[#997F6C] fill-[#997F6C]" />
-            </div>
-            Watch Showreel
-          </button>
+          <Link to="/portfolio" className="w-full sm:w-auto px-8 py-4 bg-white/50 border border-[#2F281D]/10 backdrop-blur-md rounded-full font-bold text-lg hover:bg-white transition-all flex items-center justify-center gap-2 group text-[#2F281D]">
+            View Our Work
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </motion.div>
       </div>
 

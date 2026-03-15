@@ -10,6 +10,8 @@ import { ServicesPage } from './pages/ServicesPage';
 import { PortfolioPage } from './pages/PortfolioPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsConditions } from './pages/TermsConditions';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -35,6 +37,8 @@ export default function App() {
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsConditions />} />
             </Routes>
           </AnimatePresence>
         </main>

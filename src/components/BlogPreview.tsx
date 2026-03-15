@@ -25,12 +25,14 @@ export const BlogPreview = () => {
               Latest <span className="text-[#2F281D]/40 italic">Insights</span>
             </motion.h2>
           </div>
-          <Link 
-            to="/blog"
-            className="mt-8 md:mt-0 px-8 py-4 border border-[#2F281D]/10 rounded-full font-bold hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all flex items-center gap-2 text-[#2F281D]"
-          >
-            View All Posts <ArrowRight className="w-5 h-5" />
-          </Link>
+          <div className="mt-8 md:mt-0 flex flex-wrap gap-4">
+            <Link to="/blog" className="px-8 py-4 border border-[#2F281D]/10 rounded-full font-bold hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all flex items-center gap-2 text-[#2F281D]">
+              View All Posts <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link to="/services" className="px-8 py-4 rounded-full font-bold bg-[#2F281D]/5 hover:bg-[#2F281D]/10 text-[#2F281D] transition-all flex items-center gap-2">
+              Explore Services
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

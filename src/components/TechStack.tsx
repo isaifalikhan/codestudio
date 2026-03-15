@@ -2,14 +2,12 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 const technologies = [
+  { name: 'Stripe', icon: 'https://cdn.worldvectorlogo.com/logos/stripe-4.svg' },
+  { name: 'Shopify', icon: 'https://cdn.worldvectorlogo.com/logos/shopify.svg' },
+  { name: 'AWS', icon: 'https://cdn.worldvectorlogo.com/logos/aws-2.svg' },
+  { name: 'Vercel', icon: 'https://cdn.worldvectorlogo.com/logos/vercel.svg' },
   { name: 'Next.js', icon: 'https://cdn.worldvectorlogo.com/logos/next-js.svg' },
   { name: 'React', icon: 'https://cdn.worldvectorlogo.com/logos/react-2.svg' },
-  { name: 'Node.js', icon: 'https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg' },
-  { name: 'TypeScript', icon: 'https://cdn.worldvectorlogo.com/logos/typescript.svg' },
-  { name: 'Tailwind', icon: 'https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg' },
-  { name: 'Framer Motion', icon: 'https://cdn.worldvectorlogo.com/logos/framer-motion.svg' },
-  { name: 'Shopify', icon: 'https://cdn.worldvectorlogo.com/logos/shopify.svg' },
-  { name: 'WordPress', icon: 'https://cdn.worldvectorlogo.com/logos/wordpress-icon.svg' },
 ];
 
 export const TechStack = () => {
@@ -22,18 +20,18 @@ export const TechStack = () => {
             whileInView={{ opacity: 1 }}
             className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-4 block"
           >
-            Our Arsenal
+            Trusted by developers & businesses
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]"
           >
-            Powered by <span className="text-[#2F281D]/40">Modern Tech</span>
+            Trusted <span className="text-[#2F281D]/40">Technologies</span>
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {technologies.map((tech, i) => (
             <motion.div
               key={tech.name}
