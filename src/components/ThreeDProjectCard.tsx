@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import type { PortfolioProject } from '../data/portfolio';
+import { getProjectImageUrl, type PortfolioProject } from '../data/portfolio';
 
 interface ThreeDProjectCardProps {
   project: PortfolioProject;
@@ -43,7 +43,7 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
         className="group relative aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#2F281D]/5"
       >
         <motion.img
-          src={project.image}
+          src={getProjectImageUrl(project.image)}
           alt={`${project.title} - ${project.category} project by CodexStudio`}
           style={{ scale: springImageScale }}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"

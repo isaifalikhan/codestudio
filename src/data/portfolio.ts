@@ -1,7 +1,17 @@
 /**
  * Shared portfolio projects for homepage and portfolio page.
  * Uses images from public/projects and SEO-friendly content.
+ * Local project images use paths relative to site root (no leading slash) so they work with Vite's base URL.
  */
+
+const BASE = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+
+/** Resolve image URL: external URLs unchanged, local paths get base URL prepended */
+export function getProjectImageUrl(imagePath: string): string {
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) return imagePath;
+  const path = imagePath.replace(/^\//, '');
+  return BASE.replace(/\/?$/, '') + '/' + path;
+}
 
 export interface PortfolioProject {
   title: string;
@@ -58,29 +68,57 @@ const unsplashProjects: PortfolioProject[] = [
   },
 ];
 
-/** Additional projects from public/projects (optional for portfolio page) */
+/** Projects from public/projects folder – paths relative to site root */
 const localProjects: PortfolioProject[] = [
   {
     title: 'CRM HubSpot Dashboard',
     category: 'Development',
     description: 'Custom CRM dashboard with analytics and pipeline views.',
     technology: ['React', 'HubSpot API', 'Charts'],
-    image: '/projects/crm-for-hubspot-dashboard.png',
+    image: 'projects/crm-for-hubspot-dashboard.png',
   },
   {
     title: 'Restaurant Menu App',
     category: 'Development',
     description: 'Digital menu and ordering experience for restaurants.',
     technology: ['React', 'UI/UX', 'Mobile-first'],
-    image: '/projects/popup_Restaurant_Menu_NM20210045.jpg',
+    image: 'projects/popup_Restaurant_Menu_NM20210045.jpg',
   },
   {
     title: 'Portfolio Template UI',
     category: 'Branding',
     description: 'Designer portfolio template with project grid.',
     technology: ['Figma', 'Webflow', 'Responsive'],
-    image: '/projects/margon-designer-portfolio-website-design-template-ui8-preview-18_1754145350829.webp',
+    image: 'projects/margon-designer-portfolio-website-design-template-ui8-preview-18_1754145350829.webp',
+  },
+  {
+    title: 'Developer Portfolio Website',
+    category: 'Web Design',
+    description: 'Modern developer portfolio with project showcases and clean typography.',
+    technology: ['React', 'Tailwind', 'Vite'],
+    image: 'projects/developer_portfolio_website_examples.webp',
+  },
+  {
+    title: 'Landing & Home Experience',
+    category: 'Web Design',
+    description: 'High-converting landing page with clear CTAs and responsive layout.',
+    technology: ['HTML', 'CSS', 'JavaScript'],
+    image: 'projects/home.png',
+  },
+  {
+    title: 'Blog & Single Post Layout',
+    category: 'Web Design',
+    description: 'Content-focused blog layout with readable typography and sharing.',
+    technology: ['Next.js', 'MDX', 'Tailwind'],
+    image: 'projects/single-post.webp',
   },
 ];
 
+/** All projects: Unsplash first, then local from public/projects */
 export const portfolioProjects: PortfolioProject[] = [...unsplashProjects, ...localProjects];
+
+/** First 6 for homepage: mix of local (so public/projects show) and Unsplash */
+export const featuredPortfolioProjects: PortfolioProject[] = [
+  ...localProjects.slice(0, 3),
+  ...unsplashProjects.slice(0, 3),
+];

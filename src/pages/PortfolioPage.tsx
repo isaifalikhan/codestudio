@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { CTA } from '../components/CTA';
-import { portfolioProjects } from '../data/portfolio';
+import { getProjectImageUrl, portfolioProjects } from '../data/portfolio';
 
 const categories = ['All', 'Web Design', 'Branding', 'Development'];
 
@@ -79,7 +79,7 @@ export const PortfolioPage = () => {
                   className="group relative aspect-[16/10] rounded-[3rem] overflow-hidden"
                 >
                   <img
-                    src={project.image}
+                    src={getProjectImageUrl(project.image)}
                     alt={`${project.title} - ${project.category} project by CodexStudio`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"

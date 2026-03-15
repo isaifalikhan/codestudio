@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ThreeDProjectCard } from './ThreeDProjectCard';
-import { portfolioProjects } from '../data/portfolio';
+import { featuredPortfolioProjects } from '../data/portfolio';
 
 export const Portfolio = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -50,7 +50,7 @@ export const Portfolio = () => {
         </div>
 
         <div className="space-y-12">
-          {portfolioProjects.slice(0, 6).map((project, index) => (
+          {featuredPortfolioProjects.map((project, index) => (
             <ThreeDProjectCard key={`${project.title}-${index}`} project={project} index={index} />
           ))}
         </div>

@@ -112,7 +112,7 @@ export const ProjectSlider = () => {
                   </span>
                 </div>
                 
-                <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-display font-bold text-[#FDF8EC] leading-[0.9] lg:leading-[0.85] tracking-tighter">
+                <h2 className="text-2xl sm:text-5xl md:text-4xl lg:text-6xl font-display font-bold text-[#FDF8EC] leading-[0.9] lg:leading-[0.85] tracking-tighter">
                   {slides[current].title.split(' ').map((word, i) => (
                     <span key={i} className="block overflow-hidden">
                       <motion.span
