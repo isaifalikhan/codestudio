@@ -7,9 +7,9 @@ import { JsonLd } from '@/app/components/JsonLd';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '40 Free Online Tools — Image, PDF, AI & Dev Tools | CodexStudio',
+  title: '140+ Free Online Tools — Image, PDF, AI, Video & More | CodexStudio',
   description:
-    'Free online tools: image compressor, PDF merger, password generator, word counter, QR code maker, age calculator & 34 more. No signup. Works in browser.',
+    '140+ free online tools: image compressor, PDF merger, TikTok downloader, password generator, invoice maker, age calculator, AI writer & more. No signup, works in browser. Built by CodexStudio.',
   keywords: [
     'free online tools',
     'image compressor free',
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://www.codexstudio2026.com/tools' },
   openGraph: {
-    title: '40 Free Online Tools — No Signup | CodexStudio',
-    description: '40 free browser tools. Image, PDF, text, security, calculators. All free.',
+    title: '140+ Free Online Tools — No Signup | CodexStudio',
+    description: '140+ free browser tools. Image, PDF, video, AI, finance, health & more. All free.',
     url: 'https://www.codexstudio2026.com/tools',
     images: [{ url: '/og-tools.jpg', width: 1200, height: 630 }],
     type: 'website',
@@ -89,7 +89,7 @@ export default function ToolsHubPage() {
       {/* Stats */}
       <section className="py-6 px-6 border-y border-[#2F281D]/10 bg-[#E8E2D2]/50">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center">
-          <span className="text-[#2F281D] font-bold">140 Tools</span>
+          <span className="text-[#2F281D] font-bold">140+ Tools</span>
           <span className="text-[#2F281D]/60">·</span>
           <span className="text-[#2F281D] font-bold">17 Categories</span>
           <span className="text-[#2F281D]/60">·</span>
@@ -163,6 +163,57 @@ export default function ToolsHubPage() {
             as PNG. SEO and marketing tools include keyword density checker, meta description
             generator, privacy policy generator, and XML sitemap generator. Bookmark the tools you
             use most and come back anytime — they will always be free and private.
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+            Video Downloaders — TikTok, YouTube, Instagram &amp; More
+          </h2>
+          <p className="text-[#2F281D]/80 leading-relaxed">
+            Download videos from TikTok without watermark, save YouTube videos in MP4 or MP3, and
+            grab Instagram Reels, photos, and stories. Our Facebook, Twitter/X, Pinterest, and
+            Vimeo downloaders work the same way: paste the URL and download. We also offer a
+            YouTube thumbnail downloader, video-to-GIF converter, and audio trimmer. All run in
+            your browser — no software to install.
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+            Finance Tools — Invoices, Loans &amp; Calculators
+          </h2>
+          <p className="text-[#2F281D]/80 leading-relaxed">
+            Create professional invoices and download as PDF with our free invoice generator. Calculate
+            loan EMI, mortgage payments, compound interest, VAT, discounts, profit margins, and
+            salary-to-hourly conversions. Whether you run a small business or manage personal
+            finances, these tools help you save time and make better decisions — no signup required.
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+            AI Tools — Blog Writer, Grammar Checker &amp; Summarizer
+          </h2>
+          <p className="text-[#2F281D]/80 leading-relaxed">
+            Use our free AI-powered writing tools: blog post generator, grammar checker, text
+            summarizer, and more. Generate headlines, meta descriptions, and social captions in
+            seconds. All tools run in your browser and respect your privacy. Perfect for content
+            creators, students, and marketers who want to work faster without expensive subscriptions.
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+            Health Tools — Calorie Calculator, BMI &amp; Sleep
+          </h2>
+          <p className="text-[#2F281D]/80 leading-relaxed">
+            Track your wellness with our free health tools: calorie calculator, BMI calculator,
+            sleep calculator, water intake tracker, and more. Get quick estimates and daily
+            recommendations. No account needed — just open the tool and use it. Ideal for anyone
+            focused on fitness, diet, or better sleep habits.
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+            Business Tools — Pomodoro Timer, URL Shortener &amp; More
+          </h2>
+          <p className="text-[#2F281D]/80 leading-relaxed">
+            Stay productive with our Pomodoro timer, URL shortener, and meeting cost calculator.
+            Create professional quotes and invoices, generate placeholder content, and manage
+            simple project lists. These free business tools help freelancers and small teams work
+            smarter without extra software or signup.
           </p>
         </div>
       </section>
