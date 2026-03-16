@@ -7,17 +7,27 @@ import { JsonLd } from '@/app/components/JsonLd';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '140 Free Online Tools — No Signup Required | CodexStudio',
+  title: '40 Free Online Tools — Image, PDF, AI & Dev Tools | CodexStudio',
   description:
-    'Free online tools built by CodexStudio. Image compressor, PDF merger, password generator, QR code maker, word counter, age calculator & 130 more. Works in browser.',
+    'Free online tools: image compressor, PDF merger, password generator, word counter, QR code maker, age calculator & 34 more. No signup. Works in browser.',
+  keywords: [
+    'free online tools',
+    'image compressor free',
+    'pdf merger online',
+    'password generator',
+    'word counter online',
+    'qr code generator free',
+  ],
+  alternates: { canonical: 'https://www.codexstudio2026.com/tools' },
   openGraph: {
-    title: '140 Free Online Tools — No Signup | CodexStudio',
-    description: '140 free browser-based tools. Image, PDF, text, security, calculator, SEO, AI tools — all free, no signup.',
+    title: '40 Free Online Tools — No Signup | CodexStudio',
+    description: '40 free browser tools. Image, PDF, text, security, calculators. All free.',
     url: 'https://www.codexstudio2026.com/tools',
     images: [{ url: '/og-tools.jpg', width: 1200, height: 630 }],
+    type: 'website',
+    siteName: 'CodexStudio',
   },
   twitter: { card: 'summary_large_image', images: ['/og-tools.jpg'] },
-  alternates: { canonical: 'https://www.codexstudio2026.com/tools' },
 };
 
 const collectionSchema = {

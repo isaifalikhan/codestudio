@@ -4,20 +4,30 @@ import { SITE_URL } from '@/lib/constants';
 import { tools, categories } from '@/lib/resources-data';
 import { JsonLd } from '@/app/components/JsonLd';
 import { ResourcesFilter } from '@/app/components/ResourcesFilter';
+import { AffiliateDisclosure } from '@/app/components/AffiliateDisclosure';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '50 Best Free Online Resources for Developers & Businesses | CodexStudio',
+  title: '50 Best Free Resources for Developers & Businesses | CodexStudio',
   description:
-    'Curated list of 50 free tools every developer and business owner needs. Design, SEO, AI, writing, video tools — handpicked by CodexStudio.',
+    'Curated list of 50 free tools every developer and business owner needs: design, SEO, AI, writing, video — handpicked by CodexStudio team.',
+  keywords: [
+    'free tools developers',
+    'best free online tools 2026',
+    'free business tools',
+    'free design tools',
+    'free seo tools',
+  ],
+  alternates: { canonical: 'https://www.codexstudio2026.com/resources' },
   openGraph: {
     title: '50 Best Free Online Resources | CodexStudio',
-    description: 'Curated free tools for designers, developers, and businesses. Handpicked by CodexStudio.',
+    description: 'Curated free tools for designers, developers, businesses. Handpicked.',
     url: 'https://www.codexstudio2026.com/resources',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    type: 'website',
+    siteName: 'CodexStudio',
   },
   twitter: { card: 'summary_large_image', images: ['/og-image.jpg'] },
-  alternates: { canonical: 'https://www.codexstudio2026.com/resources' },
 };
 
 const resourcesSchema = {
@@ -60,6 +70,7 @@ export default function ResourcesPage() {
     <div className="bg-[#FDF8EC] min-h-screen">
       <JsonLd data={resourcesSchema} />
       <JsonLd data={breadcrumbSchema} />
+      <AffiliateDisclosure />
 
       {/* Hero */}
       <section className="pt-12 pb-16 px-6">

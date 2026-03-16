@@ -1,8 +1,4 @@
-interface JsonLdProps {
-  data: Record<string, unknown>;
-}
-
-export function JsonLd({ data }: JsonLdProps) {
+export function JsonLd({ data }: { data: object }) {
   return (
     <script
       type="application/ld+json"

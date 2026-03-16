@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/tools/${tool.slug}`,
       lastModified,
       changeFrequency: 'monthly' as const,
-      priority: 0.8,
+      priority: 0.85,
     })),
   ];
   const serviceEntries = SERVICE_SLUGS.map((slug) => ({
@@ -39,11 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/blog`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/resources`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     ...resourceCategoryEntries,
-    { url: `${SITE_URL}/team`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${SITE_URL}/team`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/contact`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/blog/why-every-business-needs-a-website`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE_URL}/blog/ui-ux-increases-conversions`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${SITE_URL}/blog/web-development-trends-2026`, lastModified, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${SITE_URL}/blog/why-every-business-needs-a-website`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/blog/ui-ux-increases-conversions`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/blog/web-development-trends-2026`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/privacy`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
   ];

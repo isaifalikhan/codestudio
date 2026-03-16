@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { Users, Target, Eye, Heart } from 'lucide-react';
 import { CTA } from '../components/CTA';
 
@@ -184,7 +185,7 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section — Saif Ali only; we're growing */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -194,10 +195,10 @@ export const About = () => {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]"
             >
-              Meet the <span className="text-[#2F281D]/40 italic">Experts</span>
+              Meet the <span className="text-[#2F281D]/40 italic">Team</span>
             </motion.h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-2xl mx-auto">
             {team.map((member, i) => (
               <motion.div
                 key={member.name}
@@ -241,6 +242,19 @@ export const About = () => {
                 </motion.p>
               </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-[2.5rem] bg-[#E8E2D2] border border-[#2F281D]/10 p-10 flex flex-col items-center justify-center text-center col-span-1 sm:col-span-2 lg:col-span-4"
+            >
+              <p className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-3">We&apos;re growing</p>
+              <h3 className="text-2xl font-display font-bold text-[#2F281D] mb-2">Join us</h3>
+              <p className="text-[#2F281D]/60 text-sm mb-6 max-w-sm">Want to build great digital products? Get in touch.</p>
+              <Link href="/contact" className="px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold hover:bg-[#997F6C] transition-colors">
+                Get in touch
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

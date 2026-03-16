@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { blogPosts } from '@/src/data/blog';
-import { SITE_URL } from '@/lib/constants';
 import { JsonLd } from '@/app/components/JsonLd';
 
 export async function generateStaticParams() {
@@ -14,16 +13,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return {};
   return {
-    title: post.title,
+    title: `${post.title} | CodexStudio Blog`,
     description: post.excerpt,
+    alternates: { canonical: `https://www.codexstudio2026.com/blog/${post.slug}` },
     openGraph: {
-      title: `${post.title} | CodexStudio — Web Development Agency`,
+      title: post.title,
       description: post.excerpt,
-      url: `${SITE_URL}/blog/${post.slug}`,
+      url: `https://www.codexstudio2026.com/blog/${post.slug}`,
       images: [{ url: post.image, width: 1200, height: 630 }],
+      type: 'article',
+      publishedTime: post.date,
+      authors: ['CodexStudio Team'],
+      siteName: 'CodexStudio',
     },
-    twitter: { card: 'summary_large_image', title: post.title },
-    alternates: { canonical: `${SITE_URL}/blog/${post.slug}` },
+    twitter: { card: 'summary_large_image', images: [post.image] },
   };
 }
 
@@ -32,6 +35,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const SITE = 'https://www.codexstudio2026.com';
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -39,18 +43,33 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     description: post.excerpt,
     image: post.image,
     datePublished: post.date,
-    dateModified: post.date,
-    author: { '@type': 'Organization', name: 'CodexStudio', url: SITE_URL },
+    author: {
+      '@type': 'Person',
+      name: 'Saif Ali',
+      url: `${SITE}/team`,
+      jobTitle: 'Founder & CEO',
+      worksFor: { '@type': 'Organization', name: 'CodexStudio' },
+    },
     publisher: {
       '@type': 'Organization',
       name: 'CodexStudio',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/og-image.jpg` },
+      logo: { '@type': 'ImageObject', url: `${SITE}/og-image.jpg` },
     },
+  };
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE}/blog/${post.slug}` },
+    ],
   };
 
   return (
     <>
       <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <article className="bg-[#FDF8EC] min-h-screen">
       <header className="pt-40 pb-16 px-6">
         <div className="max-w-4xl mx-auto">

@@ -1,10 +1,12 @@
 import type { Tool } from '@/lib/resources-data';
+import { getAffiliateUrl } from '@/lib/affiliate-links';
 
 interface ResourceCardProps {
   tool: Tool;
 }
 
 export function ResourceCard({ tool }: ResourceCardProps) {
+  const url = getAffiliateUrl(tool.id) || tool.url;
   return (
     <article className="rounded-2xl border border-[#2F281D]/10 bg-[#FDF8EC] p-6 shadow-sm hover:shadow-md hover:border-[#997F6C]/30 transition-all flex flex-col h-full">
       <div className="flex items-start justify-between gap-3 mb-3">
@@ -39,7 +41,7 @@ export function ResourceCard({ tool }: ResourceCardProps) {
         </div>
       )}
       <a
-        href={tool.url}
+        href={url}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-sm font-bold text-[#997F6C] hover:text-[#2F281D] transition-colors group"
