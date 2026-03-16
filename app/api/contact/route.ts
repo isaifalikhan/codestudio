@@ -5,6 +5,14 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -44,28 +52,33 @@ export async function POST(request: NextRequest) {
     }
 
     const resend = new Resend(apiKey);
-    const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
-    const toEmail = process.env.RESEND_TO_EMAIL || 'hello@codexstudio.com';
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'CodexStudio Contact <onboarding@resend.dev>';
+    const toEmail = process.env.RESEND_TO_EMAIL || 'your-real-email@gmail.com';
 
-    const text = [
-      `Name: ${name.trim()}`,
-      `Email: ${email.trim()}`,
-      company ? `Company: ${company.trim()}` : null,
-      budget ? `Budget: ${budget}` : null,
-      projectType ? `Project Type: ${projectType}` : null,
-      '',
-      'Message:',
-      message.trim(),
-    ]
-      .filter(Boolean)
-      .join('\n');
+    const n = escapeHtml(name.trim());
+    const e = escapeHtml(email.trim());
+    const c = company && String(company).trim() ? escapeHtml(String(company).trim()) : '—';
+    const pt = projectType ? escapeHtml(String(projectType)) : '—';
+    const b = budget ? escapeHtml(String(budget)) : '—';
+    const m = escapeHtml(message.trim());
+
+    const html = `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${n}</p>
+      <p><strong>Email:</strong> ${e}</p>
+      <p><strong>Company:</strong> ${c}</p>
+      <p><strong>Project Type:</strong> ${pt}</p>
+      <p><strong>Budget:</strong> ${b}</p>
+      <p><strong>Message:</strong></p>
+      <p>${m.replace(/\n/g, '<br />')}</p>
+    `;
 
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
       replyTo: email.trim(),
-      subject: `[CodexStudio] Contact from ${name.trim()}`,
-      text,
+      subject: `New Project Enquiry from ${name.trim()}`,
+      html,
     });
 
     if (error) {

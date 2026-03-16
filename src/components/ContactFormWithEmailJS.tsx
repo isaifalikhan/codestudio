@@ -162,8 +162,14 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
         />
         {errors.message && <p className="text-red-500 text-sm mt-1" role="alert">{errors.message.message}</p>}
       </div>
-      {status === 'success' && <p className="text-green-500 font-medium" role="status">Message sent! We&apos;ll reply within 24 hours.</p>}
-      {status === 'error' && <p className="text-red-500 font-medium" role="alert">Something went wrong. Please WhatsApp us directly.</p>}
+      {status === 'success' && (
+        <div className={`rounded-2xl px-6 py-4 font-medium ${isDark ? 'bg-green-500/20 border border-green-400/40 text-green-300' : 'bg-green-500/15 border border-green-500/30 text-green-700'}`} role="status">
+          ✓ Message sent! We&apos;ll reply within 24 hours.
+        </div>
+      )}
+      {status === 'error' && (
+        <p className="text-red-500 font-medium" role="alert">Something went wrong. Please WhatsApp us directly.</p>
+      )}
       <button
         type="submit"
         disabled={status === 'sending'}
