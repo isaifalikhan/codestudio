@@ -48,17 +48,21 @@ export const Testimonials = () => {
             </p>
             
             <div className="flex gap-3 lg:gap-4">
-              <button 
+              <button
+                type="button"
                 onClick={prev}
+                aria-label="Previous testimonial"
                 className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-white transition-all group"
               >
-                <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1 transition-transform" />
+                <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1 transition-transform" aria-hidden />
               </button>
-              <button 
+              <button
+                type="button"
                 onClick={next}
+                aria-label="Next testimonial"
                 className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-white transition-all group"
               >
-                <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" aria-hidden />
               </button>
             </div>
           </div>
@@ -94,7 +98,7 @@ export const Testimonials = () => {
                       {testimonials[current].name.split(/\s+/).map((p) => p.charAt(0)).join(' ')}
                     </div>
                     <div>
-                      <h4 className="text-lg lg:text-2xl font-display font-bold text-[#2F281D]">{testimonials[current].name}</h4>
+                      <p className="text-lg lg:text-2xl font-display font-bold text-[#2F281D]">{testimonials[current].name}</p>
                       <p className="text-[#997F6C] text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">{testimonials[current].role}</p>
                     </div>
                   </div>
@@ -102,12 +106,16 @@ export const Testimonials = () => {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex justify-center gap-2 lg:gap-3 mt-8 lg:mt-12">
+            <div className="flex justify-center gap-2 lg:gap-3 mt-8 lg:mt-12" role="tablist" aria-label="Testimonial slides">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
+                  type="button"
+                  role="tab"
+                  aria-label={`View testimonial ${i + 1}`}
+                  aria-selected={current === i}
                   onClick={() => setCurrent(i)}
-                  className={`h-1 lg:h-1.5 transition-all duration-500 rounded-full ${
+                  className={`h-1 lg:h-1.5 transition-all duration-500 rounded-full border-0 p-0 cursor-pointer ${
                     current === i ? 'w-8 lg:w-12 bg-[#997F6C]' : 'w-2 lg:w-3 bg-[#2F281D]/10'
                   }`}
                 />

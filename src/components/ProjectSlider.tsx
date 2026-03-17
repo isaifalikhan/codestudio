@@ -156,10 +156,12 @@ export const ProjectSlider = () => {
               {slides.map((slide, i) => (
                 <button
                   key={i}
+                  type="button"
                   onClick={() => {
                     setDirection(i > current ? 1 : -1);
                     setCurrent(i);
                   }}
+                  aria-label={`Go to slide ${i + 1}: ${slide.title}`}
                   className="group flex items-center gap-6 text-left"
                 >
                   <span className={`text-xs font-mono font-bold transition-colors ${current === i ? 'text-[#997F6C]' : 'text-[#FDF8EC]/20 group-hover:text-[#FDF8EC]/60'}`}>
@@ -180,13 +182,20 @@ export const ProjectSlider = () => {
         <div className="flex items-center gap-8">
           <div className="flex gap-2">
             {slides.map((_, i) => (
-              <motion.div
+              <button
                 key={i}
-                animate={{
-                  width: current === i ? 40 : 8,
-                  backgroundColor: current === i ? "#997F6C" : "rgba(253, 248, 236, 0.2)"
+                type="button"
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={current === i ? 'true' : undefined}
+                onClick={() => {
+                  setDirection(i > current ? 1 : -1);
+                  setCurrent(i);
                 }}
-                className="h-1 rounded-full"
+                className="h-1 rounded-full border-0 p-0 cursor-pointer min-w-[8px] transition-[width,background-color] duration-300"
+                style={{
+                  width: current === i ? 40 : 8,
+                  backgroundColor: current === i ? '#997F6C' : 'rgba(253, 248, 236, 0.2)',
+                }}
               />
             ))}
           </div>
@@ -194,16 +203,20 @@ export const ProjectSlider = () => {
 
         <div className="flex gap-3 lg:gap-4">
           <button
+            type="button"
             onClick={prev}
+            aria-label="Previous slide"
             className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#FDF8EC]/20 flex items-center justify-center text-[#FDF8EC] hover:bg-[#FDF8EC] hover:text-[#2F281D] transition-all group"
           >
-            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1 transition-transform" />
+            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1 transition-transform" aria-hidden />
           </button>
           <button
+            type="button"
             onClick={next}
+            aria-label="Next slide"
             className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#FDF8EC]/20 flex items-center justify-center text-[#FDF8EC] hover:bg-[#FDF8EC] hover:text-[#2F281D] transition-all group"
           >
-            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" />
+            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" aria-hidden />
           </button>
         </div>
       </div>

@@ -59,7 +59,7 @@ export function CookieBanner() {
           <button
             type="button"
             onClick={accept}
-            className="px-4 py-2.5 min-h-[48px] rounded-full text-sm font-bold bg-[#997F6C] hover:bg-[#997F6C]/90 transition-colors focus-visible:ring-2 focus-visible:ring-[#FDF8EC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2F281D] focus:outline-none"
+            className="px-4 py-2.5 min-h-[48px] rounded-full text-sm font-bold bg-[#6B5B4D] text-[#FDF8EC] hover:bg-[#5C4E42] transition-colors focus-visible:ring-2 focus-visible:ring-[#FDF8EC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2F281D] focus:outline-none"
           >
             Accept
           </button>

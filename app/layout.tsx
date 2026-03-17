@@ -121,7 +121,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-[#FDF8EC] flex flex-col antialiased font-sans text-base leading-relaxed">
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7165996801022980"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           crossOrigin="anonymous"
         />
         <GA4Script />

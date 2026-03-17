@@ -34,62 +34,72 @@ export const Footer = () => {
               creating high-end digital experiences that push the boundaries 
               of what's possible.
             </p>
-            <div className="flex gap-4" role="list">
-              <motion.a
-                href="https://www.instagram.com/codexstudio2026/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CodexStudio on Instagram"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
-              >
-                <Instagram className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="https://www.facebook.com/profile.php?id=61582748907285"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CodexStudio on Facebook"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
-              >
-                <Facebook className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="https://linkedin.com/company/codexstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CodexStudio on LinkedIn"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
-              >
-                <Linkedin className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="https://twitter.com/codexstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CodexStudio on Twitter"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
-              >
-                <Twitter className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="https://github.com/codexstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CodexStudio on GitHub"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
-              >
-                <Github className="w-5 h-5" />
-              </motion.a>
-            </div>
+            <ul className="flex gap-4 list-none m-0 p-0">
+              <li>
+                <motion.a
+                  href="https://www.instagram.com/codexstudio2026/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="CodexStudio on Instagram"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                >
+                  <Instagram className="w-5 h-5" aria-hidden />
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href="https://www.facebook.com/profile.php?id=61582748907285"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="CodexStudio on Facebook"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                >
+                  <Facebook className="w-5 h-5" aria-hidden />
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href="https://linkedin.com/company/codexstudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="CodexStudio on LinkedIn"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                >
+                  <Linkedin className="w-5 h-5" aria-hidden />
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href="https://twitter.com/codexstudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="CodexStudio on Twitter"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                >
+                  <Twitter className="w-5 h-5" aria-hidden />
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href="https://github.com/codexstudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="CodexStudio on GitHub"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                >
+                  <Github className="w-5 h-5" aria-hidden />
+                </motion.a>
+              </li>
+            </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Quick Links</h4>
+            <h3 className="text-lg font-bold mb-8 text-[#2F281D]">Quick Links</h3>
             <ul className="space-y-4">
               {['Home', 'About', 'Services', 'Portfolio', 'Blog', 'Tools', 'Resources', 'Team', 'Contact'].map((item) => (
                 <li key={item}>
@@ -105,7 +115,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Popular Tools</h4>
+            <h3 className="text-lg font-bold mb-8 text-[#2F281D]">Popular Tools</h3>
             <ul className="space-y-4">
               <li><Link href="/tools/word-counter" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Word Counter</Link></li>
               <li><Link href="/tools/image-compressor" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Image Compressor</Link></li>
@@ -117,7 +127,7 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Stay in touch</h4>
+            <h3 className="text-lg font-bold mb-8 text-[#2F281D]">Stay in touch</h3>
             <p className="text-[#2F281D]/75 text-sm mb-4">
               Want updates or have a project in mind? Get in touch.
             </p>
