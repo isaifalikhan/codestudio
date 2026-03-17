@@ -137,6 +137,10 @@ export const About = () => {
                 <p className="text-2xl font-display font-bold">Saif Ali</p>
                 <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm">Founder & CEO, CodexStudio</p>
               </div>
+              <div className="flex flex-wrap gap-4 mt-8">
+                <Link href="/services" className="text-[#FDF8EC]/90 font-semibold hover:text-[#FDF8EC] hover:underline">See what we build →</Link>
+                <Link href="/portfolio" className="text-[#FDF8EC]/90 font-semibold hover:text-[#FDF8EC] hover:underline">View our work →</Link>
+              </div>
             </div>
           </div>
         </div>
@@ -181,6 +185,10 @@ export const About = () => {
                 <p className="text-[#2F281D]/50 text-sm leading-relaxed">{value.desc}</p>
               </motion.div>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link href="/contact" className="text-[#997F6C] font-semibold hover:underline mr-6">Let&apos;s work together →</Link>
+            <Link href="/team" className="text-[#997F6C] font-semibold hover:underline">Meet the full team →</Link>
           </div>
         </div>
       </section>

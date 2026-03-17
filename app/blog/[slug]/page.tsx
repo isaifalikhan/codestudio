@@ -121,6 +121,46 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               — or browse all 40 free tools in our <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Tools</Link> section.
             </p>
           </div>
+
+          {/* Related Tools */}
+          <section className="mt-12 pt-10 border-t border-[#2F281D]/10">
+            <h3 className="text-xl font-display font-bold text-[#2F281D] mb-4">Free Tools You Might Find Useful</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <Link href="/tools/qr-code-generator" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
+                <span className="text-[#997F6C] font-semibold">Create a QR code for your business →</span>
+              </Link>
+              <Link href="/tools/image-compressor" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
+                <span className="text-[#997F6C] font-semibold">Compress your website images →</span>
+              </Link>
+              <Link href="/tools/meta-description-generator" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
+                <span className="text-[#997F6C] font-semibold">Generate your meta description →</span>
+              </Link>
+            </div>
+          </section>
+
+          {/* Related Services */}
+          <section className="mt-10 pt-10 border-t border-[#2F281D]/10">
+            <h3 className="text-xl font-display font-bold text-[#2F281D] mb-2">Need help building your website?</h3>
+            <p className="text-[#2F281D]/70 mb-4">CodexStudio builds fast, SEO-optimized websites for businesses in Islamabad and worldwide.</p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/services" className="text-[#997F6C] font-semibold hover:underline">View our services →</Link>
+              <Link href="/contact" className="text-[#997F6C] font-semibold hover:underline">Get a free quote →</Link>
+            </div>
+          </section>
+
+          {/* Related Blog Posts */}
+          <section className="mt-10 pt-10 border-t border-[#2F281D]/10">
+            <h3 className="text-xl font-display font-bold text-[#2F281D] mb-4">More from our blog</h3>
+            <ul className="space-y-2">
+              {blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2).map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/blog/${p.slug}`} className="text-[#997F6C] font-semibold hover:underline">
+                    {p.title} →
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
       </div>
     </article>

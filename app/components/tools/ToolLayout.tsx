@@ -125,40 +125,69 @@ export function ToolLayout({ tool, children, relatedTools = [], faqs = [] }: Too
         </div>
       </section>
 
-      {/* Related tools */}
+      {/* Related Free Tools (same category) */}
       {relatedTools.length > 0 && (
         <section className="mb-12">
-          <h2 className="text-xl font-display font-bold text-[#2F281D] mb-4">Related Tools</h2>
-          <ul className="flex flex-wrap gap-4">
+          <h2 className="text-xl font-display font-bold text-[#2F281D] mb-4">Related Free Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {relatedTools.map((t) => (
-              <li key={t.slug}>
-                <Link
-                  href={`/tools/${t.slug}`}
-                  className="text-[#997F6C] font-semibold hover:underline"
-                >
-                  {t.emoji} {t.name}
-                </Link>
-              </li>
+              <Link
+                key={t.slug}
+                href={`/tools/${t.slug}`}
+                className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors"
+              >
+                <span className="text-2xl block mb-2">{t.emoji}</span>
+                <span className="font-bold text-[#2F281D]">{t.name}</span>
+                <p className="text-sm text-[#2F281D]/70 mt-1">{t.tagline}</p>
+                <span className="text-[#997F6C] font-semibold text-sm mt-2 inline-block">Use tool →</span>
+              </Link>
             ))}
-          </ul>
+          </div>
         </section>
       )}
 
-      {/* Hire CTA */}
+      {/* Most Popular Tools */}
+      <section className="mb-12">
+        <h3 className="text-lg font-display font-bold text-[#2F281D] mb-4">Most Popular Tools</h3>
+        <ul className="flex flex-wrap gap-3">
+          {[
+            { slug: 'word-counter', name: 'Word Counter' },
+            { slug: 'password-generator', name: 'Password Generator' },
+            { slug: 'image-compressor', name: 'Image Compressor' },
+            { slug: 'age-calculator', name: 'Age Calculator' },
+            { slug: 'qr-code-generator', name: 'QR Code Generator' },
+          ].map((t) => (
+            <li key={t.slug}>
+              <Link href={`/tools/${t.slug}`} className="text-[#997F6C] font-semibold hover:underline">
+                {t.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Services CTA */}
       <section className="pt-8 border-t border-[#2F281D]/10 mb-12">
         <h3 className="text-lg font-display font-bold text-[#2F281D] mb-2">
-          Need a custom tool built for your business?
+          Need a custom tool for your business?
         </h3>
         <p className="text-[#2F281D]/70 mb-4">
-          The CodexStudio team builds custom web tools, dashboards, and applications for businesses
-          in Islamabad and worldwide.
+          We build custom web applications and tools for businesses in Islamabad and worldwide.
         </p>
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 bg-[#2F281D] text-[#FDF8EC] px-6 py-3 rounded-full font-bold hover:bg-[#997F6C] transition-colors"
-        >
-          Start a Project <ArrowRight className="w-4 h-4" />
-        </Link>
+        <div className="flex flex-wrap gap-4">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 border border-[#2F281D]/20 text-[#2F281D] px-6 py-3 rounded-full font-bold hover:bg-[#2F281D]/5 transition-colors"
+          >
+            View our services
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-[#2F281D] text-[#FDF8EC] px-6 py-3 rounded-full font-bold hover:bg-[#997F6C] transition-colors"
+          >
+            Start a Project <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </section>
 
       {/* Email capture */}

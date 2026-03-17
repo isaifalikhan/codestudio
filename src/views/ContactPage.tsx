@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { ContactFormWithEmailJS } from '../components/ContactFormWithEmailJS';
@@ -35,6 +36,16 @@ export const ContactPage = () => {
       </section>
 
       <section className="pb-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 mb-16 text-center">
+            <p className="text-[#2F281D]/80">
+              Want to see our work first? <Link href="/portfolio" className="text-[#997F6C] font-semibold hover:underline">View our portfolio →</Link>
+            </p>
+            <p className="text-[#2F281D]/80">
+              See our pricing: <Link href="/services" className="text-[#997F6C] font-semibold hover:underline">Our services →</Link>
+            </p>
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
           {/* Contact Info */}
           <div className="space-y-16">
@@ -103,6 +114,11 @@ export const ContactPage = () => {
 
             <ContactFormWithEmailJS variant="dark" showCompany />
           </motion.div>
+        </div>
+        <div className="max-w-7xl mx-auto mt-16 pt-10 border-t border-[#2F281D]/10 text-center">
+          <p className="text-[#2F281D]/70">
+            While you wait, try our free tools: <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">140+ free online tools →</Link>
+          </p>
         </div>
       </section>
     </motion.div>

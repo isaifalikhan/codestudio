@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { Check, Cpu, Search, Zap, Smartphone, MessageCircle } from 'lucide-react';
 
 const reasons = [
@@ -7,26 +8,31 @@ const reasons = [
     icon: Cpu,
     title: 'Modern tech stack',
     description: 'React, Next.js, Node.js—we build with tools that scale and stay maintainable.',
+    link: { href: '/services', text: 'See our tech stack →' },
   },
   {
     icon: Search,
     title: 'SEO-optimized development',
     description: 'Sites built for search from day one so you rank better and get more traffic.',
+    link: { href: '/services', text: 'Learn about our SEO services →' },
   },
   {
     icon: Zap,
     title: 'Fast loading & scalable architecture',
     description: 'Performance and scalability built in, so growth never slows you down.',
+    link: null as { href: string; text: string } | null,
   },
   {
     icon: Smartphone,
     title: 'Mobile-first responsive design',
     description: 'Every project is responsive and tested across devices and screen sizes.',
+    link: null as { href: string; text: string } | null,
   },
   {
     icon: MessageCircle,
     title: 'Transparent communication',
     description: 'Clear updates, honest timelines, and a single point of contact throughout.',
+    link: null as { href: string; text: string } | null,
   },
 ];
 
@@ -83,6 +89,13 @@ export const WhyChooseUs = () => {
                     {item.title}
                   </h3>
                   <p className="text-[#2F281D]/60 leading-relaxed">{item.description}</p>
+                  {item.link && (
+                    <p className="mt-3">
+                      <Link href={item.link.href} className="text-[#997F6C] font-semibold hover:underline">
+                        {item.link.text}
+                      </Link>
+                    </p>
+                  )}
                 </div>
               </motion.div>
             );

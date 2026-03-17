@@ -110,6 +110,16 @@ export const ServicesPage = () => {
                     Get Started
                   </Link>
                 </div>
+                {service.slug === 'seo-marketing' && (
+                  <p className="mt-4 text-[#2F281D]/70">
+                    Try our free SEO tools: <Link href="/tools/keyword-density" className="text-[#997F6C] font-semibold hover:underline">Keyword Density Checker</Link> and <Link href="/tools/meta-description-generator" className="text-[#997F6C] font-semibold hover:underline">Meta Description Generator</Link>.
+                  </p>
+                )}
+                {(service.slug === 'website-development' || service.slug === 'ui-ux-design') && (
+                  <p className="mt-4 text-[#2F281D]/70">
+                    <Link href="/portfolio" className="text-[#997F6C] font-semibold hover:underline">View our portfolio</Link> to see recent work.
+                  </p>
+                )}
               </div>
               <div className="flex-1 w-full">
                 <div className="aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl relative">
@@ -129,6 +139,18 @@ export const ServicesPage = () => {
       </section>
 
       <TechStack />
+
+      <section className="py-16 px-6 border-t border-[#2F281D]/10">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[#2F281D]/80 text-lg mb-4">
+            Not sure which service you need? <Link href="/contact" className="text-[#997F6C] font-semibold hover:underline">Talk to us for free →</Link>
+          </p>
+          <p className="text-[#2F281D]/70">
+            Read our blog for tips: <Link href="/blog" className="text-[#997F6C] font-semibold hover:underline">Web Development Insights →</Link>
+          </p>
+        </div>
+      </section>
+
       <CTA />
     </motion.div>
   );

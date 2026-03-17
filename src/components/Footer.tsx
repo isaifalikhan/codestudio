@@ -18,7 +18,7 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20"
         >
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-8">
@@ -105,9 +105,28 @@ export const Footer = () => {
           </div>
 
           <div>
+            <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Popular Tools</h4>
+            <ul className="space-y-4">
+              <li><Link href="/tools/word-counter" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Word Counter</Link></li>
+              <li><Link href="/tools/image-compressor" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Image Compressor</Link></li>
+              <li><Link href="/tools/password-generator" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Password Generator</Link></li>
+              <li><Link href="/tools/qr-code-generator" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">QR Code Generator</Link></li>
+              <li><Link href="/tools/age-calculator" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Age Calculator</Link></li>
+              <li><Link href="/tools/merge-pdf" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">PDF Merger</Link></li>
+            </ul>
+          </div>
+
+          <div>
             <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Stay in touch</h4>
-            <p className="text-[#2F281D]/75 text-sm mb-6">
+            <p className="text-[#2F281D]/75 text-sm mb-4">
               Want updates or have a project in mind? Get in touch.
+            </p>
+            <p className="text-sm mb-4">
+              <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Try our free tools</Link>
+              {' · '}
+              <Link href="/resources" className="text-[#997F6C] font-semibold hover:underline">Resources</Link>
+              {' · '}
+              <Link href="/blog" className="text-[#997F6C] font-semibold hover:underline">Blog</Link>
             </p>
             <Link
               href="/contact"

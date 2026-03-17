@@ -40,7 +40,7 @@ export const BlogPreview = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {blogPosts.map((post, i) => (
-            <Link key={post.title} href="/blog" className="group">
+            <Link key={post.title} href={`/blog/${post.slug}`} className="group">
               <motion.article
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -71,6 +71,9 @@ export const BlogPreview = () => {
             </Link>
           ))}
         </div>
+        <p className="mt-10 text-center text-[#2F281D]/70">
+          Read more insights on our <Link href="/blog" className="text-[#997F6C] font-semibold hover:underline">blog →</Link>
+        </p>
       </div>
     </section>
   );

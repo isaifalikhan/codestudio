@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { CTA } from '../components/CTA';
 import { getProjectImageUrl, portfolioProjects } from '../data/portfolio';
@@ -138,6 +139,18 @@ export const PortfolioPage = () => {
               ))}
             </AnimatePresence>
           </motion.div>
+
+          <div className="mt-16 pt-12 border-t border-[#2F281D]/10 text-center space-y-4">
+            <p className="text-[#2F281D]/80 text-lg">
+              Interested in working with us? <Link href="/contact" className="text-[#997F6C] font-semibold hover:underline">Start a project →</Link>
+            </p>
+            <p className="text-[#2F281D]/70">
+              See all our services: <Link href="/services" className="text-[#997F6C] font-semibold hover:underline">What we offer →</Link>
+            </p>
+            <p className="text-[#2F281D]/70">
+              We also build free tools. <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Browse 140+ free tools →</Link>
+            </p>
+          </div>
         </div>
       </section>
 

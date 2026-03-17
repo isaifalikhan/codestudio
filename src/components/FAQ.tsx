@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
 import { Plus, Minus } from 'lucide-react';
 
 const faqs = [
   {
     question: 'What services does CodexStudio offer?',
     answer: 'We offer a full range of digital services including Website Development, UI/UX Design, Social Media Management, Graphic Design, Branding, and SEO & Digital Marketing.',
+    link: { href: '/services', text: 'View our services →' },
   },
   {
     question: 'How long does a typical project take?',
     answer: 'Project timelines vary depending on complexity. A standard website usually takes 4-8 weeks, while larger platforms or branding projects can take 3-4 months.',
+    link: null as { href: string; text: string } | null,
   },
   {
     question: 'Do you work with startups?',
     answer: 'Yes! We love working with startups. We offer scalable solutions that grow with your business and help you make a strong first impression.',
+    link: { href: '/portfolio', text: 'View our portfolio →' },
   },
   {
     question: 'What is your pricing model?',
     answer: 'We offer both project-based pricing and monthly retainers. Every project is unique, so we provide custom quotes after an initial discovery call.',
+    link: { href: '/contact', text: 'Get a free quote →' },
   },
 ];
 
@@ -73,9 +78,16 @@ export const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-6 text-[#2F281D]/60 leading-relaxed">
+                    <p className={`text-[#2F281D]/60 leading-relaxed ${faq.link ? 'pb-2' : 'pb-6'}`}>
                       {faq.answer}
                     </p>
+                    {faq.link && (
+                      <p className="pb-6">
+                        <Link href={faq.link.href} className="text-[#997F6C] font-semibold hover:underline">
+                          {faq.link.text}
+                        </Link>
+                      </p>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -89,6 +89,9 @@ export default function ResourcesPage() {
             development tools and free tools for small business, this list has everything you need
             to work smarter.
           </p>
+          <p className="text-[#2F281D]/80 mb-6">
+            We also built our own free tools — <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Try 140+ tools we made →</Link>
+          </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#tools-grid"
@@ -276,6 +279,18 @@ export default function ResourcesPage() {
           >
             Start a Project <ArrowRight className="w-5 h-5" />
           </Link>
+        </div>
+      </section>
+
+      {/* Bottom links */}
+      <section className="py-10 px-6 border-t border-[#2F281D]/10">
+        <div className="max-w-3xl mx-auto text-center space-y-2">
+          <p className="text-[#2F281D]/80">
+            Want a custom tool built for your business? <Link href="/contact" className="text-[#997F6C] font-semibold hover:underline">Talk to CodexStudio →</Link>
+          </p>
+          <p className="text-[#2F281D]/70">
+            Read our blog: <Link href="/blog" className="text-[#997F6C] font-semibold hover:underline">Web development insights →</Link>
+          </p>
         </div>
       </section>
 
