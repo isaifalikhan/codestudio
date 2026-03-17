@@ -1,10 +1,21 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/constants';
-import { tools, toolCategories } from '@/lib/tools-data';
+import { tools } from '@/lib/tools-data';
 import { ToolsHubClient } from '@/app/components/tools/ToolsHubClient';
 import { JsonLd } from '@/app/components/JsonLd';
+import { Breadcrumb } from '@/app/components/Breadcrumb';
 import { ArrowRight } from 'lucide-react';
+
+const SITE = 'https://www.codexstudio2026.com';
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Tools', item: `${SITE}/tools` },
+  ],
+};
 
 export const metadata: Metadata = {
   title: '140+ Free Online Tools — Image, PDF, AI, Video & More | CodexStudio',
@@ -55,6 +66,12 @@ export default function ToolsHubPage() {
   return (
     <>
       <JsonLd data={collectionSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <div className="bg-[#FDF8EC] border-b border-[#2F281D]/10">
+        <div className="max-w-7xl mx-auto px-6 pt-6 pb-2">
+          <Breadcrumb items={[{ name: 'Home', href: '/' }, { name: 'Tools' }]} />
+        </div>
+      </div>
 
       {/* Hero */}
       <section className="h-screen flex items-center justify-center pt-12 pb-16 px-6">

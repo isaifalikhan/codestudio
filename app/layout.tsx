@@ -11,6 +11,7 @@ import { NProgressBar } from '@/src/components/NProgressBar';
 import { WhatsAppFloat } from '@/src/components/WhatsAppFloat';
 import { CookieBanner } from '@/app/components/CookieBanner';
 import { GAConsentWrapper } from '@/app/components/GAConsentWrapper';
+import { GoogleAnalytics as GA4Script } from '@/app/components/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -94,6 +95,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.codexstudio2026.com',
+    languages: {
+      en: 'https://www.codexstudio2026.com',
+      'en-PK': 'https://www.codexstudio2026.com',
+      'en-GB': 'https://www.codexstudio2026.com',
+    },
   },
   verification: {
     google: 'T_Rj7smmXjAkbQnIFybMDmAHO7nrmyl3C_vo2zzTiWM',
@@ -118,6 +124,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           crossOrigin="anonymous"
         />
+        <GA4Script />
         <a
           href="#main-content"
           id="skip-link"

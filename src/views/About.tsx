@@ -118,7 +118,7 @@ export const About = () => {
             >
               <Image
                 src="/images/unnamed.jpg"
-                alt="Saif Ali - Founder and CEO of CodexStudio"
+                alt="Saif Ali - Founder and CEO of CodexStudio web development agency in Islamabad Pakistan"
                 fill
                 className="object-cover"
                 loading="lazy"

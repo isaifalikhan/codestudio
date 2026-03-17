@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { blogPosts } from '@/src/data/blog';
 import { JsonLd } from '@/app/components/JsonLd';
+import { Breadcrumb } from '@/app/components/Breadcrumb';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -23,7 +24,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: [{ url: post.image, width: 1200, height: 630 }],
       type: 'article',
       publishedTime: post.date,
-      authors: ['CodexStudio Team'],
+      modifiedTime: post.lastModified ?? post.date,
+      authors: ['Saif Ali'],
+      section: post.category,
       siteName: 'CodexStudio',
     },
     twitter: { card: 'summary_large_image', images: [post.image] },
@@ -43,6 +46,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     description: post.excerpt,
     image: post.image,
     datePublished: post.date,
+    dateModified: post.lastModified ?? post.date,
     author: {
       '@type': 'Person',
       name: 'Saif Ali',
@@ -71,11 +75,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
       <article className="bg-[#FDF8EC] min-h-screen">
-      <header className="pt-40 pb-16 px-6">
+      <header className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <Link href="/blog" className="text-[#997F6C] font-bold text-sm hover:underline mb-6 inline-block">
-            ← Back to Blog
-          </Link>
+          <Breadcrumb
+            items={[
+              { name: 'Home', href: '/' },
+              { name: 'Blog', href: '/blog' },
+              { name: post.title },
+            ]}
+          />
           <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm">{post.category}</p>
           <h1 className="text-4xl md:text-6xl font-display font-bold text-[#2F281D] mt-2">{post.title}</h1>
           <p className="text-[#2F281D]/60 mt-4">{post.date} · {post.author}</p>

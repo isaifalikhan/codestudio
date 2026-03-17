@@ -62,11 +62,51 @@ const websiteSchema = {
   },
 };
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What services does CodexStudio offer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CodexStudio offers website development, UI/UX design, social media management, graphic design, branding, and SEO & digital marketing services. We also provide 140+ free online tools.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does a website cost in Pakistan?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'CodexStudio website projects start from $2,500 for custom website development. UI/UX design starts from $2,000 and branding from $1,500. Contact us for a free quote.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does a website project take?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A typical website project takes 2-4 weeks depending on complexity. Simple websites take 1-2 weeks while complex web applications may take 4-8 weeks.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you work with startups?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, we love working with startups. We offer flexible pricing and have worked with businesses of all sizes from solo founders to established companies.',
+      },
+    },
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
       <JsonLd data={localBusinessSchema} />
       <JsonLd data={websiteSchema} />
+      <JsonLd data={faqSchema} />
       <Home />
     </>
   );
