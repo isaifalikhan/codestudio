@@ -92,10 +92,11 @@ export const Navbar = () => {
         {/* Mobile Toggle */}
         <button
           type="button"
-          className="md:hidden text-[#2F281D]"
+          className="md:hidden w-12 h-12 flex items-center justify-center text-[#2F281D] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-nav-menu"
         >
           {isMobileMenuOpen ? <X aria-hidden /> : <Menu aria-hidden />}
         </button>
@@ -109,57 +110,63 @@ export const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[60] bg-[#2F281D] p-8 flex flex-col md:hidden"
+            id="mobile-nav-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+            className="fixed inset-0 z-[60] bg-[#2F281D] flex flex-col md:hidden"
           >
-            <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center justify-between p-6 pb-4 flex-shrink-0">
               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                 <div className="w-10 h-10 bg-[#FDF8EC] rounded-lg flex items-center justify-center font-bold text-xl text-[#2F281D]">
                   C
                 </div>
-                <span className="text-2xl font-display font-bold tracking-tighter text-[#FDF8EC]">
+                <span className="text-xl sm:text-2xl font-display font-bold tracking-tighter text-[#FDF8EC]">
                   CODEX<span className="text-[#997F6C]">STUDIO</span>
                 </span>
               </Link>
               <button 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-12 h-12 rounded-full border border-[#FDF8EC]/10 flex items-center justify-center text-[#FDF8EC]"
+                className="w-12 h-12 rounded-full border border-[#FDF8EC]/10 flex items-center justify-center text-[#FDF8EC] shrink-0"
+                aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <ul className="flex flex-col gap-1 flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 py-2 -mt-1">
               {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link
-                    href={link.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={cn(
-                      'text-4xl font-display font-bold transition-colors',
-                      pathname === link.path ? 'text-[#997F6C]' : 'text-[#FDF8EC]/60'
-                    )}
+                <li key={link.name}>
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: Math.min(i * 0.05, 0.3) }}
                   >
-                    {link.name}
-                  </Link>
-                </motion.div>
+                    <Link
+                      href={link.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(
+                        'block py-4 text-2xl sm:text-3xl font-display font-bold transition-colors border-b border-[#FDF8EC]/5 last:border-0',
+                        pathname === link.path ? 'text-[#997F6C]' : 'text-[#FDF8EC]/90 hover:text-[#FDF8EC]'
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                </li>
               ))}
-            </div>
+            </ul>
 
-            <div className="mt-auto pt-12 border-t border-[#FDF8EC]/10">
+            <div className="flex-shrink-0 p-6 pt-6 pb-8 border-t border-[#FDF8EC]/10">
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full bg-[#997F6C] text-[#FDF8EC] py-5 rounded-2xl text-center font-bold text-lg flex items-center justify-center gap-3"
+                className="w-full bg-[#997F6C] text-[#FDF8EC] py-4 rounded-2xl text-center font-bold text-base sm:text-lg flex items-center justify-center gap-3"
               >
                 Start a Project
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <div className="mt-8 flex justify-center gap-6">
+              <div className="mt-6 flex justify-center gap-6">
                 <a href="https://www.instagram.com/codexstudio2026/" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Instagram">IG</a>
                 <a href="https://www.facebook.com/profile.php?id=61582748907285" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="Facebook">FB</a>
                 <a href="https://linkedin.com/company/codexstudio" target="_blank" rel="noopener noreferrer" className="text-[#FDF8EC]/40 text-sm font-bold tracking-widest hover:text-[#997F6C] transition-colors" aria-label="LinkedIn">LI</a>

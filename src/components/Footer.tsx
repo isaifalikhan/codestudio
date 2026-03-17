@@ -29,7 +29,7 @@ export const Footer = () => {
                 CODEX<span className="text-[#997F6C]">STUDIO</span>
               </span>
             </Link>
-            <p className="text-[#2F281D]/50 text-lg max-w-md mb-8 leading-relaxed">
+            <p className="text-[#2F281D]/75 text-lg max-w-md mb-8 leading-relaxed">
               We are a team of passionate designers and developers dedicated to 
               creating high-end digital experiences that push the boundaries 
               of what's possible.
@@ -95,7 +95,7 @@ export const Footer = () => {
                 <li key={item}>
                   <Link
                     href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                    className="text-[#2F281D]/50 hover:text-[#997F6C] transition-colors"
+                    className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2 focus-visible:rounded"
                   >
                     {item}
                   </Link>
@@ -106,7 +106,7 @@ export const Footer = () => {
 
           <div>
             <h4 className="text-lg font-bold mb-8 text-[#2F281D]">Stay in touch</h4>
-            <p className="text-[#2F281D]/50 text-sm mb-6">
+            <p className="text-[#2F281D]/75 text-sm mb-6">
               Want updates or have a project in mind? Get in touch.
             </p>
             <Link
@@ -137,7 +137,7 @@ export const Footer = () => {
             onClick={scrollToTop}
             whileHover={{ y: -5 }}
             aria-label="Scroll back to top"
-            className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all group"
+            className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2"
           >
             <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
           </motion.button>

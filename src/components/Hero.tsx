@@ -51,21 +51,21 @@ export const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 backdrop-blur-md mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-[#5F634D] animate-ping" />
-          <span className="text-xs font-bold tracking-widest uppercase text-[#2F281D]/60">
+          <span className="text-xs font-bold tracking-widest uppercase text-[#2F281D]/75">
             Web Development & Digital Solutions
           </span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
           className="text-4xl sm:text-6xl md:text-8xl font-display font-bold leading-[1.1] mb-8 tracking-tighter text-[#2F281D]"
         >
           Build Powerful <br />
@@ -73,10 +73,10 @@ export const Hero = () => {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-[#2F281D]/60 mb-12 leading-relaxed"
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="max-w-2xl mx-auto text-lg md:text-xl text-[#2F281D]/80 mb-12 leading-relaxed"
         >
           CodexStudio helps startups and businesses build modern websites, web apps, and digital experiences that grow revenue.
         </motion.p>

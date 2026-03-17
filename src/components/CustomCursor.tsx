@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 
 export const CustomCursor = () => {
+  const [showCursor, setShowCursor] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -13,6 +14,14 @@ export const CustomCursor = () => {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    const prefersFinePointer = window.matchMedia('(pointer: fine)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersFinePointer || prefersReducedMotion) return;
+    setShowCursor(true);
+  }, []);
+
+  useEffect(() => {
+    if (!showCursor) return;
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -20,14 +29,14 @@ export const CustomCursor = () => {
 
     const handleHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const isClickable = 
-        target.tagName === 'BUTTON' || 
-        target.tagName === 'A' || 
-        target.closest('button') || 
+      const isClickable =
+        target.tagName === 'BUTTON' ||
+        target.tagName === 'A' ||
+        target.closest('button') ||
         target.closest('a') ||
         target.classList.contains('cursor-pointer') ||
         target.closest('.cursor-pointer');
-      
+
       setIsHovering(!!isClickable);
     };
 
@@ -38,7 +47,9 @@ export const CustomCursor = () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleHover);
     };
-  }, [cursorX, cursorY]);
+  }, [showCursor, cursorX, cursorY]);
+
+  if (!showCursor) return null;
 
   return (
     <motion.div

@@ -26,8 +26,8 @@ const ProcessSection = () => (
     <div className="max-w-7xl mx-auto">
       <Reveal width="100%">
         <div className="text-center mb-20">
-          <h2 id="process-heading" className="text-4xl md:text-6xl font-display font-bold mb-4 text-[#2F281D]">Our <span className="text-[#2F281D]/40 italic">Process</span></h2>
-          <p className="text-[#2F281D]/40 max-w-2xl mx-auto text-lg">
+          <h2 id="process-heading" className="text-4xl md:text-6xl font-display font-bold mb-4 text-[#2F281D]">Our <span className="text-[#2F281D]/70 italic">Process</span></h2>
+          <p className="text-[#2F281D]/75 max-w-2xl mx-auto text-lg">
             A clear, professional workflow from idea to launch.
           </p>
         </div>
@@ -50,7 +50,7 @@ const ProcessSection = () => (
           >
             <span className="text-4xl font-display font-bold text-[#997F6C] mb-4 block">{item.step}</span>
             <h3 className="text-xl font-bold mb-2 text-[#2F281D]">{item.title}</h3>
-            <p className="text-[#2F281D]/50 text-sm leading-relaxed">{item.desc}</p>
+            <p className="text-[#2F281D]/75 text-sm leading-relaxed">{item.desc}</p>
           </motion.div>
         ))}
       </div>

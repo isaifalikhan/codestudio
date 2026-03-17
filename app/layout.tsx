@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Inter, Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
@@ -9,6 +10,26 @@ import { NProgressBar } from '@/src/components/NProgressBar';
 import { WhatsAppFloat } from '@/src/components/WhatsAppFloat';
 import { CookieBanner } from '@/app/components/CookieBanner';
 import { GAConsentWrapper } from '@/app/components/GAConsentWrapper';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-cormorant',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.codexstudio2026.com'),
@@ -85,14 +106,10 @@ export default function RootLayout({
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}>
       <head>
         <meta name="google-site-verification" content="T_Rj7smmXjAkbQnIFybMDmAHO7nrmyl3C_vo2zzTiWM" />
         <meta name="google-adsense-account" content="ca-pub-7165996801022980" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-        <style dangerouslySetInnerHTML={{ __html: '#skip-link:focus{left:1rem;top:1rem;}' }} />
       </head>
       <body className="min-h-screen bg-[#FDF8EC] flex flex-col antialiased font-sans text-base leading-relaxed">
         <a
