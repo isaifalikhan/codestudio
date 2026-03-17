@@ -6,10 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import { Navbar } from '@/src/components/Navbar';
 import { Footer } from '@/src/components/Footer';
-import { CustomCursor } from '@/src/components/CustomCursor';
-import { NProgressBar } from '@/src/components/NProgressBar';
-import { WhatsAppFloat } from '@/src/components/WhatsAppFloat';
-import { CookieBanner } from '@/app/components/CookieBanner';
+import { DeferredTopWidgets, DeferredBottomWidgets } from '@/app/components/DeferredLayoutWidgets';
 import { GAConsentWrapper } from '@/app/components/GAConsentWrapper';
 import { GoogleAnalytics as GA4Script } from '@/app/components/GoogleAnalytics';
 
@@ -128,15 +125,13 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <CustomCursor />
-        <NProgressBar />
+        <DeferredTopWidgets />
         <Navbar />
         <main id="main-content" className="flex-grow" role="main">
           {children}
         </main>
         <Footer />
-        <WhatsAppFloat />
-        <CookieBanner />
+        <DeferredBottomWidgets />
         {gaId && <GAConsentWrapper gaId={gaId} />}
         <Analytics />
       </body>

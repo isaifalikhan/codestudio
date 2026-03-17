@@ -2,13 +2,21 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { Hero } from '../components/Hero';
-import { Stats } from '../components/Stats';
-import { AboutPreview } from '../components/AboutPreview';
-import { motion } from 'motion/react';
-import { Reveal } from '../components/Reveal';
+import { RevealCSS } from '../components/RevealCSS';
 
-/* Below-the-fold sections: load JS in separate chunks to reduce initial bundle and unused JS */
+/* Above-the-fold: Hero. Below-the-fold: everything else in separate chunks to cut main-thread work */
+const Hero = dynamic(
+  () => import('../components/Hero').then((m) => ({ default: m.Hero })),
+  { ssr: true }
+);
+const Stats = dynamic(
+  () => import('../components/Stats').then((m) => ({ default: m.Stats })),
+  { ssr: true }
+);
+const AboutPreview = dynamic(
+  () => import('../components/AboutPreview').then((m) => ({ default: m.AboutPreview })),
+  { ssr: true }
+);
 const ProjectSlider = dynamic(
   () => import('../components/ProjectSlider').then((m) => ({ default: m.ProjectSlider })),
   { ssr: true }
@@ -37,6 +45,10 @@ const TechStack = dynamic(
   () => import('../components/TechStack').then((m) => ({ default: m.TechStack })),
   { ssr: true }
 );
+const ProcessSection = dynamic(
+  () => import('../components/ProcessSection').then((m) => ({ default: m.ProcessSection })),
+  { ssr: true }
+);
 const Testimonials = dynamic(
   () => import('../components/Testimonials').then((m) => ({ default: m.Testimonials })),
   { ssr: true }
@@ -58,89 +70,71 @@ const ContactForm = dynamic(
   { ssr: true }
 );
 
-const ProcessSection = () => (
-  <section className="py-24 px-6 bg-[#FDF8EC] perspective-1000" aria-labelledby="process-heading">
-    <div className="max-w-7xl mx-auto">
-      <Reveal width="100%">
-        <div className="text-center mb-20">
-          <h2 id="process-heading" className="text-4xl md:text-6xl font-display font-bold mb-4 text-[#2F281D]">Our <span className="text-[#2F281D]/70 italic">Process</span></h2>
-          <p className="text-[#2F281D]/75 max-w-2xl mx-auto text-lg">
-            A clear, professional workflow from idea to launch.
-          </p>
-        </div>
-      </Reveal>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        {[
-          { step: '01', title: 'Discovery', desc: 'Understanding business goals and project requirements.' },
-          { step: '02', title: 'Design', desc: 'Creating wireframes and modern UI/UX designs.' },
-          { step: '03', title: 'Development', desc: 'Building fast and scalable applications.' },
-          { step: '04', title: 'Launch', desc: 'Testing, deploying, and optimizing performance.' },
-        ].map((item, i) => (
-          <motion.div
-            key={item.step}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.8 }}
-            whileHover={{ y: -10 }}
-            className="p-8 rounded-3xl bg-[#E8E2D2] border border-[#2F281D]/10 shadow-sm hover:shadow-xl transition-all cursor-default"
-          >
-            <span className="text-4xl font-display font-bold text-[#997F6C] mb-4 block">{item.step}</span>
-            <h3 className="text-xl font-bold mb-2 text-[#2F281D]">{item.title}</h3>
-            <p className="text-[#2F281D]/75 text-sm leading-relaxed">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 export const Home = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="bg-[#FDF8EC]"
-    >
+    <div className="bg-[#FDF8EC] page-enter">
       <Hero />
-      <Reveal width="100%">
+      <RevealCSS width="100%">
         <Stats />
-      </Reveal>
-      <Reveal width="100%">
+      </RevealCSS>
+      <RevealCSS width="100%">
         <AboutPreview />
-      </Reveal>
-      <ProjectSlider />
-      <Reveal width="100%">
-        <Services />
-      </Reveal>
-      <Reveal width="100%">
-        <ToolsTeaser />
-      </Reveal>
-      <Reveal width="100%">
-        <ResourcesBanner />
-      </Reveal>
-      <Reveal width="100%">
-        <WhyChooseUs />
-      </Reveal>
-      <Portfolio />
-      <Reveal width="100%">
-        <TechStack />
-      </Reveal>
+      </RevealCSS>
+      <div className="content-visibility-auto">
+        <ProjectSlider />
+      </div>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <Services />
+        </div>
+      </RevealCSS>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <ToolsTeaser />
+        </div>
+      </RevealCSS>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <ResourcesBanner />
+        </div>
+      </RevealCSS>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <WhyChooseUs />
+        </div>
+      </RevealCSS>
+      <div className="content-visibility-auto">
+        <Portfolio />
+      </div>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <TechStack />
+        </div>
+      </RevealCSS>
       <ProcessSection />
-      <Reveal width="100%">
-        <Testimonials />
-      </Reveal>
-      <Reveal width="100%">
-        <BlogPreview />
-      </Reveal>
-      <Reveal width="100%">
-        <FAQ />
-      </Reveal>
-      <CTA />
-      <Reveal width="100%">
-        <ContactForm />
-      </Reveal>
-    </motion.div>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <Testimonials />
+        </div>
+      </RevealCSS>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <BlogPreview />
+        </div>
+      </RevealCSS>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <FAQ />
+        </div>
+      </RevealCSS>
+      <div className="content-visibility-auto">
+        <CTA />
+      </div>
+      <RevealCSS width="100%">
+        <div className="content-visibility-auto">
+          <ContactForm />
+        </div>
+      </RevealCSS>
+    </div>
   );
 };

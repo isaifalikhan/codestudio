@@ -115,6 +115,33 @@ button:focus-visible,
   scroll-behavior: smooth;
 }
 
+/* CSS-only reveal (no motion lib) — reduces main-thread work */
+.reveal-hidden .reveal-inner {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 40px));
+}
+.reveal-visible .reveal-inner {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transition-delay: var(--reveal-delay, 0.2s);
+}
+
+/* Below-the-fold: skip layout/paint until near viewport (Style & Layout savings) */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Lightweight page enter (no motion on shell) */
+.page-enter {
+  animation: pageFadeIn 0.35s ease-out;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* NProgress bar styling */
 #nprogress .bar {
   background: #997F6C !important;
