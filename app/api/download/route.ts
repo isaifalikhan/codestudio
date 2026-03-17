@@ -32,17 +32,21 @@ export async function POST(request: NextRequest) {
           });
         }
 
-        // Prefer a format with both video and audio; fallback to video-only
-        let format = YtdlCore.chooseFormat(info.formats, {
-          quality: 'highest',
-          filter: 'videoandaudio',
-        });
-
-        if (!format?.url) {
-          format = YtdlCore.chooseFormat(info.formats, {
-            quality: 'highest',
-            filter: 'video',
-          });
+        const filters: Array<'videoandaudio' | 'video' | 'videoonly'> = ['videoandaudio', 'video', 'videoonly'];
+        let format: { url?: string } | null = null;
+        for (const filter of filters) {
+          try {
+            const chosen = YtdlCore.chooseFormat(info.formats, {
+              quality: 'highest',
+              filter,
+            });
+            if (chosen?.url) {
+              format = chosen;
+              break;
+            }
+          } catch {
+            continue;
+          }
         }
 
         if (!format?.url) {

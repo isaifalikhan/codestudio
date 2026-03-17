@@ -35,6 +35,7 @@ const labelClassDark = 'text-xs font-bold uppercase tracking-widest text-[#FDF8E
 
 export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }: { variant?: Variant; showCompany?: boolean }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const isDark = variant === 'dark';
   const inputClass = isDark ? inputClassDark : inputClassLight;
   const labelClass = isDark ? labelClassDark : labelClassLight;
@@ -46,6 +47,7 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
   const onSubmit = async (data: ContactFormFields) => {
     if (data.website) return; // honeypot
     setStatus('sending');
+    setErrorMessage('');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -63,12 +65,14 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
       const json = await res.json().catch(() => ({}));
       if (!res.ok) {
         setStatus('error');
+        setErrorMessage(typeof json?.error === 'string' ? json.error : 'Something went wrong. Please try again or WhatsApp us directly.');
         return;
       }
       setStatus('success');
       reset();
     } catch {
       setStatus('error');
+      setErrorMessage('Network error. Please check your connection or WhatsApp us directly.');
     }
   };
 
@@ -167,8 +171,8 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
           ✓ Message sent! We&apos;ll reply within 24 hours.
         </div>
       )}
-      {status === 'error' && (
-        <p className="text-red-500 font-medium" role="alert">Something went wrong. Please WhatsApp us directly.</p>
+      {status === 'error' && errorMessage && (
+        <p className="text-red-500 font-medium" role="alert">{errorMessage}</p>
       )}
       <button
         type="submit"

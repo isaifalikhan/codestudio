@@ -7,32 +7,60 @@ export default function BackgroundRemoverWidget() {
   const [result, setResult] = useState<string | null>(null);
   const [tolerance, setTolerance] = useState(30);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const removeBackground = useCallback(() => {
     if (!file) return;
     setLoading(true);
+    setError(null);
+    const objectUrl = URL.createObjectURL(file);
     const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return setLoading(false);
-      ctx.drawImage(img, 0, 0);
-      const id = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const d = id.data;
-      const corner = (d[0] + d[1] + d[2]) / 3;
-      const t = tolerance;
-      for (let i = 0; i < d.length; i += 4) {
-        const g = (d[i] + d[i + 1] + d[i + 2]) / 3;
-        if (Math.abs(g - corner) < t) d[i + 3] = 0;
-      }
-      ctx.putImageData(id, 0, 0);
-      setResult(canvas.toDataURL('image/png'));
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      setError('Failed to load image. Try a different format (JPG, PNG, WebP).');
       setLoading(false);
     };
-    img.src = URL.createObjectURL(file);
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          URL.revokeObjectURL(objectUrl);
+          setLoading(false);
+          return;
+        }
+        ctx.drawImage(img, 0, 0);
+        const id = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const d = id.data;
+        const w = canvas.width;
+        const h = canvas.height;
+        // Sample 4 corners + center to guess background color (more reliable than single corner)
+        const samples = [
+          (d[0] + d[1] + d[2]) / 3,
+          (d[(w - 1) * 4] + d[(w - 1) * 4 + 1] + d[(w - 1) * 4 + 2]) / 3,
+          (d[(h - 1) * w * 4] + d[(h - 1) * w * 4 + 1] + d[(h - 1) * w * 4 + 2]) / 3,
+          (d[((h - 1) * w + (w - 1)) * 4] + d[((h - 1) * w + (w - 1)) * 4 + 1] + d[((h - 1) * w + (w - 1)) * 4 + 2]) / 3,
+          (d[Math.floor(h / 2) * w * 4 + Math.floor(w / 2) * 4] + d[Math.floor(h / 2) * w * 4 + Math.floor(w / 2) * 4 + 1] + d[Math.floor(h / 2) * w * 4 + Math.floor(w / 2) * 4 + 2]) / 3,
+        ];
+        const corner = samples.reduce((a, b) => a + b, 0) / samples.length;
+        const t = tolerance;
+        for (let i = 0; i < d.length; i += 4) {
+          const g = (d[i] + d[i + 1] + d[i + 2]) / 3;
+          if (Math.abs(g - corner) < t) d[i + 3] = 0;
+        }
+        ctx.putImageData(id, 0, 0);
+        setResult(canvas.toDataURL('image/png'));
+      } catch (e) {
+        setError('Processing failed. Try a smaller or different image.');
+      } finally {
+        URL.revokeObjectURL(objectUrl);
+        setLoading(false);
+      }
+    };
+    img.src = objectUrl;
   }, [file, tolerance]);
 
   const download = () => {
@@ -45,6 +73,11 @@ export default function BackgroundRemoverWidget() {
 
   return (
     <div className="space-y-6">
+      {error && (
+        <p className="text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-sm" role="alert">
+          {error}
+        </p>
+      )}
       <input
         ref={inputRef}
         type="file"
@@ -52,6 +85,7 @@ export default function BackgroundRemoverWidget() {
         onChange={(e) => {
           setFile(e.target.files?.[0] || null);
           setResult(null);
+          setError(null);
         }}
         className="hidden"
       />
