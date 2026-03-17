@@ -1,25 +1,62 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Hero } from '../components/Hero';
-import { Services } from '../components/Services';
-import { Portfolio } from '../components/Portfolio';
 import { Stats } from '../components/Stats';
-import { Testimonials } from '../components/Testimonials';
-import { ContactForm } from '../components/ContactForm';
-import { RevealSection } from '../components/RevealSection';
-import { ProjectSlider } from '../components/ProjectSlider';
 import { AboutPreview } from '../components/AboutPreview';
-import { TechStack } from '../components/TechStack';
-import { WhyChooseUs } from '../components/WhyChooseUs';
-import { ResourcesBanner } from '../components/ResourcesBanner';
-import { ToolsTeaser } from '../components/ToolsTeaser';
-import { BlogPreview } from '../components/BlogPreview';
-import { FAQ } from '../components/FAQ';
-import { CTA } from '../components/CTA';
 import { motion } from 'motion/react';
-
 import { Reveal } from '../components/Reveal';
+
+/* Below-the-fold sections: load JS in separate chunks to reduce initial bundle and unused JS */
+const ProjectSlider = dynamic(
+  () => import('../components/ProjectSlider').then((m) => ({ default: m.ProjectSlider })),
+  { ssr: true }
+);
+const Services = dynamic(
+  () => import('../components/Services').then((m) => ({ default: m.Services })),
+  { ssr: true }
+);
+const ToolsTeaser = dynamic(
+  () => import('../components/ToolsTeaser').then((m) => ({ default: m.ToolsTeaser })),
+  { ssr: true }
+);
+const ResourcesBanner = dynamic(
+  () => import('../components/ResourcesBanner').then((m) => ({ default: m.ResourcesBanner })),
+  { ssr: true }
+);
+const WhyChooseUs = dynamic(
+  () => import('../components/WhyChooseUs').then((m) => ({ default: m.WhyChooseUs })),
+  { ssr: true }
+);
+const Portfolio = dynamic(
+  () => import('../components/Portfolio').then((m) => ({ default: m.Portfolio })),
+  { ssr: true }
+);
+const TechStack = dynamic(
+  () => import('../components/TechStack').then((m) => ({ default: m.TechStack })),
+  { ssr: true }
+);
+const Testimonials = dynamic(
+  () => import('../components/Testimonials').then((m) => ({ default: m.Testimonials })),
+  { ssr: true }
+);
+const BlogPreview = dynamic(
+  () => import('../components/BlogPreview').then((m) => ({ default: m.BlogPreview })),
+  { ssr: true }
+);
+const FAQ = dynamic(
+  () => import('../components/FAQ').then((m) => ({ default: m.FAQ })),
+  { ssr: true }
+);
+const CTA = dynamic(
+  () => import('../components/CTA').then((m) => ({ default: m.CTA })),
+  { ssr: true }
+);
+const ContactForm = dynamic(
+  () => import('../components/ContactForm').then((m) => ({ default: m.ContactForm })),
+  { ssr: true }
+);
 
 const ProcessSection = () => (
   <section className="py-24 px-6 bg-[#FDF8EC] perspective-1000" aria-labelledby="process-heading">
