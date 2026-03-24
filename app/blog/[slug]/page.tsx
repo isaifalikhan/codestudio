@@ -1,9 +1,28 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Fragment } from 'react';
 import { blogPosts } from '@/src/data/blog';
 import { JsonLd } from '@/app/components/JsonLd';
 import { Breadcrumb } from '@/app/components/Breadcrumb';
+
+function RichParagraph({ text }: { text: string }) {
+  const parts = text.split(/(\*\*.+?\*\*)/g);
+  return (
+    <p className="mt-4 leading-relaxed">
+      {parts.map((part, i) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          return (
+            <strong key={i} className="font-semibold text-[#2F281D]">
+              {part.slice(2, -2)}
+            </strong>
+          );
+        }
+        return <Fragment key={i}>{part}</Fragment>;
+      })}
+    </p>
+  );
+}
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -107,7 +126,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               if (block.startsWith('## ')) {
                 return <h2 key={i} className="text-2xl font-display font-bold mt-12 mb-4 text-[#2F281D]">{block.slice(3)}</h2>;
               }
-              return <p key={i} className="mt-4 leading-relaxed">{block}</p>;
+              return <RichParagraph key={i} text={block} />;
             })}
           </div>
           <div className="mt-12 pt-8 border-t border-[#2F281D]/10">
