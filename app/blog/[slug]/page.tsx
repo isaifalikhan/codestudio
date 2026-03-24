@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <Link href="/tools/image-compressor" className="text-[#997F6C] font-semibold hover:underline">image compressor</Link>
               , or{' '}
               <Link href="/tools/password-generator" className="text-[#997F6C] font-semibold hover:underline">password generator</Link>
-              — or browse all 40 free tools in our <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Tools</Link> section.
+              — or browse all 140+ free tools in our <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Tools</Link> section.
             </p>
           </div>
 

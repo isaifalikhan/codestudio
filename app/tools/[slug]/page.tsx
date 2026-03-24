@@ -73,20 +73,20 @@ export default async function ToolPage({
 
   const faqs = [
     {
-      q: `Is ${tool.name} free?`,
-      a: `Yes, completely free with no signup. Use it as often as you like.`,
+      q: `Is the ${tool.name} completely free?`,
+      a: `Yes, the ${tool.name} is 100% free to use with no hidden charges, no subscription, and no signup required. Simply visit the page and start using it immediately.`,
     },
     {
-      q: `Does ${tool.name} upload my files to a server?`,
-      a: `No, everything runs in your browser. Your files and data never leave your device.`,
+      q: `Does this tool upload my files to a server?`,
+      a: `No. Everything runs entirely in your browser using JavaScript. Your files, text, and data never leave your device and are never sent to our servers. This makes it completely private and secure.`,
     },
     {
-      q: `Can I use ${tool.name} on mobile?`,
-      a: `Yes, it works on all devices — desktop, tablet, and mobile browsers.`,
+      q: `Does the ${tool.name} work on mobile?`,
+      a: `Yes, the ${tool.name} is fully responsive and works on all devices including smartphones, tablets, and desktop computers. It works on Chrome, Firefox, Safari, and Edge browsers.`,
     },
     {
-      q: `How accurate is ${tool.name}?`,
-      a: `Results are accurate for typical use. For critical applications we recommend verifying output independently.`,
+      q: `How accurate is this tool?`,
+      a: `Our ${tool.name} uses industry-standard algorithms to ensure accurate results every time. It has been tested extensively across different browsers and devices to ensure consistent and reliable output.`,
     },
   ];
 
@@ -105,7 +105,7 @@ export default async function ToolPage({
       <JsonLd data={buildToolSchema(tool)} />
       <JsonLd data={buildBreadcrumbSchema(tool.slug, tool.name)} />
       <JsonLd data={faqPageSchema} />
-      <ToolLayout tool={tool} relatedTools={related} faqs={faqs}>
+      <ToolLayout tool={tool} relatedTools={related}>
         <ToolWidgetLoader slug={slug} />
       </ToolLayout>
     </>

@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.codexstudio2026.com' },
   openGraph: {
     title: 'Web Development Agency in Islamabad, Pakistan | CodexStudio',
-    description: 'Modern websites, web apps & 40 free tools. Based in Islamabad, Pakistan.',
+    description:
+      'Modern websites, web apps & 140+ free online tools. Based in Islamabad, Pakistan.',
     url: 'https://www.codexstudio2026.com',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
     type: 'website',

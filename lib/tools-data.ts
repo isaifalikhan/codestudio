@@ -1,4 +1,6 @@
-export type Tool = {
+import { enrichToolSeo } from '@/lib/tool-seo-copy';
+
+export type ToolCore = {
   slug: string;
   name: string;
   category: string;
@@ -9,7 +11,12 @@ export type Tool = {
   buildType: 'client';
 };
 
-export const tools: Tool[] = [
+export type Tool = ToolCore & {
+  longDescription: string;
+  howToSteps: [string, string, string];
+};
+
+const rawTools: ToolCore[] = [
   // ── IMAGE TOOLS ───────────────────────────────────────────
   {
     slug: 'image-compressor',
@@ -567,6 +574,8 @@ export const tools: Tool[] = [
   { slug: 'pronunciation-guide', name: 'Word Pronunciation Tool', category: 'Education', emoji: '🗣️', tagline: 'Hear the pronunciation of any word', description: 'Free word pronunciation tool. Type any English word to hear it pronounced with phonetic transcription. Uses Web Speech API. Works in all modern browsers.', keywords: ['word pronunciation tool', 'how to pronounce', 'pronunciation guide online', 'hear word pronunciation free'], buildType: 'client' },
   { slug: 'logic-puzzle-generator', name: 'Sudoku & Puzzle Generator', category: 'Education', emoji: '🧩', tagline: 'Generate and play Sudoku puzzles online', description: 'Free online Sudoku generator. Generate easy, medium, hard, and expert Sudoku puzzles. Play in browser or print. New puzzle every time you load.', keywords: ['sudoku generator', 'free sudoku online', 'printable sudoku puzzles', 'sudoku puzzle maker free'], buildType: 'client' },
 ];
+
+export const tools: Tool[] = rawTools.map(enrichToolSeo);
 
 export const toolCategories = [
   { id: 'all', label: 'All Tools', count: tools.length },
