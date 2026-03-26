@@ -1,90 +1,72 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { YtdlCore } from '@ybd-project/ytdl-core';
+import type { DownloadResponse } from '@/lib/downloader/types';
+import { TtlCache } from '@/lib/downloader/cache';
+import { SimpleRateLimiter } from '@/lib/downloader/rate-limit';
+import { downloadByPlatform } from '@/lib/downloader';
+import { tryYtDlp } from '@/lib/downloader/ytdlp';
+import { tryRemoteExtractor } from '@/lib/downloader/remote-extractor';
+import { detectPlatform, getRequestIp, isProbablyUrl, normalizeUrl, safeTrimUrl, sha256Base64Url } from '@/lib/downloader/utils';
 
-const YOUTUBE_REGEX =
-  /^(?:https?:\/\/)?(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)[\w-]+/i;
+const CACHE = new TtlCache<DownloadResponse>(500);
+const CACHE_TTL_MS = 10 * 60 * 1000;
 
-function isYouTubeUrl(url: string): boolean {
-  return YOUTUBE_REGEX.test(url.trim());
-}
+const RATE_LIMITER = new SimpleRateLimiter(30, 60 * 1000, 5000); // 30 req/min/IP
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { url, platform } = body as { url?: string; platform?: string };
-
-    if (!url || typeof url !== 'string') {
-      return NextResponse.json({ error: 'Missing or invalid URL.' }, { status: 400 });
+    const body = (await request.json().catch(() => ({}))) as { url?: unknown };
+    const raw = safeTrimUrl(body.url);
+    if (!raw) {
+      return NextResponse.json({ error: true, code: 'INVALID_URL', message: 'Missing or invalid URL.' } satisfies DownloadResponse, {
+        status: 400,
+      });
     }
 
-    const trimmedUrl = url.trim();
-
-    // YouTube: use ytdl-core to get direct download URL
-    if (platform === 'youtube' || isYouTubeUrl(trimmedUrl)) {
-      try {
-        const ytdl = new YtdlCore();
-        const info = await ytdl.getFullInfo(trimmedUrl);
-
-        if (!info?.formats?.length) {
-          return NextResponse.json({
-            error:
-              'Could not get video formats. The video may be private, region-locked, or live. Try another video or use a trusted third-party converter.',
-          });
-        }
-
-        const filters: Array<'videoandaudio' | 'video' | 'videoonly'> = ['videoandaudio', 'video', 'videoonly'];
-        let format: { url?: string } | null = null;
-        for (const filter of filters) {
-          try {
-            const chosen = YtdlCore.chooseFormat(info.formats, {
-              quality: 'highest',
-              filter,
-            });
-            if (chosen?.url) {
-              format = chosen;
-              break;
-            }
-          } catch {
-            continue;
-          }
-        }
-
-        if (!format?.url) {
-          return NextResponse.json({
-            error:
-              'No downloadable format found. The video may be restricted. Try copying the link and using a desktop app or trusted converter.',
-          });
-        }
-
-        return NextResponse.json({
-          downloadUrl: format.url,
-          title: info.videoDetails?.title ?? 'YouTube video',
-        });
-      } catch (err) {
-        const message =
-          err instanceof Error ? err.message : 'YouTube request failed.';
-        return NextResponse.json({
-          error:
-            message.includes('Private') || message.includes('private')
-              ? 'This video is private and cannot be downloaded.'
-              : message.includes('unavailable') || message.includes('Unplayable')
-                ? 'This video is not available or is region-restricted.'
-                : `Could not get download link: ${message}. Try again or use a trusted third-party converter.`,
-        });
-      }
+    const ip = getRequestIp(request.headers);
+    const rl = RATE_LIMITER.check(ip);
+    if (!rl.ok) {
+      return NextResponse.json(
+        { error: true, code: 'RATE_LIMITED', message: 'Too many requests. Please wait a moment and try again.' } satisfies DownloadResponse,
+        {
+          status: 429,
+          headers: {
+            'Retry-After': String(Math.max(1, Math.ceil((rl.resetAt - Date.now()) / 1000))),
+          },
+        },
+      );
     }
 
-    // Other platforms: optional RapidAPI integration
-    const rapidApiKey = process.env.RAPIDAPI_KEY;
-    if (rapidApiKey && platform) {
-      // Optional: call RapidAPI video downloader (e.g. All Video Downloader) here
-      // and return { downloadUrl }. For now we only implement YouTube.
+    const normalized = normalizeUrl(raw);
+    if (!isProbablyUrl(normalized)) {
+      return NextResponse.json({ error: true, code: 'INVALID_URL', message: 'Invalid URL.' } satisfies DownloadResponse, { status: 400 });
     }
 
-    return NextResponse.json({
-      error: `Direct download is only supported for YouTube on this server. Paste a YouTube link to get a download URL. For ${platform || 'other'} videos, you can paste the link in a trusted third-party converter.`,
-    });
-  } catch {
-    return NextResponse.json({ error: 'Request failed.' }, { status: 500 });
+    const platform = detectPlatform(normalized);
+    if (!platform) {
+      return NextResponse.json(
+        { error: true, code: 'UNSUPPORTED_PLATFORM', platform: 'unknown', message: 'Unsupported platform URL.' } satisfies DownloadResponse,
+        { status: 400 },
+      );
+    }
+
+    const cacheKey = `${platform}:${sha256Base64Url(normalized)}`;
+    const cached = CACHE.get(cacheKey);
+    if (cached) return NextResponse.json(cached);
+
+    const result = await downloadByPlatform(platform, normalized);
+    let finalResult: DownloadResponse = result;
+    if ('error' in result && result.error === true) {
+      finalResult =
+        (await tryRemoteExtractor(normalized, platform)) ??
+        (await tryYtDlp(normalized, platform)) ??
+        result;
+    }
+
+    if (!('error' in finalResult) || finalResult.error !== true) CACHE.set(cacheKey, finalResult, CACHE_TTL_MS);
+
+    return NextResponse.json(finalResult);
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'Request failed.';
+    return NextResponse.json({ error: true, code: 'UPSTREAM_FAILED', message: msg } satisfies DownloadResponse, { status: 500 });
   }
 }
