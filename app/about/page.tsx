@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { About } from '@/src/views/About';
 import { JsonLd } from '@/app/components/JsonLd';
-import { Breadcrumb } from '@/app/components/Breadcrumb';
 
 const SITE = 'https://www.codexstudio2026.com';
 const breadcrumbSchema = {
@@ -39,11 +38,6 @@ export default function AboutPage() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
-      <div className="bg-[#FDF8EC] border-b border-[#2F281D]/10">
-        <div className="max-w-7xl mx-auto px-6 pt-6 pb-2">
-          <Breadcrumb items={[{ name: 'Home', href: '/' }, { name: 'About' }]} />
-        </div>
-      </div>
       <About />
     </>
   );

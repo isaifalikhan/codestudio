@@ -16,6 +16,16 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   reactStrictMode: true,
+  webpack(config, { dev, isServer }) {
+    // @imgly/background-removal pulls in onnxruntime-web bundles that include `import.meta`.
+    // In this project’s build, the minifier treats these .mjs bundles as non-module code and fails.
+    // Disabling minimization for the client production build avoids the crash.
+    if (!dev && !isServer) {
+      config.optimization = config.optimization || {};
+      config.optimization.minimize = false;
+    }
+    return config;
+  },
   async headers() {
     return [
       {

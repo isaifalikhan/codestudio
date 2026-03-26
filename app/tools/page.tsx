@@ -4,7 +4,6 @@ import { SITE_URL } from '@/lib/constants';
 import { tools } from '@/lib/tools-data';
 import { ToolsHubClient } from '@/app/components/tools/ToolsHubClient';
 import { JsonLd } from '@/app/components/JsonLd';
-import { Breadcrumb } from '@/app/components/Breadcrumb';
 import { ArrowRight } from 'lucide-react';
 
 const SITE = 'https://www.codexstudio2026.com';
@@ -67,11 +66,6 @@ export default function ToolsHubPage() {
     <>
       <JsonLd data={collectionSchema} />
       <JsonLd data={breadcrumbSchema} />
-      <div className="bg-[#FDF8EC] border-b border-[#2F281D]/10">
-        <div className="max-w-7xl mx-auto px-6 pt-6 pb-2">
-          <Breadcrumb items={[{ name: 'Home', href: '/' }, { name: 'Tools' }]} />
-        </div>
-      </div>
 
       {/* Hero */}
       <section className="h-screen flex items-center justify-center pt-12 pb-16 px-6">

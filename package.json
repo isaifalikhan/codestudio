@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@imgly/background-removal": "^1.7.0",
     "@next/third-parties": "^14.2.0",
     "@vercel/analytics": "^1.4.0",
     "@ybd-project/ytdl-core": "^6.0.8",

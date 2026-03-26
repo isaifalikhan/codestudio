@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Fragment } from 'react';
 import { blogPosts } from '@/src/data/blog';
+import { getRelatedTools, getToolBySlug } from '@/lib/tools-data';
 import { JsonLd } from '@/app/components/JsonLd';
-import { Breadcrumb } from '@/app/components/Breadcrumb';
 
 function RichParagraph({ text }: { text: string }) {
   const parts = text.split(/(\*\*.+?\*\*)/g);
@@ -57,6 +57,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const toolSlug = slug.startsWith('tool-') ? slug.replace(/^tool-/, '') : null;
+  const tool = toolSlug ? getToolBySlug(toolSlug) : undefined;
+  const relatedTools = tool ? getRelatedTools(tool.slug, 3) : [];
+
   const SITE = 'https://www.codexstudio2026.com';
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -96,13 +100,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="bg-[#FDF8EC] min-h-screen">
       <header className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
-          <Breadcrumb
-            items={[
-              { name: 'Home', href: '/' },
-              { name: 'Blog', href: '/blog' },
-              { name: post.title },
-            ]}
-          />
           <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm">{post.category}</p>
           <h1 className="text-4xl md:text-6xl font-display font-bold text-[#2F281D] mt-2">{post.title}</h1>
           <p className="text-[#2F281D]/60 mt-4">{post.date} · {post.author}</p>
@@ -145,15 +142,39 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <section className="mt-12 pt-10 border-t border-[#2F281D]/10">
             <h3 className="text-xl font-display font-bold text-[#2F281D] mb-4">Free Tools You Might Find Useful</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <Link href="/tools/qr-code-generator" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
-                <span className="text-[#997F6C] font-semibold">Create a QR code for your business →</span>
-              </Link>
-              <Link href="/tools/image-compressor" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
-                <span className="text-[#997F6C] font-semibold">Compress your website images →</span>
-              </Link>
-              <Link href="/tools/meta-description-generator" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
-                <span className="text-[#997F6C] font-semibold">Generate your meta description →</span>
-              </Link>
+              {tool ? (
+                <>
+                  <Link
+                    href={`/tools/${tool.slug}`}
+                    className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors"
+                  >
+                    <span className="text-[#997F6C] font-semibold">{tool.name} →</span>
+                    <p className="text-[#2F281D]/70 mt-2 text-sm">{tool.tagline}</p>
+                  </Link>
+                  {relatedTools.slice(0, 2).map((t) => (
+                    <Link
+                      key={t.slug}
+                      href={`/tools/${t.slug}`}
+                      className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors"
+                    >
+                      <span className="text-[#997F6C] font-semibold">{t.name} →</span>
+                      <p className="text-[#2F281D]/70 mt-2 text-sm">{t.tagline}</p>
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <Link href="/tools/qr-code-generator" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
+                    <span className="text-[#997F6C] font-semibold">Create a QR code for your business →</span>
+                  </Link>
+                  <Link href="/tools/image-compressor" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
+                    <span className="text-[#997F6C] font-semibold">Compress your website images →</span>
+                  </Link>
+                  <Link href="/tools/meta-description-generator" className="block p-4 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] hover:border-[#997F6C]/30 transition-colors">
+                    <span className="text-[#997F6C] font-semibold">Generate your meta description →</span>
+                  </Link>
+                </>
+              )}
             </div>
           </section>
 
@@ -171,7 +192,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <section className="mt-10 pt-10 border-t border-[#2F281D]/10">
             <h3 className="text-xl font-display font-bold text-[#2F281D] mb-4">More from our blog</h3>
             <ul className="space-y-2">
-              {blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2).map((p) => (
+              {blogPosts
+                .filter((p) => p.slug !== post.slug)
+                .filter((p) => (tool ? !p.slug.startsWith('tool-') : true))
+                .slice(0, 2)
+                .map((p) => (
                 <li key={p.slug}>
                   <Link href={`/blog/${p.slug}`} className="text-[#997F6C] font-semibold hover:underline">
                     {p.title} →

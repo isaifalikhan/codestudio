@@ -1,67 +1,59 @@
 'use client';
 
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { removeBackground } from '@imgly/background-removal';
 
 export default function BackgroundRemoverWidget() {
   const [file, setFile] = useState<File | null>(null);
   const [result, setResult] = useState<string | null>(null);
-  const [tolerance, setTolerance] = useState(30);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isFirstModelLoad, setIsFirstModelLoad] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const resultObjectUrlRef = useRef<string | null>(null);
 
-  const removeBackground = useCallback(() => {
-    if (!file) return;
+  useEffect(() => {
+    const prev = resultObjectUrlRef.current;
+    return () => {
+      if (prev) URL.revokeObjectURL(prev);
+    };
+  }, []);
+
+  const handleRemoveBackground = async (imageUrl: string) => {
     setLoading(true);
     setError(null);
-    const objectUrl = URL.createObjectURL(file);
-    const img = new Image();
-    img.onerror = () => {
-      URL.revokeObjectURL(objectUrl);
-      setError('Failed to load image. Try a different format (JPG, PNG, WebP).');
+    const hasLoadedBefore = typeof window !== 'undefined' && window.localStorage.getItem('imgly_bg_model_loaded') === '1';
+    setIsFirstModelLoad(!hasLoadedBefore);
+
+    try {
+      // This runs AI entirely in the browser
+      // First time takes 20-30 seconds (downloads AI model)
+      // After that, 3-5 seconds per image
+      const blob = await removeBackground(imageUrl);
+      const url = URL.createObjectURL(blob);
+
+      if (resultObjectUrlRef.current) URL.revokeObjectURL(resultObjectUrlRef.current);
+      resultObjectUrlRef.current = url;
+      setResult(url);
+
+      if (typeof window !== 'undefined') window.localStorage.setItem('imgly_bg_model_loaded', '1');
+      setIsFirstModelLoad(false);
+    } catch (e) {
+      setError('Processing failed. Please try a different image.');
+    } finally {
       setLoading(false);
-    };
-    img.onload = () => {
-      try {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) {
-          URL.revokeObjectURL(objectUrl);
-          setLoading(false);
-          return;
-        }
-        ctx.drawImage(img, 0, 0);
-        const id = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const d = id.data;
-        const w = canvas.width;
-        const h = canvas.height;
-        // Sample 4 corners + center to guess background color (more reliable than single corner)
-        const samples = [
-          (d[0] + d[1] + d[2]) / 3,
-          (d[(w - 1) * 4] + d[(w - 1) * 4 + 1] + d[(w - 1) * 4 + 2]) / 3,
-          (d[(h - 1) * w * 4] + d[(h - 1) * w * 4 + 1] + d[(h - 1) * w * 4 + 2]) / 3,
-          (d[((h - 1) * w + (w - 1)) * 4] + d[((h - 1) * w + (w - 1)) * 4 + 1] + d[((h - 1) * w + (w - 1)) * 4 + 2]) / 3,
-          (d[Math.floor(h / 2) * w * 4 + Math.floor(w / 2) * 4] + d[Math.floor(h / 2) * w * 4 + Math.floor(w / 2) * 4 + 1] + d[Math.floor(h / 2) * w * 4 + Math.floor(w / 2) * 4 + 2]) / 3,
-        ];
-        const corner = samples.reduce((a, b) => a + b, 0) / samples.length;
-        const t = tolerance;
-        for (let i = 0; i < d.length; i += 4) {
-          const g = (d[i] + d[i + 1] + d[i + 2]) / 3;
-          if (Math.abs(g - corner) < t) d[i + 3] = 0;
-        }
-        ctx.putImageData(id, 0, 0);
-        setResult(canvas.toDataURL('image/png'));
-      } catch (e) {
-        setError('Processing failed. Try a smaller or different image.');
-      } finally {
-        URL.revokeObjectURL(objectUrl);
-        setLoading(false);
-      }
-    };
-    img.src = objectUrl;
-  }, [file, tolerance]);
+    }
+  };
+
+  const onRemoveClick = async () => {
+    if (!file) return;
+    const objectUrl = URL.createObjectURL(file);
+    try {
+      await handleRemoveBackground(objectUrl);
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  };
 
   const download = () => {
     if (!result) return;
@@ -76,6 +68,13 @@ export default function BackgroundRemoverWidget() {
       {error && (
         <p className="text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-sm" role="alert">
           {error}
+        </p>
+      )}
+      {loading && isFirstModelLoad && (
+        <p className="text-sm text-[#2F281D] bg-[#FDF8EC] border border-[#2F281D]/15 rounded-xl px-4 py-3" role="status">
+          Loading AI model for the first time...
+          <br />
+          This takes 20-30 seconds. Future uses will be instant.
         </p>
       )}
       <input
@@ -98,21 +97,10 @@ export default function BackgroundRemoverWidget() {
       </button>
       {file && (
         <>
-          <label className="block">
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Sensitivity (removes similar colors): {tolerance}</span>
-            <input
-              type="range"
-              min={5}
-              max={80}
-              value={tolerance}
-              onChange={(e) => setTolerance(Number(e.target.value))}
-              className="w-full"
-            />
-          </label>
           <div className="flex gap-2">
             <button
               type="button"
-              onClick={removeBackground}
+              onClick={onRemoveClick}
               disabled={loading}
               className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] disabled:opacity-50"
             >
@@ -124,7 +112,7 @@ export default function BackgroundRemoverWidget() {
               </button>
             )}
           </div>
-          <p className="text-xs text-[#2F281D]/50">Uses corner color detection. For best results use images with a clear background color.</p>
+          <p className="text-xs text-[#2F281D]/50">Runs AI entirely in your browser. First use may take ~20–30s.</p>
           {result && (
             <div className="flex gap-4 flex-wrap">
               <img src={result} alt="No background" className="max-h-48 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]" />
