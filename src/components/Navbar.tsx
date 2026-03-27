@@ -134,7 +134,7 @@ export const Navbar = () => {
               </button>
             </div>
 
-            <ul className="flex flex-col gap-1 flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 py-2 -mt-1">
+            <ul className="flex flex-col gap-0.5 flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 py-2 -mt-1">
               {navLinks.map((link, i) => (
                 <li key={link.name}>
                   <motion.div
@@ -146,7 +146,7 @@ export const Navbar = () => {
                       href={link.path}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
-                        'block py-4 text-2xl sm:text-3xl font-display font-bold transition-colors border-b border-[#FDF8EC]/5 last:border-0',
+                        'block py-3 text-[1.15rem] sm:text-[1.35rem] leading-tight tracking-tight font-display font-semibold transition-colors border-b border-[#FDF8EC]/5 last:border-0',
                         pathname === link.path ? 'text-[#997F6C]' : 'text-[#FDF8EC]/90 hover:text-[#FDF8EC]'
                       )}
                     >
