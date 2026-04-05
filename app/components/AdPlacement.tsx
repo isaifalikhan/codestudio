@@ -1,6 +1,37 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+
+const AD_CLIENT = 'ca-pub-7165996801022980';
+
+const AD_SLOTS: Record<'top' | 'bottom' | 'sidebar', string> = {
+  top: '5709673629',
+  bottom: '4668054698',
+  sidebar: '2943909480',
+};
+
+type AdSenseWindow = Window & typeof globalThis & { adsbygoogle?: unknown[] };
+
 export function AdPlacement({ slot }: { slot: 'top' | 'bottom' | 'sidebar' }) {
+  const adRef = useRef<HTMLModElement | null>(null);
+  const hasRequestedAd = useRef(false);
+  const adSlot = AD_SLOTS[slot];
+
+  useEffect(() => {
+    if (!adSlot || !adRef.current || hasRequestedAd.current) return;
+
+    hasRequestedAd.current = true;
+
+    try {
+      const adsbygoogle = ((window as AdSenseWindow).adsbygoogle = (window as AdSenseWindow).adsbygoogle || []);
+      adsbygoogle.push({});
+    } catch {
+      hasRequestedAd.current = false;
+    }
+  }, [adSlot]);
+
+  if (!adSlot) return null;
+
   return (
     <div
       className={`ad-container ad-${slot}`}
@@ -11,20 +42,18 @@ export function AdPlacement({ slot }: { slot: 'top' | 'bottom' | 'sidebar' }) {
         background: 'var(--color-background-secondary, #E8E2D2)',
         borderRadius: '8px',
         margin: '16px 0',
+        overflow: 'hidden',
       }}
     >
-      {/* Replace with actual Google AdSense code when approved */}
-      {/* 
-      <ins className="adsbygoogle"
+      <ins
+        ref={adRef}
+        className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXX"
-        data-ad-slot="XXXXXXXXXX"
+        data-ad-client={AD_CLIENT}
+        data-ad-slot={adSlot}
         data-ad-format="auto"
-        data-full-width-responsive="true" />
-      */}
-      <div style={{ fontSize: '11px', color: 'var(--color-text-tertiary, #6b7280)' }}>
-        Advertisement
-      </div>
+        data-full-width-responsive="true"
+      />
     </div>
   );
 }

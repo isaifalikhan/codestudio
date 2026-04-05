@@ -112,7 +112,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}>
       <head>
-        <meta name="google-site-verification" content="T_Rj7smmXjAkbQnIFybMDmAHO7nrmyl3C_vo2zzTiWM" />
         <meta name="google-adsense-account" content="ca-pub-7165996801022980" />
         <Script
           async
