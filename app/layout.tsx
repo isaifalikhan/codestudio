@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import { AdSenseDeferred } from '@/app/components/AdSenseDeferred';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import { Navbar } from '@/src/components/Navbar';
@@ -114,9 +114,14 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="T_Rj7smmXjAkbQnIFybMDmAHO7nrmyl3C_vo2zzTiWM" />
         <meta name="google-adsense-account" content="ca-pub-7165996801022980" />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7165996801022980"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-screen bg-[#FDF8EC] flex flex-col antialiased font-sans text-base leading-relaxed">
-        <AdSenseDeferred />
         <GA4Script />
         <a
           href="#main-content"
