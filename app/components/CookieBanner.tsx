@@ -43,10 +43,11 @@ export function CookieBanner() {
     >
       <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <p className="text-sm md:text-base">
-          We use cookies to improve your experience and analyze traffic.{' '}
+          We use cookies and similar technologies to improve your experience, measure traffic, and (with partners such as Google) show relevant ads. See our{' '}
           <Link href="/privacy" className="underline hover:text-[#997F6C]">
-            Privacy policy
-          </Link>
+            Privacy Policy
+          </Link>{' '}
+          for details, including how Google uses data on partner sites.
         </p>
         <div className="flex gap-3 shrink-0">
           <button

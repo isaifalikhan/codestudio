@@ -186,6 +186,10 @@ export default function ToolsHubPage() {
             YouTube thumbnail downloader, video-to-GIF converter, and audio trimmer. All run in
             your browser — no software to install.
           </p>
+          <p className="text-[#2F281D]/80 leading-relaxed mt-4">
+            <strong className="text-[#2F281D]">Responsible use:</strong> Only download or reuse content you have the right to use. Respect copyright and each
+            platform&apos;s terms of service. CodexStudio does not encourage infringement or unauthorized redistribution.
+          </p>
 
           <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
             Finance Tools — Invoices, Loans &amp; Calculators

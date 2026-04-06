@@ -16,7 +16,7 @@ export const TermsConditions = () => {
         <h1 className="text-4xl md:text-6xl font-display font-bold text-[#2F281D] mb-8">
           Terms & <span className="text-[#2F281D]/40 italic">Conditions</span>
         </h1>
-        <p className="text-[#2F281D]/60 mb-12">Last updated: March 2026</p>
+        <p className="text-[#2F281D]/60 mb-12">Last updated: April 2026</p>
 
         <div className="prose prose-lg text-[#2F281D]/80 space-y-8">
           <section>
@@ -55,14 +55,34 @@ export const TermsConditions = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">6. Changes</h2>
+            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">6. Use of website and free tools</h2>
+            <p>
+              You may use our website, blog, and free browser tools only for lawful purposes. You agree not to misuse the site, attempt unauthorized access, or use
+              our tools to violate intellectual property rights, platform terms of service, or applicable law. Tools are provided &quot;as is&quot; without warranties;
+              you are responsible for your use of outputs and for backing up important data.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">7. Third-party advertising</h2>
+            <p>
+              Some pages display ads served by Google or other partners. Those parties may use cookies or similar technologies as described in our{' '}
+              <Link href="/privacy" className="text-[#997F6C] font-bold hover:underline">
+                Privacy Policy
+              </Link>
+              . We do not control the content of third-party ads; if you have concerns about an ad, you can use platform opt-out tools linked in our Privacy Policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">8. Changes</h2>
             <p>
               We may update these Terms from time to time. Continued use of our website or services after changes constitutes acceptance of the updated Terms.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">7. Contact</h2>
+            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">9. Contact</h2>
             <p>
               Questions about these Terms: <a href="mailto:hello@codexstudio.com" className="text-[#997F6C] font-bold hover:underline">hello@codexstudio.com</a>. CodexStudio, Islamabad, Pakistan.
             </p>

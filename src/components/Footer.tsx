@@ -157,9 +157,10 @@ export const Footer = () => {
           <p className="text-[#2F281D]/30 text-sm">
             © 2026 CodexStudio. All rights reserved.
           </p>
-          <div className="flex gap-8 text-sm text-[#2F281D]/30">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-[#2F281D]/30">
             <Link href="/privacy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-[#2F281D] transition-colors">Terms & Conditions</Link>
+            <Link href="/editorial" className="hover:text-[#2F281D] transition-colors">Editorial standards</Link>
           </div>
           <motion.button
             type="button"

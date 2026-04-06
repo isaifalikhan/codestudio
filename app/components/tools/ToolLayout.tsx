@@ -69,6 +69,16 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
         <p className="text-[#2F281D]/70 mt-2 text-lg">{tool.tagline}</p>
       </header>
 
+      {tool.category === 'Video Tools' && (
+        <aside
+          className="mb-8 rounded-xl border border-[#2F281D]/15 bg-[#E8E2D2]/40 px-4 py-3 text-sm text-[#2F281D]/85"
+          role="note"
+        >
+          <strong className="text-[#2F281D]">Legal use only:</strong> Download or reuse content only when you have the right to do so. Respect copyright and each
+          platform&apos;s terms of service.
+        </aside>
+      )}
+
       <AdPlacement slot="top" />
 
       <section
