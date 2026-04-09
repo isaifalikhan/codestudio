@@ -11,7 +11,8 @@ const nextConfig = {
       { protocol: 'https', hostname: 'randomuser.me', pathname: '/**' },
       { protocol: 'https', hostname: 'www.codexstudio2026.com', pathname: '/**' },
       { protocol: 'https', hostname: '**.tiktokcdn.com', pathname: '/**' },
-      { protocol: 'https', hostname: 'p16-sign.tiktokcdn-us.com', pathname: '/**' },
+      // TikTok US CDN (thumbnails from TikWM/downloader: p16-common-sign, p16-sign, etc.)
+      { protocol: 'https', hostname: '**.tiktokcdn-us.com', pathname: '/**' },
       { protocol: 'https', hostname: 'scontent.cdninstagram.com', pathname: '/**' },
       { protocol: 'https', hostname: '**.fbcdn.net', pathname: '/**' },
       { protocol: 'https', hostname: 'pbs.twimg.com', pathname: '/**' },

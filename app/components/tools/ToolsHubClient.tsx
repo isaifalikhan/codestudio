@@ -30,6 +30,13 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
     }
     return result;
   }, [tools, categoryId, search]);
+  const popularTools = useMemo(
+    () =>
+      ['word-counter', 'image-compressor', 'password-generator', 'merge-pdf', 'qr-code-generator', 'tiktok-downloader']
+        .map((slug) => tools.find((tool) => tool.slug === slug))
+        .filter(Boolean) as Tool[],
+    [tools]
+  );
 
   return (
     <div className="space-y-8">
@@ -38,7 +45,7 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
           type="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search tools..."
+          placeholder="Search 140+ free tools..."
           aria-label="Search tools"
           className="w-full sm:max-w-xs px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 focus:border-[#997F6C]"
         />
@@ -59,9 +66,18 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
                 : 'bg-[#2F281D]/10 text-[#2F281D]/70 hover:bg-[#2F281D]/20'
             }`}
           >
-            {cat.label}
+            {cat.label} <span className="ml-1 opacity-70">({cat.count})</span>
           </button>
         ))}
+      </div>
+
+      <div>
+        <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-4">Most Popular</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {popularTools.map((tool) => (
+            <ToolCard key={`popular-${tool.slug}`} tool={tool} />
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -45,8 +45,8 @@ export const AboutPreview = () => {
               transition={{ delay: 0.3 }}
               className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-[#2F281D] text-[#FDF8EC] p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-2xl max-w-[200px] md:max-w-xs"
             >
-              <p className="text-xl md:text-2xl font-display font-bold mb-1 md:mb-2">8+ Years</p>
-              <p className="text-xs md:text-sm text-[#FDF8EC]/60">Combined experience in digital transformation and creative excellence.</p>
+              <p className="text-xl md:text-2xl font-display font-bold mb-1 md:mb-2">10+ Years</p>
+              <p className="text-xs md:text-sm text-[#FDF8EC]/60">Building full-stack products, APIs, and high-impact sites for teams worldwide.</p>
             </motion.div>
           </motion.div>
 
@@ -71,8 +71,9 @@ export const AboutPreview = () => {
               transition={{ delay: 0.1 }}
               className="text-lg text-[#2F281D]/60 leading-relaxed"
             >
-              CodexStudio is a forward-thinking digital agency dedicated to crafting premium experiences. 
-              We don't just build websites; we create digital ecosystems that drive growth and inspire users.
+              CodexStudio pairs creative direction with serious engineering—Next.js and Node.js apps, JWT-secured APIs,
+              MongoDB-backed systems, and polished marketing sites for brands from hospitality and retail to healthcare
+              and logistics. We ship dashboards, e-commerce, and AI-assisted products end to end.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

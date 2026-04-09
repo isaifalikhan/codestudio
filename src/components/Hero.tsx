@@ -68,15 +68,23 @@ export const Hero = () => {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="text-4xl sm:text-6xl md:text-8xl font-display font-bold leading-[1.1] mb-8 tracking-tighter text-[#2F281D]"
         >
-          Build Powerful <br />
-          <span className="text-gradient font-serif italic font-light">Websites</span> & Digital Products
+          Web Development Agency in Islamabad, Pakistan
         </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="max-w-4xl mx-auto text-xl md:text-2xl text-[#2F281D]/80 mb-8 leading-relaxed font-medium"
+        >
+          We build modern websites, web apps &amp; digital products that grow revenue - for startups and businesses across Pakistan and worldwide.
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-[#2F281D]/80 mb-12 leading-relaxed"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="max-w-2xl mx-auto text-lg md:text-xl text-[#2F281D]/75 mb-12 leading-relaxed"
         >
           CodexStudio helps startups and businesses build modern websites, web apps, and digital experiences that grow revenue.
         </motion.p>

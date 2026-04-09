@@ -3,9 +3,42 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
-  { name: 'Ahmed K.', role: 'Startup Founder', content: 'CodexStudio built our website quickly and the performance is amazing. Highly recommend for any business looking to go digital.' },
-  { name: 'Rachel F.', role: 'Founder, Nova', content: 'The team is incredibly talented. They didn\'t just build a website; they built an experience that our customers love. The UI/UX work alone has set us apart from competitors.' },
-  { name: 'David P.', role: 'Marketing Director', content: 'Working with CodexStudio was the best decision for our brand. Our conversion rates have increased since the launch. Professional, responsive, and results-driven.' },
+  {
+    name: 'Ahmed Khan',
+    role: 'Founder, HealthVista (Islamabad)',
+    content:
+      'CodexStudio rebuilt our company website with Next.js and our page speed improved immediately. Within 8 weeks, inbound leads from organic search increased by 43%. Their process was clear, fast, and professional from start to launch.',
+  },
+  {
+    name: 'Sarah Malik',
+    role: 'Operations Lead, UrbanNest Realty',
+    content:
+      'We needed a modern site with better conversion paths for property inquiries. The new UX and landing page structure helped us reduce bounce rate and generate more qualified WhatsApp leads. Communication was excellent throughout.',
+  },
+  {
+    name: 'Hassan Raza',
+    role: 'Director, PrimeTech Solutions',
+    content:
+      'The CodexStudio team delivered a polished business website and custom quote flow that our sales team now uses daily. Everything is fast, mobile-friendly, and easy for our team to manage. Highly recommended for serious businesses.',
+  },
+  {
+    name: 'Areeba Tariq',
+    role: 'Co-Founder, BloomCart',
+    content:
+      'They helped us launch our e-commerce storefront with a clean checkout experience and better product page performance. Cart completions improved and support requests dropped after launch. Great quality and attention to detail.',
+  },
+  {
+    name: 'Daniel Reed',
+    role: 'Marketing Manager, FinEdge Global',
+    content:
+      'CodexStudio combined strong design with technical SEO in a way most agencies do not. We saw measurable ranking improvements on core service pages and a clear increase in demo requests. The delivery quality was outstanding.',
+  },
+  {
+    name: 'Maham Siddiqui',
+    role: 'Product Manager, LearnBridge',
+    content:
+      'From discovery to final QA, the experience felt structured and premium. They translated our product requirements into a fast, scalable web app interface that users adopted quickly. We are continuing with them for phase two.',
+  },
 ];
 
 export const Testimonials = () => {

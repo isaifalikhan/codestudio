@@ -3,19 +3,20 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Code, Palette, Share2, PenTool, Globe, Search, ArrowRight } from 'lucide-react';
+import { Code, Palette, ShoppingCart, Sparkles, Search, Smartphone, Layout, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { TechStack } from '../components/TechStack';
 import { CTA } from '../components/CTA';
 import { SERVICES_DATA, type ServiceSlug } from '@/lib/servicesData';
 
 const ICONS: Record<ServiceSlug, typeof Code> = {
-  'website-development': Code,
+  'web-development': Code,
+  'nextjs-development': Layout,
+  'ecommerce-development': ShoppingCart,
   'ui-ux-design': Palette,
-  'social-media-management': Share2,
-  'graphic-design': PenTool,
-  branding: Globe,
-  'seo-marketing': Search,
+  'seo-optimization': Search,
+  'mobile-app-development': Smartphone,
+  'brand-identity-design': Sparkles,
 };
 
 const services = (Object.keys(SERVICES_DATA) as ServiceSlug[]).map((slug) => {
@@ -110,12 +111,12 @@ export const ServicesPage = () => {
                     Get Started
                   </Link>
                 </div>
-                {service.slug === 'seo-marketing' && (
+                {service.slug === 'seo-optimization' && (
                   <p className="mt-4 text-[#2F281D]/70">
                     Try our free SEO tools: <Link href="/tools/keyword-density" className="text-[#997F6C] font-semibold hover:underline">Keyword Density Checker</Link> and <Link href="/tools/meta-description-generator" className="text-[#997F6C] font-semibold hover:underline">Meta Description Generator</Link>.
                   </p>
                 )}
-                {(service.slug === 'website-development' || service.slug === 'ui-ux-design') && (
+                {(service.slug === 'web-development' || service.slug === 'ui-ux-design') && (
                   <p className="mt-4 text-[#2F281D]/70">
                     <Link href="/portfolio" className="text-[#997F6C] font-semibold hover:underline">View our portfolio</Link> to see recent work.
                   </p>

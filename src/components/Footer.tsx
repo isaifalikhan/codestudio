@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Github, Twitter, Linkedin, Instagram, Facebook, ArrowUp } from 'lucide-react';
 import Link from 'next/link';
+import { BRAND_CITY, BRAND_EMAIL, BRAND_PHONE } from '@/lib/seo';
 
 export const Footer = () => {
   const scrollToTop = () => {
@@ -33,6 +34,10 @@ export const Footer = () => {
               We are a team of passionate designers and developers dedicated to 
               creating high-end digital experiences that push the boundaries 
               of what's possible.
+            </p>
+            <p className="text-[#2F281D]/65 text-sm mb-6 leading-relaxed">
+              CodexStudio, {BRAND_CITY}, Pakistan<br />
+              {BRAND_PHONE} · {BRAND_EMAIL}
             </p>
             <ul className="flex gap-4 list-none m-0 p-0">
               <li>
@@ -155,11 +160,12 @@ export const Footer = () => {
           className="pt-12 border-t border-[#2F281D]/5 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <p className="text-[#2F281D]/30 text-sm">
-            © 2026 CodexStudio. All rights reserved.
+            © {new Date().getFullYear()} CodexStudio. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-[#2F281D]/30">
-            <Link href="/privacy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[#2F281D] transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-[#2F281D] transition-colors">Terms of Service</Link>
+            <Link href="/sitemap.xml" className="hover:text-[#2F281D] transition-colors">Sitemap</Link>
             <Link href="/editorial" className="hover:text-[#2F281D] transition-colors">Editorial standards</Link>
           </div>
           <motion.button

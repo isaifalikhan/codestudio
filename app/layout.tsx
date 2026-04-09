@@ -9,6 +9,13 @@ import { Footer } from '@/src/components/Footer';
 import { DeferredTopWidgets, DeferredBottomWidgets } from '@/app/components/DeferredLayoutWidgets';
 import { GAConsentWrapper } from '@/app/components/GAConsentWrapper';
 import { GoogleAnalytics as GA4Script } from '@/app/components/GoogleAnalytics';
+import {
+  SITE_URL,
+  defaultOgImage,
+  buildLocalBusinessSchema,
+  buildOrganizationSchema,
+  buildWebsiteSchema,
+} from '@/lib/seo';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -31,9 +38,9 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.codexstudio2026.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Web Development Agency in Islamabad, Pakistan | CodexStudio',
+    default: 'CodexStudio — Web Development & Digital Solutions Agency in Islamabad, Pakistan',
     template: '%s | CodexStudio',
   },
   description:
@@ -67,14 +74,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.codexstudio2026.com',
+    url: SITE_URL,
     siteName: 'CodexStudio',
-    title: 'Web Development Agency in Islamabad, Pakistan | CodexStudio',
+    title: 'CodexStudio — Web Development & Digital Solutions Agency in Islamabad, Pakistan',
     description:
       'CodexStudio builds modern websites, web apps & digital tools for startups and businesses. Based in Islamabad, Pakistan. Get a free quote today.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: defaultOgImage,
         width: 1200,
         height: 630,
         alt: 'CodexStudio — Web Development Agency in Islamabad, Pakistan',
@@ -84,18 +91,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@codexstudio2026',
-    creator: '@codexstudio2026',
+    site: '@codexstudio',
+    creator: '@codexstudio',
     title: 'CodexStudio — Web Development Agency in Islamabad',
     description: 'Modern websites, web apps & 140 free browser tools. Based in Islamabad, Pakistan.',
-    images: ['/og-image.jpg'],
+    images: [defaultOgImage],
   },
   alternates: {
-    canonical: 'https://www.codexstudio2026.com',
+    canonical: SITE_URL,
     languages: {
-      en: 'https://www.codexstudio2026.com',
-      'en-PK': 'https://www.codexstudio2026.com',
-      'en-GB': 'https://www.codexstudio2026.com',
+      en: SITE_URL,
+      'en-PK': SITE_URL,
+      'en-GB': SITE_URL,
     },
   },
   verification: {
@@ -109,10 +116,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const organizationSchema = buildOrganizationSchema();
+  const localBusinessSchema = buildLocalBusinessSchema();
+  const websiteSchema = buildWebsiteSchema();
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}>
       <head>
         <meta name="google-adsense-account" content="ca-pub-7165996801022980" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://cdn.worldvectorlogo.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7165996801022980"

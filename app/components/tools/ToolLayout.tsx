@@ -6,6 +6,7 @@ import { ChevronRight } from 'lucide-react';
 import type { Tool } from '@/lib/tools-data';
 import { tools } from '@/lib/tools-data';
 import { AdPlacement } from '@/app/components/AdPlacement';
+import { getReviewsForPage } from '@/lib/reviews';
 
 const textSecondary = 'var(--color-text-secondary, rgba(47, 40, 29, 0.78))';
 const borderTertiary = 'var(--color-border-tertiary, rgba(47, 40, 29, 0.12))';
@@ -13,12 +14,12 @@ const borderSecondary = 'var(--color-border-secondary, rgba(47, 40, 29, 0.2))';
 const bgSecondary = 'var(--color-background-secondary, #E8E2D2)';
 
 function resolveRelatedTools(tool: Tool, fromProps: Tool[]): Tool[] {
-  if (fromProps.length >= 3) return fromProps.slice(0, 3);
+  if (fromProps.length >= 4) return fromProps.slice(0, 4);
   const bySlug = new Set(fromProps.map((t) => t.slug));
   const merged: Tool[] = [...fromProps];
   const sameCat = tools.filter((t) => t.slug !== tool.slug && t.category === tool.category);
   for (const t of sameCat) {
-    if (merged.length >= 3) break;
+    if (merged.length >= 4) break;
     if (!bySlug.has(t.slug)) {
       merged.push(t);
       bySlug.add(t.slug);
@@ -26,18 +27,19 @@ function resolveRelatedTools(tool: Tool, fromProps: Tool[]): Tool[] {
   }
   if (merged.length < 3) {
     for (const t of tools) {
-      if (merged.length >= 3) break;
+      if (merged.length >= 4) break;
       if (t.slug !== tool.slug && !bySlug.has(t.slug)) {
         merged.push(t);
         bySlug.add(t.slug);
       }
     }
   }
-  return merged.slice(0, 3);
+  return merged.slice(0, 4);
 }
 
 export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; children: React.ReactNode; relatedTools?: Tool[] }) {
   const displayRelated = resolveRelatedTools(tool, relatedTools);
+  const pageReviews = getReviewsForPage(`tool-${tool.slug}`, 4);
   const [s1, s2, s3] = tool.howToSteps;
 
   return (
@@ -91,9 +93,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       <AdPlacement slot="bottom" />
 
       <section style={{ marginTop: '48px', marginBottom: '32px' }}>
-        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>
-          How to Use the {tool.name}
-        </h2>
+        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>How to use this tool</h2>
         <ol style={{ paddingLeft: '20px', lineHeight: '1.8', fontSize: '15px', color: '#2F281D' }}>
           <li style={{ marginBottom: '8px' }}>{s1}</li>
           <li style={{ marginBottom: '8px' }}>{s2}</li>
@@ -102,9 +102,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       </section>
 
       <section style={{ marginTop: '32px', marginBottom: '32px' }}>
-        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>
-          About the {tool.name}
-        </h2>
+        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>About this {tool.name}</h2>
         <div style={{ fontSize: '15px', lineHeight: '1.8', color: textSecondary }}>
           {tool.longDescription.split(/\n\n+/).map((para, i) => (
             <p key={i} style={{ marginTop: i === 0 ? 0 : '16px' }}>
@@ -123,7 +121,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       </section>
 
       <section style={{ marginTop: '32px', marginBottom: '32px' }}>
-        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '24px', color: '#2F281D' }}>Frequently Asked Questions</h2>
+        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '24px', color: '#2F281D' }}>Frequently Asked Questions</h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ borderBottom: `1px solid ${borderTertiary}`, paddingBottom: '16px' }}>
@@ -161,7 +159,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       </section>
 
       <section style={{ marginTop: '32px', marginBottom: '48px' }}>
-        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>Related Free Tools</h2>
+        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>Related Tools</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
           {displayRelated.map((t) => (
             <Link
@@ -187,6 +185,38 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
           <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">
             ← Back to all 140+ free tools
           </Link>
+        </div>
+      </section>
+
+      <section style={{ marginTop: '32px', marginBottom: '32px' }}>
+        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>
+          User Reviews
+        </h3>
+        <p style={{ color: textSecondary, marginBottom: '14px' }}>
+          100+ client-style placeholder reviews are available across our pages.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+          {pageReviews.map((review) => (
+            <article
+              key={review.id}
+              style={{
+                padding: '14px',
+                borderRadius: '12px',
+                border: `1px solid ${borderTertiary}`,
+                background: '#FDF8EC',
+              }}
+            >
+              <p style={{ fontSize: '14px', color: '#2F281D', lineHeight: 1.6 }}>
+                "{review.quote}"
+              </p>
+              <p style={{ marginTop: '10px', fontWeight: 600, color: '#2F281D', fontSize: '14px' }}>
+                {review.name}
+              </p>
+              <p style={{ marginTop: '4px', color: textSecondary, fontSize: '12px' }}>
+                {review.role}, {review.company} ({review.location})
+              </p>
+            </article>
+          ))}
         </div>
       </section>
 

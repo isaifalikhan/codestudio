@@ -70,6 +70,17 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
     setLoading(false);
   };
 
+  const handleDirectDownload = () => {
+    if (!selectedUrl) return;
+    const a = document.createElement('a');
+    a.href = selectedUrl;
+    a.download = '';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  };
+
   return (
     <div className="space-y-6">
       <p className="text-[#2F281D]/70 text-sm">{getHelperText(platform)}</p>
@@ -168,16 +179,25 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
           {selectedUrl && (
             <div className="rounded-xl border border-green-200 bg-green-50/50 p-4 space-y-2">
               <p className="text-[#2F281D]/80 text-sm font-medium">Download ready ({selectedLabel})</p>
-              <a
-                href={selectedUrl}
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#997F6C] font-bold text-sm break-all hover:underline"
-              >
-                <Download className="w-4 h-4" />
-                Download / Open
-              </a>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={handleDirectDownload}
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#2F281D] text-[#FDF8EC] text-sm font-bold hover:bg-[#997F6C] transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Download
+                </button>
+                <a
+                  href={selectedUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-[#2F281D]/20 text-[#2F281D] bg-[#FDF8EC] text-sm font-bold hover:bg-[#F7EED9] transition-colors"
+                >
+                  <Link2 className="w-4 h-4" />
+                  Open
+                </a>
+              </div>
             </div>
           )}
         </div>

@@ -4,39 +4,56 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import { Users, Target, Eye, Heart } from 'lucide-react';
+import {
+  Target,
+  Eye,
+  Heart,
+  Sparkles,
+  GraduationCap,
+  MapPin,
+  Code2,
+  ArrowRight,
+  ArrowUpRight,
+} from 'lucide-react';
 import { CTA } from '../components/CTA';
-
-const team = [
-  {
-    name: 'Saif Ali',
-    role: 'Founder & CEO',
-    image: '/images/unnamed.jpg',
-    bio: 'Visionary entrepreneur dedicated to redefining digital excellence.',
-  },
-];
 
 const values = [
   {
     title: 'Innovation',
-    desc: 'We push the boundaries of what is possible in the digital realm.',
-    icon: Target
+    desc: 'Pushing what is possible on the web—without chasing trends that do not serve your business.',
+    icon: Target,
   },
   {
     title: 'Creativity',
-    desc: 'Every project is a blank canvas for unique, artistic expression.',
-    icon: Heart
+    desc: 'Interfaces and experiences that feel intentional: typography, motion, and clarity in every detail.',
+    icon: Heart,
   },
   {
     title: 'Transparency',
-    desc: 'Open communication and honesty are the foundation of our partnerships.',
-    icon: Eye
+    desc: 'Straight timelines, honest scope, and clear communication from discovery to launch.',
+    icon: Eye,
   },
   {
     title: 'Quality',
-    desc: 'We never compromise on the precision and excellence of our work.',
-    icon: Users
-  }
+    desc: 'Performance, accessibility, and maintainable code—so your product stays fast as it grows.',
+    icon: Sparkles,
+  },
+];
+
+const expertise = [
+  'Next.js & React',
+  'Node.js & Express',
+  'REST APIs & JWT',
+  'MongoDB & database design',
+  'Tailwind CSS & UI systems',
+  'WordPress & Elementor',
+  'Deployment & hosting',
+];
+
+const stats = [
+  { label: 'Years building', value: '10+' },
+  { label: 'Lead on your build', value: '1' },
+  { label: 'Regions served', value: 'Global' },
 ];
 
 export const About = () => {
@@ -45,224 +62,331 @@ export const About = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-[#FDF8EC]"
+      className="min-h-screen bg-[#FDF8EC]"
     >
-      {/* Hero Section */}
-      <section className="relative h-[40vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1920"
-            alt="CodexStudio modern office and workspace"
-            fill
-            className="object-cover opacity-20"
-            loading="lazy"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FDF8EC]/0 to-[#FDF8EC]" />
-        </div>
-        <div className="relative z-10 text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl sm:text-7xl md:text-9xl font-display font-bold text-[#2F281D]"
-          >
-            Our <span className="text-[#2F281D]/40 italic">Story</span>
-          </motion.h1>
-        </div>
-      </section>
+      {/* —— Split hero —— */}
+      <header className="relative overflow-hidden lg:min-h-[min(92vh,900px)]">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,#FDF8EC_0%,#FDF8EC_45%,#E8E2D2_100%)]"
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute -right-20 top-1/4 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full border border-[#2F281D]/[0.07]" aria-hidden />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-[#2F281D]/10" aria-hidden />
 
-      {/* Story Section */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#2F281D]">
-              Born from a passion for <span className="text-[#997F6C]">excellence</span>.
-            </h2>
-            <p className="text-lg text-[#2F281D]/60 leading-relaxed">
-              Our founder has been in web development since 2016. CodexStudio was formally launched in 2026 with a simple mission: to bridge the gap between complex technology and human-centric design. We believe that digital experiences should be as beautiful as they are functional.
-            </p>
-            <p className="text-lg text-[#2F281D]/60 leading-relaxed">
-              Today, we are a global team of creators, thinkers, and builders. We partner with ambitious brands to navigate the digital landscape and create lasting impact.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-4">
-              <div className="relative rounded-3xl aspect-[3/4] overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="CodexStudio team collaboration" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
-              </div>
-              <div className="relative rounded-3xl aspect-square overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=600" alt="Creative workshop at CodexStudio" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
-              </div>
-            </div>
-            <div className="space-y-4 pt-12">
-              <div className="relative rounded-3xl aspect-square overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600" alt="Digital strategy session" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
-              </div>
-              <div className="relative rounded-3xl aspect-[3/4] overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600" alt="CodexStudio team meeting" fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 50vw, 300px" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder's Vision */}
-      <section className="py-24 px-6 bg-[#2F281D] text-[#FDF8EC]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative aspect-[4/5] rounded-[3rem] overflow-hidden"
+        <div className="relative mx-auto grid max-w-[1600px] lg:grid-cols-2 lg:items-stretch">
+          <div className="flex flex-col justify-center px-6 pb-16 pt-28 lg:px-12 lg:pb-24 lg:pl-16 lg:pr-10 lg:pt-32 xl:pl-24">
+            <motion.p
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="mb-6 font-mono text-[11px] font-bold uppercase tracking-[0.35em] text-[#997F6C]"
             >
+              About · CodexStudio
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.04 }}
+              className="font-display text-[clamp(2.25rem,5vw,4.25rem)] font-bold leading-[0.98] tracking-tight text-[#2F281D]"
+            >
+              Founder-led
+              <br />
+              <span className="text-[#997F6C]">full-stack</span>
+              <br />
+              studio.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mt-8 max-w-md text-base leading-relaxed text-[#2F281D]/65 md:text-lg"
+            >
+              <strong className="font-semibold text-[#2F281D]/90">Saif Ali</strong> is Founder &amp; CEO—shipping Next.js
+              and Node.js products, APIs, and high-performance marketing sites for clients worldwide from{' '}
+              <strong className="font-semibold text-[#2F281D]/90">Islamabad, Pakistan</strong>.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.16 }}
+              className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+            >
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2F281D] px-8 py-4 text-sm font-bold text-[#FDF8EC] transition hover:bg-[#997F6C]"
+              >
+                Start a project
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#2F281D]/15 bg-[#FDF8EC]/60 px-8 py-4 text-sm font-bold text-[#2F281D] backdrop-blur-sm transition hover:border-[#997F6C]/40 hover:text-[#997F6C]"
+              >
+                View work
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </motion.div>
+
+            <motion.ul
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.22 }}
+              className="mt-12 flex flex-col gap-3 border-t border-[#2F281D]/10 pt-10 text-sm text-[#2F281D]/60"
+            >
+              <li className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 shrink-0 text-[#997F6C]" aria-hidden />
+                Islamabad, Pakistan
+              </li>
+              <li className="flex items-center gap-3">
+                <GraduationCap className="h-4 w-4 shrink-0 text-[#997F6C]" aria-hidden />
+                B.Sc. Computer Science — HITEC University
+              </li>
+              <li className="flex items-center gap-3">
+                <Code2 className="h-4 w-4 shrink-0 text-[#997F6C]" aria-hidden />
+                Building on the web since 2016
+              </li>
+            </motion.ul>
+          </div>
+
+          <div className="relative min-h-[320px] lg:min-h-0">
+            <div className="absolute inset-0 lg:left-8 lg:right-0">
+              <div className="relative h-full min-h-[380px] overflow-hidden rounded-tl-[clamp(2rem,8vw,4rem)] border-t border-l border-[#2F281D]/10 bg-[#2F281D] shadow-2xl shadow-[#2F281D]/20 lg:min-h-full lg:rounded-none lg:rounded-bl-[clamp(2.5rem,10vw,5rem)] lg:border-0">
+                <Image
+                  src="/images/unnamed.jpg"
+                  alt="Saif Ali — Founder and CEO of CodexStudio, full-stack web developer in Islamabad, Pakistan"
+                  fill
+                  className="object-cover object-[center_20%] opacity-95"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D] via-[#2F281D]/20 to-transparent lg:bg-gradient-to-l lg:from-[#2F281D]/90 lg:via-transparent lg:to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 lg:bottom-12 lg:left-12 lg:right-auto lg:max-w-sm">
+                  <p className="font-display text-2xl font-bold leading-tight text-[#FDF8EC] md:text-3xl">
+                    One lead.
+                    <br />
+                    <span className="text-[#997F6C]">End-to-end</span> delivery.
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-[#FDF8EC]/70">
+                    Strategy, build, and launch—without hand-offs through a large agency floor.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* —— Cred strip —— */}
+      <div className="border-y border-[#2F281D]/10 bg-[#2F281D] px-6 py-5 text-[#FDF8EC]">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center text-xs font-bold uppercase tracking-[0.2em] text-[#FDF8EC]/75 md:justify-between md:text-left">
+          <span>CodexStudio · 2026</span>
+          <span className="hidden h-4 w-px bg-[#FDF8EC]/20 md:block" aria-hidden />
+          <span>Next.js · Node · MongoDB</span>
+          <span className="hidden h-4 w-px bg-[#FDF8EC]/20 md:block" aria-hidden />
+          <span>Founder-led · Islamabad</span>
+        </div>
+      </div>
+
+      {/* —— Bento story —— */}
+      <section id="story" aria-labelledby="about-story-heading" className="px-6 py-20 md:py-28">
+        <div className="mx-auto grid max-w-7xl gap-4 md:grid-cols-12 md:gap-5">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2rem] border border-[#2F281D]/10 bg-[#FDF8EC] p-8 shadow-sm md:col-span-7 md:p-10 lg:p-12"
+          >
+            <h2
+              id="about-story-heading"
+              className="font-display text-3xl font-bold leading-tight text-[#2F281D] md:text-4xl lg:text-5xl"
+            >
+              Clarity, speed, and work that{' '}
+              <span className="underline decoration-[#997F6C]/40 decoration-2 underline-offset-8">lasts</span>.
+            </h2>
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-[#2F281D]/65 md:text-lg">
+              <p>
+                CodexStudio launched in <strong className="font-semibold text-[#2F281D]/85">2026</strong> with a single
+                focus: reliable full-stack delivery—dashboards, APIs, marketing sites, and product UI—without sacrificing
+                craft. You work directly with the founder, so decisions stay fast and accountability stays visible.
+              </p>
+              <p>
+                The default stack is modern: <strong className="font-semibold text-[#2F281D]/85">Next.js</strong>,{' '}
+                <strong className="font-semibold text-[#2F281D]/85">Node.js</strong>, thoughtful{' '}
+                <strong className="font-semibold text-[#2F281D]/85">MongoDB</strong> modeling, JWT-backed auth when
+                needed, and WordPress or managed hosting when that is the right fit.
+              </p>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#997F6C] underline decoration-[#997F6C]/35 underline-offset-4 hover:decoration-[#997F6C]"
+              >
+                See the portfolio
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#2F281D]/50 underline decoration-[#2F281D]/20 underline-offset-4 hover:text-[#2F281D] hover:decoration-[#2F281D]/40"
+              >
+                Explore services
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05 }}
+            className="flex flex-col gap-4 md:col-span-5"
+          >
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="flex flex-1 flex-col justify-center rounded-[2rem] border border-[#2F281D]/10 bg-[#E8E2D2]/40 px-8 py-7"
+              >
+                <p className="font-display text-4xl font-bold text-[#2F281D] md:text-5xl">{s.value}</p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-[#2F281D]/45">{s.label}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="overflow-hidden rounded-[2rem] border border-[#2F281D]/10 md:col-span-5"
+          >
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[280px]">
               <Image
-                src="/images/unnamed.jpg"
-                alt="Saif Ali - Founder and CEO of CodexStudio web development agency in Islamabad Pakistan"
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=900"
+                alt="Web development workspace — design and engineering focus at CodexStudio"
                 fill
                 className="object-cover"
                 loading="lazy"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 42vw"
               />
-            </motion.div>
-            <div className="space-y-8">
-              <span className="text-[#997F6C] font-bold tracking-widest uppercase text-sm block">Founder's Vision</span>
-              <h2 className="text-4xl md:text-6xl font-display font-bold leading-tight">
-                "We don't just build products; we build <span className="text-[#997F6C] italic">legacies</span>."
-              </h2>
-              <p className="text-xl text-[#FDF8EC]/60 leading-relaxed">
-                At CodexStudio, our goal is to empower businesses with digital solutions that are not only technologically superior but also emotionally resonant. We believe in the power of design to change the world.
-              </p>
-              <div className="pt-8">
-                <p className="text-2xl font-display font-bold">Saif Ali</p>
-                <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm">Founder & CEO, CodexStudio</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 }}
+            className="rounded-[2rem] border border-[#2F281D]/10 bg-[#2F281D] p-8 text-[#FDF8EC] md:col-span-7 md:p-10"
+          >
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.3em] text-[#997F6C]">Stack &amp; scope</p>
+            <p className="mt-4 text-lg leading-relaxed text-[#FDF8EC]/75">
+              From marketing sites to authenticated dashboards and APIs—scoped honestly, built to perform.
+            </p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {expertise.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-2 rounded-xl border border-[#FDF8EC]/10 bg-[#FDF8EC]/5 px-4 py-3 text-sm font-medium text-[#FDF8EC]/90"
+                >
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#997F6C]" aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* —— Founder narrative —— */}
+      <section
+        id="founder"
+        aria-labelledby="founder-heading"
+        className="border-t border-[#2F281D]/10 bg-[#E8E2D2]/25 px-6 py-20 md:py-28"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="overflow-hidden rounded-[2.5rem] border border-[#2F281D]/10 bg-[#FDF8EC] shadow-xl shadow-[#2F281D]/[0.06]">
+            <div className="grid lg:grid-cols-5">
+              <div className="relative min-h-[280px] lg:col-span-2 lg:min-h-[420px]">
+                <Image
+                  src="/images/unnamed.jpg"
+                  alt="Saif Ali — Founder and CEO of CodexStudio"
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D]/40 to-transparent lg:bg-gradient-to-r" />
               </div>
-              <div className="flex flex-wrap gap-4 mt-8">
-                <Link href="/services" className="text-[#FDF8EC]/90 font-semibold hover:text-[#FDF8EC] hover:underline">See what we build →</Link>
-                <Link href="/portfolio" className="text-[#FDF8EC]/90 font-semibold hover:text-[#FDF8EC] hover:underline">View our work →</Link>
+              <div className="flex flex-col justify-center p-8 md:p-12 lg:col-span-3 lg:p-14">
+                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.3em] text-[#997F6C]">
+                  Founder &amp; CEO
+                </p>
+                <h2 id="founder-heading" className="mt-3 font-display text-3xl font-bold text-[#2F281D] md:text-4xl">
+                  Saif Ali
+                </h2>
+                <p className="mt-6 text-base leading-relaxed text-[#2F281D]/65 md:text-lg">
+                  I lead CodexStudio end to end: architecture, implementation, and launch. That means fewer layers between
+                  your goals and the code—whether you need a marketing site, a secure admin dashboard, or APIs that scale
+                  with your product.
+                </p>
+                <blockquote className="mt-8 border-l-2 border-[#997F6C] pl-6 font-display text-xl italic leading-snug text-[#2F281D]/90 md:text-2xl">
+                  &ldquo;Ship work that looks exceptional and holds up under traffic, security review, and time.&rdquo;
+                </blockquote>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-24 px-6 bg-[#E8E2D2]/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]"
-            >
-              Our <span className="text-[#2F281D]/40">Values</span>
-            </motion.h2>
+      {/* —— Values rail —— */}
+      <section id="values" aria-labelledby="values-heading" className="px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-2xl">
+            <h2 id="values-heading" className="font-display text-3xl font-bold text-[#2F281D] md:text-5xl">
+              What you can expect
+            </h2>
+            <p className="mt-4 text-lg text-[#2F281D]/60">
+              Principles behind every engagement—from a single landing page to a long-term product partnership.
+            </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, i) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  delay: i * 0.1,
-                  duration: 0.8,
-                  ease: [0.21, 0.47, 0.32, 0.98]
-                }}
-                whileHover={{ y: -15, scale: 1.02 }}
-                className="p-10 rounded-[2.5rem] bg-[#FDF8EC] border border-[#2F281D]/5 text-center group hover:shadow-2xl transition-all duration-500"
-              >
-                <motion.div 
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.8 }}
-                  className="w-16 h-16 rounded-2xl bg-[#2F281D]/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-[#2F281D] group-hover:text-[#FDF8EC] transition-all"
-                >
-                  <value.icon className="w-8 h-8" />
-                </motion.div>
-                <h3 className="text-xl font-bold mb-4 text-[#2F281D]">{value.title}</h3>
-                <p className="text-[#2F281D]/50 text-sm leading-relaxed">{value.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link href="/contact" className="text-[#997F6C] font-semibold hover:underline mr-6">Let&apos;s work together →</Link>
-            <Link href="/team" className="text-[#997F6C] font-semibold hover:underline">Meet the full team →</Link>
-          </div>
-        </div>
-      </section>
 
-      {/* Team Section — Saif Ali only; we're growing */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]"
-            >
-              Meet the <span className="text-[#2F281D]/40 italic">Team</span>
-            </motion.h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-2xl mx-auto">
-            {team.map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
+          <div className="space-y-0 divide-y divide-[#2F281D]/10 border-y border-[#2F281D]/10">
+            {values.map((value, i) => (
+              <motion.article
+                key={value.title}
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.8 }}
-                className="group"
+                transition={{ delay: i * 0.06 }}
+                className="grid gap-6 py-10 md:grid-cols-12 md:items-center md:gap-8 md:py-12"
               >
-                <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-6 relative perspective-1000">
-                  <motion.div whileHover={{ scale: 1.1, rotate: 2 }} transition={{ duration: 0.6 }} className="w-full h-full relative">
-                    <Image
-                      src={member.image}
-                      alt={`${member.name} - ${member.role} at CodexStudio`}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                      loading="lazy"
-                      sizes="(max-width: 768px) 50vw, 200px"
-                    />
-                  </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D] to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <p className="text-[#FDF8EC] text-sm leading-relaxed">{member.bio}</p>
+                <div className="flex items-center gap-5 md:col-span-3">
+                  <span className="font-display text-4xl font-bold tabular-nums text-[#2F281D]/20 md:text-5xl">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#E8E2D2]/80 text-[#2F281D]">
+                    <value.icon className="h-7 w-7" aria-hidden />
                   </div>
                 </div>
-                <motion.h3 
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: (i * 0.15) + 0.3 }}
-                  className="text-xl font-bold text-[#2F281D]"
-                >
-                  {member.name}
-                </motion.h3>
-                <motion.p 
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: (i * 0.15) + 0.4 }}
-                  className="text-[#997F6C] font-bold text-sm uppercase tracking-widest"
-                >
-                  {member.role}
-                </motion.p>
-              </motion.div>
+                <h3 className="font-display text-xl font-bold text-[#2F281D] md:col-span-3 md:text-2xl">{value.title}</h3>
+                <p className="text-base leading-relaxed text-[#2F281D]/60 md:col-span-6 md:text-lg">{value.desc}</p>
+              </motion.article>
             ))}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-[2.5rem] bg-[#E8E2D2] border border-[#2F281D]/10 p-10 flex flex-col items-center justify-center text-center col-span-1 sm:col-span-2 lg:col-span-4"
+          </div>
+
+          <div className="mt-12 flex flex-wrap justify-center gap-6 md:justify-start">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-[#2F281D] px-8 py-4 text-sm font-bold text-[#FDF8EC] transition hover:bg-[#997F6C]"
             >
-              <p className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-3">We&apos;re growing</p>
-              <h3 className="text-2xl font-display font-bold text-[#2F281D] mb-2">Join us</h3>
-              <p className="text-[#2F281D]/60 text-sm mb-6 max-w-sm">Want to build great digital products? Get in touch.</p>
-              <Link href="/contact" className="px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold hover:bg-[#997F6C] transition-colors">
-                Get in touch
-              </Link>
-            </motion.div>
+              Get in touch
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#997F6C] underline decoration-[#997F6C]/35 underline-offset-4 hover:decoration-[#997F6C]"
+            >
+              Browse portfolio
+            </Link>
           </div>
         </div>
       </section>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { ContactFormWithEmailJS } from '../components/ContactFormWithEmailJS';
+import { BRAND_PHONE, BRAND_CITY, BRAND_EMAIL } from '@/lib/seo';
 
 export const ContactPage = () => {
   return (
@@ -73,19 +74,19 @@ export const ContactPage = () => {
                 <h3 className="font-bold text-[#2F281D]">Email Us</h3>
                 <p className="text-[#2F281D]/60">Use the form to send a message. We reply within 24 hours.</p>
               </div>
-              <a href={`https://wa.me/447923122356`} target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4 block hover:bg-[#E8E2D2]/90 transition-colors">
+              <a href={`https://wa.me/923001234567`} target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4 block hover:bg-[#E8E2D2]/90 transition-colors">
                 <div className="w-12 h-12 rounded-2xl bg-[#997F6C] text-[#FDF8EC] flex items-center justify-center">
                   <Phone className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-[#2F281D]">WhatsApp Us</h3>
-                <p className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">{process.env.NEXT_PUBLIC_WHATSAPP_DISPLAY || '+44 7923 122356'}</p>
+                <p className="text-[#2F281D]/60 hover:text-[#997F6C] transition-colors">{BRAND_PHONE}</p>
               </a>
               <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#5F634D] text-[#FDF8EC] flex items-center justify-center">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-[#2F281D]">Visit Us</h3>
-                <p className="text-[#2F281D]/60">Islamabad, Pakistan</p>
+                <p className="text-[#2F281D]/60">{BRAND_CITY}, Pakistan</p>
               </div>
               <div className="p-8 rounded-3xl bg-[#E8E2D2] space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-[#BCAF9B] text-[#2F281D] flex items-center justify-center">
@@ -114,6 +115,19 @@ export const ContactPage = () => {
 
             <ContactFormWithEmailJS variant="dark" showCompany />
           </motion.div>
+        </div>
+        <div className="max-w-7xl mx-auto mt-14">
+          <div className="rounded-3xl overflow-hidden border border-[#2F281D]/10">
+            <iframe
+              title="Google Map - Islamabad, Pakistan"
+              src="https://www.google.com/maps?q=Islamabad%2C%20Pakistan&output=embed"
+              width="100%"
+              height="360"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <p className="mt-3 text-sm text-[#2F281D]/60">CodexStudio · {BRAND_CITY}, Pakistan · {BRAND_PHONE} · {BRAND_EMAIL}</p>
         </div>
         <div className="max-w-7xl mx-auto mt-16 pt-10 border-t border-[#2F281D]/10 text-center">
           <p className="text-[#2F281D]/70">

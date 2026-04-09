@@ -1,7 +1,6 @@
 /**
  * Shared portfolio projects for homepage and portfolio page.
- * Uses images from public/projects and SEO-friendly content.
- * Local project images use paths relative to site root (no leading slash) so they work with Vite's base URL.
+ * Live client work uses projectUrl + placeholder showcase imagery; local assets under public/projects.
  */
 
 const BASE = (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_SITE_URL) || '';
@@ -25,49 +24,213 @@ export interface PortfolioProject {
   projectUrl?: string;
 }
 
-/** Featured portfolio projects – high-quality Unsplash images for showcase */
-const unsplashProjects: PortfolioProject[] = [
+/** Unsplash placeholders — varied visuals for case-study cards */
+const U = {
+  dev: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200',
+  ecommerce: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=1200',
+  dashboard: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
+  mobile: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1200',
+  saas: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=1200',
+  code: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200',
+  analytics: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
+  creative: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=1200',
+  hospitality: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200',
+  transport: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200',
+  health: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200',
+  sports: 'https://images.unsplash.com/photo-1461896836934-66fe380ee7f5?auto=format&fit=crop&q=80&w=1200',
+};
+
+/** Flagship product & platform experience */
+const productExperience: PortfolioProject[] = [
   {
-    title: 'Developer Platform & Blog',
-    category: 'Web Design',
-    description: 'Modern developer platform with blog, docs, and clean typography.',
-    technology: ['Next.js', 'React', 'Tailwind'],
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200',
-  },
-  {
-    title: 'E-Commerce Brand Store',
+    title: 'Employee Management System (MarQ Networks)',
     category: 'Development',
-    description: 'Full-featured online store with checkout and inventory.',
-    technology: ['Next.js', 'Stripe', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=1200',
+    description:
+      'Role-based employee management with dashboards, MongoDB data design, REST APIs, and JWT authentication—built with Next.js and Node.js.',
+    technology: ['Next.js', 'Node.js', 'MongoDB', 'JWT', 'REST APIs'],
+    image: U.dashboard,
+    projectUrl: 'https://marqnetworks.com/',
   },
   {
-    title: 'Fintech Mobile Banking',
+    title: 'Meet Ezri — AI Companion & Therapist',
     category: 'Development',
-    description: 'Secure mobile banking experience with modern UX.',
-    technology: ['React Native', 'Node.js', 'AWS'],
-    image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=1200',
+    description:
+      'Full-stack Next.js platform: API integration, backend logic, and a scalable database layer for AI-driven companion experiences.',
+    technology: ['Next.js', 'API Integration', 'Database Design'],
+    image: U.saas,
   },
   {
-    title: 'SaaS Product Dashboard',
-    category: 'Web Design',
-    description: 'Clean dashboard for SaaS teams and subscriptions.',
-    technology: ['React', 'Tailwind', 'Figma'],
-    image: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=1200',
-  },
-  {
-    title: 'Code Editor Web App',
+    title: 'Crescent Tracking — Vehicle Tracking',
     category: 'Development',
-    description: 'Browser-based code editor with live preview.',
-    technology: ['React', 'Monaco', 'WebSocket'],
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200',
+    description:
+      'Real-time tracking dashboard with GPS data processing, backend APIs, and analytics-ready database design.',
+    technology: ['Next.js', 'Real-time', 'GPS', 'MongoDB'],
+    image: U.transport,
+    projectUrl: 'https://www.crescenttrack.com/',
+  },
+];
+
+/** Selected live client & shipped sites (URLs provided by founder) */
+const clientShowcase: PortfolioProject[] = [
+  {
+    title: 'Anemoia',
+    category: 'Web Design',
+    description: 'Distinctive creative web presence and immersive brand storytelling.',
+    technology: ['Next.js', 'JavaScript', 'Performance'],
+    image: U.creative,
+    projectUrl: 'https://anemoia.dev/',
   },
   {
-    title: 'Analytics Dashboard',
+    title: 'Overnight Glasses',
     category: 'Web Design',
-    description: 'Real-time business analytics and team collaboration.',
-    technology: ['React', 'TypeScript', 'D3.js'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
+    description: 'E-commerce experience for eyewear with clear merchandising and checkout flows.',
+    technology: ['React', 'E-commerce', 'UX'],
+    image: U.ecommerce,
+    projectUrl: 'https://www.overnightglasses.com/',
+  },
+  {
+    title: 'Lin-Manuel Miranda',
+    category: 'Web Design',
+    description: 'Official artist presence with rich media and tour-ready layout.',
+    technology: ['Next.js', 'Responsive', 'Media'],
+    image: U.creative,
+    projectUrl: 'https://www.linmanuel.com/',
+  },
+  {
+    title: 'Navia Auto Transport',
+    category: 'Web Design',
+    description: 'Vehicle logistics and transport company site with trust-building layout.',
+    technology: ['WordPress', 'SEO', 'Lead gen'],
+    image: U.transport,
+    projectUrl: 'https://naviautotransport.com/',
+  },
+  {
+    title: 'Neufluence',
+    category: 'Branding',
+    description: 'Brand-forward marketing site with polished visuals.',
+    technology: ['Web Design', 'Branding', 'Animation'],
+    image: U.creative,
+    projectUrl: 'https://neufluence.com/',
+  },
+  {
+    title: 'STK Steakhouse',
+    category: 'Web Design',
+    description: 'Hospitality brand experience with bold typography and reservation CTAs.',
+    technology: ['Hospitality', 'Responsive', 'CMS'],
+    image: U.hospitality,
+    projectUrl: 'https://stksteakhouse.com/',
+  },
+  {
+    title: 'Sparrow MD',
+    category: 'Web Design',
+    description: 'Healthcare clinic presence with accessible, calm UI.',
+    technology: ['Healthcare', 'Accessibility', 'Trust UI'],
+    image: U.health,
+    projectUrl: 'https://sparrowmd.ca/',
+  },
+  {
+    title: 'The Sports Prophets',
+    category: 'Web Design',
+    description: 'Sports media and community-focused digital experience.',
+    technology: ['Content', 'Media', 'Performance'],
+    image: U.sports,
+    projectUrl: 'https://thesportsprophets.com/',
+  },
+  {
+    title: 'Digital District — Custom Exhibit',
+    category: 'Development',
+    description: 'Custom exhibit showcase with tailored layout and interactions.',
+    technology: ['Custom Build', 'Interactive', 'Deploy'],
+    image: U.creative,
+    projectUrl: 'https://digital-district.me/Democustomex/',
+  },
+  {
+    title: 'JD Productions — Commercial Solutions',
+    category: 'Web Design',
+    description: 'Commercial solutions hub under the Marq Networks ecosystem.',
+    technology: ['Next.js', 'B2B', 'Lead capture'],
+    image: U.dev,
+    projectUrl: 'https://marqnetworks.co/jdproductionsllc/commercial-solutions/',
+  },
+  {
+    title: 'Ease Seating Systems',
+    category: 'Web Design',
+    description: 'Commercial seating systems with product storytelling.',
+    technology: ['B2B', 'Product pages', 'Responsive'],
+    image: U.saas,
+    projectUrl: 'https://easeseatingsystems.com/',
+  },
+  {
+    title: 'True Smile',
+    category: 'Web Design',
+    description: 'Dental practice web presence with patient-first messaging.',
+    technology: ['Healthcare', 'Multilingual', 'Trust'],
+    image: U.health,
+    projectUrl: 'https://truesmile.ch/',
+  },
+  {
+    title: 'Marq Networks',
+    category: 'Web Design',
+    description: 'Corporate technology and services flagship site.',
+    technology: ['Corporate', 'Next.js', 'Brand'],
+    image: U.dev,
+    projectUrl: 'https://marqnetworks.com/',
+  },
+  {
+    title: 'JD Productions (Marq)',
+    category: 'Web Design',
+    description: 'Production and commercial portfolio entry point.',
+    technology: ['Portfolio', 'Video', 'Lead gen'],
+    image: U.creative,
+    projectUrl: 'https://marqnetworks.co/jdproductionsllc/',
+  },
+  {
+    title: 'Anemoia Brazil',
+    category: 'Web Design',
+    description: 'Regional Anemoia presence with localized experience.',
+    technology: ['Localization', 'Brand', 'Web'],
+    image: U.creative,
+    projectUrl: 'https://anemoia.br/',
+  },
+  {
+    title: 'Crescent Tracking (Live Demo)',
+    category: 'Development',
+    description: 'Lightweight live demo of tracking UI and flows on Vercel.',
+    technology: ['Next.js', 'Vercel', 'Maps'],
+    image: U.dashboard,
+    projectUrl: 'https://cresent-tracking-light.vercel.app/',
+  },
+  {
+    title: 'Ammar Designz',
+    category: 'Branding',
+    description: 'Design studio portfolio and service positioning.',
+    technology: ['Portfolio', 'Branding', 'UI'],
+    image: U.creative,
+    projectUrl: 'https://www.ammardesignz.com/',
+  },
+  {
+    title: 'Fabrics XI',
+    category: 'Development',
+    description: 'Fabric and textile storefront experience on Vercel.',
+    technology: ['Next.js', 'E-commerce', 'Vercel'],
+    image: U.ecommerce,
+    projectUrl: 'https://fabrics-xi.vercel.app/',
+  },
+  {
+    title: 'Bizcard',
+    category: 'Development',
+    description: 'Digital business card product—share contacts with a modern UI.',
+    technology: ['Next.js', 'Vercel', 'PWA'],
+    image: U.mobile,
+    projectUrl: 'https://bizcard-ebon.vercel.app/',
+  },
+  {
+    title: 'CodexStudio',
+    category: 'Web Design',
+    description: 'Agency flagship: tools, services, and portfolio in one fast Next.js experience.',
+    technology: ['Next.js', 'Tailwind', 'SEO'],
+    image: U.code,
+    projectUrl: 'https://www.codexstudio2026.com/',
   },
 ];
 
@@ -117,11 +280,19 @@ const localProjects: PortfolioProject[] = [
   },
 ];
 
-/** All projects: Unsplash first, then local from public/projects */
-export const portfolioProjects: PortfolioProject[] = [...unsplashProjects, ...localProjects];
+/** All projects: flagship work, live clients, then internal/template samples */
+export const portfolioProjects: PortfolioProject[] = [
+  ...productExperience,
+  ...clientShowcase,
+  ...localProjects,
+];
 
-/** First 6 for homepage: mix of local (so public/projects show) and Unsplash */
+/** First 6 for homepage: flagship + standout live work */
 export const featuredPortfolioProjects: PortfolioProject[] = [
-  ...localProjects.slice(0, 3),
-  ...unsplashProjects.slice(0, 3),
+  productExperience[0],
+  productExperience[1],
+  productExperience[2],
+  clientShowcase[2],
+  clientShowcase[1],
+  clientShowcase[clientShowcase.length - 1],
 ];

@@ -1,30 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
-const slides = [
+type Slide = {
+  title: string;
+  desc: string;
+  image: string;
+  tag: string;
+  number: string;
+  href: string;
+  external: boolean;
+};
+
+const slides: Slide[] = [
   {
-    title: 'Future of Digital Commerce',
-    desc: 'Redefining how brands connect with their customers through immersive shopping experiences.',
+    title: 'Employee Management System',
+    desc: 'Role-based Next.js and Node.js platform with MongoDB, REST APIs, and JWT authentication for MarQ Networks.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1920',
-    tag: 'Innovation',
-    number: '01'
+    tag: 'Product',
+    number: '01',
+    href: 'https://marqnetworks.com/',
+    external: true,
   },
   {
-    title: 'Minimalist Architecture',
-    desc: 'Exploring the intersection of physical space and digital precision in modern design.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920',
-    tag: 'Design',
-    number: '02'
+    title: 'Meet Ezri',
+    desc: 'Full-stack AI companion and therapist-style platform—Next.js, integrated APIs, and scalable data design.',
+    image: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?auto=format&fit=crop&q=80&w=1920',
+    tag: 'AI & Health',
+    number: '02',
+    href: '/portfolio',
+    external: false,
   },
   {
-    title: 'Sustainable Technology',
-    desc: 'Building a greener future through conscious engineering and ethical software development.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1920',
-    tag: 'Ethics',
-    number: '03'
-  }
+    title: 'Crescent Tracking',
+    desc: 'Real-time vehicle tracking dashboard with GPS data processing, backend APIs, and analytics-ready storage.',
+    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1920',
+    tag: 'Logistics',
+    number: '03',
+    href: 'https://www.crescenttrack.com/',
+    external: true,
+  },
 ];
 
 export const ProjectSlider = () => {
@@ -134,18 +151,38 @@ export const ProjectSlider = () => {
                 </p>
 
                 <div className="pt-4 lg:pt-8">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group relative overflow-hidden bg-[#FDF8EC] text-[#2F281D] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
-                  >
-                    <span className="relative z-10 flex items-center gap-3">
-                      View Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                    </span>
-                    <motion.div
-                      className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover:translate-y-0 transition-transform duration-500"
-                    />
-                  </motion.button>
+                  {slides[current].external ? (
+                    <motion.a
+                      href={slides[current].href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="group relative inline-block overflow-hidden bg-[#FDF8EC] text-[#2F281D] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
+                    >
+                      <span className="relative z-10 flex items-center gap-3">
+                        View Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                      </span>
+                      <motion.div
+                        className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover:translate-y-0 transition-transform duration-500"
+                      />
+                    </motion.a>
+                  ) : (
+                    <Link href={slides[current].href} className="inline-block">
+                      <motion.span
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="group relative block overflow-hidden bg-[#FDF8EC] text-[#2F281D] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
+                      >
+                        <span className="relative z-10 flex items-center gap-3">
+                          View Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        </span>
+                        <motion.div
+                          className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover:translate-y-0 transition-transform duration-500"
+                        />
+                      </motion.span>
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             </AnimatePresence>

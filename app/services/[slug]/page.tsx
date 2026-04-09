@@ -8,6 +8,7 @@ import {
   getServiceBySlug,
   type ServiceSlug,
 } from '@/lib/servicesData';
+import { getReviewsForPage } from '@/lib/reviews';
 
 export async function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
@@ -68,10 +69,22 @@ export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
+  const reviews = getReviewsForPage(`service-${service.slug}`, 6);
 
   return (
     <>
       <ServiceJsonLd service={service} />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: service.faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+          })),
+        }}
+      />
       <div className="bg-[#FDF8EC] min-h-screen">
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
@@ -97,6 +110,13 @@ export default async function ServicePage({ params }: Props) {
                 <p key={i}>{para}</p>
               ))}
             </div>
+            <div className="mt-10 rounded-2xl border border-[#2F281D]/10 bg-[#E8E2D2]/40 p-6 text-center">
+              <h2 className="text-2xl font-display font-bold text-[#2F281D]">Start a Project with CodexStudio</h2>
+              <p className="mt-2 text-[#2F281D]/70">Tell us your goals and get a practical roadmap and quote within 24 hours.</p>
+              <Link href="/contact" className="inline-flex mt-5 items-center gap-2 px-6 py-3 rounded-full bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] transition-colors">
+                Start a Project <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -118,6 +138,17 @@ export default async function ServicePage({ params }: Props) {
 
         <section className="py-12 px-6">
           <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-6">Our process</h2>
+            <ol className="space-y-3">
+              {service.process.map((step) => (
+                <li key={step} className="text-[#2F281D]/80 font-medium">{step}</li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="py-12 px-6">
+          <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-6">
               Frequently asked questions
             </h2>
@@ -129,6 +160,22 @@ export default async function ServicePage({ params }: Props) {
                 </div>
               ))}
             </dl>
+          </div>
+        </section>
+
+        <section className="py-12 px-6 border-t border-[#2F281D]/10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-3">Client Reviews</h2>
+            <p className="text-[#2F281D]/70 mb-6">Professional placeholder reviews (100 total) are rotated across all service pages.</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {reviews.map((review) => (
+                <article key={review.id} className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-4">
+                  <p className="text-[#2F281D]/80 text-sm leading-relaxed">"{review.quote}"</p>
+                  <p className="font-semibold text-[#2F281D] mt-3">{review.name}</p>
+                  <p className="text-xs text-[#2F281D]/60">{review.role}, {review.company} ({review.location})</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -150,6 +197,16 @@ export default async function ServicePage({ params }: Props) {
               >
                 All services
               </Link>
+            </div>
+            <div className="pt-6 border-t border-[#2F281D]/10">
+              <p className="text-[#2F281D]/70 mb-3">Related services</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                {SERVICE_SLUGS.filter((s) => s !== service.slug).slice(0, 3).map((s) => (
+                  <Link key={s} href={`/services/${s}`} className="text-[#997F6C] font-semibold hover:underline">
+                    {getServiceBySlug(s)?.title}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>

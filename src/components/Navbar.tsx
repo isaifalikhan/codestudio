@@ -6,6 +6,7 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '../utils/cn';
+import { BRAND_PHONE, BRAND_CITY } from '@/lib/seo';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -17,6 +18,15 @@ const navLinks = [
   { name: 'Resources', path: '/resources' },
   { name: 'Team', path: '/team' },
   { name: 'Contact', path: '/contact' },
+];
+const serviceLinks = [
+  { name: 'Web Development', path: '/services/web-development' },
+  { name: 'Next.js Development', path: '/services/nextjs-development' },
+  { name: 'E-Commerce Development', path: '/services/ecommerce-development' },
+  { name: 'UI/UX Design', path: '/services/ui-ux-design' },
+  { name: 'SEO Optimization', path: '/services/seo-optimization' },
+  { name: 'Mobile App Development', path: '/services/mobile-app-development' },
+  { name: 'Brand Identity Design', path: '/services/brand-identity-design' },
 ];
 
 export const Navbar = () => {
@@ -52,6 +62,9 @@ export const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
+          <span className="hidden xl:inline text-xs font-semibold text-[#2F281D]/65">
+            {BRAND_PHONE} | {BRAND_CITY}, Pakistan
+          </span>
           {navLinks.map((link, i) => (
             <motion.div
               key={link.name}
@@ -59,19 +72,44 @@ export const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
             >
-              <Link
-                href={link.path}
-                className={cn(
-                  'text-sm font-medium transition-colors hover:text-[#997F6C] relative group/link',
-                  pathname === link.path ? 'text-[#2F281D] font-bold' : 'text-[#2F281D]/60'
-                )}
-              >
-                {link.name}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#997F6C] transition-all group-hover/link:w-full"
-                  layoutId={pathname === link.path ? "nav-underline" : undefined}
-                />
-              </Link>
+              {link.name === 'Services' ? (
+                <div className="relative group">
+                  <Link
+                    href={link.path}
+                    className={cn(
+                      'text-sm font-medium transition-colors hover:text-[#997F6C] relative group/link',
+                      pathname.startsWith('/services') ? 'text-[#2F281D] font-bold' : 'text-[#2F281D]/60'
+                    )}
+                  >
+                    Services
+                  </Link>
+                  <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute top-full left-0 mt-3 w-72 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] shadow-xl p-2 transition-all">
+                    {serviceLinks.map((service) => (
+                      <Link
+                        key={service.path}
+                        href={service.path}
+                        className="block rounded-lg px-3 py-2 text-sm text-[#2F281D]/80 hover:bg-[#2F281D]/5 hover:text-[#2F281D]"
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  href={link.path}
+                  className={cn(
+                    'text-sm font-medium transition-colors hover:text-[#997F6C] relative group/link',
+                    pathname === link.path ? 'text-[#2F281D] font-bold' : 'text-[#2F281D]/60'
+                  )}
+                >
+                  {link.name}
+                  <motion.span
+                    className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#997F6C] transition-all group-hover/link:w-full"
+                    layoutId={pathname === link.path ? 'nav-underline' : undefined}
+                  />
+                </Link>
+              )}
             </motion.div>
           ))}
           <motion.div
