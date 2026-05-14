@@ -24,13 +24,18 @@ const nextConfig = {
   reactStrictMode: true,
   webpack(config, { dev, isServer }) {
     // @imgly/background-removal pulls in onnxruntime-web bundles that include `import.meta`.
-    // In this project’s build, the minifier treats these .mjs bundles as non-module code and fails.
-    // Disabling minimization for the client production build avoids the crash.
+    // Terser still minifies those chunks even with per-plugin exclude; keep client minimize off.
     if (!dev && !isServer) {
       config.optimization = config.optimization || {};
       config.optimization.minimize = false;
     }
     return config;
+  },
+  async redirects() {
+    return [
+      { source: '/privacy-policy', destination: '/privacy', permanent: true },
+      { source: '/terms-of-service', destination: '/terms', permanent: true },
+    ];
   },
   async headers() {
     return [
@@ -38,6 +43,10 @@ const nextConfig = {
         source: '/:path*',
         headers: [
           { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
       {

@@ -5,6 +5,7 @@ import { tools } from '@/lib/tools-data';
 import { ToolsHubClient } from '@/app/components/tools/ToolsHubClient';
 import { JsonLd } from '@/app/components/JsonLd';
 import { ArrowRight } from 'lucide-react';
+import { AdPlacement } from '@/app/components/AdPlacement';
 
 const SITE = 'https://www.codexstudio2026.com';
 const breadcrumbSchema = {
@@ -17,9 +18,9 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: '140+ Free Online Tools — Image, PDF, AI, Video & More | CodexStudio',
+  title: '100+ Free Online Tools — Image, PDF, AI, Video & More | CodexStudio',
   description:
-    '140+ free online tools: image compressor, PDF merger, TikTok downloader, password generator, invoice maker, age calculator, AI writer & more. No signup, works in browser. Built by CodexStudio.',
+    '100+ free online tools: image compressor, PDF merger, TikTok downloader, password generator, invoice maker, age calculator, AI writer & more. No signup, works in browser. Built by CodexStudio.',
   keywords: [
     'free online tools',
     'image compressor free',
@@ -30,8 +31,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://www.codexstudio2026.com/tools' },
   openGraph: {
-    title: '140+ Free Online Tools — No Signup | CodexStudio',
-    description: '140+ free browser tools. Image, PDF, video, AI, finance, health & more. All free.',
+    title: '100+ Free Online Tools — No Signup | CodexStudio',
+    description: '100+ free browser tools. Image, PDF, video, AI, finance, health & more. All free.',
     url: 'https://www.codexstudio2026.com/tools',
     images: [{ url: '/og-tools.jpg', width: 1200, height: 630 }],
     type: 'website',
@@ -43,9 +44,9 @@ export const metadata: Metadata = {
 const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: '140+ Free Online Tools — No Signup, Works in Browser',
+  name: '100+ Free Online Tools — No Signup, Works in Browser',
   description:
-    'Free online tools built by CodexStudio. Image compressor, PDF merger, video downloaders, password generator, word counter, QR code maker and 130+ more. All run 100% in your browser.',
+    'Free online tools built by CodexStudio. Image compressor, PDF merger, video downloaders, password generator, word counter, QR code maker and more. Most calculators and file tools run in your browser; video and AI tools use our secure APIs.',
   url: `${SITE_URL}/tools`,
   publisher: { '@type': 'Organization', name: 'CodexStudio', url: SITE_URL },
   mainEntity: {
@@ -74,11 +75,11 @@ export default function ToolsHubPage() {
             Free Tools
           </p>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#2F281D] mb-6 leading-tight">
-            140+ Free Online Tools — No Signup, Works in Browser
+            {tools.length}+ Free Online Tools — No Signup, Works in Browser
           </h1>
           <p className="max-w-3xl mx-auto text-lg text-[#2F281D]/70 leading-relaxed mb-10">
-            CodexStudio built these tools for developers, designers, and businesses. All tools run
-            100% in your browser — nothing is ever uploaded to our servers.
+            CodexStudio built these tools for developers, designers, and businesses. Most tools run in your browser with no signup. Video downloaders and AI
+            writers use our secure servers only to complete those tasks — see each tool&apos;s page for details.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
@@ -100,7 +101,7 @@ export default function ToolsHubPage() {
       {/* Stats */}
       <section className="py-6 px-6 border-y border-[#2F281D]/10 bg-[#E8E2D2]/50">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center">
-          <span className="text-[#2F281D] font-bold">140+ Tools</span>
+          <span className="text-[#2F281D] font-bold">{tools.length}+ Tools</span>
           <span className="text-[#2F281D]/60">·</span>
           <span className="text-[#2F281D] font-bold">17 Categories</span>
           <span className="text-[#2F281D]/60">·</span>
@@ -109,6 +110,11 @@ export default function ToolsHubPage() {
           <span className="text-[#2F281D] font-bold">No Signup</span>
         </div>
       </section>
+
+      {/* Ad placement */}
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <AdPlacement slot="top" />
+      </div>
 
       {/* Filter + Grid */}
       <section id="tools-grid" className="py-8 px-6">
@@ -232,6 +238,11 @@ export default function ToolsHubPage() {
           </p>
         </div>
       </section>
+
+      {/* Ad placement */}
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <AdPlacement slot="bottom" />
+      </div>
 
       {/* CTA */}
       <section className="py-20 px-6">

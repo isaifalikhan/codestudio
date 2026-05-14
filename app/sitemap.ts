@@ -5,6 +5,11 @@ import { categories } from '@/lib/resources-data';
 import { tools } from '@/lib/tools-data';
 import { blogPosts } from '@/src/data/blog';
 
+function parseBlogDate(dateStr: string): Date {
+  const t = Date.parse(dateStr);
+  return Number.isNaN(t) ? new Date() : new Date(t);
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const toolEntries = [
@@ -42,7 +47,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/blog`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
     ...blogPosts.map((post) => ({
       url: `${SITE_URL}/blog/${post.slug}`,
-      lastModified,
+      lastModified: post.lastModified ? new Date(post.lastModified) : parseBlogDate(post.date),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
@@ -51,9 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/team`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/contact`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/privacy`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${SITE_URL}/privacy-policy`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${SITE_URL}/terms-of-service`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/editorial`, lastModified, changeFrequency: 'yearly', priority: 0.45 },
   ];
 }

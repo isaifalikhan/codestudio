@@ -3,6 +3,9 @@ import { execFile } from 'child_process';
 
 const PORT = Number(process.env.PORT || 8080);
 const TOKEN = (process.env.EXTRACTOR_SERVICE_TOKEN || '').trim();
+/** In production, requests are rejected unless EXTRACTOR_SERVICE_TOKEN is set (unless EXTRACTOR_ALLOW_UNAUTHENTICATED=1). */
+const ALLOW_UNAUTHENTICATED = process.env.EXTRACTOR_ALLOW_UNAUTHENTICATED === '1';
+const PRODUCTION = process.env.NODE_ENV === 'production';
 
 function send(res, status, body) {
   const json = JSON.stringify(body);
@@ -66,6 +69,13 @@ http
     if (req.method === 'OPTIONS') return send(res, 204, {});
     if (req.url !== '/extract') return send(res, 404, { error: true, message: 'Not found' });
     if (req.method !== 'POST') return send(res, 405, { error: true, message: 'Method not allowed' });
+
+    if (PRODUCTION && !ALLOW_UNAUTHENTICATED && !TOKEN) {
+      return send(res, 503, {
+        error: true,
+        message: 'Extractor is not configured. Set EXTRACTOR_SERVICE_TOKEN in the server environment.',
+      });
+    }
 
     if (TOKEN) {
       const auth = (req.headers.authorization || '').trim();

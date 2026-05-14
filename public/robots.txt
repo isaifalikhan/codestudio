@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Prefer app/robots.ts when using Next.js. Fallback sitemap URL (set NEXT_PUBLIC_SITE_URL in prod):
-Sitemap: https://www.codexstudio2026.com/sitemap.xml

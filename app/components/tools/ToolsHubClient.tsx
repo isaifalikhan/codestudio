@@ -45,7 +45,7 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
           type="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search 140+ free tools..."
+          placeholder="Search 100+ free tools..."
           aria-label="Search tools"
           className="w-full sm:max-w-xs px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 focus:border-[#997F6C]"
         />

@@ -163,8 +163,8 @@ export const Footer = () => {
             © {new Date().getFullYear()} CodexStudio. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-[#2F281D]/30">
-            <Link href="/privacy-policy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-[#2F281D] transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#2F281D] transition-colors">Terms of Service</Link>
             <Link href="/sitemap.xml" className="hover:text-[#2F281D] transition-colors">Sitemap</Link>
             <Link href="/editorial" className="hover:text-[#2F281D] transition-colors">Editorial standards</Link>
           </div>

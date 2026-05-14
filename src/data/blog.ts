@@ -228,7 +228,7 @@ You can find all of these under our free PDF tools. No account, no install, no c
 
 Use merge when combining quotes, contracts, or reports. Use split when you need to extract or separate pages. Compress before sending large PDFs by email or uploading to a portal. Convert Word to PDF when you need a final, non-editable version for clients or compliance. Having these tools bookmarked saves time and keeps you from buying software you don’t need.
 
-CodexStudio offers 140+ free online tools for businesses and creators. Need a custom web app or a fast business website? Get in touch via our contact page or WhatsApp—we’re based in Islamabad and reply within 24 hours.`,
+CodexStudio offers 100+ free online tools for businesses and creators. Need a custom web app or a fast business website? Get in touch via our contact page or WhatsApp—we’re based in Islamabad and reply within 24 hours.`,
   },
   {
     title: 'SEO Basics: Meta Tags, Slugs, and Meta Descriptions',

@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import type { Tool } from '@/lib/tools-data';
+import { isIncompleteTool } from '@/lib/tool-server-behavior';
 
 interface ToolCardProps {
   tool: Tool;
 }
 
 export function ToolCard({ tool }: ToolCardProps) {
+  const incomplete = isIncompleteTool(tool.slug);
   return (
     <Link
       href={`/tools/${tool.slug}`}
@@ -15,9 +17,16 @@ export function ToolCard({ tool }: ToolCardProps) {
         <span className="text-2xl flex-shrink-0" aria-hidden>
           {tool.emoji}
         </span>
-        <span className="text-xs font-medium text-[#997F6C] bg-[#997F6C]/10 px-2 py-0.5 rounded-full flex-shrink-0">
-          {tool.category}
-        </span>
+        <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
+          {incomplete && (
+            <span className="text-xs font-bold uppercase tracking-wide text-amber-900 bg-amber-100 border border-amber-200 px-2 py-0.5 rounded-full">
+              Limited
+            </span>
+          )}
+          <span className="text-xs font-medium text-[#997F6C] bg-[#997F6C]/10 px-2 py-0.5 rounded-full">
+            {tool.category}
+          </span>
+        </div>
       </div>
       <h3 className="font-display font-bold text-[#2F281D] text-lg mb-1 group-hover:text-[#997F6C] transition-colors">
         {tool.name}

@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 const stats = [
-  { label: 'Free Tools Built', value: '140+' },
+  { label: 'Free Tools Built', value: '100+' },
   { label: 'Happy Clients', value: '30+' },
   { label: 'Years Experience', value: '3+' },
   { label: 'Countries Served', value: '5+' },

@@ -1,4 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { SimpleRateLimiter } from '@/lib/downloader/rate-limit';
+
+const RATE_LIMITER = new SimpleRateLimiter(10, 60 * 1000, 5000); // 10 req/min/IP
+
+function getRequestIp(headers: Headers): string {
+  const xff = headers.get('x-forwarded-for');
+  if (xff) return xff.split(',')[0]?.trim() || 'unknown';
+  const realIp = headers.get('x-real-ip');
+  if (realIp) return realIp.trim();
+  return 'unknown';
+}
+
+const ALLOWED_TOOLS = new Set([
+  'blog-generator',
+  'email-writer',
+  'paraphraser',
+  'summarizer',
+  'grammar-checker',
+  'ad-copy',
+  'business-name',
+  'caption-generator',
+  'cover-letter',
+  'plagiarism-checker',
+]);
 
 const PROMPTS: Record<string, string> = {
   'blog-generator': 'You are a professional blog writer. Write an 800-word SEO-friendly blog post draft with clear headings. Tone: informative and engaging.',
@@ -15,10 +39,30 @@ const PROMPTS: Record<string, string> = {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    const ip = getRequestIp(request.headers);
+    const rl = RATE_LIMITER.check(ip);
+    if (!rl.ok) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please wait a moment and try again.' },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': String(Math.max(1, Math.ceil((rl.resetAt - Date.now()) / 1000))),
+          },
+        }
+      );
+    }
+
     const body = await request.json();
     const { tool, input } = body as { tool?: string; input?: string };
     if (!tool || typeof input !== 'string') {
       return NextResponse.json({ error: 'Missing tool or input.' }, { status: 400 });
+    }
+
+    // Only allow known tools to prevent abuse
+    if (!ALLOWED_TOOLS.has(tool)) {
+      return NextResponse.json({ error: 'Invalid tool specified.' }, { status: 400 });
     }
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -47,8 +91,8 @@ export async function POST(request: NextRequest) {
     });
 
     if (!res.ok) {
-      const err = await res.text();
-      return NextResponse.json({ error: `AI request failed: ${err}` }, { status: res.status });
+      console.error('Anthropic API error:', res.status, await res.text());
+      return NextResponse.json({ error: 'AI request failed. Please try again later.' }, { status: 500 });
     }
 
     const data = (await res.json()) as { content?: { type: string; text?: string }[] };

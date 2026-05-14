@@ -131,7 +131,7 @@ export const ContactPage = () => {
         </div>
         <div className="max-w-7xl mx-auto mt-16 pt-10 border-t border-[#2F281D]/10 text-center">
           <p className="text-[#2F281D]/70">
-            While you wait, try our free tools: <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">140+ free online tools →</Link>
+            While you wait, try our free tools: <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">100+ free online tools →</Link>
           </p>
         </div>
       </section>

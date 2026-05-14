@@ -5,7 +5,7 @@ import { JsonLd } from './components/JsonLd';
 export const metadata: Metadata = {
   title: 'CodexStudio — Web Development & Digital Solutions Agency in Islamabad, Pakistan',
   description:
-    'CodexStudio is a web development agency in Islamabad, Pakistan. We build fast Next.js websites, web apps, and 140+ free online tools.',
+    'CodexStudio is a web development agency in Islamabad, Pakistan. We build fast Next.js websites, web apps, and 100+ free online tools.',
   keywords: [
     'web development agency islamabad',
     'website design pakistan',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Web Development Agency in Islamabad, Pakistan | CodexStudio',
     description:
-      'Modern websites, web apps & 140+ free online tools. Based in Islamabad, Pakistan.',
+      'Modern websites, web apps & 100+ free online tools. Based in Islamabad, Pakistan.',
     url: 'https://www.codexstudio2026.com',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
     type: 'website',
@@ -36,7 +36,7 @@ const faqSchema = {
       name: 'What services does CodexStudio offer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'CodexStudio offers website development, UI/UX design, social media management, graphic design, branding, and SEO & digital marketing services. We also provide 140+ free online tools.',
+        text: 'CodexStudio offers website development, UI/UX design, social media management, graphic design, branding, and SEO & digital marketing services. We also provide 100+ free online tools.',
       },
     },
     {

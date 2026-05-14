@@ -1,5 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { SimpleRateLimiter } from '@/lib/downloader/rate-limit';
+
+const RATE_LIMITER = new SimpleRateLimiter(5, 60 * 1000, 5000); // 5 req/min/IP
+
+function getRequestIp(headers: Headers): string {
+  const xff = headers.get('x-forwarded-for');
+  if (xff) return xff.split(',')[0]?.trim() || 'unknown';
+  const realIp = headers.get('x-real-ip');
+  if (realIp) return realIp.trim();
+  return 'unknown';
+}
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -15,12 +26,34 @@ function escapeHtml(str: string): string {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    const ip = getRequestIp(request.headers);
+    const rl = RATE_LIMITER.check(ip);
+    if (!rl.ok) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please wait a moment and try again.' },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': String(Math.max(1, Math.ceil((rl.resetAt - Date.now()) / 1000))),
+          },
+        }
+      );
+    }
+
     const body = await request.json();
-    const { name, email, budget, projectType, message, company, website } = body;
+    const { name, email, budget, projectType, message, company, website, privacyConsent } = body;
 
     // Honeypot: if "website" is filled, treat as bot
     if (website) {
       return NextResponse.json({ success: true });
+    }
+
+    if (!privacyConsent) {
+      return NextResponse.json(
+        { error: 'Please confirm you agree to our Privacy Policy before submitting.' },
+        { status: 400 }
+      );
     }
 
     if (!name || typeof name !== 'string' || name.trim().length < 2) {
@@ -41,6 +74,10 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    const messageTrimmed = message.trim();
+    if (messageTrimmed.length > 8000) {
+      return NextResponse.json({ error: 'Message is too long (max 8000 characters).' }, { status: 400 });
+    }
 
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
@@ -60,7 +97,7 @@ export async function POST(request: NextRequest) {
     const c = company && String(company).trim() ? escapeHtml(String(company).trim()) : '—';
     const pt = projectType ? escapeHtml(String(projectType)) : '—';
     const b = budget ? escapeHtml(String(budget)) : '—';
-    const m = escapeHtml(message.trim());
+    const m = escapeHtml(messageTrimmed);
 
     const html = `
       <h2>New Contact Form Submission</h2>

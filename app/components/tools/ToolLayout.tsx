@@ -7,6 +7,8 @@ import type { Tool } from '@/lib/tools-data';
 import { tools } from '@/lib/tools-data';
 import { AdPlacement } from '@/app/components/AdPlacement';
 import { getReviewsForPage } from '@/lib/reviews';
+import { isServerBackedTool, isIncompleteTool } from '@/lib/tool-server-behavior';
+import { getToolFaqItems } from '@/lib/tool-faqs';
 
 const textSecondary = 'var(--color-text-secondary, rgba(47, 40, 29, 0.78))';
 const borderTertiary = 'var(--color-border-tertiary, rgba(47, 40, 29, 0.12))';
@@ -43,7 +45,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
   const [s1, s2, s3] = tool.howToSteps;
 
   return (
-    <article className="max-w-4xl mx-auto px-6 py-20 mt-[100px] pt-12 pb-24">
+    <article className="max-w-6xl mx-auto px-6 py-20 mt-[100px] pt-12 pb-24">
       <nav aria-label="Breadcrumb" className="pb-4">
         <ol className="flex flex-wrap items-center gap-2 text-sm text-[#2F281D]/70">
           <li>
@@ -69,6 +71,15 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
           {tool.name} — Free Online Tool
         </h1>
         <p className="text-[#2F281D]/70 mt-2 text-lg">{tool.tagline}</p>
+        {isIncompleteTool(tool.slug) && (
+          <p
+            className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950"
+            role="status"
+          >
+            <strong className="font-semibold">Limited / in progress:</strong> this tool may not support every use case yet. Check the on-page notice or try a
+            similar tool from the list below.
+          </p>
+        )}
       </header>
 
       {tool.category === 'Video Tools' && (
@@ -83,14 +94,16 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
 
       <AdPlacement slot="top" />
 
-      <section
-        className="rounded-2xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 md:p-8 mb-12"
-        aria-label={`${tool.name} tool`}
-      >
-        {children}
-      </section>
+      <div className="flex flex-col xl:flex-row gap-8 xl:items-start xl:gap-10">
+        <div className="min-w-0 flex-1">
+          <section
+            className="rounded-2xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 md:p-8 mb-12"
+            aria-label={`${tool.name} tool`}
+          >
+            {children}
+          </section>
 
-      <AdPlacement slot="bottom" />
+          <AdPlacement slot="bottom" />
 
       <section style={{ marginTop: '48px', marginBottom: '32px' }}>
         <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>How to use this tool</h2>
@@ -109,10 +122,17 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
               {para}
             </p>
           ))}
-          <p style={{ marginTop: '16px' }}>
-            Our {tool.name} is completely free to use with no signup required. Everything runs directly in your browser — your files and data never leave your
-            device and are never uploaded to our servers. This makes it 100% private and secure.
-          </p>
+          {isServerBackedTool(tool.slug) ? (
+            <p style={{ marginTop: '16px' }}>
+              Our {tool.name} is free to use with no signup required. This tool sends your input to CodexStudio&apos;s secure servers to complete the task; we do
+              not keep your data after processing. Traffic is sent over HTTPS.
+            </p>
+          ) : (
+            <p style={{ marginTop: '16px' }}>
+              Our {tool.name} is completely free to use with no signup required. For this tool, processing runs in your browser — your files and data stay on your
+              device and are not uploaded to our servers.
+            </p>
+          )}
           <p style={{ marginTop: '16px' }}>
             Whether you are a developer, designer, student, or business owner, this tool is designed to save you time and make your workflow more efficient.
             Bookmark this page to access it whenever you need it — it will always be free.
@@ -124,39 +144,26 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
         <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '24px', color: '#2F281D' }}>Frequently Asked Questions</h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ borderBottom: `1px solid ${borderTertiary}`, paddingBottom: '16px' }}>
-            <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#2F281D' }}>Is the {tool.name} completely free?</h3>
-            <p style={{ fontSize: '14px', lineHeight: '1.7', color: textSecondary }}>
-              Yes, the {tool.name} is 100% free to use with no hidden charges, no subscription, and no signup required. Simply visit the page and start using it
-              immediately.
-            </p>
-          </div>
-
-          <div style={{ borderBottom: `1px solid ${borderTertiary}`, paddingBottom: '16px' }}>
-            <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#2F281D' }}>Does this tool upload my files to a server?</h3>
-            <p style={{ fontSize: '14px', lineHeight: '1.7', color: textSecondary }}>
-              No. Everything runs entirely in your browser using JavaScript. Your files, text, and data never leave your device and are never sent to our
-              servers. This makes it completely private and secure.
-            </p>
-          </div>
-
-          <div style={{ borderBottom: `1px solid ${borderTertiary}`, paddingBottom: '16px' }}>
-            <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#2F281D' }}>Does the {tool.name} work on mobile?</h3>
-            <p style={{ fontSize: '14px', lineHeight: '1.7', color: textSecondary }}>
-              Yes, the {tool.name} is fully responsive and works on all devices including smartphones, tablets, and desktop computers. It works on Chrome,
-              Firefox, Safari, and Edge browsers.
-            </p>
-          </div>
-
-          <div style={{ paddingBottom: '16px' }}>
-            <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#2F281D' }}>How accurate is this tool?</h3>
-            <p style={{ fontSize: '14px', lineHeight: '1.7', color: textSecondary }}>
-              Our {tool.name} uses industry-standard algorithms to ensure accurate results every time. It has been tested extensively across different browsers
-              and devices to ensure consistent and reliable output.
-            </p>
-          </div>
+          {getToolFaqItems(tool.slug, tool.name).map((faq, idx, arr) => (
+            <div
+              key={faq.q}
+              style={{
+                borderBottom: idx < arr.length - 1 ? `1px solid ${borderTertiary}` : undefined,
+                paddingBottom: '16px',
+              }}
+            >
+              <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#2F281D' }}>{faq.q}</h3>
+              <p style={{ fontSize: '14px', lineHeight: '1.7', color: textSecondary }}>{faq.a}</p>
+            </div>
+          ))}
         </div>
       </section>
+
+        </div>
+        <aside className="w-full shrink-0 xl:w-[300px]" aria-label="Advertisement">
+          <AdPlacement slot="sidebar" />
+        </aside>
+      </div>
 
       <section style={{ marginTop: '32px', marginBottom: '48px' }}>
         <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>Related Tools</h3>
@@ -183,7 +190,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
         </div>
         <div style={{ marginTop: '16px' }}>
           <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">
-            ← Back to all 140+ free tools
+            ← Back to all 100+ free tools
           </Link>
         </div>
       </section>

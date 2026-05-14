@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { BlogPage } from '@/src/views/BlogPage';
 import { JsonLd } from '@/app/components/JsonLd';
+import { AdPlacement } from '@/app/components/AdPlacement';
 
 const SITE = 'https://www.codexstudio2026.com';
 const breadcrumbSchema = {
@@ -38,7 +39,13 @@ export default function BlogRoute() {
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
+      <div className="max-w-7xl mx-auto px-6">
+        <AdPlacement slot="top" />
+      </div>
       <BlogPage />
+      <div className="max-w-7xl mx-auto px-6">
+        <AdPlacement slot="bottom" />
+      </div>
     </>
   );
 }

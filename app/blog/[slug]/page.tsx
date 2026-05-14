@@ -5,6 +5,8 @@ import { Fragment } from 'react';
 import { blogPosts } from '@/src/data/blog';
 import { getRelatedTools, getToolBySlug } from '@/lib/tools-data';
 import { JsonLd } from '@/app/components/JsonLd';
+import { AdPlacement } from '@/app/components/AdPlacement';
+import { CopyPageUrlButton } from '@/app/components/CopyPageUrlButton';
 
 function RichParagraph({ text }: { text: string }) {
   const parts = text.split(/(\*\*.+?\*\*)/g);
@@ -106,7 +108,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
       <article className="bg-[#FDF8EC] min-h-screen">
-      <header className="pt-32 pb-16 px-6">
+      <div className="max-w-4xl mx-auto px-6 pt-24">
+        <AdPlacement slot="top" />
+      </div>
+      <header className="pt-8 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm">{post.category}</p>
           <h1 className="text-4xl md:text-6xl font-display font-bold text-[#2F281D] mt-2">{post.title}</h1>
@@ -150,13 +155,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             })}
           </div>
           <section className="mt-8 flex flex-wrap gap-3">
-            <button
-              type="button"
-              onClick={() => navigator.clipboard.writeText(`${SITE}/blog/${post.slug}`)}
-              className="px-4 py-2 rounded-full border border-[#2F281D]/20 text-[#2F281D] text-sm"
-            >
-              Copy link
-            </button>
+            <CopyPageUrlButton url={`${SITE}/blog/${post.slug}`} />
             <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`${SITE}/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full border border-[#2F281D]/20 text-[#2F281D] text-sm">Share on X</a>
             <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`${SITE}/blog/${post.slug}`)}`} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full border border-[#2F281D]/20 text-[#2F281D] text-sm">Share on LinkedIn</a>
             <a href={`https://wa.me/?text=${encodeURIComponent(`${post.title} ${SITE}/blog/${post.slug}`)}`} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full border border-[#2F281D]/20 text-[#2F281D] text-sm">Share on WhatsApp</a>
@@ -169,7 +168,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <Link href="/tools/image-compressor" className="text-[#997F6C] font-semibold hover:underline">image compressor</Link>
               , or{' '}
               <Link href="/tools/password-generator" className="text-[#997F6C] font-semibold hover:underline">password generator</Link>
-              — or browse all 140+ free tools in our <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Tools</Link> section.
+              — or browse all 100+ free tools in our <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Tools</Link> section.
             </p>
           </div>
 
@@ -256,6 +255,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               ))}
             </div>
           </section>
+          <AdPlacement slot="bottom" />
         </div>
       </div>
     </article>

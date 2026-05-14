@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import { Navbar } from '@/src/components/Navbar';
 import { Footer } from '@/src/components/Footer';
 import { DeferredTopWidgets, DeferredBottomWidgets } from '@/app/components/DeferredLayoutWidgets';
-import { GAConsentWrapper } from '@/app/components/GAConsentWrapper';
-import { GoogleAnalytics as GA4Script } from '@/app/components/GoogleAnalytics';
+import { ConsentAwareTracking } from '@/app/components/ConsentAwareTracking';
 import {
   SITE_URL,
   defaultOgImage,
@@ -43,7 +41,7 @@ export const metadata: Metadata = {
     template: '%s | CodexStudio',
   },
   description:
-    'CodexStudio is a web development agency in Islamabad, Pakistan. We build modern websites, web apps, e-commerce stores & 140 free online tools. Get a free quote today.',
+    'CodexStudio is a web development agency in Islamabad, Pakistan. We build modern websites, web apps, e-commerce stores & 100+ free online tools. Get a free quote today.',
   keywords: [
     'web development agency islamabad',
     'website development pakistan',
@@ -93,7 +91,7 @@ export const metadata: Metadata = {
     site: '@codexstudio',
     creator: '@codexstudio',
     title: 'CodexStudio — Web Development Agency in Islamabad',
-    description: 'Modern websites, web apps & 140 free browser tools. Based in Islamabad, Pakistan.',
+    description: 'Modern websites, web apps & 100+ free browser tools. Based in Islamabad, Pakistan.',
     images: [defaultOgImage],
   },
   alternates: {
@@ -136,14 +134,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7165996801022980"
-          crossOrigin="anonymous"
-        />
       </head>
       <body className="min-h-screen bg-[#FDF8EC] flex flex-col antialiased font-sans text-base leading-relaxed">
-        <GA4Script />
+        <ConsentAwareTracking 
+          gaId={gaId} 
+          adsensePublisherId="ca-pub-7165996801022980" 
+        />
         <a
           href="#main-content"
           id="skip-link"
@@ -158,7 +154,6 @@ export default function RootLayout({
         </main>
         <Footer />
         <DeferredBottomWidgets />
-        {gaId && <GAConsentWrapper gaId={gaId} />}
         <Analytics />
       </body>
     </html>

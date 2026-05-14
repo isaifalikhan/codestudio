@@ -4,6 +4,8 @@ import { tools, getToolBySlug, getRelatedTools } from '@/lib/tools-data';
 import { ToolLayout } from '@/app/components/tools/ToolLayout';
 import { ToolWidgetLoader } from '@/app/components/tools/ToolWidgetLoader';
 import { JsonLd } from '@/app/components/JsonLd';
+import { isServerBackedTool } from '@/lib/tool-server-behavior';
+import { getToolFaqItems } from '@/lib/tool-faqs';
 
 const SITE = 'https://www.codexstudio2026.com';
 
@@ -53,14 +55,19 @@ export async function generateMetadata({
     };
   }
 
+  const usesServer = isServerBackedTool(slug);
+  const privacyLine = usesServer
+    ? 'Uses our secure servers for processing. No signup required.'
+    : 'Runs in your browser — no signup required. Privacy-friendly.';
+
   return {
     title: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio`,
-    description: `Free online ${tool.name}. ${tool.tagline}. No signup required, works 100% in your browser. Fast and privacy-friendly.`,
+    description: `Free online ${tool.name}. ${tool.tagline}. ${privacyLine}`,
     keywords: tool.keywords,
     alternates: { canonical: `${SITE}/tools/${tool.slug}` },
     openGraph: {
       title: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio`,
-      description: `Free online ${tool.name}. ${tool.tagline}. No signup required, works 100% in your browser. Fast and privacy-friendly.`,
+      description: `Free online ${tool.name}. ${tool.tagline}. ${privacyLine}`,
       url: `${SITE}/tools/${tool.slug}`,
       images: [{ url: '/og-tools.jpg', width: 1200, height: 630 }],
       type: 'website',
@@ -69,7 +76,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio`,
-      description: `Free online ${tool.name}. ${tool.tagline}. No signup required, works 100% in your browser. Fast and privacy-friendly.`,
+      description: `Free online ${tool.name}. ${tool.tagline}. ${privacyLine}`,
       images: ['/og-tools.jpg'],
     },
   };
@@ -88,6 +95,7 @@ function buildToolSchema(tool: { name: string; slug: string; description: string
     provider: { '@type': 'Organization', name: 'CodexStudio', url: SITE },
   };
 }
+
 function buildBreadcrumbSchema(slug: string, name: string) {
   return {
     '@context': 'https://schema.org',
@@ -110,45 +118,7 @@ export default async function ToolPage({
   if (!tool) notFound();
 
   const related = getRelatedTools(slug, 3);
-
-  const faqs =
-    slug === 'tiktok-downloader'
-      ? [
-          {
-            q: 'How do I download a TikTok video without watermark?',
-            a: 'Paste a public TikTok link, click “Get download links”, then choose HD or No watermark. Click Download to save the file or Open to view it in a new tab.',
-          },
-          {
-            q: 'Can I download TikTok videos in HD quality?',
-            a: 'Yes. When available, the tool shows an HD option. Select HD before clicking Download.',
-          },
-          {
-            q: 'Is this TikTok video downloader free?',
-            a: 'Yes. It is completely free to use with no signup or subscription required.',
-          },
-          {
-            q: 'Can I use this TikTok downloader on mobile?',
-            a: 'Yes. The downloader works on Android and iPhone browsers as well as desktop browsers.',
-          },
-        ]
-      : [
-    {
-      q: `Is the ${tool.name} completely free?`,
-      a: `Yes, the ${tool.name} is 100% free to use with no hidden charges, no subscription, and no signup required. Simply visit the page and start using it immediately.`,
-    },
-    {
-      q: `Does this tool upload my files to a server?`,
-      a: `No. Everything runs entirely in your browser using JavaScript. Your files, text, and data never leave your device and are never sent to our servers. This makes it completely private and secure.`,
-    },
-    {
-      q: `Does the ${tool.name} work on mobile?`,
-      a: `Yes, the ${tool.name} is fully responsive and works on all devices including smartphones, tablets, and desktop computers. It works on Chrome, Firefox, Safari, and Edge browsers.`,
-    },
-    {
-      q: `How accurate is this tool?`,
-      a: `Our ${tool.name} uses industry-standard algorithms to ensure accurate results every time. It has been tested extensively across different browsers and devices to ensure consistent and reliable output.`,
-    },
-  ];
+  const faqs = getToolFaqItems(slug, tool.name);
 
   const faqPageSchema = {
     '@context': 'https://schema.org',

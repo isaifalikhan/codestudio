@@ -26,10 +26,24 @@ export function AiToolShared({ tool, placeholder, label, buttonLabel = 'Generate
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ tool, input: input.trim() }),
       });
-      const data = await res.json();
-      if (data.error) setError(data.error);
-      else if (data.text) setOutput(data.text);
-      else setError('No response from AI.');
+      const raw = await res.text();
+      let data: { error?: string; text?: string };
+      try {
+        data = raw ? (JSON.parse(raw) as { error?: string; text?: string }) : {};
+      } catch {
+        setError('Unexpected response from server.');
+        setLoading(false);
+        return;
+      }
+      if (!res.ok) {
+        setError(typeof data.error === 'string' ? data.error : 'Request failed. Try again later.');
+      } else if (data.error) {
+        setError(data.error);
+      } else if (data.text) {
+        setOutput(data.text);
+      } else {
+        setError('No response from AI.');
+      }
     } catch {
       setError('Request failed. Try again.');
     }

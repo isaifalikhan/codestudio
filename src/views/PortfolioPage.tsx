@@ -148,7 +148,7 @@ export const PortfolioPage = () => {
               See all our services: <Link href="/services" className="text-[#997F6C] font-semibold hover:underline">What we offer →</Link>
             </p>
             <p className="text-[#2F281D]/70">
-              We also build free tools. <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Browse 140+ free tools →</Link>
+              We also build free tools. <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Browse 100+ free tools →</Link>
             </p>
           </div>
         </div>

@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const AD_CLIENT = 'ca-pub-7165996801022980';
+const STORAGE_KEY = 'codestudio-cookie-consent';
 
 const AD_SLOTS: Record<'top' | 'bottom' | 'sidebar', string> = {
   top: '5709673629',
@@ -16,9 +17,25 @@ export function AdPlacement({ slot }: { slot: 'top' | 'bottom' | 'sidebar' }) {
   const adRef = useRef<HTMLModElement | null>(null);
   const hasRequestedAd = useRef(false);
   const adSlot = AD_SLOTS[slot];
+  const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
-    if (!adSlot || !adRef.current || hasRequestedAd.current) return;
+    const checkConsent = () => {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        setHasConsent(stored === 'accept');
+      } catch {
+        setHasConsent(false);
+      }
+    };
+
+    checkConsent();
+    const interval = setInterval(checkConsent, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (!adSlot || !adRef.current || hasRequestedAd.current || !hasConsent) return;
 
     hasRequestedAd.current = true;
 
@@ -28,9 +45,9 @@ export function AdPlacement({ slot }: { slot: 'top' | 'bottom' | 'sidebar' }) {
     } catch {
       hasRequestedAd.current = false;
     }
-  }, [adSlot]);
+  }, [adSlot, hasConsent]);
 
-  if (!adSlot) return null;
+  if (!adSlot || !hasConsent) return null;
 
   return (
     <div

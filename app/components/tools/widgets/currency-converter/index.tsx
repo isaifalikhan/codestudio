@@ -11,6 +11,7 @@ export default function CurrencyConverterWidget() {
   const [rates, setRates] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
   const [updated, setUpdated] = useState<string | null>(null);
+  const [usingEstimates, setUsingEstimates] = useState(false);
 
   useEffect(() => {
     fetch('https://api.frankfurter.app/latest?from=USD&to=PKR,GBP,EUR,AED,INR,CAD,AUD,JPY,CHF,SAR')
@@ -22,8 +23,12 @@ export default function CurrencyConverterWidget() {
         }
         setRates(r);
         setUpdated(data.date || null);
+        setUsingEstimates(false);
       })
-      .catch(() => setRates({ USD: 1, PKR: 278, GBP: 0.79, EUR: 0.92 }))
+      .catch(() => {
+        setRates({ USD: 1, PKR: 278, GBP: 0.79, EUR: 0.92 });
+        setUsingEstimates(true);
+      })
       .finally(() => setLoading(false));
   }, []);
 
@@ -74,6 +79,11 @@ export default function CurrencyConverterWidget() {
         </label>
       </div>
       {loading && <p className="text-[#2F281D]/70">Loading rates…</p>}
+      {usingEstimates && !loading && (
+        <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+          Live exchange rates could not be loaded. Showing rough fallback figures only — do not use for trades or accounting without verifying elsewhere.
+        </p>
+      )}
       {converted !== null && !loading && (
         <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
           <p className="text-2xl font-bold text-[#2F281D]">

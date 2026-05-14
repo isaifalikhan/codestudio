@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Send } from 'lucide-react';
+import Link from 'next/link';
 
 export type ContactFormFields = {
   name: string;
@@ -12,6 +13,7 @@ export type ContactFormFields = {
   message: string;
   company?: string;
   website?: string; // honeypot
+  privacyConsent: boolean;
 };
 
 const projectTypeOptions = [
@@ -41,7 +43,7 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
   const labelClass = isDark ? labelClassDark : labelClassLight;
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormFields>({
-    defaultValues: { name: '', email: '', budget: '', projectType: '', message: '', company: '', website: '' },
+    defaultValues: { name: '', email: '', budget: '', projectType: '', message: '', company: '', website: '', privacyConsent: false },
   });
 
   const onSubmit = async (data: ContactFormFields) => {
@@ -60,6 +62,7 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
           message: data.message,
           company: data.company || '',
           website: data.website || '',
+          privacyConsent: data.privacyConsent,
         }),
       });
       const json = await res.json().catch(() => ({}));
@@ -166,6 +169,19 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
         />
         {errors.message && <p className="text-red-500 text-sm mt-1" role="alert">{errors.message.message}</p>}
       </div>
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="contact-privacy-consent"
+          className="mt-1 h-5 w-5 rounded border-[#2F281D]/20 text-[#997F6C] focus:ring-[#997F6C]"
+          {...register('privacyConsent', { required: 'You must agree to the privacy policy' })}
+        />
+        <label htmlFor="contact-privacy-consent" className={`text-sm ${isDark ? 'text-[#FDF8EC]/70' : 'text-[#2F281D]/70'}`}>
+          I agree to the processing of my personal data in accordance with the{' '}
+          <Link href="/privacy" className="text-[#997F6C] hover:underline">Privacy Policy</Link>.
+        </label>
+      </div>
+      {errors.privacyConsent && <p className="text-red-500 text-sm" role="alert">{errors.privacyConsent.message}</p>}
       {status === 'success' && (
         <div className={`rounded-2xl px-6 py-4 font-medium ${isDark ? 'bg-green-500/20 border border-green-400/40 text-green-300' : 'bg-green-500/15 border border-green-500/30 text-green-700'}`} role="status">
           ✓ Message sent! We&apos;ll reply within 24 hours.

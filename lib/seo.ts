@@ -1,4 +1,6 @@
-export const SITE_URL = 'https://www.codexstudio2026.com';
+import { SITE_URL } from '@/lib/constants';
+
+export { SITE_URL };
 export const BRAND_NAME = 'CodexStudio';
 export const BRAND_PHONE = '+92-300-1234567';
 export const BRAND_EMAIL = 'hello@codexstudio2026.com';
@@ -16,9 +18,9 @@ export function buildOrganizationSchema() {
     '@type': 'Organization',
     name: BRAND_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
+    logo: `${SITE_URL}/images/logo.png`,
     description:
-      'Web development agency in Islamabad, Pakistan specializing in Next.js, React, e-commerce, and 140+ free online tools.',
+      'Web development agency in Islamabad, Pakistan specializing in Next.js, React, e-commerce, and 100+ free online tools.',
     foundingDate: '2022',
     address: {
       '@type': 'PostalAddress',
@@ -46,7 +48,7 @@ export function buildLocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: BRAND_NAME,
-    image: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/images/logo.png`,
     url: SITE_URL,
     telephone: BRAND_PHONE,
     priceRange: '$$',

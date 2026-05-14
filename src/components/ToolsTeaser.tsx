@@ -23,7 +23,7 @@ export function ToolsTeaser() {
             Free Tools for Everyone
           </h2>
           <p className="text-[#2F281D]/70 max-w-2xl mx-auto text-lg">
-            We built 140+ free online tools that run 100% in your browser — no signup, no uploads to our servers.
+            We built 100+ free online tools that run 100% in your browser — no signup, no uploads to our servers.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -51,7 +51,7 @@ export function ToolsTeaser() {
             href="/tools"
             className="inline-flex items-center gap-2 bg-[#2F281D] text-[#FDF8EC] px-6 py-3 rounded-full font-bold hover:bg-[#997F6C] transition-colors"
           >
-            View All 140+ Free Tools <ArrowRight className="w-4 h-4" />
+            View All 100+ Free Tools <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

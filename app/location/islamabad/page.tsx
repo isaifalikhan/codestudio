@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { JsonLd } from '@/app/components/JsonLd';
-import { buildLocalBusinessSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Web Development Agency in Islamabad | CodexStudio',
@@ -13,7 +11,6 @@ export const metadata: Metadata = {
 export default function IslamabadLocationPage() {
   return (
     <div className="bg-[#FDF8EC] min-h-screen pt-32 pb-20 px-6">
-      <JsonLd data={buildLocalBusinessSchema()} />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]">Web Development Services in Islamabad, Pakistan</h1>
         <p className="mt-6 text-[#2F281D]/75 leading-relaxed">

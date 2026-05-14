@@ -90,7 +90,7 @@ export default function ResourcesPage() {
             to work smarter.
           </p>
           <p className="text-[#2F281D]/80 mb-6">
-            We also built our own free tools — <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Try 140+ tools we made →</Link>
+            We also built our own free tools — <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Try 100+ tools we made →</Link>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a

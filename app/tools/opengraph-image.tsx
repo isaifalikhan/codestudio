@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'CodexStudio — 140 Free Online Tools';
+export const alt = 'CodexStudio — 100+ Free Online Tools';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -58,7 +58,7 @@ export default async function Image() {
             textAlign: 'center',
           }}
         >
-          140 Free Online Tools
+          100+ Free Online Tools
         </div>
         <div
           style={{

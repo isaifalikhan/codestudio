@@ -14,7 +14,20 @@ export default function DnsLookupWidget() {
     setResult('');
     try {
       const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(d)}&type=A`, { headers: { Accept: 'application/dns-json' } });
-      const data = await res.json();
+      const text = await res.text();
+      if (!res.ok) {
+        setResult(`Lookup failed (HTTP ${res.status}). Try again later.`);
+        setLoading(false);
+        return;
+      }
+      let data: unknown;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        setResult('Invalid response from DNS service.');
+        setLoading(false);
+        return;
+      }
       setResult(JSON.stringify(data, null, 2));
     } catch (e) {
       setResult('Lookup failed. Check the domain or try again.');
