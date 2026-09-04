@@ -28,15 +28,15 @@ export default function DomainAgeCheckerWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Domain name</span>
-        <input type="text" value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="example.com" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Domain name</span>
+        <input type="text" value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="example.com" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      <button type="button" onClick={check} disabled={loading} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold disabled:opacity-50">Check domain age</button>
+      <button type="button" onClick={check} disabled={loading} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold disabled:opacity-50">Check domain age</button>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
           {result.error && <p className="text-amber-700 text-sm">{result.error}</p>}
-          {result.created && <p className="text-xl font-bold text-[#2F281D]">Created: {result.created}</p>}
-          {result.raw && <pre className="mt-2 text-xs text-[#2F281D]/70 whitespace-pre-wrap">{result.raw}</pre>}
+          {result.created && <p className="text-xl font-bold text-[#14171F]">Created: {result.created}</p>}
+          {result.raw && <pre className="mt-2 text-xs text-[#14171F]/70 whitespace-pre-wrap">{result.raw}</pre>}
         </div>
       )}
     </div>

@@ -66,7 +66,7 @@ export default function UnitConverterWidget() {
             key={c.id}
             type="button"
             onClick={() => setCategory(c.id)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium ${category === c.id ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium ${category === c.id ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
           >
             {c.label}
           </button>
@@ -74,21 +74,21 @@ export default function UnitConverterWidget() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Value</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Value</span>
           <input
             type="number"
             step="any"
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">From</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">From</span>
           <select
             value={from}
             onChange={(e) => setFrom(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           >
             {cat.units.map((u) => (
               <option key={u} value={u}>{u}</option>
@@ -96,11 +96,11 @@ export default function UnitConverterWidget() {
           </select>
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">To</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">To</span>
           <select
             value={to}
             onChange={(e) => setTo(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           >
             {cat.units.map((u) => (
               <option key={u} value={u}>{u}</option>
@@ -109,8 +109,8 @@ export default function UnitConverterWidget() {
         </label>
       </div>
       {result !== null && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-2xl font-bold text-[#2F281D]">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-2xl font-bold text-[#14171F]">
             {value} {from} = {result.toFixed(4)} {to}
           </p>
         </div>

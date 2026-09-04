@@ -21,14 +21,14 @@ export default function AudioTrimmerWidget() {
   return (
     <div className="space-y-6">
       <input ref={inputRef} type="file" accept="audio/*" onChange={handleFile} className="hidden" />
-      <button type="button" onClick={() => inputRef.current?.click()} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Choose audio file</button>
+      <button type="button" onClick={() => inputRef.current?.click()} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Choose audio file</button>
       {file && (
         <>
           <div className="flex gap-4">
-            <label><span className="text-sm text-[#2F281D]/70 block mb-1">Start (sec)</span><input type="number" min={0} value={start} onChange={(e) => setStart(e.target.value)} className="w-24 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
-            <label><span className="text-sm text-[#2F281D]/70 block mb-1">End (sec)</span><input type="number" min={0} value={end} onChange={(e) => setEnd(e.target.value)} className="w-24 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
+            <label><span className="text-sm text-[#14171F]/70 block mb-1">Start (sec)</span><input type="number" min={0} value={start} onChange={(e) => setStart(e.target.value)} className="w-24 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
+            <label><span className="text-sm text-[#14171F]/70 block mb-1">End (sec)</span><input type="number" min={0} value={end} onChange={(e) => setEnd(e.target.value)} className="w-24 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
           </div>
-          <p className="text-[#2F281D]/80 text-sm">{message}</p>
+          <p className="text-[#14171F]/80 text-sm">{message}</p>
         </>
       )}
     </div>

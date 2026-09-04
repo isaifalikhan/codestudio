@@ -5,7 +5,7 @@ export function CopyPageUrlButton({ url, label = 'Copy link' }: { url: string; l
     <button
       type="button"
       onClick={() => navigator.clipboard.writeText(url)}
-      className="px-4 py-2 rounded-full border border-[#2F281D]/20 text-[#2F281D] text-sm"
+      className="px-4 py-2 rounded-full border border-[#14171F]/20 text-[#14171F] text-sm"
     >
       {label}
     </button>

@@ -47,9 +47,9 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search 100+ free tools..."
           aria-label="Search tools"
-          className="w-full sm:max-w-xs px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 focus:border-[#997F6C]"
+          className="w-full sm:max-w-xs px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 focus:border-[#D98A2C]"
         />
-        <p className="text-sm text-[#2F281D]/60 font-medium">
+        <p className="text-sm text-[#14171F]/60 font-medium">
           Showing {filteredTools.length} tool{filteredTools.length !== 1 ? 's' : ''}
         </p>
       </div>
@@ -62,8 +62,8 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
             onClick={() => setCategoryId(cat.id)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
               categoryId === cat.id
-                ? 'bg-[#2F281D] text-[#FDF8EC]'
-                : 'bg-[#2F281D]/10 text-[#2F281D]/70 hover:bg-[#2F281D]/20'
+                ? 'bg-[#14171F] text-[#F6F4EC]'
+                : 'bg-[#14171F]/10 text-[#14171F]/70 hover:bg-[#14171F]/20'
             }`}
           >
             {cat.label} <span className="ml-1 opacity-70">({cat.count})</span>
@@ -72,7 +72,7 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
       </div>
 
       <div>
-        <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-4">Most Popular</h2>
+        <h2 className="text-2xl font-display font-bold text-[#14171F] mb-4">Most Popular</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {popularTools.map((tool) => (
             <ToolCard key={`popular-${tool.slug}`} tool={tool} />
@@ -87,7 +87,7 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
       </div>
 
       {filteredTools.length === 0 && (
-        <p className="text-center text-[#2F281D]/60 py-12">
+        <p className="text-center text-[#14171F]/60 py-12">
           No tools match your search. Try a different term or category.
         </p>
       )}

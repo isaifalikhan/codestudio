@@ -23,31 +23,31 @@ export default function YoutubeThumbnailDownloaderWidget() {
   return (
     <div className="space-y-6">
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">YouTube video URL</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">YouTube video URL</span>
         <input
           type="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://www.youtube.com/watch?v=..."
-          className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50"
+          className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50"
         />
       </label>
       {id && (
         <div className="space-y-4">
-          <p className="text-sm font-medium text-[#2F281D]">Download thumbnail</p>
+          <p className="text-sm font-medium text-[#14171F]">Download thumbnail</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {QUALITIES.map((q) => {
               const imgUrl = `https://img.youtube.com/vi/${id}/${q.suffix}.jpg`;
               return (
                 <div key={q.suffix} className="text-center">
                   <a href={imgUrl} download={`yt-thumb-${q.suffix}.jpg`} className="block">
-                    <img src={imgUrl} alt={q.label} className="w-full rounded-lg border border-[#2F281D]/10" />
+                    <img src={imgUrl} alt={q.label} className="w-full rounded-lg border border-[#14171F]/10" />
                   </a>
-                  <p className="text-xs text-[#2F281D]/70 mt-1">{q.label}</p>
+                  <p className="text-xs text-[#14171F]/70 mt-1">{q.label}</p>
                   <a
                     href={imgUrl}
                     download={`yt-thumb-${q.suffix}.jpg`}
-                    className="inline-block mt-1 text-sm font-bold text-[#997F6C] hover:underline"
+                    className="inline-block mt-1 text-sm font-bold text-[#D98A2C] hover:underline"
                   >
                     Download
                   </a>

@@ -35,23 +35,23 @@ export default function NumberBaseConverterWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">From base</span>
-          <select value={fromBaseVal} onChange={(e) => setFromBaseVal(Number(e.target.value))} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <span className="text-sm font-medium text-[#14171F] block mb-2">From base</span>
+          <select value={fromBaseVal} onChange={(e) => setFromBaseVal(Number(e.target.value))} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
             {bases.map((b) => (<option key={b} value={b}>{b} {b === 2 ? 'Binary' : b === 8 ? 'Octal' : b === 10 ? 'Decimal' : 'Hex'}</option>))}
           </select>
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Value</span>
-          <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder={fromBaseVal === 16 ? 'FF' : '255'} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] font-mono" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Value</span>
+          <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder={fromBaseVal === 16 ? 'FF' : '255'} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] font-mono" />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">To base</span>
-          <select value={toBaseVal} onChange={(e) => setToBaseVal(Number(e.target.value))} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <span className="text-sm font-medium text-[#14171F] block mb-2">To base</span>
+          <select value={toBaseVal} onChange={(e) => setToBaseVal(Number(e.target.value))} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
             {bases.map((b) => (<option key={b} value={b}>{b}</option>))}
           </select>
         </label>
       </div>
-      {result && <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6"><p className="text-xl font-bold text-[#2F281D] font-mono">{result}</p></div>}
+      {result && <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6"><p className="text-xl font-bold text-[#14171F] font-mono">{result}</p></div>}
     </div>
   );
 }

@@ -52,14 +52,14 @@ export default function BmiCalculatorWidget() {
         <button
           type="button"
           onClick={() => setUnit('metric')}
-          className={`px-4 py-2 rounded-xl font-medium ${unit === 'metric' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl font-medium ${unit === 'metric' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           Metric (kg, cm)
         </button>
         <button
           type="button"
           onClick={() => setUnit('imperial')}
-          className={`px-4 py-2 rounded-xl font-medium ${unit === 'imperial' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl font-medium ${unit === 'imperial' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           Imperial (lbs, ft/in)
         </button>
@@ -67,41 +67,41 @@ export default function BmiCalculatorWidget() {
       {unit === 'metric' ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label>
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Weight (kg)</span>
+            <span className="text-sm font-medium text-[#14171F] block mb-2">Weight (kg)</span>
             <input
               type="number"
               min={1}
               step={0.1}
               value={kg}
               onChange={(e) => setKg(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+              className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
             />
           </label>
           <label>
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Height (cm)</span>
+            <span className="text-sm font-medium text-[#14171F] block mb-2">Height (cm)</span>
             <input
               type="number"
               min={1}
               value={cm}
               onChange={(e) => setCm(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+              className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
             />
           </label>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label>
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Weight (lbs)</span>
+            <span className="text-sm font-medium text-[#14171F] block mb-2">Weight (lbs)</span>
             <input
               type="number"
               min={1}
               value={lbs}
               onChange={(e) => setLbs(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+              className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
             />
           </label>
           <label>
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Height (ft and in)</span>
+            <span className="text-sm font-medium text-[#14171F] block mb-2">Height (ft and in)</span>
             <div className="flex gap-2">
               <input
                 type="number"
@@ -110,7 +110,7 @@ export default function BmiCalculatorWidget() {
                 placeholder="ft"
                 value={ft}
                 onChange={(e) => setFt(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
               />
               <input
                 type="number"
@@ -119,23 +119,23 @@ export default function BmiCalculatorWidget() {
                 placeholder="in"
                 value={inVal}
                 onChange={(e) => setInVal(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
               />
             </div>
           </label>
         </div>
       )}
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-4">
-          <p className="text-3xl font-bold text-[#2F281D]">BMI: {result.bmi.toFixed(1)}</p>
-          <p className="text-lg text-[#2F281D]/80">Category: {result.category}</p>
-          <div className="h-3 rounded-full bg-[#2F281D]/10 overflow-hidden flex">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-4">
+          <p className="text-3xl font-bold text-[#14171F]">BMI: {result.bmi.toFixed(1)}</p>
+          <p className="text-lg text-[#14171F]/80">Category: {result.category}</p>
+          <div className="h-3 rounded-full bg-[#14171F]/10 overflow-hidden flex">
             <div className="bg-green-500" style={{ width: '18.5%' }} />
             <div className="bg-yellow-400" style={{ width: '6.5%' }} />
             <div className="bg-orange-400" style={{ width: '5%' }} />
             <div className="bg-red-500" style={{ width: '70%' }} />
           </div>
-          <p className="text-sm text-[#2F281D]/70">
+          <p className="text-sm text-[#14171F]/70">
             Healthy weight range for your height: {result.minKg.toFixed(1)} – {result.maxKg.toFixed(1)} kg
           </p>
         </div>

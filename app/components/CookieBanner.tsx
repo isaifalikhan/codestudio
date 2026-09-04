@@ -39,12 +39,12 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 bg-[#2F281D] text-[#FDF8EC] shadow-lg border-t border-[#FDF8EC]/10"
+      className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 bg-[#14171F] text-[#F6F4EC] shadow-lg border-t border-[#F6F4EC]/10"
     >
       <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <p className="text-sm md:text-base">
           We use cookies and similar technologies to improve your experience, measure traffic, and (with partners such as Google) show relevant ads. See our{' '}
-          <Link href="/privacy" className="underline hover:text-[#997F6C]">
+          <Link href="/privacy" className="underline hover:text-[#D98A2C]">
             Privacy Policy
           </Link>{' '}
           for details, including how Google uses data on partner sites.
@@ -53,14 +53,14 @@ export function CookieBanner() {
           <button
             type="button"
             onClick={decline}
-            className="px-4 py-2.5 min-h-[48px] rounded-full text-sm font-bold border-2 border-[#FDF8EC]/50 hover:bg-[#FDF8EC]/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#FDF8EC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2F281D] focus:outline-none"
+            className="px-4 py-2.5 min-h-[48px] rounded-full text-sm font-bold border-2 border-[#F6F4EC]/50 hover:bg-[#F6F4EC]/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#F6F4EC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#14171F] focus:outline-none"
           >
             Decline
           </button>
           <button
             type="button"
             onClick={accept}
-            className="px-4 py-2.5 min-h-[48px] rounded-full text-sm font-bold bg-[#6B5B4D] text-[#FDF8EC] hover:bg-[#5C4E42] transition-colors focus-visible:ring-2 focus-visible:ring-[#FDF8EC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2F281D] focus:outline-none"
+            className="px-4 py-2.5 min-h-[48px] rounded-full text-sm font-bold bg-[#6B5B4D] text-[#F6F4EC] hover:bg-[#5C4E42] transition-colors focus-visible:ring-2 focus-visible:ring-[#F6F4EC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#14171F] focus:outline-none"
           >
             Accept
           </button>

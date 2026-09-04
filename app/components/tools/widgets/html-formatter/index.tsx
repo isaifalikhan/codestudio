@@ -52,25 +52,25 @@ export default function HtmlFormatterWidget() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="<html>...</html>"
-        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] font-mono text-sm resize-y focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50"
+        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] font-mono text-sm resize-y focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50"
       />
       <div className="flex flex-wrap gap-2 items-center">
         <button
           type="button"
           onClick={runFormat}
-          className="px-4 py-2 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+          className="px-4 py-2 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
         >
           Format
         </button>
         <button
           type="button"
           onClick={runMinify}
-          className="px-4 py-2 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5"
+          className="px-4 py-2 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5"
         >
           Minify
         </button>
         {savings && (
-          <span className="text-sm text-[#2F281D]/70">
+          <span className="text-sm text-[#14171F]/70">
             {savings.orig} → {savings.out} bytes
           </span>
         )}
@@ -79,7 +79,7 @@ export default function HtmlFormatterWidget() {
         <textarea
           readOnly
           value={output}
-          className="w-full min-h-[180px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 font-mono text-sm resize-y"
+          className="w-full min-h-[180px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 font-mono text-sm resize-y"
         />
       )}
     </div>

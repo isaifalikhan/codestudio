@@ -71,26 +71,26 @@ export default function ToolsHubPage() {
       {/* Hero */}
       <section className="h-screen flex items-center justify-center pt-12 pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-[#997F6C] font-bold uppercase tracking-widest text-sm mb-4">
+          <p className="text-[#D98A2C] font-bold uppercase tracking-widest text-sm mb-4">
             Free Tools
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#2F281D] mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#14171F] mb-6 leading-tight">
             {tools.length}+ Free Online Tools — No Signup, Works in Browser
           </h1>
-          <p className="max-w-3xl mx-auto text-lg text-[#2F281D]/70 leading-relaxed mb-10">
+          <p className="max-w-3xl mx-auto text-lg text-[#14171F]/70 leading-relaxed mb-10">
             CodexStudio built these tools for developers, designers, and businesses. Most tools run in your browser with no signup. Video downloaders and AI
             writers use our secure servers only to complete those tasks — see each tool&apos;s page for details.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#tools-grid"
-              className="inline-flex items-center gap-2 bg-[#2F281D] text-[#FDF8EC] px-6 py-3 rounded-full font-bold hover:bg-[#997F6C] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#14171F] text-[#F6F4EC] px-6 py-3 rounded-full font-bold hover:bg-[#D98A2C] transition-colors"
             >
               Browse Tools ↓
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border border-[#2F281D]/30 text-[#2F281D] px-6 py-3 rounded-full font-bold hover:bg-[#2F281D]/5 transition-colors"
+              className="inline-flex items-center gap-2 border border-[#14171F]/30 text-[#14171F] px-6 py-3 rounded-full font-bold hover:bg-[#14171F]/5 transition-colors"
             >
               Start a Project <ArrowRight className="w-4 h-4" />
             </Link>
@@ -99,15 +99,15 @@ export default function ToolsHubPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-6 px-6 border-y border-[#2F281D]/10 bg-[#E8E2D2]/50">
+      <section className="py-6 px-6 border-y border-[#14171F]/10 bg-[#ECE7D9]/50">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center">
-          <span className="text-[#2F281D] font-bold">{tools.length}+ Tools</span>
-          <span className="text-[#2F281D]/60">·</span>
-          <span className="text-[#2F281D] font-bold">17 Categories</span>
-          <span className="text-[#2F281D]/60">·</span>
-          <span className="text-[#2F281D] font-bold">100% Free</span>
-          <span className="text-[#2F281D]/60">·</span>
-          <span className="text-[#2F281D] font-bold">No Signup</span>
+          <span className="text-[#14171F] font-bold">{tools.length}+ Tools</span>
+          <span className="text-[#14171F]/60">·</span>
+          <span className="text-[#14171F] font-bold">17 Categories</span>
+          <span className="text-[#14171F]/60">·</span>
+          <span className="text-[#14171F] font-bold">100% Free</span>
+          <span className="text-[#14171F]/60">·</span>
+          <span className="text-[#14171F] font-bold">No Signup</span>
         </div>
       </section>
 
@@ -124,12 +124,12 @@ export default function ToolsHubPage() {
       </section>
 
       {/* SEO content ~400 words */}
-      <section className="py-16 px-6 border-t border-[#2F281D]/10">
-        <div className="max-w-3xl mx-auto prose prose-lg prose-[#2F281D]">
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-0 mb-4">
+      <section className="py-16 px-6 border-t border-[#14171F]/10">
+        <div className="max-w-3xl mx-auto prose prose-lg prose-[#14171F]">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-0 mb-4">
             Why Use CodexStudio&apos;s Free Online Tools?
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Whether you need to compress an image, merge PDFs, count words, generate a strong
             password, or create a QR code, our free online tools get the job done without signup or
             uploads to our servers. Every tool runs entirely in your browser. That means your files
@@ -141,10 +141,10 @@ export default function ToolsHubPage() {
             expensive software.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             Image Tools &amp; PDF Tools — No Account Required
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Our image compressor reduces PNG, JPG, and WebP file sizes by up to 80% so your website
             loads faster. The image resizer lets you set exact dimensions or scale by percentage
             while keeping aspect ratio. Need a different format? The image converter outputs JPG,
@@ -154,10 +154,10 @@ export default function ToolsHubPage() {
             Every tool is free and works on desktop and mobile.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             Text Tools, Security Tools &amp; Developer Tools
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Paste text into our word counter to see words, characters, sentences, paragraphs, and
             reading time. The character counter shows limits for Twitter, SMS, and meta
             descriptions with a live bar. Case converter handles UPPERCASE, lowercase, Title Case,
@@ -169,10 +169,10 @@ export default function ToolsHubPage() {
             generator, and live Markdown preview.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             Calculators, QR Codes &amp; SEO Tools
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Calculate your age, BMI, percentages, tips, and splits with our calculator suite. The
             currency converter uses live exchange rates for 150+ currencies including PKR and USD.
             The unit converter handles length, weight, temperature, volume, area, speed, and
@@ -182,55 +182,55 @@ export default function ToolsHubPage() {
             use most and come back anytime — they will always be free and private.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             Video Downloaders — TikTok, YouTube, Instagram &amp; More
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Download videos from TikTok without watermark, save YouTube videos in MP4 or MP3, and
             grab Instagram Reels, photos, and stories. Our Facebook, Twitter/X, Pinterest, and
             Vimeo downloaders work the same way: paste the URL and download. We also offer a
             YouTube thumbnail downloader, video-to-GIF converter, and audio trimmer. All run in
             your browser — no software to install.
           </p>
-          <p className="text-[#2F281D]/80 leading-relaxed mt-4">
-            <strong className="text-[#2F281D]">Responsible use:</strong> Only download or reuse content you have the right to use. Respect copyright and each
+          <p className="text-[#14171F]/80 leading-relaxed mt-4">
+            <strong className="text-[#14171F]">Responsible use:</strong> Only download or reuse content you have the right to use. Respect copyright and each
             platform&apos;s terms of service. CodexStudio does not encourage infringement or unauthorized redistribution.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             Finance Tools — Invoices, Loans &amp; Calculators
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Create professional invoices and download as PDF with our free invoice generator. Calculate
             loan EMI, mortgage payments, compound interest, VAT, discounts, profit margins, and
             salary-to-hourly conversions. Whether you run a small business or manage personal
             finances, these tools help you save time and make better decisions — no signup required.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             AI Tools — Blog Writer, Grammar Checker &amp; Summarizer
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Use our free AI-powered writing tools: blog post generator, grammar checker, text
             summarizer, and more. Generate headlines, meta descriptions, and social captions in
             seconds. All tools run in your browser and respect your privacy. Perfect for content
             creators, students, and marketers who want to work faster without expensive subscriptions.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             Health Tools — Calorie Calculator, BMI &amp; Sleep
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Track your wellness with our free health tools: calorie calculator, BMI calculator,
             sleep calculator, water intake tracker, and more. Get quick estimates and daily
             recommendations. No account needed — just open the tool and use it. Ideal for anyone
             focused on fitness, diet, or better sleep habits.
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#2F281D] mt-12 mb-4">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
             Business Tools — Pomodoro Timer, URL Shortener &amp; More
           </h2>
-          <p className="text-[#2F281D]/80 leading-relaxed">
+          <p className="text-[#14171F]/80 leading-relaxed">
             Stay productive with our Pomodoro timer, URL shortener, and meeting cost calculator.
             Create professional quotes and invoices, generate placeholder content, and manage
             simple project lists. These free business tools help freelancers and small teams work
@@ -247,16 +247,16 @@ export default function ToolsHubPage() {
       {/* CTA */}
       <section className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#2F281D] mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#14171F] mb-4">
             Need a custom tool built for your business?
           </h2>
-          <p className="text-[#2F281D]/70 text-lg mb-8">
+          <p className="text-[#14171F]/70 text-lg mb-8">
             The CodexStudio team builds fast, SEO-optimized websites and web apps. Let&apos;s build
             something great together.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#2F281D] text-[#FDF8EC] px-8 py-4 rounded-full font-bold hover:bg-[#997F6C] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#14171F] text-[#F6F4EC] px-8 py-4 rounded-full font-bold hover:bg-[#D98A2C] transition-colors"
           >
             Start a Project <ArrowRight className="w-5 h-5" />
           </Link>

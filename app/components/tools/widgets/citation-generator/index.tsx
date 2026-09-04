@@ -25,38 +25,38 @@ export default function CitationGeneratorWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Style</span>
-        <select value={style} onChange={(e) => setStyle(e.target.value as 'apa' | 'mla')} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Style</span>
+        <select value={style} onChange={(e) => setStyle(e.target.value as 'apa' | 'mla')} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
           <option value="apa">APA</option>
           <option value="mla">MLA</option>
         </select>
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Author</span>
-        <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Last, F." className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Author</span>
+        <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Last, F." className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Year</span>
-        <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="2024" className="w-24 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Year</span>
+        <input type="text" value={year} onChange={(e) => setYear(e.target.value)} placeholder="2024" className="w-24 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Title</span>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Article or page title" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Title</span>
+        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Article or page title" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Website (optional)</span>
-        <input type="text" value={site} onChange={(e) => setSite(e.target.value)} placeholder="Site name" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Website (optional)</span>
+        <input type="text" value={site} onChange={(e) => setSite(e.target.value)} placeholder="Site name" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">URL (optional)</span>
-        <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">URL (optional)</span>
+        <input type="url" value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       {result && (
         <>
-          <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-4">
-            <p className="text-[#2F281D] text-sm font-mono">{result}</p>
+          <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-4">
+            <p className="text-[#14171F] text-sm font-mono">{result}</p>
           </div>
-          <button type="button" onClick={() => navigator.clipboard.writeText(result)} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Copy citation</button>
+          <button type="button" onClick={() => navigator.clipboard.writeText(result)} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Copy citation</button>
         </>
       )}
     </div>

@@ -75,25 +75,25 @@ export default function ColorPickerWidget() {
     <div className="space-y-6">
       <div className="flex flex-wrap gap-6 items-center">
         <div>
-          <p className="text-sm font-medium text-[#2F281D] mb-2">Pick color</p>
+          <p className="text-sm font-medium text-[#14171F] mb-2">Pick color</p>
           <input
             type="color"
             value={hex}
             onChange={(e) => setHex(e.target.value)}
-            className="w-20 h-20 rounded-xl cursor-pointer border-2 border-[#2F281D]/20"
+            className="w-20 h-20 rounded-xl cursor-pointer border-2 border-[#14171F]/20"
           />
         </div>
         <div>
-          <label className="text-sm font-medium text-[#2F281D] block mb-1">HEX</label>
+          <label className="text-sm font-medium text-[#14171F] block mb-1">HEX</label>
           <input
             type="text"
             value={hex}
             onChange={(e) => setHex(e.target.value)}
-            className="px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] font-mono"
+            className="px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] font-mono"
           />
         </div>
       </div>
-      <div className="rounded-xl border border-[#2F281D]/10 overflow-hidden" style={{ backgroundColor: hex }}>
+      <div className="rounded-xl border border-[#14171F]/10 overflow-hidden" style={{ backgroundColor: hex }}>
         <div className="p-6 text-center">
           <p className="text-lg font-bold mix-blend-difference" style={{ color: hex }}>Sample text</p>
         </div>
@@ -101,17 +101,17 @@ export default function ColorPickerWidget() {
       <div className="space-y-2">
         {formats.map(({ label, value }) => (
           <div key={label} className="flex gap-2 items-center">
-            <span className="text-sm font-medium text-[#2F281D] w-24">{label}</span>
+            <span className="text-sm font-medium text-[#14171F] w-24">{label}</span>
             <input
               type="text"
               readOnly
               value={value}
-              className="flex-1 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#E8E2D2]/50 font-mono text-sm"
+              className="flex-1 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#ECE7D9]/50 font-mono text-sm"
             />
             <button
               type="button"
               onClick={() => copy(value, label)}
-              className="px-4 py-2 rounded-lg bg-[#2F281D] text-[#FDF8EC] text-sm font-bold hover:bg-[#997F6C]"
+              className="px-4 py-2 rounded-lg bg-[#14171F] text-[#F6F4EC] text-sm font-bold hover:bg-[#D98A2C]"
             >
               {copied === label ? 'Copied' : 'Copy'}
             </button>
@@ -120,14 +120,14 @@ export default function ColorPickerWidget() {
       </div>
       {history.length > 0 && (
         <div>
-          <p className="text-sm font-medium text-[#2F281D] mb-2">Recent colors</p>
+          <p className="text-sm font-medium text-[#14171F] mb-2">Recent colors</p>
           <div className="flex flex-wrap gap-2">
             {history.slice(0, 10).map((color) => (
               <button
                 key={color}
                 type="button"
                 onClick={() => setHex(color)}
-                className="w-10 h-10 rounded-lg border-2 border-[#2F281D]/20 hover:border-[#997F6C] transition-colors"
+                className="w-10 h-10 rounded-lg border-2 border-[#14171F]/20 hover:border-[#D98A2C] transition-colors"
                 style={{ backgroundColor: color }}
                 title={color}
               />

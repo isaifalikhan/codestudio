@@ -30,10 +30,10 @@ const budgetOptions = ['$1k – $5k', '$5k – $15k', '$15k – $50k', '$50k+'];
 
 type Variant = 'light' | 'dark';
 
-const inputClassLight = 'w-full bg-[#FDF8EC] border border-[#2F281D]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#997F6C] transition-colors text-[#2F281D]';
-const inputClassDark = 'w-full bg-[#FDF8EC]/5 border border-[#FDF8EC]/10 rounded-2xl px-6 py-4 text-[#FDF8EC] focus:outline-none focus:border-[#997F6C] transition-colors';
-const labelClassLight = 'text-xs font-bold uppercase tracking-widest text-[#2F281D]/40 ml-2';
-const labelClassDark = 'text-xs font-bold uppercase tracking-widest text-[#FDF8EC]/40';
+const inputClassLight = 'w-full bg-[#F6F4EC] border border-[#14171F]/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-[#D98A2C] transition-colors text-[#14171F]';
+const inputClassDark = 'w-full bg-[#F6F4EC]/5 border border-[#F6F4EC]/10 rounded-2xl px-6 py-4 text-[#F6F4EC] focus:outline-none focus:border-[#D98A2C] transition-colors';
+const labelClassLight = 'text-xs font-bold uppercase tracking-widest text-[#14171F]/40 ml-2';
+const labelClassDark = 'text-xs font-bold uppercase tracking-widest text-[#F6F4EC]/40';
 
 export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }: { variant?: Variant; showCompany?: boolean }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -173,12 +173,12 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
         <input
           type="checkbox"
           id="contact-privacy-consent"
-          className="mt-1 h-5 w-5 rounded border-[#2F281D]/20 text-[#997F6C] focus:ring-[#997F6C]"
+          className="mt-1 h-5 w-5 rounded border-[#14171F]/20 text-[#D98A2C] focus:ring-[#D98A2C]"
           {...register('privacyConsent', { required: 'You must agree to the privacy policy' })}
         />
-        <label htmlFor="contact-privacy-consent" className={`text-sm ${isDark ? 'text-[#FDF8EC]/70' : 'text-[#2F281D]/70'}`}>
+        <label htmlFor="contact-privacy-consent" className={`text-sm ${isDark ? 'text-[#F6F4EC]/70' : 'text-[#14171F]/70'}`}>
           I agree to the processing of my personal data in accordance with the{' '}
-          <Link href="/privacy" className="text-[#997F6C] hover:underline">Privacy Policy</Link>.
+          <Link href="/privacy" className="text-[#D98A2C] hover:underline">Privacy Policy</Link>.
         </label>
       </div>
       {errors.privacyConsent && <p className="text-red-500 text-sm" role="alert">{errors.privacyConsent.message}</p>}
@@ -193,7 +193,7 @@ export function ContactFormWithEmailJS({ variant = 'light', showCompany = true }
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="w-full py-5 bg-[#2F281D] text-[#FDF8EC] rounded-2xl font-bold text-lg hover:bg-[#997F6C] transition-all flex items-center justify-center gap-3 group shadow-lg disabled:opacity-70"
+        className="w-full py-5 bg-[#14171F] text-[#F6F4EC] rounded-2xl font-bold text-lg hover:bg-[#D98A2C] transition-all flex items-center justify-center gap-3 group shadow-lg disabled:opacity-70"
       >
         {status === 'sending' ? 'Sending…' : 'Send Message'}
         <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" aria-hidden />

@@ -52,13 +52,13 @@ export default function PhotoEnhancerWidget() {
 
   return (
     <div className="space-y-6">
-      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#2F281D]/70" />
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#14171F]/70" />
       {img && (
         <>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Brightness: {brightness.toFixed(1)}</span><input type="range" min={0.5} max={1.5} step={0.1} value={brightness} onChange={(e) => setBrightness(Number(e.target.value))} className="w-full" /></label>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Contrast: {contrast.toFixed(1)}</span><input type="range" min={0.5} max={1.5} step={0.1} value={contrast} onChange={(e) => setContrast(Number(e.target.value))} className="w-full" /></label>
-          <div className="rounded-xl border border-[#2F281D]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
-          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Download</button>
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Brightness: {brightness.toFixed(1)}</span><input type="range" min={0.5} max={1.5} step={0.1} value={brightness} onChange={(e) => setBrightness(Number(e.target.value))} className="w-full" /></label>
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Contrast: {contrast.toFixed(1)}</span><input type="range" min={0.5} max={1.5} step={0.1} value={contrast} onChange={(e) => setContrast(Number(e.target.value))} className="w-full" /></label>
+          <div className="rounded-xl border border-[#14171F]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
+          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Download</button>
         </>
       )}
     </div>

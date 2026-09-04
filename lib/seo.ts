@@ -18,14 +18,20 @@ export function buildOrganizationSchema() {
     '@type': 'Organization',
     name: BRAND_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/images/logo.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/images/logo.png`,
+      width: 200,
+      height: 200,
+    },
     description:
-      'Web development agency in Islamabad, Pakistan specializing in Next.js, React, e-commerce, and 100+ free online tools.',
+      'Web development agency in Islamabad, Pakistan specializing in Next.js, React, e-commerce, and 140+ free online tools.',
     foundingDate: '2022',
     address: {
       '@type': 'PostalAddress',
       addressLocality: BRAND_CITY,
       addressRegion: BRAND_REGION,
+      postalCode: BRAND_POSTAL,
       addressCountry: BRAND_COUNTRY,
     },
     contactPoint: {
@@ -38,7 +44,8 @@ export function buildOrganizationSchema() {
     sameAs: [
       'https://www.linkedin.com/company/codexstudio',
       'https://github.com/codexstudio',
-      'https://www.facebook.com/codexstudio',
+      'https://www.facebook.com/profile.php?id=61582748907285',
+      'https://www.instagram.com/codexstudio2026/',
     ],
   };
 }
@@ -46,12 +53,14 @@ export function buildOrganizationSchema() {
 export function buildLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
     name: BRAND_NAME,
     image: `${SITE_URL}/images/logo.png`,
     url: SITE_URL,
     telephone: BRAND_PHONE,
     priceRange: '$$',
+    currenciesAccepted: 'USD, PKR',
+    paymentAccepted: 'Bank Transfer, PayPal, Stripe',
     address: {
       '@type': 'PostalAddress',
       streetAddress: BRAND_STREET,
@@ -65,11 +74,31 @@ export function buildLocalBusinessSchema() {
       latitude: 33.6844,
       longitude: 73.0479,
     },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '18:00',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+    ],
+    areaServed: [
+      { '@type': 'Country', name: 'Pakistan' },
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'Country', name: 'United Kingdom' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Web Development Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Website Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Next.js Web Applications' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-Commerce Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'UI/UX Design' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Optimization' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile App Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Brand Identity Design' } },
+      ],
     },
   };
 }
@@ -80,6 +109,8 @@ export function buildWebsiteSchema() {
     '@type': 'WebSite',
     name: BRAND_NAME,
     url: SITE_URL,
+    description: 'Free online tools and web development services from CodexStudio, Islamabad, Pakistan.',
+    inLanguage: 'en-US',
     potentialAction: {
       '@type': 'SearchAction',
       target: {

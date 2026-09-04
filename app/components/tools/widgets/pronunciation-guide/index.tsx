@@ -22,11 +22,11 @@ export default function PronunciationGuideWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Word or phrase</span>
-        <input type="text" value={word} onChange={(e) => setWord(e.target.value)} placeholder="e.g. pronunciation" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Word or phrase</span>
+        <input type="text" value={word} onChange={(e) => setWord(e.target.value)} placeholder="e.g. pronunciation" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      <button type="button" onClick={speak} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Hear pronunciation</button>
-      {!supported && <p className="text-[#2F281D]/70 text-sm">Your browser may not support speech. Try Chrome or Edge.</p>}
+      <button type="button" onClick={speak} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Hear pronunciation</button>
+      {!supported && <p className="text-[#14171F]/70 text-sm">Your browser may not support speech. Try Chrome or Edge.</p>}
     </div>
   );
 }

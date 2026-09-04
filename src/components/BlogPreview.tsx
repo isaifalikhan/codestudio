@@ -9,30 +9,30 @@ import { blogPosts } from '../data/blog';
 
 export const BlogPreview = () => {
   return (
-    <section className="py-24 px-6 bg-[#FDF8EC]">
+    <section className="py-24 px-6 bg-[#F6F4EC]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-4 block"
+              className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
             >
               Our Journal
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]"
+              className="text-4xl md:text-6xl font-display font-bold text-[#14171F]"
             >
-              Latest <span className="text-[#2F281D]/40 italic">Insights</span>
+              Latest <span className="text-[#14171F]/40 italic">Insights</span>
             </motion.h2>
           </div>
           <div className="mt-8 md:mt-0 flex flex-wrap gap-4">
-            <Link href="/blog" className="px-8 py-4 border border-[#2F281D]/10 rounded-full font-bold hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all flex items-center gap-2 text-[#2F281D]">
+            <Link href="/blog" className="px-8 py-4 border border-[#14171F]/10 rounded-full font-bold hover:bg-[#14171F] hover:text-[#F6F4EC] transition-all flex items-center gap-2 text-[#14171F]">
               View All Posts <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/services" className="px-8 py-4 rounded-full font-bold bg-[#2F281D]/5 hover:bg-[#2F281D]/10 text-[#2F281D] transition-all flex items-center gap-2">
+            <Link href="/services" className="px-8 py-4 rounded-full font-bold bg-[#14171F]/5 hover:bg-[#14171F]/10 text-[#14171F] transition-all flex items-center gap-2">
               Explore Services
             </Link>
           </div>
@@ -58,12 +58,12 @@ export const BlogPreview = () => {
                   />
                 </div>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#997F6C]">
+                  <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-[#D98A2C]">
                     <span>{post.category}</span>
-                    <span className="w-1 h-1 rounded-full bg-[#2F281D]/20" />
+                    <span className="w-1 h-1 rounded-full bg-[#14171F]/20" />
                     <span>{post.date}</span>
                   </div>
-                  <h3 className="text-2xl font-display font-bold text-[#2F281D] group-hover:text-[#997F6C] transition-colors">
+                  <h3 className="text-2xl font-display font-bold text-[#14171F] group-hover:text-[#D98A2C] transition-colors">
                     {post.title}
                   </h3>
                 </div>
@@ -71,8 +71,8 @@ export const BlogPreview = () => {
             </Link>
           ))}
         </div>
-        <p className="mt-10 text-center text-[#2F281D]/70">
-          Read more insights on our <Link href="/blog" className="text-[#997F6C] font-semibold hover:underline">blog →</Link>
+        <p className="mt-10 text-center text-[#14171F]/70">
+          Read more insights on our <Link href="/blog" className="text-[#D98A2C] font-semibold hover:underline">blog →</Link>
         </p>
       </div>
     </section>

@@ -41,13 +41,13 @@ export default function CssMinifierWidget() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Paste your CSS here..."
-        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 resize-y font-mono text-sm"
+        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 resize-y font-mono text-sm"
       />
       <div className="flex gap-2">
         <button
           type="button"
           onClick={minify}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
         >
           Minify
         </button>
@@ -55,13 +55,13 @@ export default function CssMinifierWidget() {
           type="button"
           onClick={copy}
           disabled={!output}
-          className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5 disabled:opacity-50"
+          className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5 disabled:opacity-50"
         >
           Copy
         </button>
       </div>
       {savings && (
-        <p className="text-sm text-[#2F281D]/70">
+        <p className="text-sm text-[#14171F]/70">
           Original: {savings.orig} bytes → Minified: {savings.min} bytes ({savings.pct}% reduction)
         </p>
       )}
@@ -69,7 +69,7 @@ export default function CssMinifierWidget() {
         <textarea
           readOnly
           value={output}
-          className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 text-[#2F281D] font-mono text-sm resize-y"
+          className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 text-[#14171F] font-mono text-sm resize-y"
         />
       )}
     </div>

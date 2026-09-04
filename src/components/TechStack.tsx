@@ -13,22 +13,22 @@ const technologies = [
 
 export const TechStack = () => {
   return (
-    <section className="py-24 px-6 bg-[#E8E2D2]/30">
+    <section className="py-24 px-6 bg-[#ECE7D9]/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
           >
             Trusted by developers & businesses
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]"
+            className="text-4xl md:text-6xl font-display font-bold text-[#14171F]"
           >
-            Trusted <span className="text-[#2F281D]/40">Technologies</span>
+            Trusted <span className="text-[#14171F]/40">Technologies</span>
           </motion.h2>
         </div>
 
@@ -40,7 +40,7 @@ export const TechStack = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10 }}
-              className="p-8 rounded-3xl bg-[#FDF8EC] border border-[#2F281D]/5 flex flex-col items-center justify-center gap-4 group hover:shadow-xl transition-all"
+              className="p-8 rounded-3xl bg-[#F6F4EC] border border-[#14171F]/5 flex flex-col items-center justify-center gap-4 group hover:shadow-xl transition-all"
             >
               <Image
                 src={tech.icon}
@@ -51,7 +51,7 @@ export const TechStack = () => {
                 loading="lazy"
                 sizes="80px"
               />
-              <span className="font-bold text-[#2F281D]/40 group-hover:text-[#2F281D] transition-colors">
+              <span className="font-bold text-[#14171F]/40 group-hover:text-[#14171F] transition-colors">
                 {tech.name}
               </span>
             </motion.div>

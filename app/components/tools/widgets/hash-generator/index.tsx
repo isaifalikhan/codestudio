@@ -74,7 +74,7 @@ export default function HashGeneratorWidget() {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter text to hash..."
-        className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 resize-y font-mono text-sm"
+        className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 resize-y font-mono text-sm"
       />
       <div className="flex flex-wrap gap-3">
         {ALGOS.map((a) => (
@@ -85,7 +85,7 @@ export default function HashGeneratorWidget() {
               onChange={(e) => setSelected((s) => ({ ...s, [a.id]: e.target.checked }))}
               className="rounded"
             />
-            <span className="text-sm text-[#2F281D]">{a.name}</span>
+            <span className="text-sm text-[#14171F]">{a.name}</span>
           </label>
         ))}
       </div>
@@ -94,15 +94,15 @@ export default function HashGeneratorWidget() {
           const value = hashes[a.algo] || '…';
           return (
             <div key={a.id} className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-medium text-[#2F281D] w-24">{a.name}</span>
-              <code className="flex-1 min-w-0 text-sm text-[#2F281D]/80 font-mono break-all bg-[#2F281D]/5 px-2 py-1 rounded">
+              <span className="text-sm font-medium text-[#14171F] w-24">{a.name}</span>
+              <code className="flex-1 min-w-0 text-sm text-[#14171F]/80 font-mono break-all bg-[#14171F]/5 px-2 py-1 rounded">
                 {value}
               </code>
               {value && value !== '…' && (
                 <button
                   type="button"
                   onClick={() => copyHash(a.id, value)}
-                  className="px-3 py-1 rounded bg-[#2F281D] text-[#FDF8EC] text-sm font-bold hover:bg-[#997F6C]"
+                  className="px-3 py-1 rounded bg-[#14171F] text-[#F6F4EC] text-sm font-bold hover:bg-[#D98A2C]"
                 >
                   {copied === a.id ? 'Copied' : 'Copy'}
                 </button>
@@ -111,7 +111,7 @@ export default function HashGeneratorWidget() {
           );
         })}
       </div>
-      <p className="text-xs text-[#2F281D]/50">
+      <p className="text-xs text-[#14171F]/50">
         SHA-256 or SHA-512 are recommended for security. Hashing runs in your browser (Web Crypto API); nothing is sent to any server.
       </p>
     </div>

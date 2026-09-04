@@ -40,11 +40,11 @@ export default function ImageFiltersWidget() {
 
   return (
     <div className="space-y-6">
-      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#2F281D]/70" />
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#14171F]/70" />
       {img && (
         <>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Filter</span>
-            <select value={filter} onChange={(e) => setFilter(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Filter</span>
+            <select value={filter} onChange={(e) => setFilter(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
               <option value="none">None</option>
               <option value="grayscale">Grayscale</option>
               <option value="sepia">Sepia</option>
@@ -53,8 +53,8 @@ export default function ImageFiltersWidget() {
               <option value="saturate">Saturate</option>
             </select>
           </label>
-          <div className="rounded-xl border border-[#2F281D]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
-          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Download</button>
+          <div className="rounded-xl border border-[#14171F]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
+          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Download</button>
         </>
       )}
     </div>

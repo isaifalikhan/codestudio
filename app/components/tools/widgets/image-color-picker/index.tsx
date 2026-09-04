@@ -42,20 +42,20 @@ export default function ImageColorPickerWidget() {
 
   return (
     <div className="space-y-6">
-      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#2F281D]/70" />
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#14171F]/70" />
       {img && (
         <>
-          <p className="text-sm text-[#2F281D]/70">Click on the image to pick a color.</p>
-          <div className="max-w-full overflow-auto rounded-xl border border-[#2F281D]/20">
+          <p className="text-sm text-[#14171F]/70">Click on the image to pick a color.</p>
+          <div className="max-w-full overflow-auto rounded-xl border border-[#14171F]/20">
             <canvas ref={canvasRef} onClick={pick} className="max-w-full h-auto cursor-crosshair" />
           </div>
           {color && (
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-[#E8E2D2]/30 border border-[#2F281D]/10">
-              <div className="w-16 h-16 rounded-lg border border-[#2F281D]/20" style={{ backgroundColor: color.hex }} />
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-[#ECE7D9]/30 border border-[#14171F]/10">
+              <div className="w-16 h-16 rounded-lg border border-[#14171F]/20" style={{ backgroundColor: color.hex }} />
               <div>
-                <p className="font-mono font-bold text-[#2F281D]">{color.hex}</p>
-                <p className="text-sm text-[#2F281D]/80">{color.rgb}</p>
-                <button type="button" onClick={() => navigator.clipboard.writeText(color.hex)} className="mt-2 text-sm text-[#997F6C] font-medium">Copy HEX</button>
+                <p className="font-mono font-bold text-[#14171F]">{color.hex}</p>
+                <p className="text-sm text-[#14171F]/80">{color.rgb}</p>
+                <button type="button" onClick={() => navigator.clipboard.writeText(color.hex)} className="mt-2 text-sm text-[#D98A2C] font-medium">Copy HEX</button>
               </div>
             </div>
           )}

@@ -31,22 +31,22 @@ export default function EmailSubjectGeneratorWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Email topic or product</span>
-        <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="e.g. product launch, newsletter" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Email topic or product</span>
+        <input type="text" value={topic} onChange={(e) => setTopic(e.target.value)} placeholder="e.g. product launch, newsletter" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">How many (max 10)</span>
-        <input type="number" min={1} max={10} value={count} onChange={(e) => setCount(Number(e.target.value))} className="w-20 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">How many (max 10)</span>
+        <input type="number" min={1} max={10} value={count} onChange={(e) => setCount(Number(e.target.value))} className="w-20 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      <button type="button" onClick={handleGenerate} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Generate subject lines</button>
+      <button type="button" onClick={handleGenerate} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Generate subject lines</button>
       {result.length > 0 && (
         <>
           <ul className="space-y-2">
             {result.map((s, i) => (
-              <li key={i} className="p-3 rounded-lg bg-[#2F281D]/5 border border-[#2F281D]/10 text-[#2F281D]">{s}</li>
+              <li key={i} className="p-3 rounded-lg bg-[#14171F]/5 border border-[#14171F]/10 text-[#14171F]">{s}</li>
             ))}
           </ul>
-          <button type="button" onClick={() => navigator.clipboard.writeText(result.join('\n'))} className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">Copy all</button>
+          <button type="button" onClick={() => navigator.clipboard.writeText(result.join('\n'))} className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">Copy all</button>
         </>
       )}
     </div>

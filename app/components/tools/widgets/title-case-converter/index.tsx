@@ -28,19 +28,19 @@ export default function TitleCaseConverterWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Style</span>
-        <select value={style} onChange={(e) => setStyle(e.target.value as 'apa' | 'ap' | 'chicago' | 'sentence')} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Style</span>
+        <select value={style} onChange={(e) => setStyle(e.target.value as 'apa' | 'ap' | 'chicago' | 'sentence')} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
           <option value="apa">APA</option>
           <option value="ap">AP</option>
           <option value="chicago">Chicago</option>
           <option value="sentence">Sentence case</option>
         </select>
       </label>
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type or paste your title..." className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] resize-y" />
+      <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type or paste your title..." className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] resize-y" />
       {output && (
         <>
-          <textarea readOnly value={output} className="w-full min-h-[100px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 resize-y" />
-          <button type="button" onClick={() => navigator.clipboard.writeText(output)} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Copy</button>
+          <textarea readOnly value={output} className="w-full min-h-[100px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 resize-y" />
+          <button type="button" onClick={() => navigator.clipboard.writeText(output)} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Copy</button>
         </>
       )}
     </div>

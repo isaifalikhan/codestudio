@@ -33,41 +33,41 @@ export default function MetaDescriptionGeneratorWidget() {
   return (
     <div className="space-y-6">
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Page title</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Page title</span>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Your Page Title"
-          className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+          className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
         />
       </label>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Keyword 1</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Keyword 1</span>
           <input
             type="text"
             value={kw1}
             onChange={(e) => setKw1(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Keyword 2</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Keyword 2</span>
           <input
             type="text"
             value={kw2}
             onChange={(e) => setKw2(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Keyword 3</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Keyword 3</span>
           <input
             type="text"
             value={kw3}
             onChange={(e) => setKw3(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       </div>
@@ -76,7 +76,7 @@ export default function MetaDescriptionGeneratorWidget() {
           type="button"
           onClick={generate}
           disabled={loading}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] disabled:opacity-50"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C] disabled:opacity-50"
         >
           {loading ? 'Generating…' : 'Generate'}
         </button>
@@ -84,7 +84,7 @@ export default function MetaDescriptionGeneratorWidget() {
           <button
             type="button"
             onClick={copy}
-            className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5"
+            className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5"
           >
             Copy
           </button>
@@ -92,11 +92,11 @@ export default function MetaDescriptionGeneratorWidget() {
       </div>
       {output && (
         <div>
-          <p className="text-sm text-[#2F281D]/70 mb-1">Character count: {output.length}/160</p>
+          <p className="text-sm text-[#14171F]/70 mb-1">Character count: {output.length}/160</p>
           <textarea
             readOnly
             value={output}
-            className="w-full min-h-[80px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 text-[#2F281D]"
+            className="w-full min-h-[80px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 text-[#14171F]"
           />
         </div>
       )}

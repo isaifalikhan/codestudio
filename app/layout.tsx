@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { Inter, Space_Grotesk, Cormorant_Garamond } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { Inter, Fraunces, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import { Navbar } from '@/src/components/Navbar';
@@ -20,18 +20,19 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const spaceGrotesk = Space_Grotesk({
+const fraunces = Fraunces({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
-});
-
-const cormorantGaramond = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  axes: ['opsz', 'SOFT', 'WONK'],
   style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-cormorant',
+  variable: '--font-fraunces',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
 });
 
 export const metadata: Metadata = {
@@ -107,6 +108,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: '#14171F',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -117,7 +122,7 @@ export default function RootLayout({
   const localBusinessSchema = buildLocalBusinessSchema();
   const websiteSchema = buildWebsiteSchema();
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${cormorantGaramond.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}>
       <head>
         <meta name="google-adsense-account" content="ca-pub-7165996801022980" />
         <link rel="preconnect" href="https://images.unsplash.com" />
@@ -135,7 +140,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="min-h-screen bg-[#FDF8EC] flex flex-col antialiased font-sans text-base leading-relaxed">
+      <body className="min-h-screen bg-[#F6F4EC] flex flex-col antialiased font-sans text-base leading-relaxed">
         <ConsentAwareTracking 
           gaId={gaId} 
           adsensePublisherId="ca-pub-7165996801022980" 
@@ -143,7 +148,7 @@ export default function RootLayout({
         <a
           href="#main-content"
           id="skip-link"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[9999] focus:px-4 focus:py-3 focus:bg-[#2F281D] focus:text-[#FDF8EC] focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[9999] focus:px-4 focus:py-3 focus:bg-[#14171F] focus:text-[#F6F4EC] focus:rounded-lg"
         >
           Skip to main content
         </a>

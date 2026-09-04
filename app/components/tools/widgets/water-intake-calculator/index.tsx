@@ -22,27 +22,27 @@ export default function WaterIntakeCalculatorWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Weight</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Weight</span>
         <div className="flex gap-2">
-          <input type="number" min={1} value={weight} onChange={(e) => setWeight(e.target.value)} className="flex-1 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
-          <select value={unit} onChange={(e) => setUnit(e.target.value as 'kg' | 'lb')} className="px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <input type="number" min={1} value={weight} onChange={(e) => setWeight(e.target.value)} className="flex-1 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
+          <select value={unit} onChange={(e) => setUnit(e.target.value as 'kg' | 'lb')} className="px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
             <option value="kg">kg</option>
             <option value="lb">lb</option>
           </select>
         </div>
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Activity level</span>
-        <select value={activity} onChange={(e) => setActivity(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Activity level</span>
+        <select value={activity} onChange={(e) => setActivity(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
           <option value="low">Low</option>
           <option value="moderate">Moderate</option>
           <option value="high">High</option>
         </select>
       </label>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-2">
-          <p className="text-xl font-bold text-[#2F281D]">~{result.liters} L ({result.oz} oz) per day</p>
-          <p className="text-[#2F281D]/70 text-sm">About {result.ml} ml · ~8 glasses of 250ml</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-2">
+          <p className="text-xl font-bold text-[#14171F]">~{result.liters} L ({result.oz} oz) per day</p>
+          <p className="text-[#14171F]/70 text-sm">About {result.ml} ml · ~8 glasses of 250ml</p>
         </div>
       )}
     </div>

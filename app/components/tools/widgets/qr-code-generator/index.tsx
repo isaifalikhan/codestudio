@@ -52,7 +52,7 @@ export default function QrCodeGeneratorWidget() {
             key={t}
             type="button"
             onClick={() => setType(t)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium capitalize ${type === t ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium capitalize ${type === t ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
           >
             {t}
           </button>
@@ -60,107 +60,107 @@ export default function QrCodeGeneratorWidget() {
       </div>
       {type === 'url' && (
         <label className="block">
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">URL</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">URL</span>
           <input
             type="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       )}
       {type === 'text' && (
         <label className="block">
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Text</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Text</span>
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] min-h-[80px]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] min-h-[80px]"
           />
         </label>
       )}
       {type === 'wifi' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label>
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Network (SSID)</span>
+            <span className="text-sm font-medium text-[#14171F] block mb-2">Network (SSID)</span>
             <input
               type="text"
               value={ssid}
               onChange={(e) => setSsid(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+              className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
             />
           </label>
           <label>
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Password</span>
+            <span className="text-sm font-medium text-[#14171F] block mb-2">Password</span>
             <input
               type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+              className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
             />
           </label>
         </div>
       )}
       {type === 'email' && (
         <label className="block">
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Email</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Email</span>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       )}
       {type === 'phone' && (
         <label className="block">
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Phone</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Phone</span>
           <input
             type="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       )}
       <div className="flex flex-wrap gap-6 items-center">
         <label className="flex items-center gap-2">
-          <span className="text-sm text-[#2F281D]">Size (px)</span>
+          <span className="text-sm text-[#14171F]">Size (px)</span>
           <input
             type="number"
             min={128}
             max={512}
             value={size}
             onChange={(e) => setSize(Number(e.target.value))}
-            className="w-20 px-2 py-1 rounded border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-20 px-2 py-1 rounded border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label className="flex items-center gap-2">
-          <span className="text-sm text-[#2F281D]">Foreground</span>
+          <span className="text-sm text-[#14171F]">Foreground</span>
           <input
             type="color"
             value={fg}
             onChange={(e) => setFg(e.target.value)}
-            className="w-10 h-10 rounded border border-[#2F281D]/20"
+            className="w-10 h-10 rounded border border-[#14171F]/20"
           />
         </label>
         <label className="flex items-center gap-2">
-          <span className="text-sm text-[#2F281D]">Background</span>
+          <span className="text-sm text-[#14171F]">Background</span>
           <input
             type="color"
             value={bg}
             onChange={(e) => setBg(e.target.value)}
-            className="w-10 h-10 rounded border border-[#2F281D]/20"
+            className="w-10 h-10 rounded border border-[#14171F]/20"
           />
         </label>
       </div>
       {dataUrl && (
         <div className="flex flex-col items-start gap-4">
-          <img src={dataUrl} alt="QR code" width={size} height={size} className="rounded-xl border border-[#2F281D]/10" />
+          <img src={dataUrl} alt="QR code" width={size} height={size} className="rounded-xl border border-[#14171F]/10" />
           <button
             type="button"
             onClick={download}
-            className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+            className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
           >
             Download PNG
           </button>

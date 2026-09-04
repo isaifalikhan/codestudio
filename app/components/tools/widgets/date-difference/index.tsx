@@ -22,28 +22,28 @@ export default function DateDifferenceWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Start date</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Start date</span>
           <input
             type="date"
             value={start}
             onChange={(e) => setStart(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">End date</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">End date</span>
           <input
             type="date"
             value={end}
             onChange={(e) => setEnd(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       </div>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-1">
-          <p className="text-xl font-bold text-[#2F281D]">{result.days} days</p>
-          <p className="text-[#2F281D]/70">{result.weeks} weeks · {result.months} months · {result.years} years</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-1">
+          <p className="text-xl font-bold text-[#14171F]">{result.days} days</p>
+          <p className="text-[#14171F]/70">{result.weeks} weeks · {result.months} months · {result.years} years</p>
         </div>
       )}
     </div>

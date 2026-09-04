@@ -32,53 +32,53 @@ export default function RandomNumberWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Min</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Min</span>
           <input
             type="number"
             value={min}
             onChange={(e) => setMin(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Max</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Max</span>
           <input
             type="number"
             value={max}
             onChange={(e) => setMax(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Count</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Count</span>
           <input
             type="number"
             min={1}
             max={1000}
             value={count}
             onChange={(e) => setCount(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       </div>
       <label className="flex items-center gap-2 cursor-pointer">
         <input type="checkbox" checked={noRepeat} onChange={(e) => setNoRepeat(e.target.checked)} className="rounded" />
-        <span className="text-sm text-[#2F281D]">No repeats</span>
+        <span className="text-sm text-[#14171F]">No repeats</span>
       </label>
       <button
         type="button"
         onClick={generate}
-        className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+        className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
       >
         Generate
       </button>
       {result.length > 0 && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-xl font-bold text-[#2F281D]">{result.join(', ')}</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-xl font-bold text-[#14171F]">{result.join(', ')}</p>
           <button
             type="button"
             onClick={() => navigator.clipboard.writeText(result.join(', '))}
-            className="mt-2 text-sm font-bold text-[#997F6C] hover:underline"
+            className="mt-2 text-sm font-bold text-[#D98A2C] hover:underline"
           >
             Copy
           </button>

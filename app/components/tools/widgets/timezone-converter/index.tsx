@@ -42,32 +42,32 @@ export default function TimezoneConverterWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">From timezone</span>
-          <select value={fromZone} onChange={(e) => setFromZone(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <span className="text-sm font-medium text-[#14171F] block mb-2">From timezone</span>
+          <select value={fromZone} onChange={(e) => setFromZone(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
             {ZONES.map(([id, label]) => (<option key={id} value={id}>{label}</option>))}
           </select>
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">To timezone</span>
-          <select value={toZone} onChange={(e) => setToZone(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <span className="text-sm font-medium text-[#14171F] block mb-2">To timezone</span>
+          <select value={toZone} onChange={(e) => setToZone(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
             {ZONES.map(([id, label]) => (<option key={id} value={id}>{label}</option>))}
           </select>
         </label>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Date (optional)</span>
-          <input type="date" value={dateStr} onChange={(e) => setDateStr(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Date (optional)</span>
+          <input type="date" value={dateStr} onChange={(e) => setDateStr(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Time</span>
-          <input type="time" value={timeStr} onChange={(e) => setTimeStr(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Time</span>
+          <input type="time" value={timeStr} onChange={(e) => setTimeStr(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
       </div>
       {converted && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-2">
-          <p className="text-[#2F281D]/80">In {fromZone}: {converted.fromStr}</p>
-          <p className="text-xl font-bold text-[#2F281D]">In {toZone}: {converted.toStr}</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-2">
+          <p className="text-[#14171F]/80">In {fromZone}: {converted.fromStr}</p>
+          <p className="text-xl font-bold text-[#14171F]">In {toZone}: {converted.toStr}</p>
         </div>
       )}
     </div>

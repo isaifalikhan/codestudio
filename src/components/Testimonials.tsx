@@ -55,7 +55,7 @@ export const Testimonials = () => {
   const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section className="py-20 lg:py-32 px-6 bg-[#FDF8EC] overflow-hidden" aria-label="Client testimonials">
+    <section className="py-20 lg:py-32 px-6 bg-[#F6F4EC] overflow-hidden" aria-label="Client testimonials">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-5">
@@ -63,7 +63,7 @@ export const Testimonials = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[#997F6C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-4 lg:mb-6 block"
+              className="text-[#D98A2C] font-bold tracking-widest uppercase text-xs lg:text-sm mb-4 lg:mb-6 block"
             >
               Client Stories
             </motion.span>
@@ -71,12 +71,12 @@ export const Testimonials = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tight text-[#2F281D] leading-[0.9] mb-6 lg:mb-8"
+              className="text-4xl sm:text-5xl md:text-7xl font-display font-bold tracking-tight text-[#14171F] leading-[0.9] mb-6 lg:mb-8"
             >
               Voices of <br />
-              <span className="text-[#2F281D]/40">Success</span>
+              <span className="text-[#14171F]/40">Success</span>
             </motion.h2>
-            <p className="text-[#2F281D]/50 text-base lg:text-lg max-w-md mb-8 lg:mb-12 leading-relaxed">
+            <p className="text-[#14171F]/50 text-base lg:text-lg max-w-md mb-8 lg:mb-12 leading-relaxed">
               We take pride in the partnerships we've built and the digital legacies we've helped create.
             </p>
             
@@ -85,7 +85,7 @@ export const Testimonials = () => {
                 type="button"
                 onClick={prev}
                 aria-label="Previous testimonial"
-                className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-white transition-all group"
+                className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-white transition-all group"
               >
                 <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1 transition-transform" aria-hidden />
               </button>
@@ -93,7 +93,7 @@ export const Testimonials = () => {
                 type="button"
                 onClick={next}
                 aria-label="Next testimonial"
-                className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-white transition-all group"
+                className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-white transition-all group"
               >
                 <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" aria-hidden />
               </button>
@@ -101,8 +101,8 @@ export const Testimonials = () => {
           </div>
 
           <div className="lg:col-span-7 relative mt-8 lg:mt-0">
-            <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#997F6C]/5 rounded-full blur-3xl" />
-            <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-[#5F634D]/5 rounded-full blur-3xl" />
+            <div className="absolute -top-12 -left-12 w-32 h-32 bg-[#D98A2C]/5 rounded-full blur-3xl" />
+            <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-[#2F7A6D]/5 rounded-full blur-3xl" />
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -111,28 +111,28 @@ export const Testimonials = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.95 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="relative p-8 md:p-12 lg:p-20 rounded-[2.5rem] lg:rounded-[4rem] bg-[#E8E2D2] border border-[#2F281D]/5 shadow-2xl"
+                className="relative p-8 md:p-12 lg:p-20 rounded-[2.5rem] lg:rounded-[4rem] bg-[#ECE7D9] border border-[#14171F]/5 shadow-2xl"
               >
-                <Quote className="absolute top-8 left-8 lg:top-12 lg:left-12 w-12 h-12 lg:w-24 lg:h-24 text-[#2F281D]/5" />
+                <Quote className="absolute top-8 left-8 lg:top-12 lg:left-12 w-12 h-12 lg:w-24 lg:h-24 text-[#14171F]/5" />
                 
                 <div className="relative z-10">
                   <div className="flex gap-1 mb-6 lg:mb-10">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 lg:w-5 lg:h-5 text-[#997F6C] fill-[#997F6C]" />
+                      <Star key={i} className="w-4 h-4 lg:w-5 lg:h-5 text-[#D98A2C] fill-[#D98A2C]" />
                     ))}
                   </div>
                   
-                  <p className="text-[#2F281D] text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.2] mb-10 lg:mb-16 font-display font-medium italic">
+                  <p className="text-[#14171F] text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-[1.2] mb-10 lg:mb-16 font-display font-medium italic">
                     "{testimonials[current].content}"
                   </p>
                   
                   <div className="flex items-center gap-4 lg:gap-6">
-                    <div className="relative flex items-center justify-center w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#997F6C] text-[#FDF8EC] font-display font-bold text-xl lg:text-2xl border-2 lg:border-4 border-white shrink-0">
+                    <div className="relative flex items-center justify-center w-14 h-14 lg:w-20 lg:h-20 rounded-full bg-[#D98A2C] text-[#F6F4EC] font-display font-bold text-xl lg:text-2xl border-2 lg:border-4 border-white shrink-0">
                       {testimonials[current].name.split(/\s+/).map((p) => p.charAt(0)).join(' ')}
                     </div>
                     <div>
-                      <p className="text-lg lg:text-2xl font-display font-bold text-[#2F281D]">{testimonials[current].name}</p>
-                      <p className="text-[#997F6C] text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">{testimonials[current].role}</p>
+                      <p className="text-lg lg:text-2xl font-display font-bold text-[#14171F]">{testimonials[current].name}</p>
+                      <p className="text-[#D98A2C] text-[10px] lg:text-sm font-bold uppercase tracking-[0.2em] mt-1">{testimonials[current].role}</p>
                     </div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export const Testimonials = () => {
                   aria-selected={current === i}
                   onClick={() => setCurrent(i)}
                   className={`h-1 lg:h-1.5 transition-all duration-500 rounded-full border-0 p-0 cursor-pointer ${
-                    current === i ? 'w-8 lg:w-12 bg-[#997F6C]' : 'w-2 lg:w-3 bg-[#2F281D]/10'
+                    current === i ? 'w-8 lg:w-12 bg-[#D98A2C]' : 'w-2 lg:w-3 bg-[#14171F]/10'
                   }`}
                 />
               ))}

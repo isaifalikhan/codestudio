@@ -10,52 +10,52 @@ export const TermsConditions = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-[#FDF8EC]"
+      className="bg-[#F6F4EC]"
     >
       <section className="pt-32 pb-24 px-6 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-display font-bold text-[#2F281D] mb-8">
-          Terms & <span className="text-[#2F281D]/40 italic">Conditions</span>
+        <h1 className="text-4xl md:text-6xl font-display font-bold text-[#14171F] mb-8">
+          Terms & <span className="text-[#14171F]/40 italic">Conditions</span>
         </h1>
-        <p className="text-[#2F281D]/60 mb-12">Last updated: April 2026</p>
+        <p className="text-[#14171F]/60 mb-12">Last updated: April 2026</p>
 
-        <div className="prose prose-lg text-[#2F281D]/80 space-y-8">
+        <div className="prose prose-lg text-[#14171F]/80 space-y-8">
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">1. Agreement to Terms</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">1. Agreement to Terms</h2>
             <p>
               By accessing or using the CodexStudio website and services, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our site or services.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">2. Services</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">2. Services</h2>
             <p>
               CodexStudio provides web development, design, and digital product services. Specific deliverables, timelines, and fees will be set out in separate agreements or statements of work.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">3. Intellectual Property</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">3. Intellectual Property</h2>
             <p>
               Unless otherwise agreed in writing, intellectual property in work product created for you will transfer to you upon full payment. We retain the right to use general skills and non-confidential methods in other projects.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">4. Confidentiality</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">4. Confidentiality</h2>
             <p>
               Both parties agree to keep confidential any proprietary or sensitive information shared during the engagement, except where disclosure is required by law or with consent.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">5. Limitation of Liability</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">5. Limitation of Liability</h2>
             <p>
               To the fullest extent permitted by law, CodexStudio shall not be liable for indirect, incidental, or consequential damages. Our total liability is limited to the fees paid for the relevant project or service.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">6. Use of website and free tools</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">6. Use of website and free tools</h2>
             <p>
               You may use our website, blog, and free browser tools only for lawful purposes. You agree not to misuse the site, attempt unauthorized access, or use
               our tools to violate intellectual property rights, platform terms of service, or applicable law. Tools are provided &quot;as is&quot; without warranties;
@@ -64,10 +64,10 @@ export const TermsConditions = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">7. Third-party advertising</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">7. Third-party advertising</h2>
             <p>
               Some pages display ads served by Google or other partners. Those parties may use cookies or similar technologies as described in our{' '}
-              <Link href="/privacy" className="text-[#997F6C] font-bold hover:underline">
+              <Link href="/privacy" className="text-[#D98A2C] font-bold hover:underline">
                 Privacy Policy
               </Link>
               . We do not control the content of third-party ads; if you have concerns about an ad, you can use platform opt-out tools linked in our Privacy Policy.
@@ -75,22 +75,22 @@ export const TermsConditions = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">8. Changes</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">8. Changes</h2>
             <p>
               We may update these Terms from time to time. Continued use of our website or services after changes constitutes acceptance of the updated Terms.
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mt-12 mb-4">9. Contact</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mt-12 mb-4">9. Contact</h2>
             <p>
-              Questions about these Terms: <a href="mailto:hello@codexstudio.com" className="text-[#997F6C] font-bold hover:underline">hello@codexstudio.com</a>. CodexStudio, Islamabad, Pakistan.
+              Questions about these Terms: <a href="mailto:hello@codexstudio.com" className="text-[#D98A2C] font-bold hover:underline">hello@codexstudio.com</a>. CodexStudio, Islamabad, Pakistan.
             </p>
           </section>
         </div>
 
         <p className="mt-16">
-          <Link href="/" className="text-[#997F6C] font-bold hover:underline">← Back to Home</Link>
+          <Link href="/" className="text-[#D98A2C] font-bold hover:underline">← Back to Home</Link>
         </p>
       </section>
     </motion.div>

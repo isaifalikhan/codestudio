@@ -56,32 +56,32 @@ export default function AgeCalculatorWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Date of birth</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Date of birth</span>
           <input
             type="date"
             value={birthStr}
             onChange={(e) => setBirthStr(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Age as of (date)</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Age as of (date)</span>
           <input
             type="date"
             value={todayStr}
             onChange={(e) => setTodayStr(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50"
           />
         </label>
       </div>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-2">
-          <p className="text-2xl font-bold text-[#2F281D]">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-2">
+          <p className="text-2xl font-bold text-[#14171F]">
             {result.years} years, {result.months} months, {result.days} days old
           </p>
-          <p className="text-[#2F281D]/70">Born on a {result.dayOfWeek}</p>
-          <p className="text-[#2F281D]/70">Zodiac sign: {result.zodiac}</p>
-          <p className="text-[#2F281D]/70">Next birthday in {result.daysToBday} days</p>
+          <p className="text-[#14171F]/70">Born on a {result.dayOfWeek}</p>
+          <p className="text-[#14171F]/70">Zodiac sign: {result.zodiac}</p>
+          <p className="text-[#14171F]/70">Next birthday in {result.daysToBday} days</p>
         </div>
       )}
     </div>

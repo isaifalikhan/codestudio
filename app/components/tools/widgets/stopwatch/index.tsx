@@ -21,11 +21,11 @@ export default function StopwatchWidget() {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-8 text-center">
-        <p className="text-5xl font-bold text-[#2F281D] font-mono">{m.toString().padStart(2, '0')}:{s.toString().padStart(2, '0')}.{tenths}</p>
+      <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-8 text-center">
+        <p className="text-5xl font-bold text-[#14171F] font-mono">{m.toString().padStart(2, '0')}:{s.toString().padStart(2, '0')}.{tenths}</p>
         <div className="flex justify-center gap-4 mt-6">
-          <button type="button" onClick={() => setRunning(!running)} className="px-6 py-3 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">{running ? 'Pause' : 'Start'}</button>
-          <button type="button" onClick={() => { setRunning(false); setMs(0); }} className="px-6 py-3 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">Reset</button>
+          <button type="button" onClick={() => setRunning(!running)} className="px-6 py-3 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">{running ? 'Pause' : 'Start'}</button>
+          <button type="button" onClick={() => { setRunning(false); setMs(0); }} className="px-6 py-3 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">Reset</button>
         </div>
       </div>
     </div>

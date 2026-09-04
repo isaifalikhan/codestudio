@@ -59,14 +59,14 @@ export default function ImageCompressorWidget() {
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="w-full py-8 rounded-xl border-2 border-dashed border-[#2F281D]/30 bg-[#FDF8EC] text-[#2F281D]/70 hover:border-[#997F6C] hover:text-[#997F6C] transition-colors"
+        className="w-full py-8 rounded-xl border-2 border-dashed border-[#14171F]/30 bg-[#F6F4EC] text-[#14171F]/70 hover:border-[#D98A2C] hover:text-[#D98A2C] transition-colors"
       >
         {file ? file.name : 'Choose image (JPG, PNG, WebP)'}
       </button>
       {file && (
         <>
           <label className="block">
-            <span className="text-sm font-medium text-[#2F281D] block mb-2">Quality: {quality}%</span>
+            <span className="text-sm font-medium text-[#14171F] block mb-2">Quality: {quality}%</span>
             <input
               type="range"
               min={10}
@@ -80,7 +80,7 @@ export default function ImageCompressorWidget() {
             <button
               type="button"
               onClick={process}
-              className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+              className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
             >
               Compress
             </button>
@@ -89,17 +89,17 @@ export default function ImageCompressorWidget() {
                 <button
                   type="button"
                   onClick={download}
-                  className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5"
+                  className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5"
                 >
                   Download
                 </button>
-                <p className="text-sm text-[#2F281D]/70 self-center">
+                <p className="text-sm text-[#14171F]/70 self-center">
                   {(origSize / 1024).toFixed(1)} KB → {(newSize / 1024).toFixed(1)} KB ({saved}% smaller)
                 </p>
               </>
             )}
           </div>
-          {result && <img src={result.url} alt="Compressed" className="max-h-64 rounded-xl border border-[#2F281D]/10" />}
+          {result && <img src={result.url} alt="Compressed" className="max-h-64 rounded-xl border border-[#14171F]/10" />}
         </>
       )}
     </div>

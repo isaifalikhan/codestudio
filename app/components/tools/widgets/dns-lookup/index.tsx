@@ -38,11 +38,11 @@ export default function DnsLookupWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Domain</span>
-        <input type="text" value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="example.com" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Domain</span>
+        <input type="text" value={domain} onChange={(e) => setDomain(e.target.value)} placeholder="example.com" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      <button type="button" onClick={lookup} disabled={loading} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold disabled:opacity-50">Look up DNS</button>
-      {result && <pre className="p-4 rounded-xl bg-[#2F281D]/5 border border-[#2F281D]/10 text-[#2F281D] text-sm overflow-auto">{result}</pre>}
+      <button type="button" onClick={lookup} disabled={loading} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold disabled:opacity-50">Look up DNS</button>
+      {result && <pre className="p-4 rounded-xl bg-[#14171F]/5 border border-[#14171F]/10 text-[#14171F] text-sm overflow-auto">{result}</pre>}
     </div>
   );
 }

@@ -55,7 +55,7 @@ export default function ImageConverterWidget() {
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="w-full py-8 rounded-xl border-2 border-dashed border-[#2F281D]/30 bg-[#FDF8EC] text-[#2F281D]/70 hover:border-[#997F6C]"
+        className="w-full py-8 rounded-xl border-2 border-dashed border-[#14171F]/30 bg-[#F6F4EC] text-[#14171F]/70 hover:border-[#D98A2C]"
       >
         {file ? file.name : 'Choose image'}
       </button>
@@ -65,32 +65,32 @@ export default function ImageConverterWidget() {
             <button
               type="button"
               onClick={() => convert('image/jpeg')}
-              className="px-4 py-2 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+              className="px-4 py-2 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
             >
               Convert to JPG
             </button>
             <button
               type="button"
               onClick={() => convert('image/png')}
-              className="px-4 py-2 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold"
+              className="px-4 py-2 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold"
             >
               Convert to PNG
             </button>
             <button
               type="button"
               onClick={() => convert('image/webp')}
-              className="px-4 py-2 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold"
+              className="px-4 py-2 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold"
             >
               Convert to WebP
             </button>
           </div>
           {result && (
             <div className="flex flex-wrap gap-2 items-center">
-              <img src={result.url} alt="Converted" className="max-h-48 rounded-xl border border-[#2F281D]/10" />
+              <img src={result.url} alt="Converted" className="max-h-48 rounded-xl border border-[#14171F]/10" />
               <button
                 type="button"
                 onClick={() => download(result.blob.type === 'image/png' ? 'png' : result.blob.type === 'image/webp' ? 'webp' : 'jpg')}
-                className="px-4 py-2 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold"
+                className="px-4 py-2 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold"
               >
                 Download
               </button>

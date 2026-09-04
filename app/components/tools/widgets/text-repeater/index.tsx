@@ -17,32 +17,32 @@ export default function TextRepeaterWidget() {
   return (
     <div className="space-y-6">
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Text to repeat</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Text to repeat</span>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Word or phrase"
-          className="w-full min-h-[100px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] resize-y"
+          className="w-full min-h-[100px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] resize-y"
         />
       </label>
       <div className="flex flex-wrap gap-4 items-center">
         <label className="flex items-center gap-2">
-          <span className="text-sm text-[#2F281D]">Times:</span>
+          <span className="text-sm text-[#14171F]">Times:</span>
           <input
             type="number"
             min={1}
             max={1000}
             value={times}
             onChange={(e) => setTimes(e.target.value)}
-            className="w-24 px-2 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-24 px-2 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label className="flex items-center gap-2">
-          <span className="text-sm text-[#2F281D]">Separator:</span>
+          <span className="text-sm text-[#14171F]">Separator:</span>
           <select
             value={separator}
             onChange={(e) => setSeparator(e.target.value)}
-            className="px-3 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="px-3 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           >
             <option value="newline">New line</option>
             <option value="comma">Comma</option>
@@ -53,12 +53,12 @@ export default function TextRepeaterWidget() {
       {output && (
         <>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-[#2F281D]/70">Output</span>
-            <button type="button" onClick={copy} className="px-4 py-2 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]">
+            <span className="text-sm text-[#14171F]/70">Output</span>
+            <button type="button" onClick={copy} className="px-4 py-2 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]">
               Copy
             </button>
           </div>
-          <textarea readOnly value={output} className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 text-sm resize-y" />
+          <textarea readOnly value={output} className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 text-sm resize-y" />
         </>
       )}
     </div>

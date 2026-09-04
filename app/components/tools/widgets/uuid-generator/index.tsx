@@ -25,20 +25,20 @@ export default function UuidGeneratorWidget() {
     <div className="space-y-6">
       <div className="flex flex-wrap gap-4 items-center">
         <label className="flex items-center gap-2">
-          <span className="text-sm text-[#2F281D]">Count (1–100):</span>
+          <span className="text-sm text-[#14171F]">Count (1–100):</span>
           <input
             type="number"
             min={1}
             max={100}
             value={count}
             onChange={(e) => setCount(Number(e.target.value))}
-            className="w-20 px-2 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-20 px-2 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <button
           type="button"
           onClick={generate}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
         >
           Generate
         </button>
@@ -46,7 +46,7 @@ export default function UuidGeneratorWidget() {
           <button
             type="button"
             onClick={copyAll}
-            className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold"
+            className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold"
           >
             Copy all
           </button>
@@ -56,7 +56,7 @@ export default function UuidGeneratorWidget() {
         <textarea
           readOnly
           value={list.join('\n')}
-          className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 font-mono text-sm resize-y"
+          className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 font-mono text-sm resize-y"
         />
       )}
     </div>

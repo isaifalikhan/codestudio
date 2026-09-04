@@ -26,23 +26,23 @@ export default function IdealWeightWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Height</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Height</span>
         <div className="flex gap-2">
-          <input type="number" min={1} value={height} onChange={(e) => setHeight(e.target.value)} className="flex-1 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
-          <select value={unit} onChange={(e) => setUnit(e.target.value as 'cm' | 'in')} className="px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <input type="number" min={1} value={height} onChange={(e) => setHeight(e.target.value)} className="flex-1 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
+          <select value={unit} onChange={(e) => setUnit(e.target.value as 'cm' | 'in')} className="px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
             <option value="cm">cm</option>
             <option value="in">in</option>
           </select>
         </div>
       </label>
       <div className="flex gap-4">
-        <label className="flex items-center gap-2"><input type="radio" name="sex" checked={isMale} onChange={() => setIsMale(true)} /><span className="text-[#2F281D]">Male</span></label>
-        <label className="flex items-center gap-2"><input type="radio" name="sex" checked={!isMale} onChange={() => setIsMale(false)} /><span className="text-[#2F281D]">Female</span></label>
+        <label className="flex items-center gap-2"><input type="radio" name="sex" checked={isMale} onChange={() => setIsMale(true)} /><span className="text-[#14171F]">Male</span></label>
+        <label className="flex items-center gap-2"><input type="radio" name="sex" checked={!isMale} onChange={() => setIsMale(false)} /><span className="text-[#14171F]">Female</span></label>
       </div>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-xl font-bold text-[#2F281D]">Healthy weight range: {result.low} – {result.high} kg</p>
-          <p className="text-[#2F281D]/70 text-sm mt-1">Based on Devine & Robinson formulas. Consult a doctor for medical advice.</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-xl font-bold text-[#14171F]">Healthy weight range: {result.low} – {result.high} kg</p>
+          <p className="text-[#14171F]/70 text-sm mt-1">Based on Devine & Robinson formulas. Consult a doctor for medical advice.</p>
         </div>
       )}
     </div>

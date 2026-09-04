@@ -47,64 +47,64 @@ export default function MetaTagGeneratorWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-1">Page title</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-1">Page title</span>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="My Page Title"
-            className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-1">Page URL</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-1">Page URL</span>
           <input
             type="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com/page"
-            className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label className="md:col-span-2">
-          <span className="text-sm font-medium text-[#2F281D] block mb-1">Meta description</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-1">Meta description</span>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Short description (150-160 chars)"
-            className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] min-h-[80px]"
+            className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] min-h-[80px]"
             maxLength={160}
           />
-          <span className="text-xs text-[#2F281D]/50">{description.length}/160</span>
+          <span className="text-xs text-[#14171F]/50">{description.length}/160</span>
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-1">Image URL (OG/Twitter)</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-1">Image URL (OG/Twitter)</span>
           <input
             type="url"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
             placeholder="https://example.com/og-image.jpg"
-            className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-1">Site name</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-1">Site name</span>
           <input
             type="text"
             value={siteName}
             onChange={(e) => setSiteName(e.target.value)}
             placeholder="CodexStudio"
-            className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-1">Twitter @handle</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-1">Twitter @handle</span>
           <input
             type="text"
             value={twitterHandle}
             onChange={(e) => setTwitterHandle(e.target.value)}
             placeholder="codexstudio"
-            className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       </div>
@@ -112,7 +112,7 @@ export default function MetaTagGeneratorWidget() {
         <button
           type="button"
           onClick={generate}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
         >
           Generate meta tags
         </button>
@@ -120,14 +120,14 @@ export default function MetaTagGeneratorWidget() {
           <button
             type="button"
             onClick={copy}
-            className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5"
+            className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5"
           >
             {copied ? 'Copied!' : 'Copy HTML'}
           </button>
         )}
       </div>
       {output && (
-        <pre className="w-full p-4 rounded-xl bg-[#2F281D]/5 border border-[#2F281D]/10 text-[#2F281D] font-mono text-sm overflow-auto whitespace-pre-wrap">
+        <pre className="w-full p-4 rounded-xl bg-[#14171F]/5 border border-[#14171F]/10 text-[#14171F] font-mono text-sm overflow-auto whitespace-pre-wrap">
           {output}
         </pre>
       )}

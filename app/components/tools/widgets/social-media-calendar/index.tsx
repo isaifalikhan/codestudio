@@ -48,23 +48,23 @@ export default function SocialMediaCalendarWidget() {
   return (
     <div className="space-y-6">
       <div className="flex gap-2 flex-wrap">
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
-        <select value={platform} onChange={(e) => setPlatform(e.target.value)} className="px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
+        <select value={platform} onChange={(e) => setPlatform(e.target.value)} className="px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
           <option>Instagram</option>
           <option>Twitter</option>
           <option>LinkedIn</option>
           <option>TikTok</option>
         </select>
-        <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Post content or idea" className="flex-1 min-w-[160px] px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
-        <button type="button" onClick={add} className="px-4 py-2 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Add</button>
+        <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Post content or idea" className="flex-1 min-w-[160px] px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
+        <button type="button" onClick={add} className="px-4 py-2 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Add</button>
       </div>
-      <button type="button" onClick={exportCsv} className="px-4 py-2 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-medium">Export CSV</button>
+      <button type="button" onClick={exportCsv} className="px-4 py-2 rounded-xl border border-[#14171F]/30 text-[#14171F] font-medium">Export CSV</button>
       <ul className="space-y-2 max-h-[300px] overflow-auto">
         {posts.map((p, i) => (
-          <li key={i} className="flex justify-between items-start gap-2 p-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30">
+          <li key={i} className="flex justify-between items-start gap-2 p-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30">
             <div>
-              <span className="text-[#2F281D] font-medium">{p.date}</span> · <span className="text-[#997F6C] text-sm">{p.platform}</span>
-              <p className="text-[#2F281D]/80 text-sm mt-1">{p.text}</p>
+              <span className="text-[#14171F] font-medium">{p.date}</span> · <span className="text-[#D98A2C] text-sm">{p.platform}</span>
+              <p className="text-[#14171F]/80 text-sm mt-1">{p.text}</p>
             </div>
             <button type="button" onClick={() => remove(i)} className="text-red-600 text-sm shrink-0">Remove</button>
           </li>

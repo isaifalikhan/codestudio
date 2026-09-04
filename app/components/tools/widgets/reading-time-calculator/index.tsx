@@ -19,14 +19,14 @@ export default function ReadingTimeCalculatorWidget() {
   return (
     <div className="space-y-6">
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Words per minute (avg: 200)</span>
-        <input type="number" min={100} max={400} value={wpm} onChange={(e) => setWpm(Number(e.target.value))} className="w-24 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Words per minute (avg: 200)</span>
+        <input type="number" min={100} max={400} value={wpm} onChange={(e) => setWpm(Number(e.target.value))} className="w-24 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste your text..." className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] resize-y" />
+      <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste your text..." className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] resize-y" />
       {stats && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-2">
-          <p className="text-xl font-bold text-[#2F281D]">~{stats.minutes} min {stats.seconds > 0 ? `${stats.seconds} sec` : ''} read</p>
-          <p className="text-[#2F281D]/70">{stats.words} words</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-2">
+          <p className="text-xl font-bold text-[#14171F]">~{stats.minutes} min {stats.seconds > 0 ? `${stats.seconds} sec` : ''} read</p>
+          <p className="text-[#14171F]/70">{stats.words} words</p>
         </div>
       )}
     </div>

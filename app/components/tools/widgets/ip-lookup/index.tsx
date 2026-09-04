@@ -25,16 +25,16 @@ export default function IpLookupWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">IP address (leave empty for your IP)</span>
-        <input type="text" value={ip} onChange={(e) => setIp(e.target.value)} placeholder="8.8.8.8" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] font-mono" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">IP address (leave empty for your IP)</span>
+        <input type="text" value={ip} onChange={(e) => setIp(e.target.value)} placeholder="8.8.8.8" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] font-mono" />
       </label>
-      <button type="button" onClick={lookup} disabled={loading} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold disabled:opacity-50">Look up</button>
+      <button type="button" onClick={lookup} disabled={loading} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold disabled:opacity-50">Look up</button>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
           {'error' in result ? (
             <p className="text-amber-700">{String(result.error)}</p>
           ) : (
-            <ul className="space-y-1 text-sm text-[#2F281D]">
+            <ul className="space-y-1 text-sm text-[#14171F]">
               {Object.entries(result).filter(([k]) => !k.startsWith('reserved')).map(([k, v]) => (v != null && v !== '' ? <li key={k}><strong>{k}:</strong> {String(v)}</li> : null))}
             </ul>
           )}

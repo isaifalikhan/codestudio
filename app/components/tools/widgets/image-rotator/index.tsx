@@ -51,11 +51,11 @@ export default function ImageRotatorWidget() {
 
   return (
     <div className="space-y-6">
-      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#2F281D]/70" />
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#14171F]/70" />
       {img && (
         <>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Rotation</span>
-            <select value={rotation} onChange={(e) => setRotation(Number(e.target.value))} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Rotation</span>
+            <select value={rotation} onChange={(e) => setRotation(Number(e.target.value))} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
               <option value={0}>0°</option>
               <option value={90}>90°</option>
               <option value={180}>180°</option>
@@ -63,11 +63,11 @@ export default function ImageRotatorWidget() {
             </select>
           </label>
           <div className="flex gap-4">
-            <label className="flex items-center gap-2"><input type="checkbox" checked={flipH} onChange={(e) => setFlipH(e.target.checked)} /><span className="text-[#2F281D]">Flip horizontal</span></label>
-            <label className="flex items-center gap-2"><input type="checkbox" checked={flipV} onChange={(e) => setFlipV(e.target.checked)} /><span className="text-[#2F281D]">Flip vertical</span></label>
+            <label className="flex items-center gap-2"><input type="checkbox" checked={flipH} onChange={(e) => setFlipH(e.target.checked)} /><span className="text-[#14171F]">Flip horizontal</span></label>
+            <label className="flex items-center gap-2"><input type="checkbox" checked={flipV} onChange={(e) => setFlipV(e.target.checked)} /><span className="text-[#14171F]">Flip vertical</span></label>
           </div>
-          <div className="rounded-xl border border-[#2F281D]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
-          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Download</button>
+          <div className="rounded-xl border border-[#14171F]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
+          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Download</button>
         </>
       )}
     </div>

@@ -30,18 +30,18 @@ export default function GpaCalculatorWidget() {
       <div className="space-y-2">
         {rows.map((row, i) => (
           <div key={i} className="flex gap-2 items-center">
-            <select value={row.grade} onChange={(e) => update(i, 'grade', e.target.value)} className="px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+            <select value={row.grade} onChange={(e) => update(i, 'grade', e.target.value)} className="px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
               {Object.keys(GRADE_MAP).map((g) => (<option key={g} value={g}>{g}</option>))}
             </select>
-            <input type="number" min={0} step={0.5} value={row.credits} onChange={(e) => update(i, 'credits', e.target.value)} className="w-20 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" placeholder="Cr" />
+            <input type="number" min={0} step={0.5} value={row.credits} onChange={(e) => update(i, 'credits', e.target.value)} className="w-20 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" placeholder="Cr" />
             <button type="button" onClick={() => remove(i)} className="text-red-600 text-sm">Remove</button>
           </div>
         ))}
       </div>
-      <button type="button" onClick={addRow} className="px-4 py-2 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-medium">+ Add course</button>
+      <button type="button" onClick={addRow} className="px-4 py-2 rounded-xl border border-[#14171F]/30 text-[#14171F] font-medium">+ Add course</button>
       {gpa && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-xl font-bold text-[#2F281D]">GPA: {gpa}</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-xl font-bold text-[#14171F]">GPA: {gpa}</p>
         </div>
       )}
     </div>

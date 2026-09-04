@@ -42,14 +42,14 @@ export default function RomanNumeralsWidget() {
   return (
     <div className="space-y-6">
       <div className="flex gap-2">
-        <button type="button" onClick={() => setMode('to-roman')} className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-roman' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}>Number → Roman</button>
-        <button type="button" onClick={() => setMode('to-num')} className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-num' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}>Roman → Number</button>
+        <button type="button" onClick={() => setMode('to-roman')} className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-roman' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}>Number → Roman</button>
+        <button type="button" onClick={() => setMode('to-num')} className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-num' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}>Roman → Number</button>
       </div>
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">{mode === 'to-roman' ? 'Number (1–3999)' : 'Roman numerals'}</span>
-        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder={mode === 'to-roman' ? '42' : 'XLII'} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">{mode === 'to-roman' ? 'Number (1–3999)' : 'Roman numerals'}</span>
+        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder={mode === 'to-roman' ? '42' : 'XLII'} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      {result && <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6"><p className="text-xl font-bold text-[#2F281D]">{result}</p></div>}
+      {result && <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6"><p className="text-xl font-bold text-[#14171F]">{result}</p></div>}
     </div>
   );
 }

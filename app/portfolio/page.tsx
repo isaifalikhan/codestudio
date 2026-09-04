@@ -37,8 +37,8 @@ export const metadata: Metadata = {
 
 function PortfolioFallback() {
   return (
-    <div className="min-h-[60vh] flex items-center justify-center bg-[#FDF8EC]">
-      <p className="text-[#2F281D]/60">Loading...</p>
+    <div className="min-h-[60vh] flex items-center justify-center bg-[#F6F4EC]">
+      <p className="text-[#14171F]/60">Loading...</p>
     </div>
   );
 }

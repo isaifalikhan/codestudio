@@ -23,12 +23,12 @@ export default function OnlineNotepadWidget() {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-[#2F281D]/70">Auto-saves in your browser. No account needed.</p>
+      <p className="text-sm text-[#14171F]/70">Auto-saves in your browser. No account needed.</p>
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Start typing..."
-        className="w-full min-h-[320px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] resize-y focus:ring-2 focus:ring-[#997F6C] focus:border-[#997F6C]"
+        className="w-full min-h-[320px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] resize-y focus:ring-2 focus:ring-[#D98A2C] focus:border-[#D98A2C]"
       />
     </div>
   );

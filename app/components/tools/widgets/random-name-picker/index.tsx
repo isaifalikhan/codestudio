@@ -27,14 +27,14 @@ export default function RandomNamePickerWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Names (one per line or comma-separated)</span>
-        <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Alice&#10;Bob&#10;Charlie" className="w-full min-h-[160px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] resize-y" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Names (one per line or comma-separated)</span>
+        <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Alice&#10;Bob&#10;Charlie" className="w-full min-h-[160px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] resize-y" />
       </label>
-      <button type="button" onClick={pick} disabled={names.length === 0 || rolling} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold disabled:opacity-50">Pick random winner</button>
+      <button type="button" onClick={pick} disabled={names.length === 0 || rolling} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold disabled:opacity-50">Pick random winner</button>
       {winner && (
-        <div className="rounded-xl border-2 border-[#997F6C] bg-[#E8E2D2]/50 p-8 text-center">
-          <p className="text-sm text-[#2F281D]/70 mb-1">Winner</p>
-          <p className="text-2xl font-bold text-[#2F281D]">{winner}</p>
+        <div className="rounded-xl border-2 border-[#D98A2C] bg-[#ECE7D9]/50 p-8 text-center">
+          <p className="text-sm text-[#14171F]/70 mb-1">Winner</p>
+          <p className="text-2xl font-bold text-[#14171F]">{winner}</p>
         </div>
       )}
     </div>

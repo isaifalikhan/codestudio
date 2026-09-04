@@ -43,7 +43,7 @@ export const PortfolioPage = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-[#FDF8EC]"
+      className="bg-[#F6F4EC]"
     >
       {/* Hero Section */}
       <section className="pt-40 pb-24 px-6 text-center">
@@ -51,7 +51,7 @@ export const PortfolioPage = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[#997F6C] font-bold tracking-widest uppercase text-sm block"
+            className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm block"
           >
             Our Work
           </motion.span>
@@ -59,9 +59,9 @@ export const PortfolioPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl sm:text-7xl md:text-9xl font-display font-bold text-[#2F281D]"
+            className="text-5xl sm:text-7xl md:text-9xl font-display font-bold text-[#14171F]"
           >
-            Selected <span className="text-[#2F281D]/40 italic">Projects</span>
+            Selected <span className="text-[#14171F]/40 italic">Projects</span>
           </motion.h1>
         </div>
       </section>
@@ -75,8 +75,8 @@ export const PortfolioPage = () => {
               onClick={() => setCategory(cat)}
               className={`px-8 py-3 rounded-full font-bold transition-all ${
                 activeCategory === cat 
-                  ? 'bg-[#2F281D] text-[#FDF8EC]' 
-                  : 'bg-[#2F281D]/5 text-[#2F281D] hover:bg-[#2F281D]/10'
+                  ? 'bg-[#14171F] text-[#F6F4EC]' 
+                  : 'bg-[#14171F]/5 text-[#14171F] hover:bg-[#14171F]/10'
               }`}
             >
               {cat}
@@ -111,25 +111,25 @@ export const PortfolioPage = () => {
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D] via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#14171F] via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
                   <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <span className="text-[#997F6C] font-bold uppercase tracking-widest text-sm mb-2">{project.category}</span>
-                    <p className="text-[#FDF8EC]/80 text-sm mb-3 line-clamp-2">{project.description}</p>
+                    <span className="text-[#D98A2C] font-bold uppercase tracking-widest text-sm mb-2">{project.category}</span>
+                    <p className="text-[#F6F4EC]/80 text-sm mb-3 line-clamp-2">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technology.map((tech) => (
-                        <span key={tech} className="text-xs px-2 py-1 rounded-full bg-[#FDF8EC]/20 text-[#FDF8EC]">
+                        <span key={tech} className="text-xs px-2 py-1 rounded-full bg-[#F6F4EC]/20 text-[#F6F4EC]">
                           {tech}
                         </span>
                       ))}
                     </div>
                     <div className="flex items-center justify-between">
-                      <h3 className="text-2xl md:text-3xl font-display font-bold text-[#FDF8EC]">{project.title}</h3>
+                      <h3 className="text-2xl md:text-3xl font-display font-bold text-[#F6F4EC]">{project.title}</h3>
                       {project.projectUrl ? (
-                        <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full bg-[#FDF8EC] text-[#2F281D] text-sm font-bold flex items-center gap-2 hover:bg-[#FDF8EC]/90 transition-colors">
+                        <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-full bg-[#F6F4EC] text-[#14171F] text-sm font-bold flex items-center gap-2 hover:bg-[#F6F4EC]/90 transition-colors">
                           View Project <ArrowUpRight className="w-4 h-4" />
                         </a>
                       ) : (
-                        <span className="px-4 py-2 rounded-full bg-[#FDF8EC]/60 text-[#2F281D]/80 text-sm font-bold cursor-default" aria-hidden>
+                        <span className="px-4 py-2 rounded-full bg-[#F6F4EC]/60 text-[#14171F]/80 text-sm font-bold cursor-default" aria-hidden>
                           In Portfolio
                         </span>
                       )}
@@ -140,15 +140,15 @@ export const PortfolioPage = () => {
             </AnimatePresence>
           </motion.div>
 
-          <div className="mt-16 pt-12 border-t border-[#2F281D]/10 text-center space-y-4">
-            <p className="text-[#2F281D]/80 text-lg">
-              Interested in working with us? <Link href="/contact" className="text-[#997F6C] font-semibold hover:underline">Start a project →</Link>
+          <div className="mt-16 pt-12 border-t border-[#14171F]/10 text-center space-y-4">
+            <p className="text-[#14171F]/80 text-lg">
+              Interested in working with us? <Link href="/contact" className="text-[#D98A2C] font-semibold hover:underline">Start a project →</Link>
             </p>
-            <p className="text-[#2F281D]/70">
-              See all our services: <Link href="/services" className="text-[#997F6C] font-semibold hover:underline">What we offer →</Link>
+            <p className="text-[#14171F]/70">
+              See all our services: <Link href="/services" className="text-[#D98A2C] font-semibold hover:underline">What we offer →</Link>
             </p>
-            <p className="text-[#2F281D]/70">
-              We also build free tools. <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Browse 100+ free tools →</Link>
+            <p className="text-[#14171F]/70">
+              We also build free tools. <Link href="/tools" className="text-[#D98A2C] font-semibold hover:underline">Browse 100+ free tools →</Link>
             </p>
           </div>
         </div>

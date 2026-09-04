@@ -6,16 +6,16 @@ import { Reveal } from './Reveal';
 
 export const ProcessSection = () => (
   <section
-    className="py-24 px-6 bg-[#FDF8EC] perspective-1000 content-visibility-auto"
+    className="py-24 px-6 bg-[#F6F4EC] perspective-1000 content-visibility-auto"
     aria-labelledby="process-heading"
   >
     <div className="max-w-7xl mx-auto">
       <Reveal width="100%">
         <div className="text-center mb-20">
-          <h2 id="process-heading" className="text-4xl md:text-6xl font-display font-bold mb-4 text-[#2F281D]">
-            Our <span className="text-[#2F281D]/70 italic">Process</span>
+          <h2 id="process-heading" className="text-4xl md:text-6xl font-display font-bold mb-4 text-[#14171F]">
+            Our <span className="text-[#14171F]/70 italic">Process</span>
           </h2>
-          <p className="text-[#2F281D]/75 max-w-2xl mx-auto text-lg">
+          <p className="text-[#14171F]/75 max-w-2xl mx-auto text-lg">
             A clear, professional workflow from idea to launch.
           </p>
         </div>
@@ -34,11 +34,11 @@ export const ProcessSection = () => (
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.8 }}
             whileHover={{ y: -10 }}
-            className="p-8 rounded-3xl bg-[#E8E2D2] border border-[#2F281D]/10 shadow-sm hover:shadow-xl transition-all cursor-default"
+            className="p-8 rounded-3xl bg-[#ECE7D9] border border-[#14171F]/10 shadow-sm hover:shadow-xl transition-all cursor-default"
           >
-            <span className="text-4xl font-display font-bold text-[#997F6C] mb-4 block">{item.step}</span>
-            <h3 className="text-xl font-bold mb-2 text-[#2F281D]">{item.title}</h3>
-            <p className="text-[#2F281D]/75 text-sm leading-relaxed">{item.desc}</p>
+            <span className="text-4xl font-display font-bold text-[#D98A2C] mb-4 block">{item.step}</span>
+            <h3 className="text-xl font-bold mb-2 text-[#14171F]">{item.title}</h3>
+            <p className="text-[#14171F]/75 text-sm leading-relaxed">{item.desc}</p>
           </motion.div>
         ))}
       </div>

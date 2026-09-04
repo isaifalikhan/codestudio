@@ -59,7 +59,7 @@ export default function WordCounterWidget() {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Paste or type your text here..."
-        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 resize-y"
+        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 resize-y"
         aria-label="Text to analyze"
       />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
@@ -72,12 +72,12 @@ export default function WordCounterWidget() {
       </div>
       {stats.keywordDensity.length > 0 && (
         <div>
-          <h3 className="text-sm font-bold text-[#2F281D] mb-2">Top keyword density</h3>
+          <h3 className="text-sm font-bold text-[#14171F] mb-2">Top keyword density</h3>
           <div className="flex flex-wrap gap-2">
             {stats.keywordDensity.map(({ word, count, pct }) => (
               <span
                 key={word}
-                className="text-xs bg-[#2F281D]/10 text-[#2F281D] px-2 py-1 rounded"
+                className="text-xs bg-[#14171F]/10 text-[#14171F] px-2 py-1 rounded"
               >
                 {word}: {count} ({pct.toFixed(1)}%)
               </span>
@@ -97,9 +97,9 @@ function StatCard({
   value: number | string;
 }) {
   return (
-    <div className="rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC] p-4">
-      <p className="text-2xl font-bold text-[#2F281D]">{value}</p>
-      <p className="text-xs text-[#2F281D]/60 mt-1">{label}</p>
+    <div className="rounded-xl border border-[#14171F]/10 bg-[#F6F4EC] p-4">
+      <p className="text-2xl font-bold text-[#14171F]">{value}</p>
+      <p className="text-xs text-[#14171F]/60 mt-1">{label}</p>
     </div>
   );
 }

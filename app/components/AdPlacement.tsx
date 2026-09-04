@@ -56,7 +56,7 @@ export function AdPlacement({ slot }: { slot: 'top' | 'bottom' | 'sidebar' }) {
         textAlign: 'center',
         padding: '12px 0',
         minHeight: '90px',
-        background: 'var(--color-background-secondary, #E8E2D2)',
+        background: 'var(--color-background-secondary, #ECE7D9)',
         borderRadius: '8px',
         margin: '16px 0',
         overflow: 'hidden',

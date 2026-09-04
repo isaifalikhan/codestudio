@@ -30,22 +30,22 @@ export default function KeywordDensityWidget() {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Paste your content here..."
-        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 resize-y"
+        className="w-full min-h-[200px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 resize-y"
       />
       <div>
-        <h3 className="text-sm font-bold text-[#2F281D] mb-2">Top 20 keywords (density)</h3>
-        <div className="rounded-xl border border-[#2F281D]/10 overflow-hidden">
+        <h3 className="text-sm font-bold text-[#14171F] mb-2">Top 20 keywords (density)</h3>
+        <div className="rounded-xl border border-[#14171F]/10 overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="bg-[#2F281D]/5">
-                <th className="text-left p-3 font-semibold text-[#2F281D]">Keyword</th>
-                <th className="text-left p-3 font-semibold text-[#2F281D]">Count</th>
-                <th className="text-left p-3 font-semibold text-[#2F281D]">Density %</th>
+              <tr className="bg-[#14171F]/5">
+                <th className="text-left p-3 font-semibold text-[#14171F]">Keyword</th>
+                <th className="text-left p-3 font-semibold text-[#14171F]">Count</th>
+                <th className="text-left p-3 font-semibold text-[#14171F]">Density %</th>
               </tr>
             </thead>
             <tbody>
               {keywords.map(({ word, count, pct }) => (
-                <tr key={word} className="border-t border-[#2F281D]/10">
+                <tr key={word} className="border-t border-[#14171F]/10">
                   <td className="p-3 font-mono">{word}</td>
                   <td className="p-3">{count}</td>
                   <td className="p-3">{pct.toFixed(2)}%</td>
@@ -54,7 +54,7 @@ export default function KeywordDensityWidget() {
             </tbody>
           </table>
         </div>
-        {keywords.length === 0 && text.trim() && <p className="text-[#2F281D]/60 text-sm mt-2">No keywords (excluding stop words).</p>}
+        {keywords.length === 0 && text.trim() && <p className="text-[#14171F]/60 text-sm mt-2">No keywords (excluding stop words).</p>}
       </div>
     </div>
   );

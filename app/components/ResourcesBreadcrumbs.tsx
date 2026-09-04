@@ -14,11 +14,11 @@ export function ResourcesBreadcrumbs() {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="py-4 px-6 border-b border-[#2F281D]/10 bg-[#FDF8EC]">
+    <nav aria-label="Breadcrumb" className="py-4 px-6 border-b border-[#14171F]/10 bg-[#F6F4EC]">
       <div className="max-w-7xl mx-auto">
-        <ol className="flex flex-wrap items-center gap-2 text-sm text-[#2F281D]/60">
+        <ol className="flex flex-wrap items-center gap-2 text-sm text-[#14171F]/60">
           <li>
-            <Link href="/" className="hover:text-[#997F6C] transition-colors">
+            <Link href="/" className="hover:text-[#D98A2C] transition-colors">
               Home
             </Link>
           </li>
@@ -30,11 +30,11 @@ export function ResourcesBreadcrumbs() {
               <li key={segment} className="flex items-center gap-2">
                 <span aria-hidden>/</span>
                 {isLast ? (
-                  <span className="text-[#2F281D] font-medium" aria-current="page">
+                  <span className="text-[#14171F] font-medium" aria-current="page">
                     {label}
                   </span>
                 ) : (
-                  <Link href={href} className="hover:text-[#997F6C] transition-colors">
+                  <Link href={href} className="hover:text-[#D98A2C] transition-colors">
                     {label}
                   </Link>
                 )}

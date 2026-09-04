@@ -56,25 +56,25 @@ export const CTA = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="relative rounded-[4rem] bg-[#2F281D] overflow-hidden py-24 px-8 md:px-16 text-center"
+          className="relative rounded-[4rem] bg-[#14171F] overflow-hidden py-24 px-8 md:px-16 text-center"
         >
           {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-[#997F6C]/20 blur-[100px] -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#5F634D]/20 blur-[120px] translate-x-1/2 translate-y-1/2" />
+          <div className="absolute top-0 left-0 w-64 h-64 bg-[#D98A2C]/20 blur-[100px] -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2F7A6D]/20 blur-[120px] translate-x-1/2 translate-y-1/2" />
 
           <div className="relative z-10 max-w-3xl mx-auto space-y-8">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-7xl font-display font-bold text-[#FDF8EC] leading-tight"
+              className="text-5xl md:text-7xl font-display font-bold text-[#F6F4EC] leading-tight"
             >
-              Start Your Project <span className="text-[#FDF8EC]/40 italic">Today</span>
+              Start Your Project <span className="text-[#F6F4EC]/40 italic">Today</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-[#FDF8EC]/60"
+              className="text-xl text-[#F6F4EC]/60"
             >
               We help businesses build modern digital products.
             </motion.p>
@@ -86,13 +86,13 @@ export const CTA = () => {
             >
               <MagneticButton
                 href="/contact"
-                className="w-full sm:w-auto px-12 py-6 bg-[#FDF8EC] text-[#2F281D] rounded-full font-bold text-lg hover:bg-[#997F6C] hover:text-[#FDF8EC] hover:shadow-[0_0_20px_rgba(253,248,236,0.3)] transition-all flex items-center justify-center gap-3 group"
+                className="w-full sm:w-auto px-12 py-6 bg-[#F6F4EC] text-[#14171F] rounded-full font-bold text-lg hover:bg-[#D98A2C] hover:text-[#F6F4EC] hover:shadow-[0_0_20px_rgba(246, 244, 236,0.3)] transition-all flex items-center justify-center gap-3 group"
               >
                 Get a Free Consultation <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
               </MagneticButton>
               <MagneticButton
                 href="/portfolio"
-                className="w-full sm:w-auto px-12 py-6 border border-[#FDF8EC]/20 text-[#FDF8EC] rounded-full font-bold text-lg hover:bg-[#FDF8EC]/10 hover:shadow-[0_0_20px_rgba(253,248,236,0.1)] transition-all flex items-center justify-center"
+                className="w-full sm:w-auto px-12 py-6 border border-[#F6F4EC]/20 text-[#F6F4EC] rounded-full font-bold text-lg hover:bg-[#F6F4EC]/10 hover:shadow-[0_0_20px_rgba(246, 244, 236,0.1)] transition-all flex items-center justify-center"
               >
                 View Our Work
               </MagneticButton>

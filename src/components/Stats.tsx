@@ -12,7 +12,7 @@ const stats = [
 
 export const Stats = () => {
   return (
-    <section className="py-20 px-6 border-y border-[#2F281D]/5 bg-[#FDF8EC]" aria-labelledby="stats-heading">
+    <section className="py-20 px-6 border-y border-[#14171F]/5 bg-[#F6F4EC]" aria-labelledby="stats-heading">
       <div className="max-w-7xl mx-auto">
         <h2 id="stats-heading" className="sr-only">Trust statistics</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -28,7 +28,7 @@ export const Stats = () => {
               <h3 className="text-4xl md:text-6xl font-display font-bold text-gradient mb-2">
                 {stat.value}
               </h3>
-              <p className="text-[#2F281D]/40 text-sm font-bold uppercase tracking-widest">
+              <p className="text-[#14171F]/40 text-sm font-bold uppercase tracking-widest">
                 {stat.label}
               </p>
             </motion.div>

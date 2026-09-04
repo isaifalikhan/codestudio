@@ -29,16 +29,16 @@ export default function InstagramFontsWidget() {
 
   return (
     <div className="space-y-6">
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type your text..." className="w-full min-h-[100px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] resize-y" />
+      <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type your text..." className="w-full min-h-[100px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] resize-y" />
       <div className="flex flex-wrap gap-2">
         {styles.map(([label], i) => (
-          <button key={label} type="button" onClick={() => setSelected(i)} className={`px-4 py-2 rounded-xl text-sm font-medium ${selected === i ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}>{label}</button>
+          <button key={label} type="button" onClick={() => setSelected(i)} className={`px-4 py-2 rounded-xl text-sm font-medium ${selected === i ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}>{label}</button>
         ))}
       </div>
       {output && (
         <>
-          <p className="text-2xl font-medium text-[#2F281D] break-all">{output}</p>
-          <button type="button" onClick={() => navigator.clipboard.writeText(output)} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Copy</button>
+          <p className="text-2xl font-medium text-[#14171F] break-all">{output}</p>
+          <button type="button" onClick={() => navigator.clipboard.writeText(output)} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Copy</button>
         </>
       )}
     </div>

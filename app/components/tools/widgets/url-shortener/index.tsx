@@ -26,19 +26,19 @@ export default function UrlShortenerWidget() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-[#2F281D]/70">Enter a long URL. We generate a short code — in production you would save this code and redirect.</p>
+      <p className="text-sm text-[#14171F]/70">Enter a long URL. We generate a short code — in production you would save this code and redirect.</p>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Long URL</span>
-        <input type="url" value={longUrl} onChange={(e) => setLongUrl(e.target.value)} placeholder="https://example.com/very-long-page" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Long URL</span>
+        <input type="url" value={longUrl} onChange={(e) => setLongUrl(e.target.value)} placeholder="https://example.com/very-long-page" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      <button type="button" onClick={handleShorten} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Generate short code</button>
+      <button type="button" onClick={handleShorten} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Generate short code</button>
       {shortUrl && (
         <>
-          <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-4">
-            <p className="text-[#2F281D] font-mono break-all">{shortUrl}</p>
-            <p className="text-[#2F281D]/60 text-xs mt-1">Short code: {shortPath}. Save this code and add a redirect route (e.g. /r/[code]) to complete.</p>
+          <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-4">
+            <p className="text-[#14171F] font-mono break-all">{shortUrl}</p>
+            <p className="text-[#14171F]/60 text-xs mt-1">Short code: {shortPath}. Save this code and add a redirect route (e.g. /r/[code]) to complete.</p>
           </div>
-          <button type="button" onClick={() => navigator.clipboard.writeText(shortUrl)} className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">Copy short URL</button>
+          <button type="button" onClick={() => navigator.clipboard.writeText(shortUrl)} className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">Copy short URL</button>
         </>
       )}
     </div>

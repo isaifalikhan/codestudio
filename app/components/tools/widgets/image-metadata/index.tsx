@@ -22,9 +22,9 @@ export default function ImageMetadataWidget() {
 
   return (
     <div className="space-y-6">
-      <input type="file" accept="image/*" onChange={handleFile} className="block w-full text-sm text-[#2F281D]/70" />
-      {info && <pre className="p-4 rounded-xl bg-[#2F281D]/5 border border-[#2F281D]/10 text-[#2F281D] text-sm whitespace-pre-wrap">{info}</pre>}
-      <p className="text-[#2F281D]/60 text-xs">Full EXIF (camera, GPS, etc.) can be read with a library like exif-js. This tool shows basic file info; add exif-js for full metadata.</p>
+      <input type="file" accept="image/*" onChange={handleFile} className="block w-full text-sm text-[#14171F]/70" />
+      {info && <pre className="p-4 rounded-xl bg-[#14171F]/5 border border-[#14171F]/10 text-[#14171F] text-sm whitespace-pre-wrap">{info}</pre>}
+      <p className="text-[#14171F]/60 text-xs">Full EXIF (camera, GPS, etc.) can be read with a library like exif-js. This tool shows basic file info; add exif-js for full metadata.</p>
     </div>
   );
 }

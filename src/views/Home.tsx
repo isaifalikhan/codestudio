@@ -72,7 +72,7 @@ const ContactForm = dynamic(
 
 export const Home = () => {
   return (
-    <div className="bg-[#FDF8EC] page-enter">
+    <div className="bg-[#F6F4EC] page-enter">
       <Hero />
       <RevealCSS width="100%">
         <Stats />

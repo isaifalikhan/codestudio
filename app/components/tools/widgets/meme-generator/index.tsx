@@ -55,15 +55,15 @@ export default function MemeGeneratorWidget() {
 
   return (
     <div className="space-y-6">
-      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#2F281D]/70" />
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#14171F]/70" />
       {img && (
         <>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Top text</span><input type="text" value={topText} onChange={(e) => setTopText(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Bottom text</span><input type="text" value={bottomText} onChange={(e) => setBottomText(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
-          <div className="rounded-xl border border-[#2F281D]/20 overflow-hidden bg-[#2F281D]/5">
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Top text</span><input type="text" value={topText} onChange={(e) => setTopText(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Bottom text</span><input type="text" value={bottomText} onChange={(e) => setBottomText(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
+          <div className="rounded-xl border border-[#14171F]/20 overflow-hidden bg-[#14171F]/5">
             <canvas ref={canvasRef} className="max-w-full h-auto block" />
           </div>
-          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Download meme</button>
+          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Download meme</button>
         </>
       )}
     </div>

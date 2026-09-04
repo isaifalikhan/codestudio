@@ -11,5 +11,5 @@ export default function ToolsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="bg-[#FDF8EC] min-h-screen">{children}</div>;
+  return <div className="bg-[#F6F4EC] min-h-screen">{children}</div>;
 }

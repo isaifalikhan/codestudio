@@ -26,7 +26,7 @@ function simpleMarkdownToHtml(md: string): string {
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-[#997F6C] underline">$1</a>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-[#D98A2C] underline">$1</a>')
     .replace(/^- (.+)$/gm, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, (m) => '<ul>' + m + '</ul>')
     .replace(/\n\n/g, '</p><p>')
@@ -56,27 +56,27 @@ export default function MarkdownPreviewWidget() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       <div>
-        <label className="text-sm font-medium text-[#2F281D] block mb-2">Markdown</label>
+        <label className="text-sm font-medium text-[#14171F] block mb-2">Markdown</label>
         <textarea
           value={md}
           onChange={(e) => setMd(e.target.value)}
-          className="w-full min-h-[320px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] font-mono text-sm resize-y focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50"
+          className="w-full min-h-[320px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] font-mono text-sm resize-y focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50"
         />
       </div>
       <div>
         <div className="flex justify-between items-center mb-2">
-          <label className="text-sm font-medium text-[#2F281D]">Preview</label>
+          <label className="text-sm font-medium text-[#14171F]">Preview</label>
           <button
             type="button"
             onClick={downloadHtml}
-            className="text-sm px-3 py-1 rounded bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+            className="text-sm px-3 py-1 rounded bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
           >
             Download HTML
           </button>
         </div>
         <div
-          className="w-full min-h-[320px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] overflow-auto prose prose-[#2F281D] max-w-none"
-          dangerouslySetInnerHTML={{ __html: html || '<p class="text-[#2F281D]/50">Rendering...</p>' }}
+          className="w-full min-h-[320px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] overflow-auto prose prose-[#14171F] max-w-none"
+          dangerouslySetInnerHTML={{ __html: html || '<p class="text-[#14171F]/50">Rendering...</p>' }}
         />
       </div>
     </div>

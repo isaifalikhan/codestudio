@@ -25,7 +25,7 @@ export default function InvoiceGeneratorWidget() {
     if (!content) return;
     const win = window.open('', '_blank');
     if (!win) return;
-    win.document.write(`<!DOCTYPE html><html><head><title>Invoice ${invoiceNum}</title><style>body{font-family:system-ui;padding:2rem;color:#2F281D;} table{width:100%;border-collapse:collapse;margin-top:1rem;} th,td{border:1px solid #ddd;padding:8px;text-align:left;} th{background:#f5f5f5;} .text-right{text-align:right;}</style></head><body>${content.innerHTML}</body></html>`);
+    win.document.write(`<!DOCTYPE html><html><head><title>Invoice ${invoiceNum}</title><style>body{font-family:system-ui;padding:2rem;color:#14171F;} table{width:100%;border-collapse:collapse;margin-top:1rem;} th,td{border:1px solid #ddd;padding:8px;text-align:left;} th{background:#f5f5f5;} .text-right{text-align:right;}</style></head><body>${content.innerHTML}</body></html>`);
     win.document.close();
     win.print();
     win.close();
@@ -35,31 +35,31 @@ export default function InvoiceGeneratorWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <p className="text-sm font-bold text-[#2F281D] mb-2">From</p>
-          <input type="text" value={fromName} onChange={(e) => setFromName(e.target.value)} placeholder="Your name / company" className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] mb-2" />
-          <textarea value={fromAddress} onChange={(e) => setFromAddress(e.target.value)} placeholder="Address" className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] text-sm resize-y" rows={2} />
+          <p className="text-sm font-bold text-[#14171F] mb-2">From</p>
+          <input type="text" value={fromName} onChange={(e) => setFromName(e.target.value)} placeholder="Your name / company" className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] mb-2" />
+          <textarea value={fromAddress} onChange={(e) => setFromAddress(e.target.value)} placeholder="Address" className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] text-sm resize-y" rows={2} />
         </div>
         <div>
-          <p className="text-sm font-bold text-[#2F281D] mb-2">Bill to</p>
-          <input type="text" value={toName} onChange={(e) => setToName(e.target.value)} placeholder="Client name" className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] mb-2" />
-          <textarea value={toAddress} onChange={(e) => setToAddress(e.target.value)} placeholder="Address" className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] text-sm resize-y" rows={2} />
+          <p className="text-sm font-bold text-[#14171F] mb-2">Bill to</p>
+          <input type="text" value={toName} onChange={(e) => setToName(e.target.value)} placeholder="Client name" className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] mb-2" />
+          <textarea value={toAddress} onChange={(e) => setToAddress(e.target.value)} placeholder="Address" className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] text-sm resize-y" rows={2} />
         </div>
       </div>
       <div className="flex gap-4">
-        <label><span className="text-sm text-[#2F281D]/70 block mb-1">Invoice #</span><input type="text" value={invoiceNum} onChange={(e) => setInvoiceNum(e.target.value)} className="px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
-        <label><span className="text-sm text-[#2F281D]/70 block mb-1">Date</span><input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
+        <label><span className="text-sm text-[#14171F]/70 block mb-1">Invoice #</span><input type="text" value={invoiceNum} onChange={(e) => setInvoiceNum(e.target.value)} className="px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
+        <label><span className="text-sm text-[#14171F]/70 block mb-1">Date</span><input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
       </div>
       <div>
-        <p className="text-sm font-bold text-[#2F281D] mb-2">Items</p>
+        <p className="text-sm font-bold text-[#14171F] mb-2">Items</p>
         {items.map((item, i) => (
           <div key={i} className="flex gap-2 items-center mb-2">
-            <input type="text" value={item.desc} onChange={(e) => update(i, 'desc', e.target.value)} placeholder="Description" className="flex-1 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
-            <input type="number" min={0} value={item.qty} onChange={(e) => update(i, 'qty', e.target.value)} placeholder="Qty" className="w-20 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
-            <input type="number" min={0} step={0.01} value={item.rate} onChange={(e) => update(i, 'rate', e.target.value)} placeholder="Rate" className="w-24 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
+            <input type="text" value={item.desc} onChange={(e) => update(i, 'desc', e.target.value)} placeholder="Description" className="flex-1 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
+            <input type="number" min={0} value={item.qty} onChange={(e) => update(i, 'qty', e.target.value)} placeholder="Qty" className="w-20 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
+            <input type="number" min={0} step={0.01} value={item.rate} onChange={(e) => update(i, 'rate', e.target.value)} placeholder="Rate" className="w-24 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
             <button type="button" onClick={() => remove(i)} className="text-red-600 text-sm">Remove</button>
           </div>
         ))}
-        <button type="button" onClick={addLine} className="text-sm text-[#997F6C] font-medium">+ Add line</button>
+        <button type="button" onClick={addLine} className="text-sm text-[#D98A2C] font-medium">+ Add line</button>
       </div>
       <div id="invoice-print" className="hidden">
         <h1>Invoice {invoiceNum}</h1>
@@ -71,8 +71,8 @@ export default function InvoiceGeneratorWidget() {
         </tbody></table>
         <p><strong>Total: ${total.toFixed(2)}</strong></p>
       </div>
-      <p className="text-xl font-bold text-[#2F281D]">Total: ${total.toFixed(2)}</p>
-      <button type="button" onClick={print} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Print / Save as PDF</button>
+      <p className="text-xl font-bold text-[#14171F]">Total: ${total.toFixed(2)}</p>
+      <button type="button" onClick={print} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Print / Save as PDF</button>
     </div>
   );
 }

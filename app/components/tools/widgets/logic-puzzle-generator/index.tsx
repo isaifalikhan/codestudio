@@ -55,22 +55,22 @@ export default function LogicPuzzleGeneratorWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Difficulty</span>
-        <select value={level} onChange={(e) => setLevel(e.target.value as 'easy' | 'medium' | 'hard')} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Difficulty</span>
+        <select value={level} onChange={(e) => setLevel(e.target.value as 'easy' | 'medium' | 'hard')} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
         </select>
       </label>
-      <button type="button" onClick={generate} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Generate Sudoku</button>
+      <button type="button" onClick={generate} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Generate Sudoku</button>
       {puzzle && (
-        <div className="inline-block border-2 border-[#2F281D]">
+        <div className="inline-block border-2 border-[#14171F]">
           {puzzle.map((row, r) => (
             <div key={r} className="flex">
               {row.map((cell, c) => (
                 <div
                   key={c}
-                  className={`w-10 h-10 flex items-center justify-center text-[#2F281D] font-bold border border-[#2F281D]/30 ${(r + 1) % 3 === 0 && r < 8 ? 'border-b-2' : ''} ${(c + 1) % 3 === 0 && c < 8 ? 'border-r-2' : ''}`}
+                  className={`w-10 h-10 flex items-center justify-center text-[#14171F] font-bold border border-[#14171F]/30 ${(r + 1) % 3 === 0 && r < 8 ? 'border-b-2' : ''} ${(c + 1) % 3 === 0 && c < 8 ? 'border-r-2' : ''}`}
                 >
                   {cell || ''}
                 </div>

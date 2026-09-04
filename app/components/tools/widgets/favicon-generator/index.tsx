@@ -54,31 +54,31 @@ export default function FaviconGeneratorWidget() {
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="w-full py-8 rounded-xl border-2 border-dashed border-[#2F281D]/30 bg-[#FDF8EC] text-[#2F281D]/70 hover:border-[#997F6C]"
+        className="w-full py-8 rounded-xl border-2 border-dashed border-[#14171F]/30 bg-[#F6F4EC] text-[#14171F]/70 hover:border-[#D98A2C]"
       >
         {file ? file.name : 'Upload image'}
       </button>
       {Object.keys(previews).length > 0 && (
         <>
-          <p className="text-sm font-medium text-[#2F281D]">Preview</p>
+          <p className="text-sm font-medium text-[#14171F]">Preview</p>
           <div className="flex flex-wrap gap-4">
             {SIZES.map((s) => (
               <div key={s} className="text-center">
-                <img src={previews[s]} alt={`${s}x${s}`} className="rounded border border-[#2F281D]/10" width={s} height={s} />
-                <p className="text-xs text-[#2F281D]/60 mt-1">{s}×{s}</p>
-                <button type="button" onClick={() => downloadOne(s)} className="mt-1 text-xs text-[#997F6C] font-medium hover:underline">Download</button>
+                <img src={previews[s]} alt={`${s}x${s}`} className="rounded border border-[#14171F]/10" width={s} height={s} />
+                <p className="text-xs text-[#14171F]/60 mt-1">{s}×{s}</p>
+                <button type="button" onClick={() => downloadOne(s)} className="mt-1 text-xs text-[#D98A2C] font-medium hover:underline">Download</button>
               </div>
             ))}
           </div>
           <div>
-            <p className="text-sm font-medium text-[#2F281D] mb-2">HTML for &lt;head&gt;</p>
-            <pre className="p-4 rounded-xl bg-[#2F281D]/5 border border-[#2F281D]/10 text-[#2F281D] text-xs overflow-auto">
+            <p className="text-sm font-medium text-[#14171F] mb-2">HTML for &lt;head&gt;</p>
+            <pre className="p-4 rounded-xl bg-[#14171F]/5 border border-[#14171F]/10 text-[#14171F] text-xs overflow-auto">
               {htmlSnippet}
             </pre>
             <button
               type="button"
               onClick={() => navigator.clipboard.writeText(htmlSnippet)}
-              className="mt-2 px-4 py-2 rounded-lg bg-[#2F281D] text-[#FDF8EC] text-sm font-bold"
+              className="mt-2 px-4 py-2 rounded-lg bg-[#14171F] text-[#F6F4EC] text-sm font-bold"
             >
               Copy HTML
             </button>

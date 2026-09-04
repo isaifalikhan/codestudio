@@ -43,22 +43,22 @@ export default function CurrencyConverterWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Amount</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Amount</span>
           <input
             type="number"
             min={0}
             step={0.01}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">From</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">From</span>
           <select
             value={from}
             onChange={(e) => setFrom(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           >
             {CURRENCIES.map((c) => (
               <option key={c} value={c}>{c}</option>
@@ -66,11 +66,11 @@ export default function CurrencyConverterWidget() {
           </select>
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">To</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">To</span>
           <select
             value={to}
             onChange={(e) => setTo(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           >
             {CURRENCIES.map((c) => (
               <option key={c} value={c}>{c}</option>
@@ -78,18 +78,18 @@ export default function CurrencyConverterWidget() {
           </select>
         </label>
       </div>
-      {loading && <p className="text-[#2F281D]/70">Loading rates…</p>}
+      {loading && <p className="text-[#14171F]/70">Loading rates…</p>}
       {usingEstimates && !loading && (
         <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950">
           Live exchange rates could not be loaded. Showing rough fallback figures only — do not use for trades or accounting without verifying elsewhere.
         </p>
       )}
       {converted !== null && !loading && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-2xl font-bold text-[#2F281D]">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-2xl font-bold text-[#14171F]">
             {amount} {from} = {converted.toFixed(2)} {to}
           </p>
-          {updated && <p className="text-sm text-[#2F281D]/60 mt-2">Rates updated: {updated}</p>}
+          {updated && <p className="text-sm text-[#14171F]/60 mt-2">Rates updated: {updated}</p>}
         </div>
       )}
     </div>

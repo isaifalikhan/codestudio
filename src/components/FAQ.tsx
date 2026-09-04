@@ -30,22 +30,22 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 px-6 bg-[#FDF8EC]">
+    <section className="py-24 px-6 bg-[#F6F4EC]">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
           >
             Questions
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-bold text-[#2F281D]"
+            className="text-4xl md:text-5xl font-display font-bold text-[#14171F]"
           >
-            Frequently Asked <span className="text-[#2F281D]/40">Questions</span>
+            Frequently Asked <span className="text-[#14171F]/40">Questions</span>
           </motion.h2>
         </div>
 
@@ -56,16 +56,16 @@ export const FAQ = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="border-b border-[#2F281D]/10"
+              className="border-b border-[#14171F]/10"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full py-6 flex items-center justify-between text-left group"
               >
-                <span className="text-xl font-bold text-[#2F281D] group-hover:text-[#997F6C] transition-colors">
+                <span className="text-xl font-bold text-[#14171F] group-hover:text-[#D98A2C] transition-colors">
                   {faq.question}
                 </span>
-                <div className="w-8 h-8 rounded-full bg-[#2F281D]/5 flex items-center justify-center group-hover:bg-[#2F281D] group-hover:text-[#FDF8EC] transition-all">
+                <div className="w-8 h-8 rounded-full bg-[#14171F]/5 flex items-center justify-center group-hover:bg-[#14171F] group-hover:text-[#F6F4EC] transition-all">
                   {openIndex === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </div>
               </button>
@@ -78,12 +78,12 @@ export const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className={`text-[#2F281D]/60 leading-relaxed ${faq.link ? 'pb-2' : 'pb-6'}`}>
+                    <p className={`text-[#14171F]/60 leading-relaxed ${faq.link ? 'pb-2' : 'pb-6'}`}>
                       {faq.answer}
                     </p>
                     {faq.link && (
                       <p className="pb-6">
-                        <Link href={faq.link.href} className="text-[#997F6C] font-semibold hover:underline">
+                        <Link href={faq.link.href} className="text-[#D98A2C] font-semibold hover:underline">
                           {faq.link.text}
                         </Link>
                       </p>

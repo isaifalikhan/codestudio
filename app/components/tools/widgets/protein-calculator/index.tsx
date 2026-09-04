@@ -17,20 +17,20 @@ export default function ProteinCalculatorWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Body weight (kg)</span>
-        <input type="number" min={1} value={weight} onChange={(e) => setWeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Body weight (kg)</span>
+        <input type="number" min={1} value={weight} onChange={(e) => setWeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Goal</span>
-        <select value={goal} onChange={(e) => setGoal(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Goal</span>
+        <select value={goal} onChange={(e) => setGoal(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
           <option value="maintain">Maintain</option>
           <option value="loss">Lose fat</option>
           <option value="gain">Build muscle</option>
         </select>
       </label>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-xl font-bold text-[#2F281D]">~{result.grams} g protein per day</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-xl font-bold text-[#14171F]">~{result.grams} g protein per day</p>
         </div>
       )}
     </div>

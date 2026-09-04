@@ -55,21 +55,21 @@ export default function WatermarkAdderWidget() {
 
   return (
     <div className="space-y-6">
-      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#2F281D]/70" />
+      <input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} className="block w-full text-sm text-[#14171F]/70" />
       {img && (
         <>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Watermark text</span><input type="text" value={text} onChange={(e) => setText(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Position</span>
-            <select value={position} onChange={(e) => setPosition(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Watermark text</span><input type="text" value={text} onChange={(e) => setText(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Position</span>
+            <select value={position} onChange={(e) => setPosition(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
               <option value="top-left">Top left</option>
               <option value="top-right">Top right</option>
               <option value="bottom-left">Bottom left</option>
               <option value="bottom-right">Bottom right</option>
             </select>
           </label>
-          <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Opacity: {(opacity * 100).toFixed(0)}%</span><input type="range" min={0.2} max={1} step={0.1} value={opacity} onChange={(e) => setOpacity(Number(e.target.value))} className="w-full" /></label>
-          <div className="rounded-xl border border-[#2F281D]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
-          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Download</button>
+          <label><span className="text-sm font-medium text-[#14171F] block mb-2">Opacity: {(opacity * 100).toFixed(0)}%</span><input type="range" min={0.2} max={1} step={0.1} value={opacity} onChange={(e) => setOpacity(Number(e.target.value))} className="w-full" /></label>
+          <div className="rounded-xl border border-[#14171F]/20 overflow-hidden max-w-full"><canvas ref={canvasRef} className="max-w-full h-auto" /></div>
+          <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Download</button>
         </>
       )}
     </div>

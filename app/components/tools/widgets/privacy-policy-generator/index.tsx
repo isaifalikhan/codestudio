@@ -77,69 +77,69 @@ export default function PrivacyPolicyGeneratorWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Website name</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Website name</span>
           <input
             type="text"
             value={siteName}
             onChange={(e) => setSiteName(e.target.value)}
             placeholder="My Site"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Website URL</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Website URL</span>
           <input
             type="url"
             value={siteUrl}
             onChange={(e) => setSiteUrl(e.target.value)}
             placeholder="https://example.com"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Contact email</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Contact email</span>
           <input
             type="email"
             value={contactEmail}
             onChange={(e) => setContactEmail(e.target.value)}
             placeholder="privacy@example.com"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Country / region</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Country / region</span>
           <input
             type="text"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             placeholder="e.g. United Kingdom"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       </div>
       <div className="flex flex-col gap-2">
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={collectsPersonal} onChange={(e) => setCollectsPersonal(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Collects personal data</span>
+          <span className="text-sm text-[#14171F]">Collects personal data</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={usesCookies} onChange={(e) => setUsesCookies(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Uses cookies</span>
+          <span className="text-sm text-[#14171F]">Uses cookies</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={usesAnalytics} onChange={(e) => setUsesAnalytics(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Uses analytics</span>
+          <span className="text-sm text-[#14171F]">Uses analytics</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={thirdParty} onChange={(e) => setThirdParty(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Uses third-party services</span>
+          <span className="text-sm text-[#14171F]">Uses third-party services</span>
         </label>
       </div>
       <div className="flex gap-2">
         <button
           type="button"
           onClick={generate}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
         >
           Generate privacy policy
         </button>
@@ -147,7 +147,7 @@ export default function PrivacyPolicyGeneratorWidget() {
           <button
             type="button"
             onClick={download}
-            className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5"
+            className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5"
           >
             Download .txt
           </button>
@@ -157,7 +157,7 @@ export default function PrivacyPolicyGeneratorWidget() {
         <textarea
           readOnly
           value={output}
-          className="w-full min-h-[300px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 text-[#2F281D] text-sm resize-y"
+          className="w-full min-h-[300px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 text-[#14171F] text-sm resize-y"
         />
       )}
     </div>

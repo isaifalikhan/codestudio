@@ -71,7 +71,7 @@ export default function BackgroundRemoverWidget() {
         </p>
       )}
       {loading && isFirstModelLoad && (
-        <p className="text-sm text-[#2F281D] bg-[#FDF8EC] border border-[#2F281D]/15 rounded-xl px-4 py-3" role="status">
+        <p className="text-sm text-[#14171F] bg-[#F6F4EC] border border-[#14171F]/15 rounded-xl px-4 py-3" role="status">
           Loading AI model for the first time...
           <br />
           This takes 20-30 seconds. Future uses will be instant.
@@ -91,7 +91,7 @@ export default function BackgroundRemoverWidget() {
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="w-full py-8 rounded-xl border-2 border-dashed border-[#2F281D]/30 bg-[#FDF8EC] text-[#2F281D]/70 hover:border-[#997F6C]"
+        className="w-full py-8 rounded-xl border-2 border-dashed border-[#14171F]/30 bg-[#F6F4EC] text-[#14171F]/70 hover:border-[#D98A2C]"
       >
         {file ? file.name : 'Choose image'}
       </button>
@@ -102,20 +102,20 @@ export default function BackgroundRemoverWidget() {
               type="button"
               onClick={onRemoveClick}
               disabled={loading}
-              className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] disabled:opacity-50"
+              className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C] disabled:opacity-50"
             >
               {loading ? 'Processing…' : 'Remove background'}
             </button>
             {result && (
-              <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">
+              <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">
                 Download PNG
               </button>
             )}
           </div>
-          <p className="text-xs text-[#2F281D]/50">Runs AI entirely in your browser. First use may take ~20–30s.</p>
+          <p className="text-xs text-[#14171F]/50">Runs AI entirely in your browser. First use may take ~20–30s.</p>
           {result && (
             <div className="flex gap-4 flex-wrap">
-              <img src={result} alt="No background" className="max-h-48 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]" />
+              <img src={result} alt="No background" className="max-h-48 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]" />
             </div>
           )}
         </>

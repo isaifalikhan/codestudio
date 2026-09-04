@@ -62,7 +62,7 @@ export default function PasswordGeneratorWidget() {
     <div className="space-y-6">
       <div className="flex flex-wrap gap-4 items-center">
         <label className="flex items-center gap-2">
-          <span className="text-sm text-[#2F281D]">Length: {length}</span>
+          <span className="text-sm text-[#14171F]">Length: {length}</span>
           <input
             type="range"
             min={8}
@@ -74,26 +74,26 @@ export default function PasswordGeneratorWidget() {
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={useUpper} onChange={(e) => setUseUpper(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Uppercase</span>
+          <span className="text-sm text-[#14171F]">Uppercase</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={useLower} onChange={(e) => setUseLower(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Lowercase</span>
+          <span className="text-sm text-[#14171F]">Lowercase</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={useNum} onChange={(e) => setUseNum(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Numbers</span>
+          <span className="text-sm text-[#14171F]">Numbers</span>
         </label>
         <label className="flex items-center gap-2 cursor-pointer">
           <input type="checkbox" checked={useSym} onChange={(e) => setUseSym(e.target.checked)} className="rounded" />
-          <span className="text-sm text-[#2F281D]">Symbols</span>
+          <span className="text-sm text-[#14171F]">Symbols</span>
         </label>
       </div>
       <div className="flex gap-2">
         <button
           type="button"
           onClick={generate}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] transition-colors"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C] transition-colors"
         >
           Generate New
         </button>
@@ -101,7 +101,7 @@ export default function PasswordGeneratorWidget() {
           <button
             type="button"
             onClick={() => navigator.clipboard.writeText(password)}
-            className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5"
+            className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5"
           >
             Copy
           </button>
@@ -110,14 +110,14 @@ export default function PasswordGeneratorWidget() {
       {password && (
         <>
           <div className="flex items-center gap-2">
-            <code className="flex-1 px-4 py-3 rounded-xl bg-[#2F281D]/10 text-[#2F281D] font-mono break-all">
+            <code className="flex-1 px-4 py-3 rounded-xl bg-[#14171F]/10 text-[#14171F] font-mono break-all">
               {password}
             </code>
           </div>
           <div className="flex flex-wrap gap-4 items-center">
             <div className="flex-1 min-w-[120px]">
-              <p className="text-xs text-[#2F281D]/60 mb-1">Strength</p>
-              <div className="h-2 rounded-full bg-[#2F281D]/10 overflow-hidden">
+              <p className="text-xs text-[#14171F]/60 mb-1">Strength</p>
+              <div className="h-2 rounded-full bg-[#14171F]/10 overflow-hidden">
                 <div
                   className={`h-full rounded-full ${
                     (strength?.score ?? 0) >= 75 ? 'bg-green-600' : (strength?.score ?? 0) >= 50 ? 'bg-amber-500' : 'bg-red-500'
@@ -125,9 +125,9 @@ export default function PasswordGeneratorWidget() {
                   style={{ width: `${strength?.score ?? 0}%` }}
                 />
               </div>
-              <p className="text-sm font-medium text-[#2F281D] mt-1">{strength?.label}</p>
+              <p className="text-sm font-medium text-[#14171F] mt-1">{strength?.label}</p>
             </div>
-            <p className="text-sm text-[#2F281D]/70">Est. crack time: {crackTime}</p>
+            <p className="text-sm text-[#14171F]/70">Est. crack time: {crackTime}</p>
           </div>
         </>
       )}

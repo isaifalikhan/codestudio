@@ -8,7 +8,7 @@ export function AffiliateDisclosure() {
         color: 'var(--color-text-tertiary, #6b7280)',
         padding: '8px',
         borderRadius: '6px',
-        background: 'var(--color-background-secondary, #E8E2D2)',
+        background: 'var(--color-background-secondary, #ECE7D9)',
         margin: '12px 0',
       }}
     >

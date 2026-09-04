@@ -35,14 +35,21 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', images: ['/og-image.jpg'] },
 };
 
-export default function BlogRoute() {
+export default async function BlogRoute({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string; category?: string }>;
+}) {
+  const { page = '1', category = 'all' } = await searchParams;
+  const pageNum = Math.max(1, parseInt(page, 10) || 1);
+
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
       <div className="max-w-7xl mx-auto px-6">
         <AdPlacement slot="top" />
       </div>
-      <BlogPage />
+      <BlogPage page={pageNum} category={category} />
       <div className="max-w-7xl mx-auto px-6">
         <AdPlacement slot="bottom" />
       </div>

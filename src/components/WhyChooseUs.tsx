@@ -38,14 +38,14 @@ const reasons = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="py-24 px-6 bg-[#E8E2D2]/50" aria-labelledby="why-choose-heading">
+    <section className="py-24 px-6 bg-[#ECE7D9]/50" aria-labelledby="why-choose-heading">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#997F6C] font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
           >
             Why CodexStudio
           </motion.span>
@@ -54,15 +54,15 @@ export const WhyChooseUs = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]"
+            className="text-4xl md:text-6xl font-display font-bold text-[#14171F]"
           >
-            Why Choose <span className="text-[#2F281D]/40">Us</span>
+            Why Choose <span className="text-[#14171F]/40">Us</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-[#2F281D]/60 text-lg mt-4"
+            className="max-w-2xl mx-auto text-[#14171F]/60 text-lg mt-4"
           >
             We combine technical excellence with clear communication so your project delivers results.
           </motion.p>
@@ -78,20 +78,20 @@ export const WhyChooseUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex gap-6 p-8 rounded-3xl bg-[#FDF8EC] border border-[#2F281D]/5 hover:border-[#997F6C]/30 transition-colors"
+                className="flex gap-6 p-8 rounded-3xl bg-[#F6F4EC] border border-[#14171F]/5 hover:border-[#D98A2C]/30 transition-colors"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#2F281D]/5 flex items-center justify-center">
-                  <Icon className="w-7 h-7 text-[#997F6C]" />
+                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#14171F]/5 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-[#D98A2C]" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#2F281D] mb-2 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-[#5F634D]" aria-hidden />
+                  <h3 className="text-xl font-bold text-[#14171F] mb-2 flex items-center gap-2">
+                    <Check className="w-5 h-5 text-[#2F7A6D]" aria-hidden />
                     {item.title}
                   </h3>
-                  <p className="text-[#2F281D]/60 leading-relaxed">{item.description}</p>
+                  <p className="text-[#14171F]/60 leading-relaxed">{item.description}</p>
                   {item.link && (
                     <p className="mt-3">
-                      <Link href={item.link.href} className="text-[#997F6C] font-semibold hover:underline">
+                      <Link href={item.link.href} className="text-[#D98A2C] font-semibold hover:underline">
                         {item.link.text}
                       </Link>
                     </p>

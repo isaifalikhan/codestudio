@@ -28,47 +28,47 @@ export default function UnixTimestampWidget() {
         <button
           type="button"
           onClick={() => setMode('to-date')}
-          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-date' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-date' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           Timestamp → Date
         </button>
         <button
           type="button"
           onClick={() => setMode('to-timestamp')}
-          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-timestamp' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'to-timestamp' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           Date → Timestamp
         </button>
       </div>
       {mode === 'to-date' ? (
         <label className="block">
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Unix timestamp (seconds or ms)</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Unix timestamp (seconds or ms)</span>
           <input
             type="text"
             value={timestamp}
             onChange={(e) => setTimestamp(e.target.value)}
             placeholder="1699900000 or 1699900000000"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       ) : (
         <label className="block">
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Date / time</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Date / time</span>
           <input
             type="text"
             value={dateStr}
             onChange={(e) => setDateStr(e.target.value)}
             placeholder="2024-01-15 or 2024-01-15T12:00:00Z"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       )}
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
           {mode === 'to-date' ? (
-            <p className="text-[#2F281D] font-mono">{typeof result === 'string' ? result : ''}</p>
+            <p className="text-[#14171F] font-mono">{typeof result === 'string' ? result : ''}</p>
           ) : (
-            <p className="text-[#2F281D]">Seconds: {(result as { sec: number; ms: number }).sec} · Milliseconds: {(result as { sec: number; ms: number }).ms}</p>
+            <p className="text-[#14171F]">Seconds: {(result as { sec: number; ms: number }).sec} · Milliseconds: {(result as { sec: number; ms: number }).ms}</p>
           )}
         </div>
       )}

@@ -43,7 +43,7 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
           opacity: springOpacity,
           transformStyle: 'preserve-3d',
         }}
-        className="group relative aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#2F281D]/5"
+        className="group relative aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#14171F]/5"
       >
         <motion.div style={{ scale: springImageScale }} className="absolute inset-0">
           <Image
@@ -63,32 +63,32 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2 rounded-lg"
+              className="text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D98A2C] focus-visible:ring-offset-2 rounded-lg"
             >
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="text-[#FDF8EC] font-bold uppercase tracking-[0.2em] text-sm mb-2 block"
+                className="text-[#F6F4EC] font-bold uppercase tracking-[0.2em] text-sm mb-2 block"
               >
                 View Project
               </motion.span>
-              <div className="w-12 h-0.5 bg-[#997F6C] mx-auto" />
+              <div className="w-12 h-0.5 bg-[#D98A2C] mx-auto" />
             </a>
           ) : (
-            <Link href="/portfolio" className="text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2 rounded-lg">
+            <Link href="/portfolio" className="text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D98A2C] focus-visible:ring-offset-2 rounded-lg">
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileHover={{ opacity: 1, scale: 1 }}
-                className="text-[#FDF8EC] font-bold uppercase tracking-[0.2em] text-sm mb-2 block"
+                className="text-[#F6F4EC] font-bold uppercase tracking-[0.2em] text-sm mb-2 block"
               >
                 View Project
               </motion.span>
-              <div className="w-12 h-0.5 bg-[#997F6C] mx-auto" />
+              <div className="w-12 h-0.5 bg-[#D98A2C] mx-auto" />
             </Link>
           )}
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#2F281D]/80 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#14171F]/80 via-transparent to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none" />
         
         <div 
           style={{ transform: 'translateZ(30px)' }}
@@ -101,10 +101,10 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <span className="text-[#997F6C] font-bold text-xs uppercase tracking-[0.3em] mb-4 block">
+                <span className="text-[#D98A2C] font-bold text-xs uppercase tracking-[0.3em] mb-4 block">
                   {project.category}
                 </span>
-                <h3 className="text-4xl md:text-7xl font-display font-bold text-[#FDF8EC] leading-[0.9] tracking-tighter">
+                <h3 className="text-4xl md:text-7xl font-display font-bold text-[#F6F4EC] leading-[0.9] tracking-tighter">
                   {project.title}
                 </h3>
               </motion.div>
@@ -114,22 +114,22 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
                 href={project.projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#FDF8EC] text-[#2F281D] flex items-center justify-center cursor-pointer self-start md:self-end group/btn overflow-hidden relative pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2"
+                className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#F6F4EC] text-[#14171F] flex items-center justify-center cursor-pointer self-start md:self-end group/btn overflow-hidden relative pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D98A2C] focus-visible:ring-offset-2"
                 aria-label={`Open ${project.title} (opens in new tab)`}
               >
                 <motion.div
-                  className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"
+                  className="absolute inset-0 bg-[#D98A2C] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"
                 />
                 <ExternalLink className="w-6 h-6 md:w-8 md:h-8 relative z-10 group-hover/btn:text-white transition-colors" />
               </a>
             ) : (
               <Link
                 href="/portfolio"
-                className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#FDF8EC] text-[#2F281D] flex items-center justify-center cursor-pointer self-start md:self-end group/btn overflow-hidden relative pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2"
+                className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#F6F4EC] text-[#14171F] flex items-center justify-center cursor-pointer self-start md:self-end group/btn overflow-hidden relative pointer-events-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D98A2C] focus-visible:ring-offset-2"
                 aria-label={`View ${project.title} in portfolio`}
               >
                 <motion.div
-                  className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"
+                  className="absolute inset-0 bg-[#D98A2C] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"
                 />
                 <ExternalLink className="w-6 h-6 md:w-8 md:h-8 relative z-10 group-hover/btn:text-white transition-colors" />
               </Link>

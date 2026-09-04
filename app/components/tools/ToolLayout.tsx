@@ -10,10 +10,10 @@ import { getReviewsForPage } from '@/lib/reviews';
 import { isServerBackedTool, isIncompleteTool } from '@/lib/tool-server-behavior';
 import { getToolFaqItems } from '@/lib/tool-faqs';
 
-const textSecondary = 'var(--color-text-secondary, rgba(47, 40, 29, 0.78))';
-const borderTertiary = 'var(--color-border-tertiary, rgba(47, 40, 29, 0.12))';
-const borderSecondary = 'var(--color-border-secondary, rgba(47, 40, 29, 0.2))';
-const bgSecondary = 'var(--color-background-secondary, #E8E2D2)';
+const textSecondary = 'var(--color-text-secondary, rgba(20, 23, 31, 0.78))';
+const borderTertiary = 'var(--color-border-tertiary, rgba(20, 23, 31, 0.12))';
+const borderSecondary = 'var(--color-border-secondary, rgba(20, 23, 31, 0.2))';
+const bgSecondary = 'var(--color-background-secondary, #ECE7D9)';
 
 function resolveRelatedTools(tool: Tool, fromProps: Tool[]): Tool[] {
   if (fromProps.length >= 4) return fromProps.slice(0, 4);
@@ -47,30 +47,30 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
   return (
     <article className="max-w-6xl mx-auto px-6 py-20 mt-[100px] pt-12 pb-24">
       <nav aria-label="Breadcrumb" className="pb-4">
-        <ol className="flex flex-wrap items-center gap-2 text-sm text-[#2F281D]/70">
+        <ol className="flex flex-wrap items-center gap-2 text-sm text-[#14171F]/70">
           <li>
-            <Link href="/" className="hover:text-[#997F6C] transition-colors">
+            <Link href="/" className="hover:text-[#D98A2C] transition-colors">
               Home
             </Link>
           </li>
           <li className="flex items-center gap-1">
-            <ChevronRight className="w-4 h-4 text-[#2F281D]/40" aria-hidden />
-            <Link href="/tools" className="hover:text-[#997F6C] transition-colors">
+            <ChevronRight className="w-4 h-4 text-[#14171F]/40" aria-hidden />
+            <Link href="/tools" className="hover:text-[#D98A2C] transition-colors">
               Tools
             </Link>
           </li>
           <li className="flex items-center gap-1">
-            <ChevronRight className="w-4 h-4 text-[#2F281D]/40" aria-hidden />
-            <span className="text-[#2F281D] font-medium">{tool.name}</span>
+            <ChevronRight className="w-4 h-4 text-[#14171F]/40" aria-hidden />
+            <span className="text-[#14171F] font-medium">{tool.name}</span>
           </li>
         </ol>
       </nav>
 
       <header className="mb-10">
-        <h1 className="text-3xl md:text-4xl font-display font-bold text-[#2F281D]">
+        <h1 className="text-3xl md:text-4xl font-display font-bold text-[#14171F]">
           {tool.name} — Free Online Tool
         </h1>
-        <p className="text-[#2F281D]/70 mt-2 text-lg">{tool.tagline}</p>
+        <p className="text-[#14171F]/70 mt-2 text-lg">{tool.tagline}</p>
         {isIncompleteTool(tool.slug) && (
           <p
             className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950"
@@ -84,10 +84,10 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
 
       {tool.category === 'Video Tools' && (
         <aside
-          className="mb-8 rounded-xl border border-[#2F281D]/15 bg-[#E8E2D2]/40 px-4 py-3 text-sm text-[#2F281D]/85"
+          className="mb-8 rounded-xl border border-[#14171F]/15 bg-[#ECE7D9]/40 px-4 py-3 text-sm text-[#14171F]/85"
           role="note"
         >
-          <strong className="text-[#2F281D]">Legal use only:</strong> Download or reuse content only when you have the right to do so. Respect copyright and each
+          <strong className="text-[#14171F]">Legal use only:</strong> Download or reuse content only when you have the right to do so. Respect copyright and each
           platform&apos;s terms of service.
         </aside>
       )}
@@ -97,7 +97,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       <div className="flex flex-col xl:flex-row gap-8 xl:items-start xl:gap-10">
         <div className="min-w-0 flex-1">
           <section
-            className="rounded-2xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 md:p-8 mb-12"
+            className="rounded-2xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 md:p-8 mb-12"
             aria-label={`${tool.name} tool`}
           >
             {children}
@@ -106,8 +106,8 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
           <AdPlacement slot="bottom" />
 
       <section style={{ marginTop: '48px', marginBottom: '32px' }}>
-        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>How to use this tool</h2>
-        <ol style={{ paddingLeft: '20px', lineHeight: '1.8', fontSize: '15px', color: '#2F281D' }}>
+        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#14171F' }}>How to use this tool</h2>
+        <ol style={{ paddingLeft: '20px', lineHeight: '1.8', fontSize: '15px', color: '#14171F' }}>
           <li style={{ marginBottom: '8px' }}>{s1}</li>
           <li style={{ marginBottom: '8px' }}>{s2}</li>
           <li style={{ marginBottom: '8px' }}>{s3}</li>
@@ -115,7 +115,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       </section>
 
       <section style={{ marginTop: '32px', marginBottom: '32px' }}>
-        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>About this {tool.name}</h2>
+        <h2 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#14171F' }}>About this {tool.name}</h2>
         <div style={{ fontSize: '15px', lineHeight: '1.8', color: textSecondary }}>
           {tool.longDescription.split(/\n\n+/).map((para, i) => (
             <p key={i} style={{ marginTop: i === 0 ? 0 : '16px' }}>
@@ -141,7 +141,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       </section>
 
       <section style={{ marginTop: '32px', marginBottom: '32px' }}>
-        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '24px', color: '#2F281D' }}>Frequently Asked Questions</h3>
+        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '24px', color: '#14171F' }}>Frequently Asked Questions</h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {getToolFaqItems(tool.slug, tool.name).map((faq, idx, arr) => (
@@ -152,7 +152,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
                 paddingBottom: '16px',
               }}
             >
-              <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#2F281D' }}>{faq.q}</h3>
+              <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', color: '#14171F' }}>{faq.q}</h3>
               <p style={{ fontSize: '14px', lineHeight: '1.7', color: textSecondary }}>{faq.a}</p>
             </div>
           ))}
@@ -166,7 +166,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
       </div>
 
       <section style={{ marginTop: '32px', marginBottom: '48px' }}>
-        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>Related Tools</h3>
+        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#14171F' }}>Related Tools</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '12px' }}>
           {displayRelated.map((t) => (
             <Link
@@ -177,9 +177,9 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
                 padding: '16px',
                 borderRadius: '12px',
                 border: `1px solid ${borderTertiary}`,
-                background: '#FDF8EC',
+                background: '#F6F4EC',
                 textDecoration: 'none',
-                color: '#2F281D',
+                color: '#14171F',
               }}
             >
               <span style={{ fontSize: '24px', display: 'block', marginBottom: '8px' }}>{t.emoji}</span>
@@ -189,14 +189,14 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
           ))}
         </div>
         <div style={{ marginTop: '16px' }}>
-          <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">
+          <Link href="/tools" className="text-[#D98A2C] font-semibold hover:underline">
             ← Back to all 100+ free tools
           </Link>
         </div>
       </section>
 
       <section style={{ marginTop: '32px', marginBottom: '32px' }}>
-        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#2F281D' }}>
+        <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '16px', color: '#14171F' }}>
           User Reviews
         </h3>
         <p style={{ color: textSecondary, marginBottom: '14px' }}>
@@ -210,13 +210,13 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
                 padding: '14px',
                 borderRadius: '12px',
                 border: `1px solid ${borderTertiary}`,
-                background: '#FDF8EC',
+                background: '#F6F4EC',
               }}
             >
-              <p style={{ fontSize: '14px', color: '#2F281D', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '14px', color: '#14171F', lineHeight: 1.6 }}>
                 "{review.quote}"
               </p>
-              <p style={{ marginTop: '10px', fontWeight: 600, color: '#2F281D', fontSize: '14px' }}>
+              <p style={{ marginTop: '10px', fontWeight: 600, color: '#14171F', fontSize: '14px' }}>
                 {review.name}
               </p>
               <p style={{ marginTop: '4px', color: textSecondary, fontSize: '12px' }}>
@@ -236,7 +236,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
           textAlign: 'center',
         }}
       >
-        <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px', color: '#2F281D' }}>Need a Custom Tool Built for Your Business?</h3>
+        <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '12px', color: '#14171F' }}>Need a Custom Tool Built for Your Business?</h3>
         <p style={{ fontSize: '14px', color: textSecondary, marginBottom: '20px', maxWidth: '500px', margin: '0 auto 20px' }}>
           CodexStudio builds custom web applications, dashboards, and tools for businesses in Islamabad and worldwide. Get a free consultation today.
         </p>
@@ -261,7 +261,7 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
               padding: '10px 24px',
               borderRadius: '6px',
               textDecoration: 'none',
-              color: '#2F281D',
+              color: '#14171F',
             }}
           >
             View Our Services

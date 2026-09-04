@@ -41,29 +41,29 @@ export default function SitemapGeneratorWidget() {
   return (
     <div className="space-y-6">
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Website base URL</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Website base URL</span>
         <input
           type="url"
           value={baseUrl}
           onChange={(e) => setBaseUrl(e.target.value)}
           placeholder="https://example.com"
-          className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+          className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
         />
       </label>
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">URLs (one per line)</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">URLs (one per line)</span>
         <textarea
           value={urlList}
           onChange={(e) => setUrlList(e.target.value)}
           placeholder="/&#10;/about&#10;/contact&#10;/blog"
-          className="w-full min-h-[180px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] font-mono text-sm resize-y"
+          className="w-full min-h-[180px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] font-mono text-sm resize-y"
         />
       </label>
       <div className="flex gap-2">
         <button
           type="button"
           onClick={generate}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
         >
           Generate sitemap
         </button>
@@ -71,14 +71,14 @@ export default function SitemapGeneratorWidget() {
           <button
             type="button"
             onClick={download}
-            className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5"
+            className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5"
           >
             Download sitemap.xml
           </button>
         )}
       </div>
       {output && (
-        <pre className="w-full p-4 rounded-xl bg-[#2F281D]/5 border border-[#2F281D]/10 text-[#2F281D] font-mono text-xs overflow-auto max-h-[300px] whitespace-pre-wrap">
+        <pre className="w-full p-4 rounded-xl bg-[#14171F]/5 border border-[#14171F]/10 text-[#14171F] font-mono text-xs overflow-auto max-h-[300px] whitespace-pre-wrap">
           {output}
         </pre>
       )}

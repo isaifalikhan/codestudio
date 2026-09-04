@@ -25,20 +25,20 @@ export default function SleepCalculatorWidget() {
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-[#2F281D]/70">Wake-up time (90-min sleep cycles; 15 min to fall asleep)</p>
+      <p className="text-sm text-[#14171F]/70">Wake-up time (90-min sleep cycles; 15 min to fall asleep)</p>
       <div className="flex gap-4 items-center">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Hour</span>
-          <input type="number" min={0} max={23} value={wakeHour} onChange={(e) => setWakeHour(e.target.value)} className="w-20 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Hour</span>
+          <input type="number" min={0} max={23} value={wakeHour} onChange={(e) => setWakeHour(e.target.value)} className="w-20 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Minute</span>
-          <input type="number" min={0} max={59} value={wakeMin} onChange={(e) => setWakeMin(e.target.value)} className="w-20 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Minute</span>
+          <input type="number" min={0} max={59} value={wakeMin} onChange={(e) => setWakeMin(e.target.value)} className="w-20 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
       </div>
-      <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-        <p className="text-sm font-bold text-[#2F281D] mb-2">Go to bed at:</p>
-        <ul className="space-y-1 text-[#2F281D]/90">
+      <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+        <p className="text-sm font-bold text-[#14171F] mb-2">Go to bed at:</p>
+        <ul className="space-y-1 text-[#14171F]/90">
           {bedtimes.map((b) => (
             <li key={b.cycles}>{b.time} — {b.cycles} cycles (~{b.cycles * 1.5} hrs sleep)</li>
           ))}

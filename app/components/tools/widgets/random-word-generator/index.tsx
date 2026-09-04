@@ -26,8 +26,8 @@ export default function RandomWordGeneratorWidget() {
     <div className="space-y-6">
       <div className="flex flex-wrap gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Type</span>
-          <select value={type} onChange={(e) => setType(e.target.value as typeof type)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]">
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Type</span>
+          <select value={type} onChange={(e) => setType(e.target.value as typeof type)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]">
             <option value="mixed">Mixed</option>
             <option value="noun">Nouns</option>
             <option value="verb">Verbs</option>
@@ -35,17 +35,17 @@ export default function RandomWordGeneratorWidget() {
           </select>
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Count</span>
-          <input type="number" min={1} max={20} value={count} onChange={(e) => setCount(Number(e.target.value))} className="w-20 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Count</span>
+          <input type="number" min={1} max={20} value={count} onChange={(e) => setCount(Number(e.target.value))} className="w-20 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
       </div>
-      <button type="button" onClick={generate} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Generate</button>
+      <button type="button" onClick={generate} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Generate</button>
       {words.length > 0 && (
         <>
-          <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-            <p className="text-[#2F281D] font-medium">{words.join(', ')}</p>
+          <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+            <p className="text-[#14171F] font-medium">{words.join(', ')}</p>
           </div>
-          <button type="button" onClick={() => navigator.clipboard.writeText(words.join(', '))} className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">Copy</button>
+          <button type="button" onClick={() => navigator.clipboard.writeText(words.join(', '))} className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">Copy</button>
         </>
       )}
     </div>

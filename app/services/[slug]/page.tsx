@@ -85,19 +85,19 @@ export default async function ServicePage({ params }: Props) {
           })),
         }}
       />
-      <div className="bg-[#FDF8EC] min-h-screen">
+      <div className="bg-[#F6F4EC] min-h-screen">
         <section className="pt-32 pb-16 px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <p className="text-[#997F6C] font-bold tracking-widest uppercase text-sm">
+            <p className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm">
               Service
             </p>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-[#2F281D]">
+            <h1 className="text-4xl md:text-6xl font-display font-bold text-[#14171F]">
               {service.title}
             </h1>
-            <p className="text-xl text-[#2F281D]/60">
+            <p className="text-xl text-[#14171F]/60">
               {service.shortDesc}
             </p>
-            <p className="text-[#997F6C] font-bold text-lg">
+            <p className="text-[#D98A2C] font-bold text-lg">
               Starting from ${service.startingFrom.toLocaleString()}
             </p>
           </div>
@@ -105,15 +105,15 @@ export default async function ServicePage({ params }: Props) {
 
         <section className="py-12 px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="prose prose-lg max-w-none text-[#2F281D]/80 leading-relaxed space-y-4">
+            <div className="prose prose-lg max-w-none text-[#14171F]/80 leading-relaxed space-y-4">
               {service.longContent.split('\n\n').map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
             </div>
-            <div className="mt-10 rounded-2xl border border-[#2F281D]/10 bg-[#E8E2D2]/40 p-6 text-center">
-              <h2 className="text-2xl font-display font-bold text-[#2F281D]">Start a Project with CodexStudio</h2>
-              <p className="mt-2 text-[#2F281D]/70">Tell us your goals and get a practical roadmap and quote within 24 hours.</p>
-              <Link href="/contact" className="inline-flex mt-5 items-center gap-2 px-6 py-3 rounded-full bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] transition-colors">
+            <div className="mt-10 rounded-2xl border border-[#14171F]/10 bg-[#ECE7D9]/40 p-6 text-center">
+              <h2 className="text-2xl font-display font-bold text-[#14171F]">Start a Project with CodexStudio</h2>
+              <p className="mt-2 text-[#14171F]/70">Tell us your goals and get a practical roadmap and quote within 24 hours.</p>
+              <Link href="/contact" className="inline-flex mt-5 items-center gap-2 px-6 py-3 rounded-full bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C] transition-colors">
                 Start a Project <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -122,13 +122,13 @@ export default async function ServicePage({ params }: Props) {
 
         <section className="py-12 px-6">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-6">
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mb-6">
               What&apos;s included
             </h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {service.details.map((d) => (
-                <li key={d} className="flex items-center gap-2 text-[#2F281D] font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#997F6C]" />
+                <li key={d} className="flex items-center gap-2 text-[#14171F] font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D98A2C]" />
                   {d}
                 </li>
               ))}
@@ -138,10 +138,10 @@ export default async function ServicePage({ params }: Props) {
 
         <section className="py-12 px-6">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-6">Our process</h2>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mb-6">Our process</h2>
             <ol className="space-y-3">
               {service.process.map((step) => (
-                <li key={step} className="text-[#2F281D]/80 font-medium">{step}</li>
+                <li key={step} className="text-[#14171F]/80 font-medium">{step}</li>
               ))}
             </ol>
           </div>
@@ -149,30 +149,30 @@ export default async function ServicePage({ params }: Props) {
 
         <section className="py-12 px-6">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-6">
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mb-6">
               Frequently asked questions
             </h2>
             <dl className="space-y-6">
               {service.faqs.map((faq, i) => (
                 <div key={i}>
-                  <dt className="font-bold text-[#2F281D] mb-1">{faq.question}</dt>
-                  <dd className="text-[#2F281D]/70 pl-0">{faq.answer}</dd>
+                  <dt className="font-bold text-[#14171F] mb-1">{faq.question}</dt>
+                  <dd className="text-[#14171F]/70 pl-0">{faq.answer}</dd>
                 </div>
               ))}
             </dl>
           </div>
         </section>
 
-        <section className="py-12 px-6 border-t border-[#2F281D]/10">
+        <section className="py-12 px-6 border-t border-[#14171F]/10">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-3">Client Reviews</h2>
-            <p className="text-[#2F281D]/70 mb-6">Professional placeholder reviews (100 total) are rotated across all service pages.</p>
+            <h2 className="text-2xl font-display font-bold text-[#14171F] mb-3">Client Reviews</h2>
+            <p className="text-[#14171F]/70 mb-6">Professional placeholder reviews (100 total) are rotated across all service pages.</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {reviews.map((review) => (
-                <article key={review.id} className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-4">
-                  <p className="text-[#2F281D]/80 text-sm leading-relaxed">"{review.quote}"</p>
-                  <p className="font-semibold text-[#2F281D] mt-3">{review.name}</p>
-                  <p className="text-xs text-[#2F281D]/60">{review.role}, {review.company} ({review.location})</p>
+                <article key={review.id} className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-4">
+                  <p className="text-[#14171F]/80 text-sm leading-relaxed">"{review.quote}"</p>
+                  <p className="font-semibold text-[#14171F] mt-3">{review.name}</p>
+                  <p className="text-xs text-[#14171F]/60">{review.role}, {review.company} ({review.location})</p>
                 </article>
               ))}
             </div>
@@ -181,28 +181,28 @@ export default async function ServicePage({ params }: Props) {
 
         <section className="py-16 px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <p className="text-[#2F281D]/60">
+            <p className="text-[#14171F]/60">
               Ready to get started? We&apos;ll reply within 24 hours.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold hover:bg-[#997F6C] transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#14171F] text-[#F6F4EC] rounded-full font-bold hover:bg-[#D98A2C] transition-colors"
               >
                 Get a quote <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-[#2F281D]/20 text-[#2F281D] rounded-full font-bold hover:bg-[#2F281D]/5 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-[#14171F]/20 text-[#14171F] rounded-full font-bold hover:bg-[#14171F]/5 transition-colors"
               >
                 All services
               </Link>
             </div>
-            <div className="pt-6 border-t border-[#2F281D]/10">
-              <p className="text-[#2F281D]/70 mb-3">Related services</p>
+            <div className="pt-6 border-t border-[#14171F]/10">
+              <p className="text-[#14171F]/70 mb-3">Related services</p>
               <div className="flex flex-wrap justify-center gap-4">
                 {SERVICE_SLUGS.filter((s) => s !== service.slug).slice(0, 3).map((s) => (
-                  <Link key={s} href={`/services/${s}`} className="text-[#997F6C] font-semibold hover:underline">
+                  <Link key={s} href={`/services/${s}`} className="text-[#D98A2C] font-semibold hover:underline">
                     {getServiceBySlug(s)?.title}
                   </Link>
                 ))}

@@ -47,25 +47,25 @@ export default function LoremIpsumWidget() {
     <div className="space-y-6">
       <div className="flex flex-wrap gap-6">
         <label className="flex items-center gap-2">
-          <span className="text-sm font-medium text-[#2F281D]">Paragraphs</span>
+          <span className="text-sm font-medium text-[#14171F]">Paragraphs</span>
           <input
             type="number"
             min={1}
             max={20}
             value={paragraphs}
             onChange={(e) => setParagraphs(Number(e.target.value))}
-            className="w-20 px-2 py-1 rounded border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="w-20 px-2 py-1 rounded border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           />
         </label>
         <label className="flex items-center gap-2">
-          <span className="text-sm font-medium text-[#2F281D]">Sentences per paragraph</span>
+          <span className="text-sm font-medium text-[#14171F]">Sentences per paragraph</span>
           <input
             type="number"
             min={1}
             max={10}
             value={sentencesPerParagraph}
             onChange={(e) => setSentencesPerParagraph(Number(e.target.value))}
-            className="w-20 px-2 py-1 rounded border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="w-20 px-2 py-1 rounded border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           />
         </label>
       </div>
@@ -73,7 +73,7 @@ export default function LoremIpsumWidget() {
         <button
           type="button"
           onClick={generate}
-          className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] transition-colors"
+          className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C] transition-colors"
         >
           Generate
         </button>
@@ -81,7 +81,7 @@ export default function LoremIpsumWidget() {
           type="button"
           onClick={copyAll}
           disabled={!output}
-          className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold hover:bg-[#2F281D]/5 transition-colors disabled:opacity-50"
+          className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold hover:bg-[#14171F]/5 transition-colors disabled:opacity-50"
         >
           Copy all
         </button>
@@ -90,7 +90,7 @@ export default function LoremIpsumWidget() {
         readOnly
         value={output}
         placeholder="Click Generate to create placeholder text..."
-        className="w-full min-h-[220px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] resize-y"
+        className="w-full min-h-[220px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] resize-y"
       />
     </div>
   );

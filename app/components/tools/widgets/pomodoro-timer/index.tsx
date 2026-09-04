@@ -35,14 +35,14 @@ export default function PomodoroTimerWidget() {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-8 text-center">
-        <p className="text-sm font-medium text-[#2F281D]/70 uppercase tracking-wide">{phase === 'work' ? 'Focus' : 'Break'}</p>
-        <p className="text-5xl font-bold text-[#2F281D] mt-2 font-mono">{m}:{s.toString().padStart(2, '0')}</p>
+      <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-8 text-center">
+        <p className="text-sm font-medium text-[#14171F]/70 uppercase tracking-wide">{phase === 'work' ? 'Focus' : 'Break'}</p>
+        <p className="text-5xl font-bold text-[#14171F] mt-2 font-mono">{m}:{s.toString().padStart(2, '0')}</p>
         <div className="flex justify-center gap-4 mt-6">
-          <button type="button" onClick={() => setRunning(!running)} className="px-6 py-3 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">
+          <button type="button" onClick={() => setRunning(!running)} className="px-6 py-3 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">
             {running ? 'Pause' : 'Start'}
           </button>
-          <button type="button" onClick={() => { setRunning(false); setPhase('work'); setSeconds(WORK_SEC); }} className="px-6 py-3 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">Reset</button>
+          <button type="button" onClick={() => { setRunning(false); setPhase('work'); setSeconds(WORK_SEC); }} className="px-6 py-3 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">Reset</button>
         </div>
       </div>
     </div>

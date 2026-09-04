@@ -22,25 +22,25 @@ export default function GradeCalculatorWidget() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Current grade (%)</span>
-          <input type="number" min={0} max={100} value={currentGrade} onChange={(e) => setCurrentGrade(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Current grade (%)</span>
+          <input type="number" min={0} max={100} value={currentGrade} onChange={(e) => setCurrentGrade(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Current weight (%)</span>
-          <input type="number" min={0} max={100} value={currentWeight} onChange={(e) => setCurrentWeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Current weight (%)</span>
+          <input type="number" min={0} max={100} value={currentWeight} onChange={(e) => setCurrentWeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Final exam weight (%)</span>
-          <input type="number" min={0} max={100} value={finalWeight} onChange={(e) => setFinalWeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Final exam weight (%)</span>
+          <input type="number" min={0} max={100} value={finalWeight} onChange={(e) => setFinalWeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Desired final grade (%)</span>
-          <input type="number" min={0} max={100} value={desiredGrade} onChange={(e) => setDesiredGrade(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Desired final grade (%)</span>
+          <input type="number" min={0} max={100} value={desiredGrade} onChange={(e) => setDesiredGrade(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
       </div>
       {needed !== null && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-xl font-bold text-[#2F281D]">You need {needed.toFixed(1)}% on the final</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-xl font-bold text-[#14171F]">You need {needed.toFixed(1)}% on the final</p>
         </div>
       )}
     </div>

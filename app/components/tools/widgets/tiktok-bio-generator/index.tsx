@@ -26,19 +26,19 @@ export default function TikTokBioGeneratorWidget() {
   return (
     <div className="space-y-6">
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Niche or topic</span>
-        <input type="text" value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="e.g. comedy, fitness" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Niche or topic</span>
+        <input type="text" value={niche} onChange={(e) => setNiche(e.target.value)} placeholder="e.g. comedy, fitness" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Your name (optional)</span>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Alex" className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Your name (optional)</span>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Alex" className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
       </label>
-      <button type="button" onClick={handleGenerate} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Generate bio</button>
+      <button type="button" onClick={handleGenerate} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Generate bio</button>
       {result && (
         <>
-          <p className="text-sm text-[#2F281D]/70">({result.length}/80 characters)</p>
-          <textarea readOnly value={result} className="w-full min-h-[60px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 resize-y" />
-          <button type="button" onClick={() => navigator.clipboard.writeText(result)} className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">Copy</button>
+          <p className="text-sm text-[#14171F]/70">({result.length}/80 characters)</p>
+          <textarea readOnly value={result} className="w-full min-h-[60px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 resize-y" />
+          <button type="button" onClick={() => navigator.clipboard.writeText(result)} className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">Copy</button>
         </>
       )}
     </div>

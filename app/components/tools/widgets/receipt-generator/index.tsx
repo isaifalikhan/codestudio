@@ -27,18 +27,18 @@ export default function ReceiptGeneratorWidget() {
 
   return (
     <div className="space-y-6">
-      <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Store name</span><input type="text" value={store} onChange={(e) => setStore(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
+      <label><span className="text-sm font-medium text-[#14171F] block mb-2">Store name</span><input type="text" value={store} onChange={(e) => setStore(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
       <div className="space-y-2">
         {items.map((item, i) => (
           <div key={i} className="flex gap-2">
-            <input type="text" value={item.name} onChange={(e) => update(i, 'name', e.target.value)} placeholder="Item" className="flex-1 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
-            <input type="number" min={0} step={0.01} value={item.price} onChange={(e) => update(i, 'price', e.target.value)} placeholder="Price" className="w-24 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]" />
+            <input type="text" value={item.name} onChange={(e) => update(i, 'name', e.target.value)} placeholder="Item" className="flex-1 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
+            <input type="number" min={0} step={0.01} value={item.price} onChange={(e) => update(i, 'price', e.target.value)} placeholder="Price" className="w-24 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]" />
             <button type="button" onClick={() => remove(i)} className="text-red-600 text-sm">×</button>
           </div>
         ))}
-        <button type="button" onClick={add} className="text-sm text-[#997F6C] font-medium">+ Add item</button>
+        <button type="button" onClick={add} className="text-sm text-[#D98A2C] font-medium">+ Add item</button>
       </div>
-      <label><span className="text-sm font-medium text-[#2F281D] block mb-2">Payment</span><input type="text" value={payment} onChange={(e) => setPayment(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" /></label>
+      <label><span className="text-sm font-medium text-[#14171F] block mb-2">Payment</span><input type="text" value={payment} onChange={(e) => setPayment(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" /></label>
       <div id="receipt-print" className="hidden">
         <p style={{ textAlign: 'center', fontWeight: 'bold' }}>{store}</p>
         <p style={{ textAlign: 'center', fontSize: '12px' }}>{new Date().toLocaleString()}</p>
@@ -48,8 +48,8 @@ export default function ReceiptGeneratorWidget() {
         <p><strong>Total: ${total.toFixed(2)}</strong></p>
         <p>Payment: {payment}</p>
       </div>
-      <p className="text-xl font-bold text-[#2F281D]">Total: ${total.toFixed(2)}</p>
-      <button type="button" onClick={print} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">Print receipt</button>
+      <p className="text-xl font-bold text-[#14171F]">Total: ${total.toFixed(2)}</p>
+      <button type="button" onClick={print} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">Print receipt</button>
     </div>
   );
 }

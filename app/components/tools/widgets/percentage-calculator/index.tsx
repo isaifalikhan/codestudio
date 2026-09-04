@@ -32,7 +32,7 @@ export default function PercentageCalculatorWidget() {
             key={m.id}
             type="button"
             onClick={() => setMode(m.id as 'xOfY' | 'xIsWhatOfY' | 'change')}
-            className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === m.id ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+            className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === m.id ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
           >
             {m.label}
           </button>
@@ -42,54 +42,54 @@ export default function PercentageCalculatorWidget() {
         {mode === 'change' ? (
           <>
             <label>
-              <span className="text-sm font-medium text-[#2F281D] block mb-2">From (X)</span>
+              <span className="text-sm font-medium text-[#14171F] block mb-2">From (X)</span>
               <input
                 type="number"
                 value={v2}
                 onChange={(e) => setV2(e.target.value)}
                 placeholder="e.g. 50"
-                className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
               />
             </label>
             <label>
-              <span className="text-sm font-medium text-[#2F281D] block mb-2">To (Y)</span>
+              <span className="text-sm font-medium text-[#14171F] block mb-2">To (Y)</span>
               <input
                 type="number"
                 value={v1}
                 onChange={(e) => setV1(e.target.value)}
                 placeholder="e.g. 75"
-                className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
               />
             </label>
           </>
         ) : (
           <>
             <label>
-              <span className="text-sm font-medium text-[#2F281D] block mb-2">{mode === 'xOfY' ? 'Percentage (X)' : 'Value (X)'}</span>
+              <span className="text-sm font-medium text-[#14171F] block mb-2">{mode === 'xOfY' ? 'Percentage (X)' : 'Value (X)'}</span>
               <input
                 type="number"
                 value={v1}
                 onChange={(e) => setV1(e.target.value)}
                 placeholder={mode === 'xOfY' ? 'e.g. 20' : 'e.g. 25'}
-                className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
               />
             </label>
             <label>
-              <span className="text-sm font-medium text-[#2F281D] block mb-2">Value (Y)</span>
+              <span className="text-sm font-medium text-[#14171F] block mb-2">Value (Y)</span>
               <input
                 type="number"
                 value={v2}
                 onChange={(e) => setV2(e.target.value)}
                 placeholder="e.g. 200"
-                className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
               />
             </label>
           </>
         )}
       </div>
       {result !== null && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-2xl font-bold text-[#2F281D]">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-2xl font-bold text-[#14171F]">
             {mode === 'xOfY' && `${v1}% of ${v2} = ${result}`}
             {mode === 'xIsWhatOfY' && `${v1} is ${result.toFixed(2)}% of ${v2}`}
             {mode === 'change' && (

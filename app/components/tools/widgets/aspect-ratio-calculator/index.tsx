@@ -25,27 +25,27 @@ export default function AspectRatioCalculatorWidget() {
       <div className="flex gap-4">
         <label className="flex items-center gap-2">
           <input type="radio" name="lock" checked={lock === 'width'} onChange={() => setLock('width')} />
-          <span className="text-sm text-[#2F281D]">Lock width</span>
+          <span className="text-sm text-[#14171F]">Lock width</span>
         </label>
         <label className="flex items-center gap-2">
           <input type="radio" name="lock" checked={lock === 'height'} onChange={() => setLock('height')} />
-          <span className="text-sm text-[#2F281D]">Lock height</span>
+          <span className="text-sm text-[#14171F]">Lock height</span>
         </label>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Width</span>
-          <input type="number" min={1} value={width} onChange={(e) => setWidth(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Width</span>
+          <input type="number" min={1} value={width} onChange={(e) => setWidth(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Height</span>
-          <input type="number" min={1} value={height} onChange={(e) => setHeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]" />
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Height</span>
+          <input type="number" min={1} value={height} onChange={(e) => setHeight(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]" />
         </label>
       </div>
       {suggested.length > 0 && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6">
-          <p className="text-sm font-bold text-[#2F281D] mb-2">Dimensions at common ratios</p>
-          <ul className="space-y-1 text-sm text-[#2F281D]/80">
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6">
+          <p className="text-sm font-bold text-[#14171F] mb-2">Dimensions at common ratios</p>
+          <ul className="space-y-1 text-sm text-[#14171F]/80">
             {suggested.map((s) => (
               <li key={s.label}>{s.label}: {s.w} × {s.h}</li>
             ))}

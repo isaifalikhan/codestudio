@@ -74,7 +74,7 @@ export default function CaseConverterWidget() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Enter text to convert..."
-        className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 resize-y"
+        className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 resize-y"
         aria-label="Text to convert"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -84,12 +84,12 @@ export default function CaseConverterWidget() {
               type="text"
               readOnly
               value={value}
-              className="flex-1 px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] text-sm"
+              className="flex-1 px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] text-sm"
             />
             <button
               type="button"
               onClick={() => copy(value, label)}
-              className="px-4 py-2 rounded-lg bg-[#2F281D] text-[#FDF8EC] text-sm font-bold hover:bg-[#997F6C] transition-colors whitespace-nowrap"
+              className="px-4 py-2 rounded-lg bg-[#14171F] text-[#F6F4EC] text-sm font-bold hover:bg-[#D98A2C] transition-colors whitespace-nowrap"
             >
               {lastCopied === label ? 'Copied!' : 'Copy'}
             </button>

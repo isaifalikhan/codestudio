@@ -42,20 +42,20 @@ export default function JsonToCsvWidget() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder='[{"name":"A","value":1},{"name":"B","value":2}]'
-        className="w-full min-h-[180px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] font-mono text-sm resize-y"
+        className="w-full min-h-[180px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] font-mono text-sm resize-y"
       />
       {error && <p className="text-red-600 text-sm">{error}</p>}
       {csv && (
         <>
           <div className="flex gap-2">
-            <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold">
+            <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold">
               Download CSV
             </button>
-            <button type="button" onClick={() => navigator.clipboard.writeText(csv)} className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">
+            <button type="button" onClick={() => navigator.clipboard.writeText(csv)} className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">
               Copy
             </button>
           </div>
-          <textarea readOnly value={csv} className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/50 font-mono text-sm resize-y" />
+          <textarea readOnly value={csv} className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/50 font-mono text-sm resize-y" />
         </>
       )}
     </div>

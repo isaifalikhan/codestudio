@@ -124,19 +124,19 @@ export default async function ResourceCategoryPage({
   };
 
   return (
-    <div className="bg-[#FDF8EC] min-h-screen">
+    <div className="bg-[#F6F4EC] min-h-screen">
       <section className="pt-12 pb-10 px-6">
         <div className="max-w-7xl mx-auto">
           <Link
             href="/resources"
-            className="inline-flex items-center gap-2 text-[#997F6C] font-semibold hover:underline mb-6"
+            className="inline-flex items-center gap-2 text-[#D98A2C] font-semibold hover:underline mb-6"
           >
             <ArrowLeft className="w-4 h-4" /> Back to all tools
           </Link>
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-[#2F281D] mb-4">
+          <h1 className="text-3xl md:text-4xl font-display font-bold text-[#14171F] mb-4">
             Best Free {cat.label} Tools — Curated by CodexStudio
           </h1>
-          <p className="max-w-2xl text-[#2F281D]/70 leading-relaxed">
+          <p className="max-w-2xl text-[#14171F]/70 leading-relaxed">
             {introText[category] ?? `Handpicked free ${cat.label.toLowerCase()} tools we use and recommend.`}
           </p>
         </div>
@@ -152,18 +152,18 @@ export default async function ResourceCategoryPage({
         </div>
       </section>
 
-      <section className="py-16 px-6 border-t border-[#2F281D]/10">
+      <section className="py-16 px-6 border-t border-[#14171F]/10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-display font-bold text-[#2F281D] mb-4">
+          <h2 className="text-2xl font-display font-bold text-[#14171F] mb-4">
             Need a custom tool or website built for your business?
           </h2>
-          <p className="text-[#2F281D]/70 mb-8">
+          <p className="text-[#14171F]/70 mb-8">
             The CodexStudio team builds fast, SEO-optimized websites and web apps. Let&apos;s build
             something great together.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#2F281D] text-[#FDF8EC] px-8 py-4 rounded-full font-bold hover:bg-[#997F6C] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#14171F] text-[#F6F4EC] px-8 py-4 rounded-full font-bold hover:bg-[#D98A2C] transition-colors"
           >
             Start a Project <ArrowRight className="w-5 h-5" />
           </Link>

@@ -28,7 +28,7 @@ export default function RegexTesterWidget() {
     if (!pattern.trim() || result.error) return testString;
     try {
       const re = new RegExp(`(${pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, flags);
-      return testString.replace(re, '<mark class="bg-amber-300 text-[#2F281D]">$1</mark>');
+      return testString.replace(re, '<mark class="bg-amber-300 text-[#14171F]">$1</mark>');
     } catch {
       return testString;
     }
@@ -37,13 +37,13 @@ export default function RegexTesterWidget() {
   return (
     <div className="space-y-6">
       <div>
-        <label className="text-sm font-medium text-[#2F281D] block mb-2">Regular expression</label>
+        <label className="text-sm font-medium text-[#14171F] block mb-2">Regular expression</label>
         <input
           type="text"
           value={pattern}
           onChange={(e) => setPattern(e.target.value)}
           placeholder="/[a-z]+/g"
-          className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] font-mono focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50"
+          className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] font-mono focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50"
         />
       </div>
       <div className="flex flex-wrap gap-3">
@@ -58,25 +58,25 @@ export default function RegexTesterWidget() {
               }}
               className="rounded"
             />
-            <span className="text-sm text-[#2F281D]">{f} (global / case-insensitive / multiline / dotall)</span>
+            <span className="text-sm text-[#14171F]">{f} (global / case-insensitive / multiline / dotall)</span>
           </label>
         ))}
       </div>
       <div>
-        <label className="text-sm font-medium text-[#2F281D] block mb-2">Test string</label>
+        <label className="text-sm font-medium text-[#14171F] block mb-2">Test string</label>
         <textarea
           value={testString}
           onChange={(e) => setTestString(e.target.value)}
           placeholder="Enter text to test against..."
-          className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50 resize-y font-mono text-sm"
+          className="w-full min-h-[120px] px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 resize-y font-mono text-sm"
         />
       </div>
       {result.error && <p className="text-red-600 text-sm">{result.error}</p>}
       {pattern && (
         <>
-          <p className="text-sm text-[#2F281D]/70">Matches: {result.count}</p>
-          <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-4">
-            <p className="text-sm font-medium text-[#2F281D] mb-2">Highlighted matches</p>
+          <p className="text-sm text-[#14171F]/70">Matches: {result.count}</p>
+          <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-4">
+            <p className="text-sm font-medium text-[#14171F] mb-2">Highlighted matches</p>
             <div
               className="font-mono text-sm whitespace-pre-wrap break-words"
               dangerouslySetInnerHTML={{ __html: highlightHtml || '(none)' }}
@@ -84,8 +84,8 @@ export default function RegexTesterWidget() {
           </div>
           {result.matches.length > 0 && (
             <div>
-              <p className="text-sm font-medium text-[#2F281D] mb-2">Capture groups</p>
-              <ul className="list-disc list-inside text-sm text-[#2F281D]/80 space-y-1">
+              <p className="text-sm font-medium text-[#14171F] mb-2">Capture groups</p>
+              <ul className="list-disc list-inside text-sm text-[#14171F]/80 space-y-1">
                 {result.matches.map((m, i) => (
                   <li key={i}>
                     Full match: &quot;{m[0]}&quot;

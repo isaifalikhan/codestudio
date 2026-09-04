@@ -30,21 +30,21 @@ export default function DiscountCalculatorWidget() {
         <button
           type="button"
           onClick={() => setMode('percent-off')}
-          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'percent-off' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'percent-off' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           Percent off
         </button>
         <button
           type="button"
           onClick={() => setMode('final-price')}
-          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'final-price' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'final-price' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           I have final price
         </button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">Original price</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">Original price</span>
           <input
             type="number"
             min="0"
@@ -52,11 +52,11 @@ export default function DiscountCalculatorWidget() {
             value={original}
             onChange={(e) => setOriginal(e.target.value)}
             placeholder="100"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">
+          <span className="text-sm font-medium text-[#14171F] block mb-2">
             {mode === 'percent-off' ? 'Discount %' : 'Final price'}
           </span>
           <input
@@ -66,14 +66,14 @@ export default function DiscountCalculatorWidget() {
             value={discount}
             onChange={(e) => setDiscount(e.target.value)}
             placeholder={mode === 'percent-off' ? '20' : '80'}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       </div>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-2">
-          <p className="text-xl font-bold text-[#2F281D]">Sale price: {result.salePrice.toFixed(2)}</p>
-          <p className="text-[#2F281D]/70">You save: {result.saving.toFixed(2)} ({result.percent.toFixed(1)}%)</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-2">
+          <p className="text-xl font-bold text-[#14171F]">Sale price: {result.salePrice.toFixed(2)}</p>
+          <p className="text-[#14171F]/70">You save: {result.saving.toFixed(2)} ({result.percent.toFixed(1)}%)</p>
         </div>
       )}
     </div>

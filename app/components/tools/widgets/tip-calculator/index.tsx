@@ -20,7 +20,7 @@ export default function TipCalculatorWidget() {
   return (
     <div className="space-y-6">
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Bill amount</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Bill amount</span>
         <input
           type="number"
           min={0}
@@ -28,11 +28,11 @@ export default function TipCalculatorWidget() {
           value={bill}
           onChange={(e) => setBill(e.target.value)}
           placeholder="0.00"
-          className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+          className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
         />
       </label>
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Tip: {tipPct}%</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Tip: {tipPct}%</span>
         <input
           type="range"
           min={0}
@@ -43,21 +43,21 @@ export default function TipCalculatorWidget() {
         />
       </label>
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Split between (people)</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Split between (people)</span>
         <input
           type="number"
           min={1}
           max={20}
           value={people}
           onChange={(e) => setPeople(Number(e.target.value))}
-          className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+          className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
         />
       </label>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-2">
-          <p className="text-[#2F281D]/80">Tip total: {result.tip.toFixed(2)}</p>
-          <p className="text-[#2F281D]/80">Total with tip: {result.total.toFixed(2)}</p>
-          <p className="font-bold text-[#2F281D]">Per person: {result.perPerson.toFixed(2)} (tip: {result.tipPerPerson.toFixed(2)})</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-2">
+          <p className="text-[#14171F]/80">Tip total: {result.tip.toFixed(2)}</p>
+          <p className="text-[#14171F]/80">Total with tip: {result.total.toFixed(2)}</p>
+          <p className="font-bold text-[#14171F]">Per person: {result.perPerson.toFixed(2)} (tip: {result.tipPerPerson.toFixed(2)})</p>
         </div>
       )}
     </div>

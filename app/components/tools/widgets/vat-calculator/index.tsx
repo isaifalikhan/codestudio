@@ -28,32 +28,32 @@ export default function VatCalculatorWidget() {
         <button
           type="button"
           onClick={() => setMode('add')}
-          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'add' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'add' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           Add VAT
         </button>
         <button
           type="button"
           onClick={() => setMode('remove')}
-          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'remove' ? 'bg-[#2F281D] text-[#FDF8EC]' : 'bg-[#2F281D]/10 text-[#2F281D]'}`}
+          className={`px-4 py-2 rounded-xl text-sm font-medium ${mode === 'remove' ? 'bg-[#14171F] text-[#F6F4EC]' : 'bg-[#14171F]/10 text-[#14171F]'}`}
         >
           Remove VAT
         </button>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">{mode === 'add' ? 'Net amount' : 'Gross amount'}</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">{mode === 'add' ? 'Net amount' : 'Gross amount'}</span>
           <input
             type="number"
             min="0"
             step="0.01"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
         <label>
-          <span className="text-sm font-medium text-[#2F281D] block mb-2">VAT rate %</span>
+          <span className="text-sm font-medium text-[#14171F] block mb-2">VAT rate %</span>
           <input
             type="number"
             min="0"
@@ -61,15 +61,15 @@ export default function VatCalculatorWidget() {
             step="0.1"
             value={rate}
             onChange={(e) => setRate(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC]"
           />
         </label>
       </div>
       {result && (
-        <div className="rounded-xl border border-[#2F281D]/10 bg-[#E8E2D2]/30 p-6 space-y-2">
-          <p className="text-[#2F281D]/70">Net: {result.net.toFixed(2)}</p>
-          <p className="text-[#2F281D]/70">VAT: {result.vat.toFixed(2)}</p>
-          <p className="text-xl font-bold text-[#2F281D]">Total: {result.gross.toFixed(2)}</p>
+        <div className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-6 space-y-2">
+          <p className="text-[#14171F]/70">Net: {result.net.toFixed(2)}</p>
+          <p className="text-[#14171F]/70">VAT: {result.vat.toFixed(2)}</p>
+          <p className="text-xl font-bold text-[#14171F]">Total: {result.gross.toFixed(2)}</p>
         </div>
       )}
     </div>

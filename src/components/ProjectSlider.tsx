@@ -83,7 +83,7 @@ export const ProjectSlider = () => {
   };
 
   return (
-    <section className="relative min-h-[80vh] lg:h-screen overflow-hidden bg-[#2F281D]">
+    <section className="relative min-h-[80vh] lg:h-screen overflow-hidden bg-[#14171F]">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={current}
@@ -124,14 +124,14 @@ export const ProjectSlider = () => {
                 className="space-y-4 lg:space-y-6"
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-[#997F6C] font-mono text-lg lg:text-xl font-bold">{slides[current].number}</span>
-                  <div className="h-px w-8 lg:w-12 bg-[#997F6C]" />
-                  <span className="text-[#FDF8EC]/60 font-bold uppercase tracking-[0.3em] text-[10px] lg:text-xs">
+                  <span className="text-[#D98A2C] font-mono text-lg lg:text-xl font-bold">{slides[current].number}</span>
+                  <div className="h-px w-8 lg:w-12 bg-[#D98A2C]" />
+                  <span className="text-[#F6F4EC]/60 font-bold uppercase tracking-[0.3em] text-[10px] lg:text-xs">
                     {slides[current].tag}
                   </span>
                 </div>
                 
-                <h2 className="text-2xl sm:text-5xl md:text-4xl lg:text-6xl font-display font-bold text-[#FDF8EC] leading-[0.9] lg:leading-[0.85] tracking-tighter">
+                <h2 className="text-2xl sm:text-5xl md:text-4xl lg:text-6xl font-display font-bold text-[#F6F4EC] leading-[0.9] lg:leading-[0.85] tracking-tighter">
                   {slides[current].title.split(' ').map((word, i) => (
                     <span key={i} className="block overflow-hidden">
                       <motion.span
@@ -146,7 +146,7 @@ export const ProjectSlider = () => {
                   ))}
                 </h2>
 
-                <p className="text-lg lg:text-2xl text-[#FDF8EC]/60 max-w-xl leading-relaxed font-light">
+                <p className="text-lg lg:text-2xl text-[#F6F4EC]/60 max-w-xl leading-relaxed font-light">
                   {slides[current].desc}
                 </p>
 
@@ -158,13 +158,13 @@ export const ProjectSlider = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="group relative inline-block overflow-hidden bg-[#FDF8EC] text-[#2F281D] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
+                      className="group relative inline-block overflow-hidden bg-[#F6F4EC] text-[#14171F] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
                     >
                       <span className="relative z-10 flex items-center gap-3">
                         View Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                       </span>
                       <motion.div
-                        className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover:translate-y-0 transition-transform duration-500"
+                        className="absolute inset-0 bg-[#D98A2C] translate-y-full group-hover:translate-y-0 transition-transform duration-500"
                       />
                     </motion.a>
                   ) : (
@@ -172,13 +172,13 @@ export const ProjectSlider = () => {
                       <motion.span
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="group relative block overflow-hidden bg-[#FDF8EC] text-[#2F281D] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
+                        className="group relative block overflow-hidden bg-[#F6F4EC] text-[#14171F] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
                       >
                         <span className="relative z-10 flex items-center gap-3">
                           View Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </span>
                         <motion.div
-                          className="absolute inset-0 bg-[#997F6C] translate-y-full group-hover:translate-y-0 transition-transform duration-500"
+                          className="absolute inset-0 bg-[#D98A2C] translate-y-full group-hover:translate-y-0 transition-transform duration-500"
                         />
                       </motion.span>
                     </Link>
@@ -201,10 +201,10 @@ export const ProjectSlider = () => {
                   aria-label={`Go to slide ${i + 1}: ${slide.title}`}
                   className="group flex items-center gap-6 text-left"
                 >
-                  <span className={`text-xs font-mono font-bold transition-colors ${current === i ? 'text-[#997F6C]' : 'text-[#FDF8EC]/20 group-hover:text-[#FDF8EC]/60'}`}>
+                  <span className={`text-xs font-mono font-bold transition-colors ${current === i ? 'text-[#D98A2C]' : 'text-[#F6F4EC]/20 group-hover:text-[#F6F4EC]/60'}`}>
                     {slide.number}
                   </span>
-                  <span className={`text-sm font-bold uppercase tracking-widest transition-all ${current === i ? 'text-[#FDF8EC] translate-x-2' : 'text-[#FDF8EC]/20 group-hover:text-[#FDF8EC]/60'}`}>
+                  <span className={`text-sm font-bold uppercase tracking-widest transition-all ${current === i ? 'text-[#F6F4EC] translate-x-2' : 'text-[#F6F4EC]/20 group-hover:text-[#F6F4EC]/60'}`}>
                     {slide.title}
                   </span>
                 </button>
@@ -231,7 +231,7 @@ export const ProjectSlider = () => {
                 className="h-1 rounded-full border-0 p-0 cursor-pointer min-w-[8px] transition-[width,background-color] duration-300"
                 style={{
                   width: current === i ? 40 : 8,
-                  backgroundColor: current === i ? '#997F6C' : 'rgba(253, 248, 236, 0.2)',
+                  backgroundColor: current === i ? '#D98A2C' : 'rgba(246, 244, 236, 0.2)',
                 }}
               />
             ))}
@@ -243,7 +243,7 @@ export const ProjectSlider = () => {
             type="button"
             onClick={prev}
             aria-label="Previous slide"
-            className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#FDF8EC]/20 flex items-center justify-center text-[#FDF8EC] hover:bg-[#FDF8EC] hover:text-[#2F281D] transition-all group"
+            className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#F6F4EC]/20 flex items-center justify-center text-[#F6F4EC] hover:bg-[#F6F4EC] hover:text-[#14171F] transition-all group"
           >
             <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 group-hover:-translate-x-1 transition-transform" aria-hidden />
           </button>
@@ -251,7 +251,7 @@ export const ProjectSlider = () => {
             type="button"
             onClick={next}
             aria-label="Next slide"
-            className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#FDF8EC]/20 flex items-center justify-center text-[#FDF8EC] hover:bg-[#FDF8EC] hover:text-[#2F281D] transition-all group"
+            className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-[#F6F4EC]/20 flex items-center justify-center text-[#F6F4EC] hover:bg-[#F6F4EC] hover:text-[#14171F] transition-all group"
           >
             <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 group-hover:translate-x-1 transition-transform" aria-hidden />
           </button>

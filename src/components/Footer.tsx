@@ -12,7 +12,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#FDF8EC] pt-24 pb-12 px-6 border-t border-[#2F281D]/5">
+    <footer className="bg-[#F6F4EC] pt-24 pb-12 px-6 border-t border-[#14171F]/5">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
@@ -23,19 +23,19 @@ export const Footer = () => {
         >
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-[#2F281D] rounded-lg flex items-center justify-center font-bold text-xl text-[#FDF8EC]">
+              <div className="w-10 h-10 bg-[#14171F] rounded-lg flex items-center justify-center font-bold text-xl text-[#F6F4EC]">
                 C
               </div>
-              <span className="text-2xl font-display font-bold tracking-tighter text-[#2F281D]">
-                CODEX<span className="text-[#997F6C]">STUDIO</span>
+              <span className="text-2xl font-display font-bold tracking-tighter text-[#14171F]">
+                CODEX<span className="text-[#D98A2C]">STUDIO</span>
               </span>
             </Link>
-            <p className="text-[#2F281D]/75 text-lg max-w-md mb-8 leading-relaxed">
+            <p className="text-[#14171F]/75 text-lg max-w-md mb-8 leading-relaxed">
               We are a team of passionate designers and developers dedicated to 
               creating high-end digital experiences that push the boundaries 
               of what's possible.
             </p>
-            <p className="text-[#2F281D]/65 text-sm mb-6 leading-relaxed">
+            <p className="text-[#14171F]/65 text-sm mb-6 leading-relaxed">
               CodexStudio, {BRAND_CITY}, Pakistan<br />
               {BRAND_PHONE} · {BRAND_EMAIL}
             </p>
@@ -47,7 +47,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="CodexStudio on Instagram"
                   whileHover={{ y: -5, scale: 1.1 }}
-                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                  className="w-12 h-12 rounded-full bg-[#14171F]/5 border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-[#F6F4EC] transition-all"
                 >
                   <Instagram className="w-5 h-5" aria-hidden />
                 </motion.a>
@@ -59,7 +59,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="CodexStudio on Facebook"
                   whileHover={{ y: -5, scale: 1.1 }}
-                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                  className="w-12 h-12 rounded-full bg-[#14171F]/5 border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-[#F6F4EC] transition-all"
                 >
                   <Facebook className="w-5 h-5" aria-hidden />
                 </motion.a>
@@ -71,7 +71,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="CodexStudio on LinkedIn"
                   whileHover={{ y: -5, scale: 1.1 }}
-                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                  className="w-12 h-12 rounded-full bg-[#14171F]/5 border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-[#F6F4EC] transition-all"
                 >
                   <Linkedin className="w-5 h-5" aria-hidden />
                 </motion.a>
@@ -83,7 +83,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="CodexStudio on Twitter"
                   whileHover={{ y: -5, scale: 1.1 }}
-                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                  className="w-12 h-12 rounded-full bg-[#14171F]/5 border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-[#F6F4EC] transition-all"
                 >
                   <Twitter className="w-5 h-5" aria-hidden />
                 </motion.a>
@@ -95,7 +95,7 @@ export const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label="CodexStudio on GitHub"
                   whileHover={{ y: -5, scale: 1.1 }}
-                  className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all"
+                  className="w-12 h-12 rounded-full bg-[#14171F]/5 border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-[#F6F4EC] transition-all"
                 >
                   <Github className="w-5 h-5" aria-hidden />
                 </motion.a>
@@ -104,13 +104,13 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-8 text-[#2F281D]">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-8 text-[#14171F]">Quick Links</h3>
             <ul className="space-y-4">
               {['Home', 'About', 'Services', 'Portfolio', 'Blog', 'Tools', 'Resources', 'Team', 'Contact'].map((item) => (
                 <li key={item}>
                   <Link
                     href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                    className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2 focus-visible:rounded"
+                    className="text-[#14171F]/75 hover:text-[#D98A2C] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D98A2C] focus-visible:ring-offset-2 focus-visible:rounded"
                   >
                     {item}
                   </Link>
@@ -120,32 +120,32 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-8 text-[#2F281D]">Popular Tools</h3>
+            <h3 className="text-lg font-bold mb-8 text-[#14171F]">Popular Tools</h3>
             <ul className="space-y-4">
-              <li><Link href="/tools/word-counter" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Word Counter</Link></li>
-              <li><Link href="/tools/image-compressor" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Image Compressor</Link></li>
-              <li><Link href="/tools/password-generator" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Password Generator</Link></li>
-              <li><Link href="/tools/qr-code-generator" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">QR Code Generator</Link></li>
-              <li><Link href="/tools/age-calculator" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">Age Calculator</Link></li>
-              <li><Link href="/tools/merge-pdf" className="text-[#2F281D]/75 hover:text-[#997F6C] transition-colors">PDF Merger</Link></li>
+              <li><Link href="/tools/word-counter" className="text-[#14171F]/75 hover:text-[#D98A2C] transition-colors">Word Counter</Link></li>
+              <li><Link href="/tools/image-compressor" className="text-[#14171F]/75 hover:text-[#D98A2C] transition-colors">Image Compressor</Link></li>
+              <li><Link href="/tools/password-generator" className="text-[#14171F]/75 hover:text-[#D98A2C] transition-colors">Password Generator</Link></li>
+              <li><Link href="/tools/qr-code-generator" className="text-[#14171F]/75 hover:text-[#D98A2C] transition-colors">QR Code Generator</Link></li>
+              <li><Link href="/tools/age-calculator" className="text-[#14171F]/75 hover:text-[#D98A2C] transition-colors">Age Calculator</Link></li>
+              <li><Link href="/tools/merge-pdf" className="text-[#14171F]/75 hover:text-[#D98A2C] transition-colors">PDF Merger</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-8 text-[#2F281D]">Stay in touch</h3>
-            <p className="text-[#2F281D]/75 text-sm mb-4">
+            <h3 className="text-lg font-bold mb-8 text-[#14171F]">Stay in touch</h3>
+            <p className="text-[#14171F]/75 text-sm mb-4">
               Want updates or have a project in mind? Get in touch.
             </p>
             <p className="text-sm mb-4">
-              <Link href="/tools" className="text-[#997F6C] font-semibold hover:underline">Try our free tools</Link>
+              <Link href="/tools" className="text-[#D98A2C] font-semibold hover:underline">Try our free tools</Link>
               {' · '}
-              <Link href="/resources" className="text-[#997F6C] font-semibold hover:underline">Resources</Link>
+              <Link href="/resources" className="text-[#D98A2C] font-semibold hover:underline">Resources</Link>
               {' · '}
-              <Link href="/blog" className="text-[#997F6C] font-semibold hover:underline">Blog</Link>
+              <Link href="/blog" className="text-[#D98A2C] font-semibold hover:underline">Blog</Link>
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[#2F281D] text-[#FDF8EC] px-5 py-3 rounded-xl font-bold hover:bg-[#997F6C] transition-colors"
+              className="inline-block bg-[#14171F] text-[#F6F4EC] px-5 py-3 rounded-xl font-bold hover:bg-[#D98A2C] transition-colors"
             >
               Contact us
             </Link>
@@ -157,23 +157,23 @@ export const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="pt-12 border-t border-[#2F281D]/5 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="pt-12 border-t border-[#14171F]/5 flex flex-col md:flex-row items-center justify-between gap-6"
         >
-          <p className="text-[#2F281D]/30 text-sm">
+          <p className="text-[#14171F]/30 text-sm">
             © {new Date().getFullYear()} CodexStudio. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-[#2F281D]/30">
-            <Link href="/privacy" className="hover:text-[#2F281D] transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[#2F281D] transition-colors">Terms of Service</Link>
-            <Link href="/sitemap.xml" className="hover:text-[#2F281D] transition-colors">Sitemap</Link>
-            <Link href="/editorial" className="hover:text-[#2F281D] transition-colors">Editorial standards</Link>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-[#14171F]/30">
+            <Link href="/privacy" className="hover:text-[#14171F] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#14171F] transition-colors">Terms of Service</Link>
+            <Link href="/sitemap.xml" className="hover:text-[#14171F] transition-colors">Sitemap</Link>
+            <Link href="/editorial" className="hover:text-[#14171F] transition-colors">Editorial standards</Link>
           </div>
           <motion.button
             type="button"
             onClick={scrollToTop}
             whileHover={{ y: -5 }}
             aria-label="Scroll back to top"
-            className="w-12 h-12 rounded-full bg-[#2F281D]/5 border border-[#2F281D]/10 flex items-center justify-center hover:bg-[#2F281D] hover:text-[#FDF8EC] transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#997F6C] focus-visible:ring-offset-2"
+            className="w-12 h-12 rounded-full bg-[#14171F]/5 border border-[#14171F]/10 flex items-center justify-center hover:bg-[#14171F] hover:text-[#F6F4EC] transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D98A2C] focus-visible:ring-offset-2"
           >
             <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
           </motion.button>

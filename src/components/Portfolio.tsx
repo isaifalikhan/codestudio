@@ -18,7 +18,7 @@ export const Portfolio = () => {
   const springScale = useSpring(scale, { stiffness: 100, damping: 30 });
 
   return (
-    <section ref={containerRef} className="py-32 px-6 bg-[#FDF8EC] overflow-hidden">
+    <section ref={containerRef} className="py-32 px-6 bg-[#F6F4EC] overflow-hidden">
       <motion.div 
         style={{ scale: springScale }}
         className="max-w-7xl mx-auto"
@@ -28,23 +28,23 @@ export const Portfolio = () => {
             <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-[#5F634D] font-bold tracking-widest uppercase text-sm mb-4 block"
+              className="text-[#2F7A6D] font-bold tracking-widest uppercase text-sm mb-4 block"
             >
               Selected Works
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-8xl font-display font-bold tracking-tight text-[#2F281D] leading-none"
+              className="text-5xl md:text-8xl font-display font-bold tracking-tight text-[#14171F] leading-none"
             >
-              Featured <span className="text-[#2F281D]/40 italic">Branding</span> & <span className="text-[#997F6C]">Websites</span>
+              Featured <span className="text-[#14171F]/40 italic">Branding</span> & <span className="text-[#D98A2C]">Websites</span>
             </motion.h2>
           </div>
           <Link href="/portfolio">
             <motion.span
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-12 md:mt-0 inline-flex px-10 py-5 bg-[#2F281D] text-[#FDF8EC] rounded-full font-bold hover:bg-[#997F6C] transition-all items-center gap-3"
+              className="mt-12 md:mt-0 inline-flex px-10 py-5 bg-[#14171F] text-[#F6F4EC] rounded-full font-bold hover:bg-[#D98A2C] transition-all items-center gap-3"
             >
               View All Projects <ArrowUpRight className="w-5 h-5" />
             </motion.span>

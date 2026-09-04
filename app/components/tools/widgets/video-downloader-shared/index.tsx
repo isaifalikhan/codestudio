@@ -83,21 +83,21 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
 
   return (
     <div className="space-y-6">
-      <p className="text-[#2F281D]/70 text-sm">{getHelperText(platform)}</p>
+      <p className="text-[#14171F]/70 text-sm">{getHelperText(platform)}</p>
       <label>
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Paste {LABELS[platform]} video URL</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Paste {LABELS[platform]} video URL</span>
         <div className="flex gap-2">
           <input
             type="url"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="Paste a video link…"
-            className="w-full px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D]"
+            className="w-full px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F]"
           />
           <button
             type="button"
             onClick={handlePaste}
-            className="shrink-0 px-3 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] hover:bg-[#F7EED9] transition-colors"
+            className="shrink-0 px-3 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] hover:bg-[#F7EED9] transition-colors"
             aria-label="Paste from clipboard"
             title="Paste from clipboard"
           >
@@ -109,7 +109,7 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
         type="button"
         onClick={handleFetch}
         disabled={loading || !canUseApi}
-        className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? (
           <span className="inline-flex items-center gap-2">
@@ -125,22 +125,22 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
       </button>
 
       {!!result && (
-        <div className="rounded-2xl border border-[#2F281D]/15 bg-white/40 p-4 space-y-4">
+        <div className="rounded-2xl border border-[#14171F]/15 bg-white/40 p-4 space-y-4">
           <div className="flex gap-4 items-start">
             {result?.thumbnail ? (
-              <div className="relative w-28 h-28 rounded-xl overflow-hidden border border-[#2F281D]/10 bg-[#FDF8EC]">
+              <div className="relative w-28 h-28 rounded-xl overflow-hidden border border-[#14171F]/10 bg-[#F6F4EC]">
                 <Image src={result.thumbnail} alt="" fill className="object-cover" />
               </div>
             ) : (
-              <div className="w-28 h-28 rounded-xl border border-[#2F281D]/10 bg-[#FDF8EC]" />
+              <div className="w-28 h-28 rounded-xl border border-[#14171F]/10 bg-[#F6F4EC]" />
             )}
             <div className="min-w-0 flex-1 space-y-1">
-              <p className="text-xs text-[#2F281D]/60 uppercase tracking-wide">
+              <p className="text-xs text-[#14171F]/60 uppercase tracking-wide">
                 {String(result?.platform || platform)}
               </p>
-              <p className="text-sm font-bold text-[#2F281D] break-words">{String(result?.title || 'Video')}</p>
+              <p className="text-sm font-bold text-[#14171F] break-words">{String(result?.title || 'Video')}</p>
               {result?.sourceUrl && (
-                <p className="text-xs text-[#2F281D]/60 break-all">{String(result.sourceUrl)}</p>
+                <p className="text-xs text-[#14171F]/60 break-all">{String(result.sourceUrl)}</p>
               )}
             </div>
           </div>
@@ -163,7 +163,7 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
                     }}
                     className={[
                       'px-3 py-2 rounded-xl border text-sm font-semibold transition-colors',
-                      isSelected ? 'bg-[#2F281D] text-[#FDF8EC] border-[#2F281D]' : 'bg-[#FDF8EC] text-[#2F281D] border-[#2F281D]/15 hover:bg-[#F7EED9]',
+                      isSelected ? 'bg-[#14171F] text-[#F6F4EC] border-[#14171F]' : 'bg-[#F6F4EC] text-[#14171F] border-[#14171F]/15 hover:bg-[#F7EED9]',
                     ].join(' ')}
                   >
                     <span className="inline-flex items-center gap-2">
@@ -178,12 +178,12 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
 
           {selectedUrl && (
             <div className="rounded-xl border border-green-200 bg-green-50/50 p-4 space-y-2">
-              <p className="text-[#2F281D]/80 text-sm font-medium">Download ready ({selectedLabel})</p>
+              <p className="text-[#14171F]/80 text-sm font-medium">Download ready ({selectedLabel})</p>
               <div className="flex flex-wrap gap-2">
                 <button
                   type="button"
                   onClick={handleDirectDownload}
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#2F281D] text-[#FDF8EC] text-sm font-bold hover:bg-[#997F6C] transition-colors"
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#14171F] text-[#F6F4EC] text-sm font-bold hover:bg-[#D98A2C] transition-colors"
                 >
                   <Download className="w-4 h-4" />
                   Download
@@ -192,7 +192,7 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
                   href={selectedUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-[#2F281D]/20 text-[#2F281D] bg-[#FDF8EC] text-sm font-bold hover:bg-[#F7EED9] transition-colors"
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-[#14171F]/20 text-[#14171F] bg-[#F6F4EC] text-sm font-bold hover:bg-[#F7EED9] transition-colors"
                 >
                   <Link2 className="w-4 h-4" />
                   Open
@@ -204,11 +204,11 @@ export function VideoDownloaderShared({ platform }: { platform: Platform }) {
       )}
 
       {message && (
-        <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-4 text-[#2F281D]/80 text-sm" role="alert">
+        <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-4 text-[#14171F]/80 text-sm" role="alert">
           {message}
         </div>
       )}
-      <p className="text-[#2F281D]/60 text-xs">
+      <p className="text-[#14171F]/60 text-xs">
         Download availability depends on platform privacy/restrictions. Public links work best.
       </p>
     </div>

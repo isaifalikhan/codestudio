@@ -80,44 +80,44 @@ export default function ImageResizerWidget() {
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="w-full py-8 rounded-xl border-2 border-dashed border-[#2F281D]/30 bg-[#FDF8EC] text-[#2F281D]/70 hover:border-[#997F6C]"
+        className="w-full py-8 rounded-xl border-2 border-dashed border-[#14171F]/30 bg-[#F6F4EC] text-[#14171F]/70 hover:border-[#D98A2C]"
       >
         {file ? file.name : 'Choose image'}
       </button>
       {file && (
         <>
-          <p className="text-sm text-[#2F281D]/70">Original: {natural.w} × {natural.h}</p>
+          <p className="text-sm text-[#14171F]/70">Original: {natural.w} × {natural.h}</p>
           <div className="grid grid-cols-2 gap-4">
             <label>
-              <span className="text-sm font-medium text-[#2F281D] block mb-1">Width (px)</span>
+              <span className="text-sm font-medium text-[#14171F] block mb-1">Width (px)</span>
               <input
                 type="number"
                 min={1}
                 value={width}
                 onChange={(e) => setWidth(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
               />
             </label>
             <label>
-              <span className="text-sm font-medium text-[#2F281D] block mb-1">Height (px)</span>
+              <span className="text-sm font-medium text-[#14171F] block mb-1">Height (px)</span>
               <input
                 type="number"
                 min={1}
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg border border-[#2F281D]/20 bg-[#FDF8EC]"
+                className="w-full px-4 py-2 rounded-lg border border-[#14171F]/20 bg-[#F6F4EC]"
               />
             </label>
           </div>
           <label className="flex items-center gap-2 cursor-pointer">
             <input type="checkbox" checked={keepRatio} onChange={(e) => setKeepRatio(e.target.checked)} className="rounded" />
-            <span className="text-sm text-[#2F281D]">Maintain aspect ratio</span>
+            <span className="text-sm text-[#14171F]">Maintain aspect ratio</span>
           </label>
           <div className="flex gap-2">
             <button
               type="button"
               onClick={process}
-              className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C]"
+              className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C]"
             >
               Resize
             </button>
@@ -125,13 +125,13 @@ export default function ImageResizerWidget() {
               <button
                 type="button"
                 onClick={download}
-                className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold"
+                className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold"
               >
                 Download
               </button>
             )}
           </div>
-          {result && <img src={result} alt="Resized" className="max-h-64 rounded-xl border border-[#2F281D]/10" />}
+          {result && <img src={result} alt="Resized" className="max-h-64 rounded-xl border border-[#14171F]/10" />}
         </>
       )}
     </div>

@@ -48,19 +48,19 @@ export default function PasswordStrengthCheckerWidget() {
   return (
     <div className="space-y-6">
       <label className="block">
-        <span className="text-sm font-medium text-[#2F281D] block mb-2">Enter password to check</span>
+        <span className="text-sm font-medium text-[#14171F] block mb-2">Enter password to check</span>
         <div className="flex gap-2">
           <input
             type={show ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Type or paste password..."
-            className="flex-1 px-4 py-3 rounded-xl border border-[#2F281D]/20 bg-[#FDF8EC] text-[#2F281D] placeholder:text-[#2F281D]/40 focus:outline-none focus:ring-2 focus:ring-[#997F6C]/50"
+            className="flex-1 px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50"
           />
           <button
             type="button"
             onClick={() => setShow(!show)}
-            className="px-4 py-3 rounded-xl border border-[#2F281D]/20 text-[#2F281D] font-medium"
+            className="px-4 py-3 rounded-xl border border-[#14171F]/20 text-[#14171F] font-medium"
           >
             {show ? 'Hide' : 'Show'}
           </button>
@@ -69,19 +69,19 @@ export default function PasswordStrengthCheckerWidget() {
       {password && (
         <>
           <div>
-            <p className="text-sm text-[#2F281D]/60 mb-1">Strength: {strength.label}</p>
-            <div className="h-3 rounded-full bg-[#2F281D]/10 overflow-hidden">
+            <p className="text-sm text-[#14171F]/60 mb-1">Strength: {strength.label}</p>
+            <div className="h-3 rounded-full bg-[#14171F]/10 overflow-hidden">
               <div
                 className={`h-full rounded-full transition-all ${strength.color}`}
                 style={{ width: `${Math.max(10, strength.score)}%` }}
               />
             </div>
           </div>
-          <p className="text-sm text-[#2F281D]/70">Estimated crack time: {time}</p>
+          <p className="text-sm text-[#14171F]/70">Estimated crack time: {time}</p>
           {strength.tips.length > 0 && (
             <div>
-              <p className="text-sm font-medium text-[#2F281D] mb-2">Suggestions</p>
-              <ul className="list-disc list-inside text-sm text-[#2F281D]/70 space-y-1">
+              <p className="text-sm font-medium text-[#14171F] mb-2">Suggestions</p>
+              <ul className="list-disc list-inside text-sm text-[#14171F]/70 space-y-1">
                 {strength.tips.map((t, i) => (
                   <li key={i}>{t}</li>
                 ))}

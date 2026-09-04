@@ -47,7 +47,7 @@ export default function PdfCompressorWidget() {
       <button
         type="button"
         onClick={() => inputRef.current?.click()}
-        className="w-full py-8 rounded-xl border-2 border-dashed border-[#2F281D]/30 bg-[#FDF8EC] text-[#2F281D]/70 hover:border-[#997F6C]"
+        className="w-full py-8 rounded-xl border-2 border-dashed border-[#14171F]/30 bg-[#F6F4EC] text-[#14171F]/70 hover:border-[#D98A2C]"
       >
         {file ? file.name : 'Choose PDF'}
       </button>
@@ -57,14 +57,14 @@ export default function PdfCompressorWidget() {
             type="button"
             onClick={process}
             disabled={loading}
-            className="px-5 py-2.5 rounded-xl bg-[#2F281D] text-[#FDF8EC] font-bold hover:bg-[#997F6C] disabled:opacity-50"
+            className="px-5 py-2.5 rounded-xl bg-[#14171F] text-[#F6F4EC] font-bold hover:bg-[#D98A2C] disabled:opacity-50"
           >
             {loading ? 'Compressing…' : 'Compress'}
           </button>
           {result && (
             <>
-              <p className="text-sm text-[#2F281D]/70">{(file.size / 1024).toFixed(1)} KB → {(result.size / 1024).toFixed(1)} KB</p>
-              <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl border border-[#2F281D]/30 text-[#2F281D] font-bold">
+              <p className="text-sm text-[#14171F]/70">{(file.size / 1024).toFixed(1)} KB → {(result.size / 1024).toFixed(1)} KB</p>
+              <button type="button" onClick={download} className="px-5 py-2.5 rounded-xl border border-[#14171F]/30 text-[#14171F] font-bold">
                 Download
               </button>
             </>
