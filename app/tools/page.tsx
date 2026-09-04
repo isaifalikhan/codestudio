@@ -6,6 +6,8 @@ import { ToolsHubClient } from '@/app/components/tools/ToolsHubClient';
 import { JsonLd } from '@/app/components/JsonLd';
 import { ArrowRight } from 'lucide-react';
 import { AdPlacement } from '@/app/components/AdPlacement';
+import { TagChip } from '@/src/components/TagChip';
+import { BracketLink } from '@/src/components/BracketLink';
 
 const SITE = 'https://www.codexstudio2026.com';
 const breadcrumbSchema = {
@@ -69,45 +71,39 @@ export default function ToolsHubPage() {
       <JsonLd data={breadcrumbSchema} />
 
       {/* Hero */}
-      <section className="h-screen flex items-center justify-center pt-12 pb-16 px-6">
+      <section className="min-h-[90vh] flex items-center justify-center pt-24 pb-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-[#D98A2C] font-bold uppercase tracking-widest text-sm mb-4">
-            Free Tools
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-[#14171F] mb-6 leading-tight">
-            {tools.length}+ Free Online Tools — No Signup, Works in Browser
+          <div className="mb-4 flex justify-center">
+            <TagChip name="FreeTools" />
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-ink mb-6 leading-tight">
+            {tools.length}+ free online tools — no signup, works in browser
           </h1>
-          <p className="max-w-3xl mx-auto text-lg text-[#14171F]/70 leading-relaxed mb-10">
+          <p className="max-w-3xl mx-auto text-lg text-ink/70 leading-relaxed mb-10">
             CodexStudio built these tools for developers, designers, and businesses. Most tools run in your browser with no signup. Video downloaders and AI
             writers use our secure servers only to complete those tasks — see each tool&apos;s page for details.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#tools-grid"
-              className="inline-flex items-center gap-2 bg-[#14171F] text-[#F6F4EC] px-6 py-3 rounded-full font-bold hover:bg-[#D98A2C] transition-colors"
-            >
-              Browse Tools ↓
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 border border-[#14171F]/30 text-[#14171F] px-6 py-3 rounded-full font-bold hover:bg-[#14171F]/5 transition-colors"
-            >
-              Start a Project <ArrowRight className="w-4 h-4" />
-            </Link>
+            <BracketLink href="#tools-grid" variant="solid">
+              Browse tools ↓
+            </BracketLink>
+            <BracketLink href="/contact" variant="outline">
+              Start a project <ArrowRight className="w-4 h-4" />
+            </BracketLink>
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="py-6 px-6 border-y border-[#14171F]/10 bg-[#ECE7D9]/50">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center">
-          <span className="text-[#14171F] font-bold">{tools.length}+ Tools</span>
-          <span className="text-[#14171F]/60">·</span>
-          <span className="text-[#14171F] font-bold">17 Categories</span>
-          <span className="text-[#14171F]/60">·</span>
-          <span className="text-[#14171F] font-bold">100% Free</span>
-          <span className="text-[#14171F]/60">·</span>
-          <span className="text-[#14171F] font-bold">No Signup</span>
+      <section className="py-6 px-6 border-y border-ink/10 bg-paper-dim/50">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center font-mono text-sm">
+          <span className="text-ink font-bold">{tools.length}+ tools</span>
+          <span className="text-ink/30">·</span>
+          <span className="text-ink font-bold">17 categories</span>
+          <span className="text-ink/30">·</span>
+          <span className="text-ink font-bold">100% free</span>
+          <span className="text-ink/30">·</span>
+          <span className="text-ink font-bold">no signup</span>
         </div>
       </section>
 
@@ -247,19 +243,16 @@ export default function ToolsHubPage() {
       {/* CTA */}
       <section className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#14171F] mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-ink mb-4">
             Need a custom tool built for your business?
           </h2>
-          <p className="text-[#14171F]/70 text-lg mb-8">
+          <p className="text-ink/70 text-lg mb-8">
             The CodexStudio team builds fast, SEO-optimized websites and web apps. Let&apos;s build
             something great together.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-[#14171F] text-[#F6F4EC] px-8 py-4 rounded-full font-bold hover:bg-[#D98A2C] transition-colors"
-          >
-            Start a Project <ArrowRight className="w-5 h-5" />
-          </Link>
+          <BracketLink href="/contact" variant="solid" className="px-8 py-4">
+            Start a project <ArrowRight className="w-5 h-5" />
+          </BracketLink>
         </div>
       </section>
     </>

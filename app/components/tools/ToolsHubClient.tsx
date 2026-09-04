@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
+import { Search } from 'lucide-react';
 import { ToolCard } from './ToolCard';
 import type { Tool } from '@/lib/tools-data';
 import { toolCategories } from '@/lib/tools-data';
@@ -41,16 +42,19 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
   return (
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
-        <input
-          type="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search 100+ free tools..."
-          aria-label="Search tools"
-          className="w-full sm:max-w-xs px-4 py-3 rounded-xl border border-[#14171F]/20 bg-[#F6F4EC] text-[#14171F] placeholder:text-[#14171F]/40 focus:outline-none focus:ring-2 focus:ring-[#D98A2C]/50 focus:border-[#D98A2C]"
-        />
-        <p className="text-sm text-[#14171F]/60 font-medium">
-          Showing {filteredTools.length} tool{filteredTools.length !== 1 ? 's' : ''}
+        <div className="relative w-full sm:max-w-xs">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-ink/30" aria-hidden />
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search 100+ free tools…"
+            aria-label="Search tools"
+            className="w-full pl-10 pr-4 py-3 rounded-lg border border-ink/20 bg-paper text-ink placeholder:text-ink/40 focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold"
+          />
+        </div>
+        <p className="font-mono text-xs text-mist">
+          <span className="text-gold">//</span> showing {filteredTools.length} tool{filteredTools.length !== 1 ? 's' : ''}
         </p>
       </div>
 
@@ -60,10 +64,10 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
             key={cat.id}
             type="button"
             onClick={() => setCategoryId(cat.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               categoryId === cat.id
-                ? 'bg-[#14171F] text-[#F6F4EC]'
-                : 'bg-[#14171F]/10 text-[#14171F]/70 hover:bg-[#14171F]/20'
+                ? 'bg-ink text-paper'
+                : 'bg-ink/10 text-ink/70 hover:bg-ink/20'
             }`}
           >
             {cat.label} <span className="ml-1 opacity-70">({cat.count})</span>
@@ -72,7 +76,7 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
       </div>
 
       <div>
-        <h2 className="text-2xl font-display font-bold text-[#14171F] mb-4">Most Popular</h2>
+        <h2 className="text-2xl font-display font-bold text-ink mb-4">Most popular</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {popularTools.map((tool) => (
             <ToolCard key={`popular-${tool.slug}`} tool={tool} />
@@ -87,7 +91,7 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
       </div>
 
       {filteredTools.length === 0 && (
-        <p className="text-center text-[#14171F]/60 py-12">
+        <p className="text-center text-ink/60 py-12">
           No tools match your search. Try a different term or category.
         </p>
       )}

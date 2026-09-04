@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Code, Layout, ShoppingCart, Palette, Search, Sparkles, Smartphone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { TagChip } from './TagChip';
 
 const services = [
   {
@@ -66,8 +67,8 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8, boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)' }}
-      className="group relative rounded-3xl bg-[#ECE7D9] border border-[#14171F]/5 hover:border-[#D98A2C]/50 transition-all duration-300 overflow-hidden flex flex-col h-full"
+      whileHover={{ y: -6 }}
+      className="group relative rounded-xl bg-paper-dim border border-ink/5 hover:border-gold/50 hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col h-full"
     >
       <Link href={service.to} className="flex flex-col h-full">
         <div className="relative h-48 overflow-hidden">
@@ -79,18 +80,18 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
             loading="lazy"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
-          <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md flex items-center justify-center shadow-lg">
-            <Icon className="w-6 h-6 text-[#14171F]" />
+          <div className="absolute inset-0 bg-ink/20 group-hover:bg-ink/10 transition-colors duration-500" />
+          <div className="absolute top-4 left-4 w-12 h-12 rounded-lg bg-paper/90 backdrop-blur-md flex items-center justify-center shadow-lg">
+            <Icon className="w-6 h-6 text-ink" />
           </div>
         </div>
         <div className="p-8 flex-grow flex flex-col">
-          <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-[#D98A2C] transition-colors text-[#14171F]">
+          <h3 className="text-2xl font-display font-bold mb-4 group-hover:text-gold transition-colors text-ink">
             {service.title}
           </h3>
-          <p className="text-[#14171F]/50 leading-relaxed mb-6">{service.description}</p>
-          <span className="mt-auto flex items-center gap-2 text-sm font-bold text-[#14171F]/30 group-hover:text-[#14171F] transition-colors">
-            Learn More <ArrowRight className="w-4 h-4" />
+          <p className="text-ink/50 leading-relaxed mb-6">{service.description}</p>
+          <span className="mt-auto flex items-center gap-2 text-sm font-bold text-ink/30 group-hover:text-ink transition-colors">
+            Learn more <ArrowRight className="w-4 h-4" />
           </span>
         </div>
       </Link>
@@ -100,34 +101,34 @@ const ServiceCard: React.FC<{ service: (typeof services)[0]; index: number }> = 
 
 export const Services = () => {
   return (
-    <section className="py-24 px-6 bg-[#F6F4EC] relative overflow-hidden" aria-labelledby="services-heading">
+    <section className="py-24 px-6 bg-paper relative overflow-hidden" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
-            <motion.span
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
+              className="mb-4"
             >
-              Our Services
-            </motion.span>
+              <TagChip name="Services" />
+            </motion.div>
             <motion.h2
               id="services-heading"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-display font-bold tracking-tight text-[#14171F]"
+              className="text-4xl md:text-6xl font-display font-bold tracking-tight text-ink"
             >
               Solutions for the <br />
-              <span className="text-[#14171F]/40">Modern Era</span>
+              <span className="text-ink/40">modern era</span>
             </motion.h2>
           </div>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="max-w-md text-[#14171F]/50 text-lg"
+            className="max-w-md text-ink/50 text-lg"
           >
             From websites to web apps and branding—we help startups and businesses grow with digital products that perform.
           </motion.p>
@@ -141,7 +142,7 @@ export const Services = () => {
         <div className="mt-12 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-[#14171F] font-bold hover:text-[#D98A2C] transition-colors"
+            className="inline-flex items-center gap-2 text-ink font-bold hover:text-gold transition-colors"
           >
             View all services <ArrowRight className="w-5 h-5" />
           </Link>

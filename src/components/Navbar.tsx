@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '../utils/cn';
 import { BracketLink } from './BracketLink';
+import { Logo } from './Logo';
 import { BRAND_PHONE, BRAND_CITY } from '@/lib/seo';
 import { SERVICE_SLUGS, SERVICES_DATA } from '@/lib/servicesData';
 
@@ -35,19 +36,6 @@ const serviceLinks = SERVICE_SLUGS.map((slug) => ({
   tagline: SERVICES_DATA[slug].shortDesc,
   path: `/services/${slug}`,
 }));
-
-const Logo = ({ dark }: { dark?: boolean }) => (
-  <span
-    className={cn(
-      'font-mono font-bold text-lg sm:text-xl tracking-tight',
-      dark ? 'text-paper' : 'text-ink'
-    )}
-  >
-    <span className={dark ? 'text-paper/30' : 'text-ink/25'}>&lt;</span>
-    Codex<span className="text-gold">Studio</span>
-    <span className={dark ? 'text-paper/30' : 'text-ink/25'}>/&gt;</span>
-  </span>
-);
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

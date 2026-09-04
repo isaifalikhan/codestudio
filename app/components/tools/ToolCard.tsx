@@ -11,7 +11,7 @@ export function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link
       href={`/tools/${tool.slug}`}
-      className="group block rounded-2xl border border-[#14171F]/10 bg-[#F6F4EC] p-6 shadow-sm hover:shadow-md hover:border-[#D98A2C]/30 transition-all flex flex-col h-full"
+      className="group block rounded-xl border border-ink/10 bg-paper p-6 shadow-sm hover:shadow-lg hover:border-gold/40 hover:-translate-y-0.5 transition-all flex flex-col h-full"
     >
       <div className="flex items-start justify-between gap-3 mb-3">
         <span className="text-2xl flex-shrink-0" aria-hidden>
@@ -23,18 +23,18 @@ export function ToolCard({ tool }: ToolCardProps) {
               Limited
             </span>
           )}
-          <span className="text-xs font-medium text-[#D98A2C] bg-[#D98A2C]/10 px-2 py-0.5 rounded-full">
+          <span className="font-mono text-[11px] font-medium text-gold bg-gold/10 px-2 py-0.5 rounded">
             {tool.category}
           </span>
         </div>
       </div>
-      <h3 className="font-display font-bold text-[#14171F] text-lg mb-1 group-hover:text-[#D98A2C] transition-colors">
+      <h3 className="font-display font-bold text-ink text-lg mb-1 group-hover:text-gold transition-colors">
         {tool.name}
       </h3>
-      <p className="text-[#14171F]/70 text-sm leading-relaxed line-clamp-2 flex-grow">
+      <p className="text-ink/70 text-sm leading-relaxed line-clamp-2 flex-grow">
         {tool.tagline}
       </p>
-      <span className="inline-flex items-center gap-1.5 mt-4 text-sm font-bold text-[#D98A2C] group-hover:gap-2 transition-all">
+      <span className="inline-flex items-center gap-1.5 mt-4 text-sm font-bold text-gold group-hover:gap-2 transition-all">
         Use tool
         <span className="group-hover:translate-x-0.5 transition-transform" aria-hidden>→</span>
       </span>

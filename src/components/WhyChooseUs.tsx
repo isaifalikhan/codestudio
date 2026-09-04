@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { Check, Cpu, Search, Zap, Smartphone, MessageCircle } from 'lucide-react';
+import { TagChip } from './TagChip';
 
 const reasons = [
   {
@@ -38,31 +39,31 @@ const reasons = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="py-24 px-6 bg-[#ECE7D9]/50" aria-labelledby="why-choose-heading">
+    <section className="py-24 px-6 bg-paper-dim/50" aria-labelledby="why-choose-heading">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <motion.span
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="mb-4 flex justify-center"
           >
-            Why CodexStudio
-          </motion.span>
+            <TagChip name="WhyChooseUs" />
+          </motion.div>
           <motion.h2
             id="why-choose-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-bold text-[#14171F]"
+            className="text-4xl md:text-6xl font-display font-bold text-ink"
           >
-            Why Choose <span className="text-[#14171F]/40">Us</span>
+            Why choose <span className="text-ink/40">us</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-[#14171F]/60 text-lg mt-4"
+            className="max-w-2xl mx-auto text-ink/60 text-lg mt-4"
           >
             We combine technical excellence with clear communication so your project delivers results.
           </motion.p>
@@ -78,20 +79,20 @@ export const WhyChooseUs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex gap-6 p-8 rounded-3xl bg-[#F6F4EC] border border-[#14171F]/5 hover:border-[#D98A2C]/30 transition-colors"
+                className="flex gap-6 p-8 rounded-xl bg-paper border border-ink/5 hover:border-gold/30 transition-colors"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#14171F]/5 flex items-center justify-center">
-                  <Icon className="w-7 h-7 text-[#D98A2C]" />
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-ink/5 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-gold" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#14171F] mb-2 flex items-center gap-2">
-                    <Check className="w-5 h-5 text-[#2F7A6D]" aria-hidden />
+                  <h3 className="text-xl font-bold text-ink mb-2 flex items-center gap-2">
+                    <Check className="w-5 h-5 text-pine" aria-hidden />
                     {item.title}
                   </h3>
-                  <p className="text-[#14171F]/60 leading-relaxed">{item.description}</p>
+                  <p className="text-ink/60 leading-relaxed">{item.description}</p>
                   {item.link && (
                     <p className="mt-3">
-                      <Link href={item.link.href} className="text-[#D98A2C] font-semibold hover:underline">
+                      <Link href={item.link.href} className="text-gold font-semibold hover:underline">
                         {item.link.text}
                       </Link>
                     </p>

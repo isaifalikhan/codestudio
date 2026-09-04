@@ -2,34 +2,36 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
+import { cn } from '../utils/cn';
 
 const stats = [
-  { label: 'Free Tools Built', value: '100+' },
-  { label: 'Happy Clients', value: '30+' },
-  { label: 'Years Experience', value: '3+' },
-  { label: 'Countries Served', value: '5+' },
+  { label: 'free tools built', value: '100+' },
+  { label: 'happy clients', value: '30+' },
+  { label: 'years experience', value: '3+' },
+  { label: 'countries served', value: '5+' },
 ];
 
 export const Stats = () => {
   return (
-    <section className="py-20 px-6 border-y border-[#14171F]/5 bg-[#F6F4EC]" aria-labelledby="stats-heading">
+    <section className="py-20 px-6 border-y border-ink/10 bg-paper" aria-labelledby="stats-heading">
       <div className="max-w-7xl mx-auto">
         <h2 id="stats-heading" className="sr-only">Trust statistics</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="text-center"
+              transition={{ delay: index * 0.08 }}
+              className={cn(
+                'text-center px-4 py-6 sm:py-0',
+                index !== 0 && 'sm:border-l border-ink/10'
+              )}
             >
-              <h3 className="text-4xl md:text-6xl font-display font-bold text-gradient mb-2">
-                {stat.value}
-              </h3>
-              <p className="text-[#14171F]/40 text-sm font-bold uppercase tracking-widest">
-                {stat.label}
+              <p className="font-mono text-4xl md:text-5xl font-bold text-ink mb-2">{stat.value}</p>
+              <p className="font-mono text-xs text-mist">
+                <span className="text-gold">//</span> {stat.label}
               </p>
             </motion.div>
           ))}
