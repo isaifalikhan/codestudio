@@ -8,7 +8,6 @@ import {
   getServiceBySlug,
   type ServiceSlug,
 } from '@/lib/servicesData';
-import { getReviewsForPage } from '@/lib/reviews';
 
 export async function generateStaticParams() {
   return SERVICE_SLUGS.map((slug) => ({ slug }));
@@ -69,7 +68,6 @@ export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
-  const reviews = getReviewsForPage(`service-${service.slug}`, 6);
 
   return (
     <>
@@ -160,22 +158,6 @@ export default async function ServicePage({ params }: Props) {
                 </div>
               ))}
             </dl>
-          </div>
-        </section>
-
-        <section className="py-12 px-6 border-t border-[#14171F]/10">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-display font-bold text-[#14171F] mb-3">Client Reviews</h2>
-            <p className="text-[#14171F]/70 mb-6">Professional placeholder reviews (100 total) are rotated across all service pages.</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {reviews.map((review) => (
-                <article key={review.id} className="rounded-xl border border-[#14171F]/10 bg-[#ECE7D9]/30 p-4">
-                  <p className="text-[#14171F]/80 text-sm leading-relaxed">"{review.quote}"</p>
-                  <p className="font-semibold text-[#14171F] mt-3">{review.name}</p>
-                  <p className="text-xs text-[#14171F]/60">{review.role}, {review.company} ({review.location})</p>
-                </article>
-              ))}
-            </div>
           </div>
         </section>
 

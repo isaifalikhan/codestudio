@@ -6,7 +6,6 @@ import { ChevronRight } from 'lucide-react';
 import type { Tool } from '@/lib/tools-data';
 import { tools } from '@/lib/tools-data';
 import { AdPlacement } from '@/app/components/AdPlacement';
-import { getReviewsForPage } from '@/lib/reviews';
 import { isServerBackedTool, isIncompleteTool } from '@/lib/tool-server-behavior';
 import { getToolFaqItems } from '@/lib/tool-faqs';
 import { BracketLink } from '@/src/components/BracketLink';
@@ -37,7 +36,6 @@ function resolveRelatedTools(tool: Tool, fromProps: Tool[]): Tool[] {
 
 export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; children: React.ReactNode; relatedTools?: Tool[] }) {
   const displayRelated = resolveRelatedTools(tool, relatedTools);
-  const pageReviews = getReviewsForPage(`tool-${tool.slug}`, 4);
   const [s1, s2, s3] = tool.howToSteps;
 
   return (
@@ -173,24 +171,6 @@ export function ToolLayout({ tool, children, relatedTools = [] }: { tool: Tool; 
           <Link href="/tools" className="text-gold font-semibold hover:underline">
             ← Back to all 100+ free tools
           </Link>
-        </div>
-      </section>
-
-      <section className="mt-8 mb-8">
-        <h3 className="text-xl font-display font-bold text-ink mb-4">User reviews</h3>
-        <p className="text-ink/60 mb-4">
-          100+ client-style placeholder reviews are available across our pages.
-        </p>
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-3">
-          {pageReviews.map((review) => (
-            <article key={review.id} className="p-3.5 rounded-xl border border-ink/10 bg-paper">
-              <p className="text-sm text-ink leading-relaxed">&ldquo;{review.quote}&rdquo;</p>
-              <p className="mt-2.5 font-semibold text-ink text-sm">{review.name}</p>
-              <p className="mt-1 text-ink/60 text-xs">
-                {review.role}, {review.company} ({review.location})
-              </p>
-            </article>
-          ))}
         </div>
       </section>
 
