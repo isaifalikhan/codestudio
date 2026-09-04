@@ -74,7 +74,7 @@ export const ContactPage = () => {
                 <h3 className="font-bold text-[#14171F]">Email Us</h3>
                 <p className="text-[#14171F]/60">Use the form to send a message. We reply within 24 hours.</p>
               </div>
-              <a href={`https://wa.me/923001234567`} target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#ECE7D9] space-y-4 block hover:bg-[#ECE7D9]/90 transition-colors">
+              <a href={`https://wa.me/${BRAND_PHONE.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl bg-[#ECE7D9] space-y-4 block hover:bg-[#ECE7D9]/90 transition-colors">
                 <div className="w-12 h-12 rounded-2xl bg-[#D98A2C] text-[#F6F4EC] flex items-center justify-center">
                   <Phone className="w-6 h-6" />
                 </div>

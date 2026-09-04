@@ -38,7 +38,7 @@ const nextConfig = {
     ];
   },
   async headers() {
-    return [
+    const headers = [
       {
         source: '/:path*',
         headers: [
@@ -49,13 +49,20 @@ const nextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
-      {
+    ];
+    // next dev serves /_next/static chunks without content hashes, so an
+    // immutable 1-year cache header here would make the browser keep
+    // executing stale JS after every edit. Only safe once build output is
+    // content-hashed, i.e. in production.
+    if (process.env.NODE_ENV === 'production') {
+      headers.push({
         source: '/_next/static/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
-      },
-    ];
+      });
+    }
+    return headers;
   },
   compiler: {
     reactRemoveProperties: process.env.NODE_ENV === 'production' ? { properties: ['^data-test'] } : false,

@@ -126,7 +126,7 @@ export const ProjectSlider = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-[#D98A2C] font-mono text-lg lg:text-xl font-bold">{slides[current].number}</span>
                   <div className="h-px w-8 lg:w-12 bg-[#D98A2C]" />
-                  <span className="text-[#F6F4EC]/60 font-bold uppercase tracking-[0.3em] text-[10px] lg:text-xs">
+                  <span className="font-mono text-[#F6F4EC]/60 font-bold tracking-widest text-[10px] lg:text-xs">
                     {slides[current].tag}
                   </span>
                 </div>
@@ -158,7 +158,7 @@ export const ProjectSlider = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="group relative inline-block overflow-hidden bg-[#F6F4EC] text-[#14171F] px-8 lg:px-10 py-4 lg:py-5 rounded-full font-bold text-base lg:text-lg transition-all"
+                      className="group relative inline-block overflow-hidden bg-[#F6F4EC] text-[#14171F] px-8 lg:px-10 py-4 lg:py-5 rounded-lg font-bold text-base lg:text-lg transition-all"
                     >
                       <span className="relative z-10 flex items-center gap-3">
                         View Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />

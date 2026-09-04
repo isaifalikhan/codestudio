@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { Plus, Minus } from 'lucide-react';
+import { TagChip } from './TagChip';
 
 const faqs = [
   {
@@ -30,22 +31,22 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 px-6 bg-[#F6F4EC]">
+    <section className="py-24 px-6 bg-paper">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <motion.span
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="mb-4 flex justify-center"
           >
-            Questions
-          </motion.span>
+            <TagChip name="FAQ" />
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-display font-bold text-[#14171F]"
+            className="text-4xl md:text-5xl font-display font-bold text-ink"
           >
-            Frequently Asked <span className="text-[#14171F]/40">Questions</span>
+            Frequently asked <span className="text-ink/40">questions</span>
           </motion.h2>
         </div>
 
@@ -56,16 +57,16 @@ export const FAQ = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="border-b border-[#14171F]/10"
+              className="border-b border-ink/10"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full py-6 flex items-center justify-between text-left group"
               >
-                <span className="text-xl font-bold text-[#14171F] group-hover:text-[#D98A2C] transition-colors">
+                <span className="text-xl font-bold text-ink group-hover:text-gold transition-colors">
                   {faq.question}
                 </span>
-                <div className="w-8 h-8 rounded-full bg-[#14171F]/5 flex items-center justify-center group-hover:bg-[#14171F] group-hover:text-[#F6F4EC] transition-all">
+                <div className="w-8 h-8 rounded-lg bg-ink/5 flex items-center justify-center group-hover:bg-ink group-hover:text-paper transition-all shrink-0 ml-4">
                   {openIndex === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                 </div>
               </button>
@@ -78,12 +79,12 @@ export const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className={`text-[#14171F]/60 leading-relaxed ${faq.link ? 'pb-2' : 'pb-6'}`}>
+                    <p className={`text-ink/60 leading-relaxed ${faq.link ? 'pb-2' : 'pb-6'}`}>
                       {faq.answer}
                     </p>
                     {faq.link && (
                       <p className="pb-6">
-                        <Link href={faq.link.href} className="text-[#D98A2C] font-semibold hover:underline">
+                        <Link href={faq.link.href} className="text-gold font-semibold hover:underline">
                           {faq.link.text}
                         </Link>
                       </p>

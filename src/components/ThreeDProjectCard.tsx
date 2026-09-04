@@ -43,7 +43,7 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
           opacity: springOpacity,
           transformStyle: 'preserve-3d',
         }}
-        className="group relative aspect-[16/9] rounded-[2rem] overflow-hidden bg-[#14171F]/5"
+        className="group relative aspect-[16/9] rounded-2xl overflow-hidden bg-ink/5 border border-ink/10"
       >
         <motion.div style={{ scale: springImageScale }} className="absolute inset-0">
           <Image
@@ -101,8 +101,8 @@ export const ThreeDProjectCard: React.FC<ThreeDProjectCardProps> = ({ project, i
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                <span className="text-[#D98A2C] font-bold text-xs uppercase tracking-[0.3em] mb-4 block">
-                  {project.category}
+                <span className="font-mono text-gold font-bold text-xs tracking-widest mb-4 block">
+                  // {project.category}
                 </span>
                 <h3 className="text-4xl md:text-7xl font-display font-bold text-[#F6F4EC] leading-[0.9] tracking-tighter">
                   {project.title}

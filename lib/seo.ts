@@ -2,7 +2,7 @@ import { SITE_URL } from '@/lib/constants';
 
 export { SITE_URL };
 export const BRAND_NAME = 'CodexStudio';
-export const BRAND_PHONE = '+92-300-1234567';
+export const BRAND_PHONE = '+44 7923 122356';
 export const BRAND_EMAIL = 'hello@codexstudio2026.com';
 export const BRAND_CITY = 'Islamabad';
 export const BRAND_REGION = 'Punjab';

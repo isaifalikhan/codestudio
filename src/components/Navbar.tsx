@@ -81,13 +81,10 @@ export const Navbar = () => {
                   <Link
                     href={link.path}
                     className={cn(
-                      'text-sm font-medium transition-colors hover:text-gold inline-flex items-center gap-1.5',
+                      'text-sm font-medium transition-colors hover:text-gold',
                       pathname.startsWith('/services') ? 'text-ink font-bold' : 'text-ink/60'
                     )}
                   >
-                    {pathname.startsWith('/services') && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden />
-                    )}
                     Services
                   </Link>
                   <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute top-full left-0 mt-3 w-80 rounded-lg border border-ink/10 bg-paper shadow-xl p-2 transition-all">
@@ -107,13 +104,10 @@ export const Navbar = () => {
                 <Link
                   href={link.path}
                   className={cn(
-                    'text-sm font-medium transition-colors hover:text-gold relative group/link inline-flex items-center gap-1.5',
+                    'text-sm font-medium transition-colors hover:text-gold relative group/link',
                     pathname === link.path ? 'text-ink font-bold' : 'text-ink/60'
                   )}
                 >
-                  {pathname === link.path && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold" aria-hidden />
-                  )}
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all group-hover/link:w-full" />
                 </Link>

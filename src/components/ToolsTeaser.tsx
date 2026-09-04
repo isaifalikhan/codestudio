@@ -4,6 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { TagChip } from './TagChip';
+import { BracketLink } from './BracketLink';
 
 const popularTools = [
   { slug: 'word-counter', name: 'Word Counter', emoji: '🔢', tagline: 'Count words, characters, reading time' },
@@ -16,13 +18,16 @@ const popularTools = [
 
 export function ToolsTeaser() {
   return (
-    <section className="py-24 px-6 bg-[#F6F4EC]" aria-labelledby="tools-heading">
+    <section className="py-24 px-6 bg-paper" aria-labelledby="tools-heading">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 id="tools-heading" className="text-4xl md:text-5xl font-display font-bold mb-4 text-[#14171F]">
-            Free Tools for Everyone
+          <div className="mb-4 flex justify-center">
+            <TagChip name="FreeTools" />
+          </div>
+          <h2 id="tools-heading" className="text-4xl md:text-5xl font-display font-bold mb-4 text-ink">
+            Free tools for everyone
           </h2>
-          <p className="text-[#14171F]/70 max-w-2xl mx-auto text-lg">
+          <p className="text-ink/70 max-w-2xl mx-auto text-lg">
             We built 100+ free online tools that run 100% in your browser — no signup, no uploads to our servers.
           </p>
         </div>
@@ -37,22 +42,19 @@ export function ToolsTeaser() {
             >
               <Link
                 href={`/tools/${tool.slug}`}
-                className="block p-6 rounded-2xl border border-[#14171F]/10 bg-[#F6F4EC] hover:border-[#D98A2C]/30 hover:shadow-md transition-all h-full"
+                className="block p-6 rounded-xl border border-ink/10 bg-paper hover:border-gold/40 hover:shadow-md transition-all h-full"
               >
                 <span className="text-2xl mb-3 block">{tool.emoji}</span>
-                <h3 className="font-display font-bold text-[#14171F] text-lg mb-1">{tool.name}</h3>
-                <p className="text-[#14171F]/70 text-sm">{tool.tagline}</p>
+                <h3 className="font-display font-bold text-ink text-lg mb-1">{tool.name}</h3>
+                <p className="text-ink/70 text-sm">{tool.tagline}</p>
               </Link>
             </motion.div>
           ))}
         </div>
         <div className="text-center">
-          <Link
-            href="/tools"
-            className="inline-flex items-center gap-2 bg-[#14171F] text-[#F6F4EC] px-6 py-3 rounded-full font-bold hover:bg-[#D98A2C] transition-colors"
-          >
-            View All 100+ Free Tools <ArrowRight className="w-4 h-4" />
-          </Link>
+          <BracketLink href="/tools" variant="solid">
+            View all 100+ free tools <ArrowRight className="w-4 h-4" />
+          </BracketLink>
         </div>
       </div>
     </section>

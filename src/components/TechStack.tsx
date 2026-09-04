@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
+import { TagChip } from './TagChip';
 
 const technologies = [
   { name: 'Stripe', icon: 'https://cdn.worldvectorlogo.com/logos/stripe-4.svg' },
@@ -13,34 +14,34 @@ const technologies = [
 
 export const TechStack = () => {
   return (
-    <section className="py-24 px-6 bg-[#ECE7D9]/30">
+    <section className="py-24 px-6 bg-paper-dim/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <motion.span
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#D98A2C] font-bold tracking-widest uppercase text-sm mb-4 block"
+            className="mb-4 flex justify-center"
           >
-            Trusted by developers & businesses
-          </motion.span>
+            <TagChip name="TechStack" />
+          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display font-bold text-[#14171F]"
+            className="text-4xl md:text-6xl font-display font-bold text-ink"
           >
-            Trusted <span className="text-[#14171F]/40">Technologies</span>
+            Trusted <span className="text-ink/40">technologies</span>
           </motion.h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {technologies.map((tech, i) => (
             <motion.div
               key={tech.name}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="p-8 rounded-3xl bg-[#F6F4EC] border border-[#14171F]/5 flex flex-col items-center justify-center gap-4 group hover:shadow-xl transition-all"
+              whileHover={{ y: -6 }}
+              className="p-8 rounded-xl bg-paper border border-ink/5 flex flex-col items-center justify-center gap-4 group hover:shadow-xl hover:border-gold/30 transition-all"
             >
               <Image
                 src={tech.icon}
@@ -51,7 +52,7 @@ export const TechStack = () => {
                 loading="lazy"
                 sizes="80px"
               />
-              <span className="font-bold text-[#14171F]/40 group-hover:text-[#14171F] transition-colors">
+              <span className="font-mono text-xs font-bold text-ink/40 group-hover:text-ink transition-colors">
                 {tech.name}
               </span>
             </motion.div>
