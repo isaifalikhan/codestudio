@@ -40,7 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/about`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/services`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/pricing`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/location/islamabad`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     ...toolEntries,
     ...serviceEntries,
     { url: `${SITE_URL}/portfolio`, lastModified, changeFrequency: 'weekly', priority: 0.8 },

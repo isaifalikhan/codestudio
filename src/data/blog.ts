@@ -8,8 +8,6 @@ import {
   longformWebDevTrends2026,
 } from '@/src/data/blog-featured-longform';
 import type { BlogPost } from '@/src/data/blog-types';
-import { tools } from '@/lib/tools-data';
-import { buildToolBlogPosts } from '@/src/data/blog-tools';
 
 export const blogPosts: BlogPost[] = [
   {
@@ -356,6 +354,4 @@ All of these tools are in our Text Tools section. They run entirely in your brow
 
 Need a content-heavy website or a blog that ranks? CodexStudio builds fast, SEO-friendly sites for businesses in Islamabad and worldwide. Visit our contact page or reach us on WhatsApp for a free quote.`,
   },
-  // ── Auto-generated SEO posts for every tool ────────────────
-  ...buildToolBlogPosts(tools),
 ];
