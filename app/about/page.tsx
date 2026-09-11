@@ -40,7 +40,7 @@ const aboutPageGraph = {
       '@id': `${SITE}#organization`,
       name: 'CodexStudio',
       url: SITE,
-      logo: `${SITE}/og-image.jpg`,
+      logo: `${SITE}/images/logo.png`,
       description:
         'CodexStudio designs and develops websites, web applications, and digital experiences from Islamabad, Pakistan — led by founder Saif Ali.',
       address: {
@@ -101,14 +101,14 @@ export const metadata: Metadata = {
     siteName: 'CodexStudio',
     locale: 'en_US',
     type: 'website',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CodexStudio — About' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CodexStudio — About' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About CodexStudio | Saif Ali — Founder & CEO',
     description:
       'Founder-led Next.js & Node.js agency in Islamabad. Full-stack web development for brands worldwide.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.png'],
   },
 };
 

@@ -10,7 +10,7 @@ export const BRAND_COUNTRY = 'PK';
 export const BRAND_STREET = 'Blue Area';
 export const BRAND_POSTAL = '44000';
 
-export const defaultOgImage = `${SITE_URL}/og-image.jpg`;
+export const defaultOgImage = `${SITE_URL}/og-image.png`;
 
 export function buildOrganizationSchema() {
   return {

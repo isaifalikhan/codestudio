@@ -36,11 +36,11 @@ export const metadata: Metadata = {
     title: '100+ Free Online Tools — No Signup | CodexStudio',
     description: '100+ free browser tools. Image, PDF, video, AI, finance, health & more. All free.',
     url: 'https://www.codexstudio2026.com/tools',
-    images: [{ url: '/og-tools.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/og-tools.png', width: 1200, height: 630 }],
     type: 'website',
     siteName: 'CodexStudio',
   },
-  twitter: { card: 'summary_large_image', images: ['/og-tools.jpg'] },
+  twitter: { card: 'summary_large_image', images: ['/og-tools.png'] },
 };
 
 const collectionSchema = {

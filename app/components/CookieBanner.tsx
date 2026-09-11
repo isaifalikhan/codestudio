@@ -2,34 +2,24 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-
-const STORAGE_KEY = 'codestudio-cookie-consent';
+import { readConsent, writeConsent } from '@/lib/consent';
 
 export function CookieBanner() {
   const [mounted, setMounted] = useState(false);
   const [accepted, setAccepted] = useState<boolean | null>(null);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      setAccepted(stored === 'accept' || stored === 'decline' ? true : false);
-    } catch {
-      setAccepted(false);
-    }
+    setAccepted(readConsent() !== null);
     setMounted(true);
   }, []);
 
   const accept = () => {
-    try {
-      localStorage.setItem(STORAGE_KEY, 'accept');
-    } catch {}
+    writeConsent('accept');
     setAccepted(true);
   };
 
   const decline = () => {
-    try {
-      localStorage.setItem(STORAGE_KEY, 'decline');
-    } catch {}
+    writeConsent('decline');
     setAccepted(true);
   };
 
@@ -43,7 +33,7 @@ export function CookieBanner() {
     >
       <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <p className="text-sm md:text-base">
-          We use cookies and similar technologies to improve your experience, measure traffic, and (with partners such as Google) show relevant ads. See our{' '}
+          We use cookies to measure traffic and, with partners such as Google, to show relevant ads. Decline and you&apos;ll still see ads, but non-personalised ones, and we won&apos;t set analytics cookies. See our{' '}
           <Link href="/privacy" className="underline hover:text-[#D98A2C]">
             Privacy Policy
           </Link>{' '}

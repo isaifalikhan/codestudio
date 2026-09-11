@@ -41,7 +41,7 @@ export async function generateMetadata({
         description:
           'Download TikTok videos without watermark in HD MP4. Fast, free, and mobile-friendly TikTok video downloader.',
         url: `${SITE}/tools/tiktok-downloader`,
-        images: [{ url: '/og-tools.jpg', width: 1200, height: 630 }],
+        images: [{ url: '/og-tools.png', width: 1200, height: 630 }],
         type: 'website',
         siteName: 'CodexStudio',
       },
@@ -49,7 +49,7 @@ export async function generateMetadata({
         card: 'summary_large_image',
         title: 'TikTok Video Downloader (No Watermark, HD) Free Online',
         description: 'Free TikTok video downloader: no watermark, HD MP4, no signup.',
-        images: ['/og-tools.jpg'],
+        images: ['/og-tools.png'],
       },
       robots: { index: true, follow: true },
     };
@@ -69,7 +69,7 @@ export async function generateMetadata({
       title: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio`,
       description: `Free online ${tool.name}. ${tool.tagline}. ${privacyLine}`,
       url: `${SITE}/tools/${tool.slug}`,
-      images: [{ url: '/og-tools.jpg', width: 1200, height: 630 }],
+      images: [{ url: '/og-tools.png', width: 1200, height: 630 }],
       type: 'website',
       siteName: 'CodexStudio',
     },
@@ -77,7 +77,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio`,
       description: `Free online ${tool.name}. ${tool.tagline}. ${privacyLine}`,
-      images: ['/og-tools.jpg'],
+      images: ['/og-tools.png'],
     },
   };
 }

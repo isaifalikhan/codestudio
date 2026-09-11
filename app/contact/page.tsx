@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     title: 'Contact CodexStudio | Free Consultation',
     description: 'Start your project. Based in Islamabad. Free consultation. 24hr reply.',
     url: 'https://www.codexstudio2026.com/contact',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     type: 'website',
     siteName: 'CodexStudio',
   },
-  twitter: { card: 'summary_large_image', images: ['/og-image.jpg'] },
+  twitter: { card: 'summary_large_image', images: ['/og-image.png'] },
 };
 
 export default function ContactRoute() {

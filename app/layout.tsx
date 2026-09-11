@@ -54,10 +54,15 @@ export const metadata: Metadata = {
   creator: 'CodexStudio',
   publisher: 'CodexStudio',
   icons: {
-    icon: '/images/logo.png',
-    shortcut: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: [
+      { url: '/icon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/icon-48.png',
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
+  manifest: '/manifest.webmanifest',
   robots: {
     index: true,
     follow: true,
@@ -83,7 +88,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: 'CodexStudio — Web Development Agency in Islamabad, Pakistan',
-        type: 'image/jpeg',
+        type: 'image/png',
       },
     ],
   },

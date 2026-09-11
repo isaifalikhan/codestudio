@@ -2,19 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
-
-const STORAGE_KEY = 'codestudio-cookie-consent';
+import { readConsent, subscribeConsent, type ConsentState } from '@/lib/consent';
 
 export function GAConsentWrapper({ gaId }: { gaId: string }) {
-  const [consent, setConsent] = useState<'accept' | 'decline' | null>(null);
+  const [consent, setConsent] = useState<ConsentState>(null);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      setConsent(stored === 'accept' ? 'accept' : stored === 'decline' ? 'decline' : null);
-    } catch {
-      setConsent('decline');
-    }
+    setConsent(readConsent());
+    return subscribeConsent(setConsent);
   }, []);
 
   if (!gaId || consent !== 'accept') return null;

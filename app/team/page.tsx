@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'CodexStudio Team | Web Developers Islamabad',
     description: 'Meet Saif Ali and the CodexStudio team in Islamabad, Pakistan.',
     url: 'https://www.codexstudio2026.com/team',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     type: 'website',
     siteName: 'CodexStudio',
   },

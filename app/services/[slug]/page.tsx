@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
       description: service.metaDescription,
       url: `${SITE_URL}/services/${service.slug}`,
       siteName: 'CodexStudio',
-      images: [{ url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630 }],
+      images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
       locale: 'en_US',
       type: 'website',
     },
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props) {
       card: 'summary_large_image',
       title: service.metaTitle,
       description: service.metaDescription,
-      images: [`${SITE_URL}/og-image.jpg`],
+      images: [`${SITE_URL}/og-image.png`],
     },
     alternates: { canonical: `${SITE_URL}/services/${service.slug}` },
   };

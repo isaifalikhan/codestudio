@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     publisher: {
       '@type': 'Organization',
       name: 'CodexStudio',
-      logo: { '@type': 'ImageObject', url: `${SITE}/og-image.jpg` },
+      logo: { '@type': 'ImageObject', url: `${SITE}/images/logo.png`, width: 200, height: 200 },
     },
   };
   const breadcrumbSchema = {

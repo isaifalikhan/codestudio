@@ -22,15 +22,6 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   reactStrictMode: true,
-  webpack(config, { dev, isServer }) {
-    // @imgly/background-removal pulls in onnxruntime-web bundles that include `import.meta`.
-    // Terser still minifies those chunks even with per-plugin exclude; keep client minimize off.
-    if (!dev && !isServer) {
-      config.optimization = config.optimization || {};
-      config.optimization.minimize = false;
-    }
-    return config;
-  },
   async redirects() {
     return [
       { source: '/privacy-policy', destination: '/privacy', permanent: true },

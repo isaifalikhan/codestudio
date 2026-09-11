@@ -194,3 +194,9 @@ button:focus-visible,
     opacity: 1;
   }
 }
+
+/* Collapse AdSense containers that Google reports as unfilled, so a blank
+   reserved box never sits in the middle of the content. */
+.ad-container:has(ins.adsbygoogle[data-ad-status='unfilled']) {
+  display: none;
+}
