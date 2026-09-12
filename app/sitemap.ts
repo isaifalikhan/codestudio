@@ -10,13 +10,22 @@ function parseBlogDate(dateStr: string): Date {
   return Number.isNaN(t) ? new Date() : new Date(t);
 }
 
+/**
+ * Stable content dates. Google only trusts <lastmod> if it reflects real content
+ * changes — regenerating every URL with `new Date()` on every deploy makes the
+ * whole field untrustworthy and it gets ignored. Bump these when the content in
+ * that section actually changes.
+ */
+const SITE_CONTENT_UPDATED = new Date('2026-09-12');
+const TOOLS_CONTENT_UPDATED = new Date('2026-09-12');
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = SITE_CONTENT_UPDATED;
   const toolEntries = [
-    { url: `${SITE_URL}/tools`, lastModified, changeFrequency: 'weekly' as const, priority: 0.9 },
+    { url: `${SITE_URL}/tools`, lastModified: TOOLS_CONTENT_UPDATED, changeFrequency: 'weekly' as const, priority: 0.9 },
     ...tools.map((tool) => ({
       url: `${SITE_URL}/tools/${tool.slug}`,
-      lastModified,
+      lastModified: TOOLS_CONTENT_UPDATED,
       changeFrequency: 'monthly' as const,
       priority: 0.85,
     })),

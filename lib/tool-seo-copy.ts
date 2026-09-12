@@ -1,6 +1,11 @@
 /**
  * Generates unique, substantial copy for every tool page (AdSense / SEO).
+ *
+ * Tool-specific copy lives in the overrides below and in lib/tool-copy/*; the
+ * generic builders at the bottom are only a fallback for tools that do not have
+ * hand-written copy yet.
  */
+import { EXTENDED_LONG_DESCRIPTIONS, EXTENDED_HOW_TO_STEPS } from '@/lib/tool-copy-extended';
 
 export type ToolSeoInput = {
   slug: string;
@@ -174,6 +179,9 @@ const HOW_TO_STEPS_OVERRIDES: Record<string, [string, string, string]> = {
 export function buildHowToSteps(tool: ToolSeoInput): [string, string, string] {
   if (HOW_TO_STEPS_OVERRIDES[tool.slug]) {
     return HOW_TO_STEPS_OVERRIDES[tool.slug];
+  }
+  if (EXTENDED_HOW_TO_STEPS[tool.slug]) {
+    return EXTENDED_HOW_TO_STEPS[tool.slug];
   }
   const c = tool.category;
   const open = `Open the ${tool.name} above`;
@@ -496,6 +504,9 @@ Everything renders locally in your browser — uploaded images aren't sent to a 
 export function buildLongDescription(tool: ToolSeoInput): string {
   if (LONG_DESCRIPTION_OVERRIDES[tool.slug]) {
     return LONG_DESCRIPTION_OVERRIDES[tool.slug];
+  }
+  if (EXTENDED_LONG_DESCRIPTIONS[tool.slug]) {
+    return EXTENDED_LONG_DESCRIPTIONS[tool.slug];
   }
   const kw = tool.keywords.length ? tool.keywords.join(', ') : tool.tagline;
   const p1 = `The ${tool.name} is a free online utility from CodexStudio, listed under ${tool.category}. ${tool.description} People discover ${tool.name} while searching for related topics such as ${kw}, because it produces fast answers without installing desktop software or registering an account. The tool’s headline promise—“${tool.tagline}”—reflects how we designed the workflow: minimal friction, immediate feedback, and output you can use in real projects.`;

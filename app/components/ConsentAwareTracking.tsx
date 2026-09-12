@@ -10,7 +10,12 @@ interface ConsentAwareTrackingProps {
 }
 
 /**
- * Consent Mode v2 defaults, inlined ahead of every Google tag.
+ * Loads the Google tags once Consent Mode defaults are in place.
+ *
+ * The Consent Mode v2 `default` call itself is inlined in the document head in
+ * app/layout.tsx — it has to execute before any Google tag, and next/script's
+ * `beforeInteractive` strategy is only valid in the root layout itself, not in
+ * a nested client component like this one.
  *
  * AdSense is loaded for all visitors. Until consent is granted the ad request
  * carries denied storage signals, so Google serves non-personalized, cookieless
@@ -21,22 +26,6 @@ interface ConsentAwareTrackingProps {
  * personalized ads there. Consent Mode is the correct plumbing either way, but
  * a certified CMP still has to sit on top of it before EEA ads will serve.
  */
-const CONSENT_DEFAULTS = `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent', 'default', {
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied',
-  analytics_storage: 'denied',
-  functionality_storage: 'granted',
-  security_storage: 'granted',
-  wait_for_update: 500
-});
-gtag('set', 'ads_data_redaction', true);
-gtag('js', new Date());
-`;
-
 export function ConsentAwareTracking({ gaId, adsensePublisherId }: ConsentAwareTrackingProps) {
   const [consent, setConsent] = useState<ConsentState>(null);
 
@@ -47,10 +36,6 @@ export function ConsentAwareTracking({ gaId, adsensePublisherId }: ConsentAwareT
 
   return (
     <>
-      <Script id="google-consent-mode" strategy="beforeInteractive">
-        {CONSENT_DEFAULTS}
-      </Script>
-
       {adsensePublisherId && (
         <Script
           id="adsbygoogle-init"
