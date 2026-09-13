@@ -152,7 +152,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="min-h-screen bg-[#F6F4EC] flex flex-col antialiased font-sans text-base leading-relaxed">
+      <body className="min-h-screen bg-paper flex flex-col antialiased font-sans text-base leading-relaxed">
         <ConsentAwareTracking 
           gaId={gaId} 
           adsensePublisherId="ca-pub-7165996801022980" 

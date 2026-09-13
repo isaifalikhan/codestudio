@@ -30,7 +30,16 @@ export const Hero = () => {
       />
       <motion.div
         style={{ y: glowY }}
-        className="absolute top-24 left-1/2 -translate-x-1/2 w-[560px] h-[560px] bg-gold/10 rounded-full blur-[140px]"
+        className="absolute top-16 left-1/2 -translate-x-1/2 w-[680px] h-[680px] rounded-full bg-gold/20 blur-[150px]"
+        aria-hidden
+      />
+      <motion.div
+        style={{ y: glowY }}
+        className="absolute top-52 left-[16%] w-[420px] h-[420px] rounded-full bg-pine/20 blur-[140px]"
+        aria-hidden
+      />
+      <div
+        className="absolute -top-24 right-[10%] w-[360px] h-[360px] rounded-full bg-gold-light/10 blur-[120px]"
         aria-hidden
       />
 
@@ -55,9 +64,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="rounded-xl border border-ink/10 bg-paper/70 backdrop-blur-sm shadow-[0_40px_90px_-45px_rgba(20,23,31,0.45)] overflow-hidden"
+          className="glass-panel glass-panel-hover rounded-2xl overflow-hidden"
         >
-          <div className="flex items-center gap-4 px-5 py-3 border-b border-ink/10 bg-ink/[0.03]">
+          <div className="flex items-center gap-4 px-5 py-3 border-b border-ink/10 bg-ink/[0.04]">
             <div className="flex items-center gap-1.5" aria-hidden>
               <span className="w-2.5 h-2.5 rounded-full bg-ink/15" />
               <span className="w-2.5 h-2.5 rounded-full bg-gold/70" />
@@ -84,7 +93,10 @@ export const Hero = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold leading-[1.1] tracking-tight text-ink"
               >
-                Web Development Agency in <span className="text-gold">Islamabad, Pakistan</span>
+                Web Development Agency in{' '}
+                <span className="bg-gradient-to-r from-gold-light via-gold to-pine-light bg-clip-text text-transparent">
+                  Islamabad, Pakistan
+                </span>
                 <span className="caret-blink text-gold" aria-hidden>
                   &nbsp;
                 </span>
@@ -93,7 +105,7 @@ export const Hero = () => {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-6 max-w-2xl text-lg sm:text-xl text-ink/70 leading-relaxed font-medium"
+                className="mt-6 max-w-2xl text-lg sm:text-xl text-ink/75 leading-relaxed font-medium"
               >
                 We build modern websites, web apps &amp; digital products that grow revenue — for
                 startups and businesses across Pakistan and worldwide.

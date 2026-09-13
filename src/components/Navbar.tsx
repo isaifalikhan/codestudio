@@ -10,6 +10,7 @@ import { BracketLink } from './BracketLink';
 import { Logo } from './Logo';
 import { BRAND_PHONE, BRAND_CITY } from '@/lib/seo';
 import { SERVICE_SLUGS, SERVICES_DATA } from '@/lib/servicesData';
+import { isGlassRoute, isStandaloneRoute } from '@/lib/theme-routes';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -51,12 +52,18 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // The Quran academy ships its own header, so the site nav steps aside there.
+  if (isStandaloneRoute(pathname)) return null;
+
   return (
     <nav
       aria-label="Main navigation"
       className={cn(
         'fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4',
-        isScrolled ? 'bg-paper/85 backdrop-blur-md py-3 border-b border-ink/10' : 'bg-transparent'
+        isGlassRoute(pathname) && 'theme-glass',
+        isScrolled
+          ? 'bg-paper/70 backdrop-blur-xl backdrop-saturate-150 py-3 border-b border-ink/10 shadow-lift-sm'
+          : 'bg-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">

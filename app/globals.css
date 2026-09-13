@@ -2,18 +2,144 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────
+   Colour tokens. Tailwind resolves ink/paper/gold/pine/mist
+   through these, so a scope can repaint the palette wholesale.
+   Values are space-separated RGB channels for <alpha-value>.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --c-ink: 20 23 31;
+  --c-ink-soft: 30 35 48;
+  --c-paper: 246 244 236;
+  --c-paper-dim: 236 231 217;
+  --c-gold: 217 138 44;
+  --c-gold-dark: 173 107 27;
+  --c-gold-light: 240 185 104;
+  --c-pine: 47 122 109;
+  --c-pine-dark: 31 90 80;
+  --c-pine-light: 95 165 153;
+  --c-mist: 138 133 116;
+  --c-shadow: 20 23 31;
+  --c-grid: 20 23 31;
+}
+
+/* Dark-glass scope. Surfaces go deep, foreground goes light, and the
+   accents brighten so they keep their punch against a dark ground. */
+.theme-glass {
+  --c-paper: 10 12 18;
+  --c-paper-dim: 20 23 31;
+  --c-ink: 240 240 236;
+  --c-ink-soft: 202 205 216;
+  --c-gold: 240 185 104;
+  --c-gold-dark: 217 138 44;
+  --c-gold-light: 250 216 164;
+  --c-pine: 95 165 153;
+  --c-pine-light: 130 205 190;
+  --c-mist: 134 142 163;
+  --c-shadow: 0 0 0;
+  --c-grid: 255 255 255;
+
+  color: rgb(var(--c-ink));
+  background-color: rgb(var(--c-paper));
+}
+
+/* The three hard-coded hex values still scattered through the homepage
+   components, remapped so the scope stays consistent. */
+.theme-glass .bg-\[\#F6F4EC\] { background-color: rgb(var(--c-paper)); }
+.theme-glass .text-\[\#F6F4EC\] { color: rgb(var(--c-ink)); }
+.theme-glass .bg-\[\#14171F\] { background-color: rgb(var(--c-paper-dim)); }
+.theme-glass .text-\[\#14171F\] { color: rgb(var(--c-ink)); }
+.theme-glass .text-\[\#D98A2C\] { color: rgb(var(--c-gold)); }
+.theme-glass .bg-\[\#D98A2C\] { background-color: rgb(var(--c-gold)); }
+
+@layer utilities {
+  /* Frosted panel: translucent fill, blur, and a top-lit rim that reads
+     as a light source above the element. */
+  .glass-panel {
+    background: linear-gradient(
+      160deg,
+      rgb(255 255 255 / 0.09) 0%,
+      rgb(255 255 255 / 0.04) 45%,
+      rgb(255 255 255 / 0.02) 100%
+    );
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgb(255 255 255 / 0.10);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.14),
+      0 2px 6px rgb(0 0 0 / 0.30),
+      0 24px 60px -20px rgb(0 0 0 / 0.55);
+  }
+
+  .glass-panel-hover {
+    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  }
+  .glass-panel-hover:hover {
+    border-color: rgb(var(--c-gold) / 0.34);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.20),
+      0 2px 8px rgb(0 0 0 / 0.34),
+      0 32px 72px -22px rgb(0 0 0 / 0.62),
+      0 0 44px -14px rgb(var(--c-gold) / 0.42);
+    transform: translateY(-2px);
+  }
+
+  /* Ambient coloured light behind a section. */
+  .glow-gold {
+    box-shadow: 0 0 0 1px rgb(var(--c-gold) / 0.22), 0 10px 44px -10px rgb(var(--c-gold) / 0.40);
+  }
+
+  /* Specular highlight sweeping the top edge of a filled button. */
+  .sheen {
+    position: relative;
+    overflow: hidden;
+  }
+  .sheen::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 50%;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0.22), transparent);
+    pointer-events: none;
+  }
+
+  .text-gradient-gloss {
+    background-image: linear-gradient(
+      92deg,
+      rgb(var(--c-ink)) 0%,
+      rgb(var(--c-gold-light)) 48%,
+      rgb(var(--c-pine-light)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Hairline divider that fades out at both ends. */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgb(var(--c-ink) / 0.18) 20%,
+      rgb(var(--c-ink) / 0.18) 80%,
+      transparent
+    );
+  }
+}
+
 /* Fonts loaded via next/font in layout for font-display: swap */
 
 @layer base {
   body {
     font-size: 16px;
     line-height: 1.6;
-    @apply bg-[#F6F4EC] text-[#14171F] selection:bg-[#D98A2C] selection:text-white;
+    @apply bg-paper text-ink selection:bg-gold selection:text-white;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-[#14171F];
+    @apply text-ink;
   }
 }
 
@@ -199,4 +325,66 @@ button:focus-visible,
    reserved box never sits in the middle of the content. */
 .ad-container:has(ins.adsbygoogle[data-ad-status='unfilled']) {
   display: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Academy scope (/quran-academy). Same token contract as
+   .theme-glass: repaint the palette, keep the markup generic.
+   Warm paper, deep emerald ink, muted brass accent.
+   ───────────────────────────────────────────────────────────── */
+.theme-academy {
+  --c-paper: 250 247 239;
+  --c-paper-dim: 242 236 223;
+  --c-ink: 13 42 33;
+  --c-ink-soft: 31 71 58;
+  --c-gold: 176 132 45;
+  --c-gold-dark: 139 102 30;
+  --c-gold-light: 214 176 92;
+  --c-pine: 21 104 78;
+  --c-pine-dark: 12 71 53;
+  --c-pine-light: 62 148 118;
+  --c-mist: 122 130 118;
+  --c-shadow: 13 42 33;
+  --c-grid: 13 42 33;
+
+  color: rgb(var(--c-ink));
+  background-color: rgb(var(--c-paper));
+}
+
+@layer utilities {
+  /* Rub el Hizb star lattice. Sits behind hero and band sections at very
+     low opacity, so it reads as texture rather than decoration. */
+  .pattern-star {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 45 15 58 14 57 27 66 36 57 45 58 58 45 57 36 66 27 57 14 58 15 45 6 36 15 27 14 14 27 15Z' fill='none' stroke='%230D2A21' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 72px 72px;
+  }
+  .pattern-star-light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M36 6 45 15 58 14 57 27 66 36 57 45 58 58 45 57 36 66 27 57 14 58 15 45 6 36 15 27 14 14 27 15Z' fill='none' stroke='%23F6F4EC' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 72px 72px;
+  }
+
+  /* Mihrab arch — used for hero and tutor panels. */
+  .arch {
+    border-radius: 14rem 14rem 1.5rem 1.5rem;
+  }
+
+  /* Centred rule with a lozenge in the middle, an arabesque section break. */
+  .arabesque::before,
+  .arabesque::after {
+    content: '';
+    display: block;
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(to right, transparent, rgb(var(--c-gold) / 0.5));
+  }
+  .arabesque::after {
+    background: linear-gradient(to left, transparent, rgb(var(--c-gold) / 0.5));
+  }
+
+  /* Arabic display text: taller line box so diacritics are never clipped. */
+  .arabic {
+    font-family: 'Traditional Arabic', 'Amiri', 'Scheherazade New', serif;
+    line-height: 2;
+    direction: rtl;
+  }
 }

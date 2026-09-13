@@ -7,10 +7,12 @@ import { cn } from '../utils/cn';
 type Variant = 'solid' | 'invert' | 'outline' | 'ghost-dark';
 
 const variants: Record<Variant, string> = {
-  solid: 'bg-ink text-paper hover:bg-gold',
-  invert: 'bg-paper text-ink hover:bg-gold',
-  outline: 'border border-ink/15 text-ink hover:border-gold hover:text-gold',
-  'ghost-dark': 'border border-paper/20 text-paper hover:bg-paper/10',
+  solid:
+    'sheen bg-ink text-paper shadow-lift hover:bg-gold hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0',
+  invert: 'sheen bg-paper text-ink shadow-lift hover:bg-gold hover:-translate-y-0.5 active:translate-y-0',
+  outline:
+    'border border-ink/15 text-ink backdrop-blur-sm hover:border-gold/60 hover:text-gold hover:bg-ink/[0.04] hover:-translate-y-0.5 active:translate-y-0',
+  'ghost-dark': 'border border-paper/20 text-paper backdrop-blur-sm hover:bg-paper/10 hover:-translate-y-0.5',
 };
 
 interface BracketLinkProps {
@@ -32,7 +34,9 @@ export const BracketLink = ({ href, children, variant = 'solid', className, onCl
       href={href}
       onClick={onClick}
       className={cn(
-        'group relative inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold transition-colors duration-200',
+        'group relative inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-bold',
+        'transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-out',
+        'motion-reduce:transform-none motion-reduce:transition-none',
         variants[variant],
         className
       )}

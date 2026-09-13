@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { BracketLink } from './BracketLink';
 import { Logo } from './Logo';
 import { BRAND_CITY, BRAND_EMAIL, BRAND_PHONE } from '@/lib/seo';
+import { usePathname } from 'next/navigation';
+import { isGlassRoute, isStandaloneRoute } from '@/lib/theme-routes';
 
 const socials = [
   { href: 'https://www.instagram.com/codexstudio2026/', label: 'Instagram', Icon: Instagram },
@@ -21,8 +23,13 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const pathname = usePathname();
+
+  // The Quran academy ships its own footer.
+  if (isStandaloneRoute(pathname)) return null;
+
   return (
-    <footer className="bg-paper pt-24 pb-8 px-6 border-t border-ink/10">
+    <footer className={`${isGlassRoute(pathname) ? 'theme-glass ' : ''}bg-paper pt-24 pb-8 px-6 border-t border-ink/10`}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -78,6 +85,17 @@ export const Footer = () => {
                   </Link>
                 </li>
               ))}
+              {/* The academy is a separate brand on this domain; without an
+                  internal link it would only ever be discoverable through the
+                  sitemap, which crawls far more slowly. */}
+              <li>
+                <Link
+                  href="/quran-academy"
+                  className="text-ink/75 hover:text-gold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:rounded"
+                >
+                  Quran Academy
+                </Link>
+              </li>
             </ul>
           </div>
 
