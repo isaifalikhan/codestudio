@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'motion/react';
 import {
   Award,
@@ -44,6 +45,7 @@ import {
   type CourseIcon,
   type FeatureIcon,
 } from '@/lib/quranAcademyData';
+import { COUNTRY_PAGES } from '@/lib/quranAcademyCountries';
 
 const COURSE_ICONS: Record<CourseIcon, typeof BookOpen> = {
   qaida: BookOpen,
@@ -662,6 +664,26 @@ export const QuranAcademy = () => {
                 </p>
               </motion.div>
             ))}
+          </div>
+
+          {/* Country pages. These links are how Google reaches them by crawling
+              and how the hub page passes authority down to each one. */}
+          <div className="mt-12 rounded-2xl border border-ink/10 bg-paper-dim p-8">
+            <h3 className="font-display text-lg font-bold text-ink">
+              Local pages — timings, fees and FAQs for your country
+            </h3>
+            <ul className="mt-5 flex flex-wrap gap-3">
+              {COUNTRY_PAGES.map((country) => (
+                <li key={country.slug}>
+                  <Link
+                    href={`/quran-academy/${country.slug}`}
+                    className="inline-block rounded-full border border-ink/15 bg-paper px-4 py-2 text-sm font-semibold text-ink/75 transition-colors hover:border-pine hover:text-pine"
+                  >
+                    Quran classes in {country.country}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <p className="mx-auto mt-10 max-w-3xl text-center text-sm text-ink/60">

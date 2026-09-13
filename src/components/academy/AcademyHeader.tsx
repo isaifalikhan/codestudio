@@ -36,7 +36,12 @@ const Mark = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export const AcademyHeader = () => {
+/**
+ * @param hrefPrefix  Country pages pass "/quran-academy" so the section links
+ *                    point back at the main page's anchors instead of at
+ *                    sections that do not exist on a country page.
+ */
+export const AcademyHeader = ({ hrefPrefix = '' }: { hrefPrefix?: string }) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -83,7 +88,7 @@ export const AcademyHeader = () => {
           {LINKS.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`${hrefPrefix}${link.href}`}
               className="group relative text-sm font-semibold text-ink/70 transition-colors hover:text-pine"
             >
               {link.label}
@@ -142,7 +147,7 @@ export const AcademyHeader = () => {
             {LINKS.map((link, i) => (
               <li key={link.href} className="border-b border-paper/10">
                 <a
-                  href={link.href}
+                  href={`${hrefPrefix}${link.href}`}
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-4 py-4 font-display text-2xl font-semibold"
                 >

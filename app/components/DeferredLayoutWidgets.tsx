@@ -1,6 +1,8 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
+import { isStandaloneRoute } from '@/lib/theme-routes';
 
 /**
  * Non-critical layout UI: load after main content to reduce main-thread work.
@@ -25,18 +27,24 @@ const CookieBanner = dynamic(
 );
 
 export function DeferredTopWidgets() {
+  // The academy pages carry their own branding: the CodexStudio cursor and the
+  // agency WhatsApp button belong to the other brand on the same deployment.
+  const standalone = isStandaloneRoute(usePathname());
   return (
     <>
-      <CustomCursor />
+      {!standalone && <CustomCursor />}
       <NProgressBar />
     </>
   );
 }
 
 export function DeferredBottomWidgets() {
+  const standalone = isStandaloneRoute(usePathname());
   return (
     <>
-      <WhatsAppFloat />
+      {!standalone && <WhatsAppFloat />}
+      {/* The consent banner stays everywhere: analytics still runs on these
+          routes, and EU/UK visitors have to be asked either way. */}
       <CookieBanner />
     </>
   );

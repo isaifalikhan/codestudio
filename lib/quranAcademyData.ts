@@ -19,6 +19,9 @@ export const BRAND = {
   // --- placeholders: replace before launch ---
   phone: '+44 7000 000000',
   whatsapp: '447000000000', // digits only, used for wa.me links
+  // Not rendered anywhere right now — WhatsApp and phone are the only
+  // published contact routes. Set a real address and re-add it to the footer
+  // and schema if you want email enquiries.
   email: 'admissions@al-noor-academy.com',
   social: {
     facebook: 'https://facebook.com/',

@@ -30,3 +30,13 @@ export function isStandaloneRoute(pathname: string | null): boolean {
     (route) => pathname === route || pathname.startsWith(`${route}/`)
   );
 }
+
+/**
+ * Routes that must not load advertising. The academy pages exist to convert
+ * trial bookings, and a third-party ad script on a landing page costs both
+ * conversions and page-experience signals. Kept as its own predicate rather
+ * than reusing `isStandaloneRoute`, so the two can diverge later.
+ */
+export function isAdFreeRoute(pathname: string | null): boolean {
+  return isStandaloneRoute(pathname);
+}

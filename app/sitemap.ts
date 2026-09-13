@@ -4,6 +4,7 @@ import { SERVICE_SLUGS } from '@/lib/servicesData';
 import { categories } from '@/lib/resources-data';
 import { tools } from '@/lib/tools-data';
 import { blogPosts } from '@/src/data/blog';
+import { COUNTRY_SLUGS } from '@/lib/quranAcademyCountries';
 
 function parseBlogDate(dateStr: string): Date {
   const t = Date.parse(dateStr);
@@ -62,7 +63,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/resources`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     ...resourceCategoryEntries,
     { url: `${SITE_URL}/team`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/quran-academy`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/quran-academy`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
+    ...COUNTRY_SLUGS.map((slug) => ({
+      url: `${SITE_URL}/quran-academy/${slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    })),
     { url: `${SITE_URL}/contact`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/privacy`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms`, lastModified, changeFrequency: 'yearly', priority: 0.3 },

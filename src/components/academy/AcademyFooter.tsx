@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Phone, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 import { BRAND, COURSES, WHATSAPP_LINK } from '@/lib/quranAcademyData';
 
 const SOCIALS = [
@@ -42,7 +42,7 @@ export const AcademyFooter = () => (
         </div>
 
         <div>
-          <h2 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-gold">Courses</h2>
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-gold">Courses</h3>
           <ul className="space-y-3">
             {COURSES.slice(0, 6).map((course) => (
               <li key={course.slug}>
@@ -55,7 +55,7 @@ export const AcademyFooter = () => (
         </div>
 
         <div>
-          <h2 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-gold">Academy</h2>
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-gold">Academy</h3>
           <ul className="space-y-3">
             {[
               { label: 'Why choose us', href: '#why-us' },
@@ -75,7 +75,7 @@ export const AcademyFooter = () => (
         </div>
 
         <div>
-          <h2 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-gold">Contact</h2>
+          <h3 className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-gold">Contact</h3>
           <ul className="space-y-4">
             <li>
               <a
@@ -95,15 +95,6 @@ export const AcademyFooter = () => (
               >
                 <Phone className="h-5 w-5 shrink-0" aria-hidden />
                 {BRAND.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`mailto:${BRAND.email}`}
-                className="flex items-center gap-3 break-words text-paper/80 transition-colors hover:text-gold"
-              >
-                <Mail className="h-5 w-5 shrink-0" aria-hidden />
-                {BRAND.email}
               </a>
             </li>
           </ul>

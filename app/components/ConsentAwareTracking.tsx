@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import { usePathname } from 'next/navigation';
 import { readConsent, subscribeConsent, type ConsentState } from '@/lib/consent';
+import { isAdFreeRoute } from '@/lib/theme-routes';
 
 interface ConsentAwareTrackingProps {
   gaId?: string;
@@ -28,6 +30,12 @@ interface ConsentAwareTrackingProps {
  */
 export function ConsentAwareTracking({ gaId, adsensePublisherId }: ConsentAwareTrackingProps) {
   const [consent, setConsent] = useState<ConsentState>(null);
+  const pathname = usePathname();
+  // Analytics still loads here (consent-gated); only advertising is withheld.
+  // A client-side navigation *into* an ad-free route cannot unload a script
+  // that a previous page already inserted, but direct landings — which is how
+  // almost all academy traffic arrives — never request it at all.
+  const adsAllowed = !isAdFreeRoute(pathname);
 
   useEffect(() => {
     setConsent(readConsent());
@@ -36,7 +44,7 @@ export function ConsentAwareTracking({ gaId, adsensePublisherId }: ConsentAwareT
 
   return (
     <>
-      {adsensePublisherId && (
+      {adsensePublisherId && adsAllowed && (
         <Script
           id="adsbygoogle-init"
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}`}

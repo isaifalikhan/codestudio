@@ -1,5 +1,14 @@
 import { SITE_URL } from '@/lib/constants';
-import { ACADEMY_PATH, BRAND, COURSES, PLANS, FAQS } from '@/lib/quranAcademyData';
+import {
+  ACADEMY_PATH,
+  BRAND,
+  COUNTRIES_SERVED,
+  COURSES,
+  COVERAGE,
+  PLANS,
+  FAQS,
+} from '@/lib/quranAcademyData';
+import { COUNTRY_PAGES } from '@/lib/quranAcademyCountries';
 
 /**
  * /llms.txt — the emerging convention for giving AI assistants a clean,
@@ -44,7 +53,13 @@ Arabic and Urdu.
 - Fees: from $${Math.min(...PLANS.map((plan) => plan.price))} per student per month, no registration fee, cancel any time
 - Scheduling: 24/7 slots across ${BRAND.regions.join(', ')}
 - Ages: from 4 years old to adults and senior learners
-- Contact: ${BRAND.email} · ${BRAND.phone} (WhatsApp)
+- Countries served: ${COUNTRIES_SERVED.join(', ')}
+${COVERAGE.map((area) => `- ${area.region} (${area.countries}): ${area.timing}`).join('\n')}
+- Contact: ${BRAND.phone} (WhatsApp)
+
+**Country pages** (local timings, currency and FAQs)
+
+${COUNTRY_PAGES.map((c) => `- [Online Quran classes in ${c.country}](${SITE_URL}${ACADEMY_PATH}/${c.slug}): ${c.timezone}; ${c.cities.slice(0, 4).join(', ')}`).join('\n')}
 
 **Courses offered**
 
