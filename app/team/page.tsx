@@ -13,7 +13,7 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Meet the Team — CodexStudio | Web Developers Islamabad',
+  title: { absolute: 'Meet the Team — CodexStudio | Web Developers Islamabad' },
   description:
     'Meet Saif Ali, Founder of CodexStudio — a web development agency in Islamabad, Pakistan. We are growing and looking for talented developers and designers.',
   alternates: { canonical: 'https://www.codexstudio2026.com/team' },

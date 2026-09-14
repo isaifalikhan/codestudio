@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { JsonLd } from '@/app/components/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Web Development Pricing in Pakistan | CodexStudio',
+  title: { absolute: 'Web Development Pricing in Pakistan | CodexStudio' },
   description:
     'Transparent web development pricing from CodexStudio Pakistan. View our website, app, and e-commerce development packages.',
   alternates: { canonical: 'https://www.codexstudio2026.com/pricing' },

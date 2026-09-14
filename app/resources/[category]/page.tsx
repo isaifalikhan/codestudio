@@ -70,9 +70,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const meta = categoryMeta[category];
-  if (!meta) return { title: 'Resources | CodexStudio' };
+  if (!meta) return { title: { absolute: 'Resources | CodexStudio' } };
   return {
-    title: meta.title,
+    title: { absolute: meta.title },
     description: meta.description,
     alternates: { canonical: `${SITE_URL}/resources/${category}` },
     openGraph: {

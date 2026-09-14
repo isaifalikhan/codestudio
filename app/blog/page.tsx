@@ -14,7 +14,7 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Web Development & Design Blog | CodexStudio — Islamabad',
+  title: { absolute: 'Web Development & Design Blog | CodexStudio — Islamabad' },
   description:
     'Read the CodexStudio blog for web development tips, UI/UX design insights, SEO strategies, and digital marketing advice for Pakistani businesses.',
   keywords: [

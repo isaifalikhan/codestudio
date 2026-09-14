@@ -15,6 +15,8 @@ const PAGE_URL = `${SITE_URL}${ACADEMY_PATH}`;
 /** Static share card. Kept as a PNG rather than a generated next/og route so
  *  link previews never depend on a function render at request time. */
 const OG_IMAGE = `${SITE_URL}/og-quran-academy.png`;
+/** Square brand mark — what Google wants for Organization.logo. */
+const LOGO = `${SITE_URL}/al-noor-logo.png`;
 
 export const metadata: Metadata = {
   // Absolute so the CodexStudio title template does not brand this page.
@@ -98,7 +100,12 @@ const organizationSchema = {
     'Online Quran academy offering one-to-one live classes in Noorani Qaida, Quran reading, Tajweed, Hifz, translation and tafseer, Islamic studies, Arabic language and ijazah.',
   foundingDate: String(BRAND.foundedYear),
   image: OG_IMAGE,
-  logo: OG_IMAGE,
+  logo: {
+    '@type': 'ImageObject',
+    url: LOGO,
+    width: 512,
+    height: 512,
+  },
   telephone: BRAND.phone,
   areaServed: COUNTRIES_SERVED.map((country) => ({ '@type': 'Country', name: country })),
   contactPoint: {

@@ -20,7 +20,7 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: '100+ Free Online Tools — Image, PDF, AI, Video & More | CodexStudio',
+  title: { absolute: '100+ Free Online Tools — Image, PDF, AI, Video & More | CodexStudio' },
   description:
     '100+ free online tools: image compressor, PDF merger, TikTok downloader, password generator, invoice maker, age calculator, AI writer & more. No signup, works in browser. Built by CodexStudio.',
   keywords: [

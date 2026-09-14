@@ -78,7 +78,7 @@ const aboutPageGraph = {
 };
 
 export const metadata: Metadata = {
-  title: 'About CodexStudio | Saif Ali — Founder & CEO | Islamabad, Pakistan',
+  title: { absolute: 'About CodexStudio | Saif Ali — Founder & CEO | Islamabad, Pakistan' },
   description:
     'CodexStudio is a founder-led web agency in Islamabad. Saif Ali (B.Sc. Computer Science, HITEC University) builds Next.js & Node.js products, APIs, and high-performance sites for clients worldwide.',
   keywords: [

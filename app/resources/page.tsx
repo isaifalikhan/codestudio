@@ -8,7 +8,7 @@ import { AffiliateDisclosure } from '@/app/components/AffiliateDisclosure';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '50 Best Free Resources for Developers & Businesses | CodexStudio',
+  title: { absolute: '50 Best Free Resources for Developers & Businesses | CodexStudio' },
   description:
     'Curated list of 50 free tools every developer and business owner needs: design, SEO, AI, writing, video — handpicked by CodexStudio team.',
   keywords: [

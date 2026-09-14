@@ -24,7 +24,7 @@ export async function generateMetadata({
 
   if (slug === 'tiktok-downloader') {
     return {
-      title: 'TikTok Video Downloader (No Watermark, HD) Free Online | CodexStudio',
+      title: { absolute: 'TikTok Video Downloader (No Watermark, HD) Free Online | CodexStudio' },
       description:
         'TikTok video download made easy. Download TikTok videos without watermark in HD MP4, plus audio options. Free online TikTok downloader — no signup.',
       keywords: [
@@ -61,7 +61,7 @@ export async function generateMetadata({
     : 'Runs in your browser — no signup required. Privacy-friendly.';
 
   return {
-    title: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio`,
+    title: { absolute: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio` },
     description: `Free online ${tool.name}. ${tool.tagline}. ${privacyLine}`,
     keywords: tool.keywords,
     alternates: { canonical: `${SITE}/tools/${tool.slug}` },

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { motion } from '../components/academy/lite-motion';
 import {
   ArrowRight,
   Award,
@@ -37,6 +37,7 @@ import {
   type CourseIcon,
 } from '@/lib/quranAcademyData';
 import { otherCountries, type CountryPage } from '@/lib/quranAcademyCountries';
+import { ARTICLES, ARTICLES_PATH } from '@/lib/academy-articles';
 
 const COURSE_ICONS: Record<CourseIcon, typeof BookOpen> = {
   qaida: BookOpen,
@@ -359,6 +360,47 @@ export const QuranAcademyCountry = ({ page }: { page: CountryPage }) => {
             </Link>
             .
           </p>
+        </div>
+      </section>
+
+      {/* ── Guides ───────────────────────────────────────────────────
+          Country pages linked only to each other before this; the cluster
+          needs edges into the articles as well, or the guides sit off to
+          the side with nothing pointing at them. */}
+      <section className="px-6 pb-20">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+            Guides for {page.adjective} parents and students
+          </h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {ARTICLES.slice(0, 3).map((article) => (
+              <Link
+                key={article.slug}
+                href={`${ARTICLES_PATH}/${article.slug}`}
+                className="group flex flex-col rounded-2xl border border-ink/10 bg-paper p-6 transition-all hover:-translate-y-1 hover:border-pine/30 hover:shadow-lift"
+              >
+                <span className="text-xs font-bold uppercase tracking-[0.14em] text-pine">
+                  {article.category}
+                </span>
+                <span className="mt-3 font-display text-lg font-bold leading-snug text-ink group-hover:text-pine">
+                  {article.title}
+                </span>
+                <span className="mt-2 flex-1 text-sm leading-relaxed text-ink/70">
+                  {article.excerpt}
+                </span>
+                <span className="mt-4 text-sm font-bold text-pine">
+                  {article.readingMinutes} min read →
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link
+            href={ARTICLES_PATH}
+            className="mt-8 inline-flex items-center gap-2 font-bold text-pine transition-colors hover:text-gold"
+          >
+            All {ARTICLES.length} guides
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
         </div>
       </section>
 

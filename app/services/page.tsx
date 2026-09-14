@@ -13,7 +13,7 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Web Development & Design Services in Pakistan | CodexStudio',
+  title: { absolute: 'Web Development & Design Services in Pakistan | CodexStudio' },
   description:
     'Hire CodexStudio for website development from $2,500, UI/UX design, branding, SEO & social media management. Based in Islamabad, Pakistan. Free consultation.',
   keywords: [

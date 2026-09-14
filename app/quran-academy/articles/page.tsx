@@ -20,7 +20,10 @@ export const metadata: Metadata = {
     'tajweed for beginners',
     'choosing a quran teacher',
   ],
-  alternates: { canonical: PAGE_URL },
+  alternates: {
+    canonical: PAGE_URL,
+    types: { 'application/rss+xml': `${PAGE_URL}/rss.xml` },
+  },
   category: 'Education',
   openGraph: {
     title: `Quran Learning Guides — ${BRAND.shortName}`,

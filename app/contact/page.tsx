@@ -13,7 +13,7 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Contact CodexStudio — Free Web Development Consultation',
+  title: { absolute: 'Contact CodexStudio — Free Web Development Consultation' },
   description:
     'Contact CodexStudio for a free consultation. Based in Islamabad, Pakistan. WhatsApp +44 7923 122356. We reply within 24 hours. Start your project today.',
   keywords: [

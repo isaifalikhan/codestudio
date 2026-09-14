@@ -14,7 +14,7 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Web Design Portfolio — Projects by CodexStudio | Islamabad',
+  title: { absolute: 'Web Design Portfolio — Projects by CodexStudio | Islamabad' },
   description:
     'Browse CodexStudio portfolio of web design, e-commerce, CRM dashboard, and branding projects. Real work for real businesses. Islamabad, Pakistan.',
   keywords: [

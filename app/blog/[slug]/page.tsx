@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const toolSlug = slug.startsWith('tool-') ? slug.replace(/^tool-/, '') : null;
   const canonical = toolSlug ? `https://www.codexstudio2026.com/tools/${toolSlug}` : `https://www.codexstudio2026.com/blog/${post.slug}`;
   return {
-    title: `${post.title} | CodexStudio Blog`,
+    title: { absolute: `${post.title} | CodexStudio Blog` },
     description: post.excerpt,
     alternates: { canonical },
     openGraph: {
