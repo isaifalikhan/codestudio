@@ -12,6 +12,7 @@ import {
   relatedArticles,
   type Article,
 } from '@/lib/academy-articles';
+import { coursePath } from '@/lib/academy-courses';
 
 const formatDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -162,7 +163,7 @@ export const QuranAcademyArticle = ({ article }: { article: Article }) => {
                 {courses.map((course) => (
                   <li key={course.slug}>
                     <Link
-                      href={`${ACADEMY_PATH}#courses`}
+                      href={coursePath(course.slug)}
                       className="flex items-start gap-3 rounded-xl border border-ink/10 bg-paper p-4 transition-colors hover:border-pine/40"
                     >
                       <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-pine" aria-hidden />

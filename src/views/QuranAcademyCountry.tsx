@@ -38,6 +38,7 @@ import {
 } from '@/lib/quranAcademyData';
 import { otherCountries, type CountryPage } from '@/lib/quranAcademyCountries';
 import { ARTICLES, ARTICLES_PATH } from '@/lib/academy-articles';
+import { COURSES_PATH, coursePath } from '@/lib/academy-courses';
 
 const COURSE_ICONS: Record<CourseIcon, typeof BookOpen> = {
   qaida: BookOpen,
@@ -247,27 +248,30 @@ export const QuranAcademyCountry = ({ page }: { page: CountryPage }) => {
             {COURSES.map((course) => {
               const Icon = COURSE_ICONS[course.icon];
               return (
-                <div
+                <Link
                   key={course.slug}
-                  className="flex items-start gap-4 rounded-2xl border border-ink/10 bg-paper p-6 transition-colors hover:border-pine/30"
+                  href={coursePath(course.slug)}
+                  className="group flex items-start gap-4 rounded-2xl border border-ink/10 bg-paper p-6 transition-colors hover:border-pine/30"
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-pine/10 text-pine">
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-ink">{course.title}</h3>
+                    <h3 className="font-display text-lg font-bold text-ink group-hover:text-pine">
+                      {course.title}
+                    </h3>
                     <p className="mt-1 text-sm text-mist">
                       {course.level} · {course.duration}
                     </p>
                     <p className="mt-2 text-sm leading-relaxed text-ink/70">{course.blurb}</p>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
 
           <Link
-            href={`${ACADEMY_PATH}#courses`}
+            href={COURSES_PATH}
             className="mt-10 inline-flex items-center gap-2 font-bold text-pine transition-colors hover:text-gold"
           >
             See the full syllabus and learning outcomes

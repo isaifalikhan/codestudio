@@ -5,12 +5,15 @@ import Link from 'next/link';
 import { Menu, X, MessageCircle } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { BRAND, WHATSAPP_LINK } from '@/lib/quranAcademyData';
+import { hasTeachers } from '@/lib/quranAcademyTeachers';
 
 const LINKS: { label: string; href: string; absolute?: boolean }[] = [
-  { label: 'Courses', href: '#courses' },
+  { label: 'Courses', href: '/quran-academy/courses', absolute: true },
   { label: 'Why us', href: '#why-us' },
   { label: 'How it works', href: '#how-it-works' },
-  { label: 'Teachers', href: '#teachers' },
+  hasTeachers()
+    ? { label: 'Teachers', href: '/quran-academy/teachers', absolute: true }
+    : { label: 'Teachers', href: '#teachers' },
   { label: 'Fees', href: '#fees' },
   { label: 'Guides', href: '/quran-academy/articles', absolute: true },
   { label: 'FAQ', href: '#faq' },

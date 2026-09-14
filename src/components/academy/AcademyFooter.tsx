@@ -4,6 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Phone, MessageCircle, Facebook, Instagram, Youtube } from 'lucide-react';
 import { BRAND, COURSES, WHATSAPP_LINK } from '@/lib/quranAcademyData';
+import { hasTeachers } from '@/lib/quranAcademyTeachers';
+import { coursePath } from '@/lib/academy-courses';
 
 const SOCIALS = [
   { href: BRAND.social.facebook, label: 'Facebook', Icon: Facebook },
@@ -48,9 +50,12 @@ export const AcademyFooter = () => (
           <ul className="space-y-3">
             {COURSES.slice(0, 6).map((course) => (
               <li key={course.slug}>
-                <a href="#courses" className="text-paper/70 transition-colors hover:text-gold">
+                <Link
+                  href={coursePath(course.slug)}
+                  className="text-paper/70 transition-colors hover:text-gold"
+                >
                   {course.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -62,7 +67,9 @@ export const AcademyFooter = () => (
             {[
               { label: 'Why choose us', href: '#why-us' },
               { label: 'How it works', href: '#how-it-works' },
-              { label: 'Our teachers', href: '#teachers' },
+              hasTeachers()
+                ? { label: 'Our teachers', href: '/quran-academy/teachers' }
+                : { label: 'Our teachers', href: '#teachers' },
               { label: 'Fees and plans', href: '#fees' },
               { label: 'Guides and articles', href: '/quran-academy/articles' },
               { label: 'FAQ', href: '#faq' },
@@ -107,10 +114,24 @@ export const AcademyFooter = () => (
         </div>
       </div>
 
-      <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-8 text-sm text-paper/50 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-8 text-sm text-paper/60 sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
         </p>
+        {/* Trust pages. Required reading for anyone handing over a child's
+            details, and a quality signal for education content. */}
+        <ul className="flex flex-wrap gap-6">
+          <li>
+            <Link href="/privacy" className="transition-colors hover:text-gold">
+              Privacy policy
+            </Link>
+          </li>
+          <li>
+            <Link href="/terms" className="transition-colors hover:text-gold">
+              Terms
+            </Link>
+          </li>
+        </ul>
         <p>
           <Link href="/" className="transition-colors hover:text-gold">
             Website by CodexStudio

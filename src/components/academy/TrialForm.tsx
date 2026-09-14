@@ -206,10 +206,10 @@ export const TrialForm = () => {
       />
 
       <label className="flex items-start gap-3 text-sm text-ink/70">
-        <input type="checkbox" name="consent" required className="mt-1 h-4 w-4 accent-pine" />
+        <input type="checkbox" name="consent" required className="mt-0.5 h-5 w-5 accent-pine" />
         <span>
           I agree to be contacted about my free trial classes and accept the{' '}
-          <a href="/privacy-policy" className="font-semibold text-pine underline">
+          <a href="/privacy" className="font-semibold text-pine underline">
             privacy policy
           </a>
           .

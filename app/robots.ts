@@ -30,6 +30,10 @@ const AI_CRAWLERS = [
   // Microsoft Copilot and Bing
   'bingbot',
   'BingPreview',
+  // Common Crawl — not an answer engine itself, but the corpus many models and
+  // research tools are built from. Allowed per the site owner's preference;
+  // remove this entry to opt out of that corpus.
+  'CCBot',
   // Others that surface citations
   'Amazonbot',
   'Meta-ExternalAgent',

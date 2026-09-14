@@ -47,6 +47,8 @@ import {
 } from '@/lib/quranAcademyData';
 import { COUNTRY_PAGES } from '@/lib/quranAcademyCountries';
 import { ARTICLES, ARTICLES_PATH } from '@/lib/academy-articles';
+import { COURSES_PATH, coursePath } from '@/lib/academy-courses';
+import { hasTeachers } from '@/lib/quranAcademyTeachers';
 
 const COURSE_ICONS: Record<CourseIcon, typeof BookOpen> = {
   qaida: BookOpen,
@@ -341,7 +343,9 @@ export const QuranAcademy = () => {
                     <span lang="ar" className="arabic text-lg text-gold">{course.arabic}</span>
                   </div>
 
-                  <h3 className="mt-5 font-display text-xl font-bold text-ink">{course.title}</h3>
+                  <h3 className="mt-5 font-display text-xl font-bold text-ink transition-colors group-hover:text-pine">
+                    <Link href={coursePath(course.slug)}>{course.title}</Link>
+                  </h3>
 
                   <div className="mt-3 flex flex-wrap gap-2">
                     <span className="rounded-full bg-ink/5 px-3 py-1 text-xs font-semibold text-ink/70">
@@ -367,12 +371,12 @@ export const QuranAcademy = () => {
                     <span className="text-xs font-semibold uppercase tracking-wider text-mist">
                       {course.ages}
                     </span>
-                    <a
-                      href="#enrol"
+                    <Link
+                      href={coursePath(course.slug)}
                       className="text-sm font-bold text-pine transition-colors hover:text-gold"
                     >
-                      Free trial →
-                    </a>
+                      Course details →
+                    </Link>
                   </div>
                 </motion.article>
               );
@@ -380,6 +384,16 @@ export const QuranAcademy = () => {
           </div>
         </div>
       </section>
+
+      {/* Index link, so the course grid is not the only way in. */}
+      <div className="px-6 pb-20 text-center">
+        <Link
+          href={COURSES_PATH}
+          className="inline-block rounded-xl border border-ink/15 px-7 py-3.5 font-bold text-ink transition-all hover:-translate-y-0.5 hover:border-pine hover:text-pine"
+        >
+          Compare all {COURSES.length} courses
+        </Link>
+      </div>
 
       {/* ── Why us ───────────────────────────────────────────────────── */}
       <section id="why-us" className="relative scroll-mt-24 overflow-hidden bg-paper-dim px-6 py-24">
@@ -496,12 +510,22 @@ export const QuranAcademy = () => {
                 </li>
               ))}
             </ul>
-            <a
-              href="#enrol"
-              className="mt-9 inline-block rounded-xl bg-ink px-7 py-4 font-bold text-paper shadow-lift transition-all hover:-translate-y-0.5 hover:bg-gold hover:text-ink"
-            >
-              Meet your teacher in a free class
-            </a>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href="#enrol"
+                className="inline-block rounded-xl bg-ink px-7 py-4 font-bold text-paper shadow-lift transition-all hover:-translate-y-0.5 hover:bg-gold hover:text-ink"
+              >
+                Meet your teacher in a free class
+              </a>
+              {hasTeachers() && (
+                <Link
+                  href="/quran-academy/teachers"
+                  className="inline-block rounded-xl border border-ink/15 px-7 py-4 font-bold text-ink transition-all hover:-translate-y-0.5 hover:border-pine hover:text-pine"
+                >
+                  Meet the faculty
+                </Link>
+              )}
+            </div>
           </motion.div>
         </div>
       </section>

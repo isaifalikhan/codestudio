@@ -11,6 +11,7 @@ import {
   PLANS,
 } from '@/lib/quranAcademyData';
 import { buildHreflangMap } from '@/lib/quranAcademyCountries';
+import { coursePath } from '@/lib/academy-courses';
 
 const PAGE_URL = `${SITE_URL}${ACADEMY_PATH}`;
 /** Static share card. Kept as a PNG rather than a generated next/og route so
@@ -167,7 +168,7 @@ const courseListSchema = {
       '@type': 'Course',
       name: course.title,
       description: course.blurb,
-      url: `${PAGE_URL}#courses`,
+      url: `${SITE_URL}${coursePath(course.slug)}`,
       educationalLevel: course.level,
       inLanguage: 'en',
       teaches: course.outcomes,

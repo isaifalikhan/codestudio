@@ -6,6 +6,8 @@ import { tools } from '@/lib/tools-data';
 import { blogPosts } from '@/src/data/blog';
 import { COUNTRY_SLUGS } from '@/lib/quranAcademyCountries';
 import { ARTICLE_SLUGS } from '@/lib/academy-articles';
+import { COURSE_DETAIL_SLUGS } from '@/lib/academy-courses';
+import { hasTeachers } from '@/lib/quranAcademyTeachers';
 
 function parseBlogDate(dateStr: string): Date {
   const t = Date.parse(dateStr);
@@ -70,6 +72,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.75,
+    })),
+    // Listed only when real teacher profiles are published; see lib/quranAcademyTeachers.ts.
+    ...(hasTeachers()
+      ? [
+          {
+            url: `${SITE_URL}/quran-academy/teachers`,
+            lastModified,
+            changeFrequency: 'monthly' as const,
+            priority: 0.8,
+          },
+        ]
+      : []),
+    { url: `${SITE_URL}/quran-academy/courses`, lastModified, changeFrequency: 'monthly', priority: 0.9 },
+    ...COURSE_DETAIL_SLUGS.map((slug) => ({
+      url: `${SITE_URL}/quran-academy/courses/${slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
     })),
     { url: `${SITE_URL}/quran-academy/articles`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
     ...ARTICLE_SLUGS.map((slug) => ({

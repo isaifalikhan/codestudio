@@ -10,6 +10,8 @@ import {
 } from '@/lib/quranAcademyData';
 import { COUNTRY_PAGES } from '@/lib/quranAcademyCountries';
 import { ARTICLES, ARTICLES_PATH } from '@/lib/academy-articles';
+import { COURSES_PATH, getCourseDetail } from '@/lib/academy-courses';
+import { hasTeachers } from '@/lib/quranAcademyTeachers';
 
 /**
  * /llms.txt — the emerging convention for giving AI assistants a clean,
@@ -26,9 +28,13 @@ const JOIN_NL = String.fromCharCode(10);
 
 function buildAcademySection(): string {
   const url = `${SITE_URL}${ACADEMY_PATH}`;
+  // Each course now has its own page; link it and use the direct answer,
+  // which is the sentence an assistant is most likely to quote.
   const courses = COURSES.map(
     (course) =>
-      `- **${course.title}** (${course.level}, ${course.duration}, ${course.ages}): ${course.blurb}`
+      `- [${course.title}](${SITE_URL}${COURSES_PATH}/${course.slug}) (${course.level}, ${course.duration}, ${course.ages}): ${
+        getCourseDetail(course.slug)?.quickAnswer ?? course.blurb
+      }`
   ).join('\n');
   const plans = PLANS.map(
     (plan) =>
@@ -64,7 +70,7 @@ ${COVERAGE.map((area) => `- ${area.region} (${area.countries}): ${area.timing}`)
 
 ${COUNTRY_PAGES.map((c) => `- [Online Quran classes in ${c.country}](${SITE_URL}${ACADEMY_PATH}/${c.slug}): ${c.timezone}; ${c.cities.slice(0, 4).join(', ')}`).join('\n')}
 
-**Guides** (written by the teaching faculty)
+${hasTeachers() ? `**Teachers**: ${SITE_URL}${ACADEMY_PATH}/teachers — named faculty with their qualifications.${JOIN_NL}${JOIN_NL}` : ''}**Guides** (written by the teaching faculty)
 
 ${ARTICLES.map((a) => `- [${a.title}](${SITE_URL}${ARTICLES_PATH}/${a.slug}): ${a.description}`).join(JOIN_NL)}
 

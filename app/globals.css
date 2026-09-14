@@ -343,7 +343,10 @@ button:focus-visible,
   --c-pine: 21 104 78;
   --c-pine-dark: 12 71 53;
   --c-pine-light: 62 148 118;
-  --c-mist: 122 130 118;
+  /* 4.75:1 against --c-paper. The lighter grey this replaced measured 3.72:1,
+     below the WCAG AA minimum for the small print it is used on (course ages,
+     plan subtitles, article bylines). */
+  --c-mist: 104 112 100;
   --c-shadow: 13 42 33;
   --c-grid: 13 42 33;
 
