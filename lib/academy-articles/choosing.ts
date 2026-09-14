@@ -5,6 +5,7 @@ const PUBLISHED = '2026-09-14';
 export const onlineVsInPerson: Article = {
   slug: 'online-vs-in-person-quran-classes',
   title: 'Online vs in-person Quran classes: an honest comparison',
+  seoTitle: 'Online vs In-Person Quran Classes',
   description:
     'Where online Quran classes genuinely beat a local madrasah, where in-person teaching wins, and how to decide which suits your family.',
   excerpt:
@@ -90,6 +91,7 @@ export const onlineVsInPerson: Article = {
 export const choosingATeacher: Article = {
   slug: 'choosing-an-online-quran-teacher',
   title: 'How to choose an online Quran teacher: 12 questions to ask',
+  seoTitle: 'How to Choose an Online Quran Teacher',
   description:
     'The questions that separate a qualified Quran teacher from a confident one — on ijazah, method, class size, safeguarding, fees and progress tracking.',
   excerpt:

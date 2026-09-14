@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
@@ -14,20 +13,19 @@ const categories = ['All', 'Web Design', 'Branding', 'Development'];
 
 export const PortfolioPage = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const categoryParam = searchParams.get('category');
-  const [activeCategory, setActiveCategory] = useState(
-    categories.includes(categoryParam || '') ? categoryParam! : 'All'
-  );
+  // Starts on "All" so the server renders every project into the HTML, then
+  // syncs to ?category= after mount. Using useSearchParams() here would make
+  // the whole page client-only and strip the content out of the prerender.
+  const [activeCategory, setActiveCategory] = useState('All');
 
   useEffect(() => {
-    const valid = categories.includes(categoryParam || '') ? categoryParam! : 'All';
-    setActiveCategory(valid);
-  }, [categoryParam]);
+    const param = new URLSearchParams(window.location.search).get('category');
+    if (param && categories.includes(param)) setActiveCategory(param);
+  }, []);
 
   const setCategory = (cat: string) => {
     setActiveCategory(cat);
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(window.location.search);
     if (cat === 'All') params.delete('category');
     else params.set('category', cat);
     const q = params.toString();

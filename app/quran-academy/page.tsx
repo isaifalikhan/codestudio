@@ -10,6 +10,7 @@ import {
   FAQS,
   PLANS,
 } from '@/lib/quranAcademyData';
+import { buildHreflangMap } from '@/lib/quranAcademyCountries';
 
 const PAGE_URL = `${SITE_URL}${ACADEMY_PATH}`;
 /** Static share card. Kept as a PNG rather than a generated next/og route so
@@ -20,11 +21,10 @@ const LOGO = `${SITE_URL}/al-noor-logo.png`;
 
 export const metadata: Metadata = {
   // Absolute so the CodexStudio title template does not brand this page.
-  title: {
-    absolute: `${BRAND.name} — Learn Quran Online with Certified Tutors`,
-  },
+  // Kept under 60 characters so Google does not truncate it in results.
+  title: { absolute: `Online Quran Classes for Kids & Adults | ${BRAND.shortName}` },
   description:
-    'One-to-one online Quran classes for kids and adults: Noorani Qaida, Tajweed, Hifz, Tafseer, Islamic studies and Arabic. Male and female teachers, flexible timings worldwide, 3 free trial classes.',
+    'One-to-one live Quran classes for kids and adults — Qaida, Tajweed, Hifz, Tafseer and Arabic. Certified male and female teachers. 3 free trial classes.',
   keywords: [
     'online quran academy',
     'learn quran online',
@@ -37,18 +37,10 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: PAGE_URL,
-    // One English page serves every region. Declaring the locales explicitly
-    // (with x-default) tells Google it is the right result for searchers in
-    // the UK, Ireland, the EU, North America and Australia alike.
-    languages: {
-      en: PAGE_URL,
-      'en-GB': PAGE_URL,
-      'en-IE': PAGE_URL,
-      'en-US': PAGE_URL,
-      'en-CA': PAGE_URL,
-      'en-AU': PAGE_URL,
-      'x-default': PAGE_URL,
-    },
+    // Real hreflang cluster: the hub is x-default, and each regional variant
+    // points at its own country page. This is what tells Google to show a
+    // German searcher /germany rather than the generic hub.
+    languages: buildHreflangMap(SITE_URL, ACADEMY_PATH),
   },
   category: 'Education',
   robots: {

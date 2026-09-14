@@ -5,6 +5,7 @@ const PUBLISHED = '2026-09-14';
 export const nooraniQaidaExplained: Article = {
   slug: 'noorani-qaida-explained',
   title: 'Noorani Qaida explained: what it covers and how long it takes',
+  seoTitle: 'Noorani Qaida Explained: What It Covers',
   description:
     'What Noorani Qaida actually teaches, the order it teaches it in, how long each stage takes, and how to tell whether a student is ready to move on.',
   excerpt:
@@ -96,6 +97,7 @@ export const nooraniQaidaExplained: Article = {
 export const learningAsAnAdult: Article = {
   slug: 'learning-quran-as-an-adult',
   title: 'Starting the Quran as an adult beginner',
+  seoTitle: 'Learning the Quran as an Adult',
   description:
     'A realistic plan for adults learning to read the Quran from scratch — including reverts — covering pace, embarrassment, and what the first six months look like.',
   excerpt:

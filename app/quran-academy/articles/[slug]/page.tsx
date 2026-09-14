@@ -24,7 +24,7 @@ export function generateMetadata({ params }: Props): Metadata {
 
   const url = `${INDEX_URL}/${article.slug}`;
   return {
-    title: { absolute: `${article.title} | ${BRAND.shortName}` },
+    title: { absolute: `${article.seoTitle ?? article.title} | ${BRAND.shortName}` },
     description: article.description,
     keywords: article.keywords,
     alternates: { canonical: url },

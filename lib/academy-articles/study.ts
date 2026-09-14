@@ -102,6 +102,7 @@ export const howLongDoesHifzTake: Article = {
 export const tajweedForBeginners: Article = {
   slug: 'tajweed-rules-for-beginners',
   title: 'Tajweed rules for beginners: where to actually start',
+  seoTitle: 'Tajweed Rules for Beginners',
   description:
     'The Tajweed rules that change your recitation first — makharij, noon sakinah, madd and qalqalah — in the order a beginner should learn them.',
   excerpt:

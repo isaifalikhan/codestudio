@@ -10,7 +10,7 @@ const ACADEMY_URL = `${SITE_URL}${ACADEMY_PATH}`;
 const OG_IMAGE = `${SITE_URL}/og-quran-academy.png`;
 
 export const metadata: Metadata = {
-  title: { absolute: `Quran Learning Guides for Parents and Students — ${BRAND.shortName}` },
+  title: { absolute: `Quran Learning Guides | ${BRAND.shortName}` },
   description:
     'Practical guides on learning and teaching the Quran: where to start a child, how long hifz takes, Tajweed for beginners, and how to choose an online teacher.',
   keywords: [

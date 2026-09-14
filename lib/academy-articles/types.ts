@@ -16,6 +16,8 @@ export type ArticleSection = {
 export type Article = {
   slug: string;
   title: string;
+  /** Shorter title tag when the H1 would push the SERP title past ~60 chars. */
+  seoTitle?: string;
   /** Meta description — kept under ~155 characters. */
   description: string;
   /** Card copy on the index page. */

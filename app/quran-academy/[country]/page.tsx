@@ -4,7 +4,7 @@ import { QuranAcademyCountry } from '@/src/views/QuranAcademyCountry';
 import { JsonLd } from '@/app/components/JsonLd';
 import { SITE_URL } from '@/lib/constants';
 import { ACADEMY_PATH, BRAND, COURSES, PLANS } from '@/lib/quranAcademyData';
-import { COUNTRY_PAGES, getCountryPage } from '@/lib/quranAcademyCountries';
+import { COUNTRY_PAGES, buildHreflangMap, getCountryPage } from '@/lib/quranAcademyCountries';
 
 const ACADEMY_URL = `${SITE_URL}${ACADEMY_PATH}`;
 const OG_IMAGE = `${SITE_URL}/og-quran-academy.png`;
@@ -25,7 +25,15 @@ export function generateMetadata({ params }: Props): Metadata {
 
   const url = `${ACADEMY_URL}/${page.slug}`;
   const title = `Online Quran Classes in ${page.country} — ${BRAND.shortName}`;
-  const description = `One-to-one online Quran classes for ${page.adjective} families: Noorani Qaida, Tajweed, Hifz, Tafseer, Islamic studies and Arabic. Male and female teachers, ${page.timezone.split(' (')[0]} timings, ${BRAND.trialClasses} free trial classes.`;
+  // Google truncates around 160 characters. Countries with long time-zone
+  // labels (the US, Australia) fall back to a shorter sentence rather than
+  // being cut off mid-word.
+  const timezoneShort = page.timezone.split(' (')[0].split(' in ')[0];
+  const withTimezone = `One-to-one live Quran classes for ${page.adjective} families — Qaida, Tajweed, Hifz and Arabic with certified teachers. ${BRAND.trialClasses} free classes, ${timezoneShort} timings.`;
+  const description =
+    withTimezone.length <= 158
+      ? withTimezone
+      : `One-to-one live Quran classes for ${page.adjective} families — Qaida, Tajweed, Hifz and Arabic. Male and female teachers, ${BRAND.trialClasses} free trial classes.`;
 
   return {
     title: { absolute: title },
@@ -38,7 +46,7 @@ export function generateMetadata({ params }: Props): Metadata {
       `female quran teacher ${page.country.replace('the ', '')}`,
       ...page.cities.slice(0, 4).map((city) => `quran classes ${city}`),
     ],
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: buildHreflangMap(SITE_URL, ACADEMY_PATH) },
     category: 'Education',
     robots: {
       index: true,

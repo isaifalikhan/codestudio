@@ -13,6 +13,8 @@ export type CountryFaq = { q: string; a: string };
 export type CountryPage = {
   slug: string;
   country: string;
+  /** hreflang code this page targets, e.g. en-GB. English content, regional intent. */
+  hreflang: string;
   /** Adjective form, e.g. "British" — used in headings and copy. */
   adjective: string;
   region: string;
@@ -34,6 +36,7 @@ export type CountryPage = {
 export const COUNTRY_PAGES: CountryPage[] = [
   {
     slug: 'uk',
+    hreflang: 'en-GB',
     country: 'the United Kingdom',
     adjective: 'British',
     region: 'United Kingdom & Ireland',
@@ -70,6 +73,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'ireland',
+    hreflang: 'en-IE',
     country: 'Ireland',
     adjective: 'Irish',
     region: 'United Kingdom & Ireland',
@@ -106,6 +110,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'germany',
+    hreflang: 'en-DE',
     country: 'Germany',
     adjective: 'German',
     region: 'Western Europe',
@@ -142,6 +147,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'france',
+    hreflang: 'en-FR',
     country: 'France',
     adjective: 'French',
     region: 'Western Europe',
@@ -178,6 +184,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'netherlands',
+    hreflang: 'en-NL',
     country: 'the Netherlands',
     adjective: 'Dutch',
     region: 'Western Europe',
@@ -214,6 +221,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'belgium',
+    hreflang: 'en-BE',
     country: 'Belgium',
     adjective: 'Belgian',
     region: 'Western Europe',
@@ -250,6 +258,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'spain',
+    hreflang: 'en-ES',
     country: 'Spain',
     adjective: 'Spanish',
     region: 'Southern Europe',
@@ -286,6 +295,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'italy',
+    hreflang: 'en-IT',
     country: 'Italy',
     adjective: 'Italian',
     region: 'Southern Europe',
@@ -322,6 +332,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'sweden',
+    hreflang: 'en-SE',
     country: 'Sweden',
     adjective: 'Swedish',
     region: 'Scandinavia',
@@ -358,6 +369,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'norway',
+    hreflang: 'en-NO',
     country: 'Norway',
     adjective: 'Norwegian',
     region: 'Scandinavia',
@@ -394,6 +406,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'denmark',
+    hreflang: 'en-DK',
     country: 'Denmark',
     adjective: 'Danish',
     region: 'Scandinavia',
@@ -430,6 +443,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'usa',
+    hreflang: 'en-US',
     country: 'the United States',
     adjective: 'American',
     region: 'North America',
@@ -466,6 +480,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'canada',
+    hreflang: 'en-CA',
     country: 'Canada',
     adjective: 'Canadian',
     region: 'North America',
@@ -502,6 +517,7 @@ export const COUNTRY_PAGES: CountryPage[] = [
   },
   {
     slug: 'australia',
+    hreflang: 'en-AU',
     country: 'Australia',
     adjective: 'Australian',
     region: 'Australia & New Zealand',
@@ -547,4 +563,20 @@ export function getCountryPage(slug: string): CountryPage | undefined {
 /** Other countries, for the cross-links at the foot of each country page. */
 export function otherCountries(slug: string): CountryPage[] {
   return COUNTRY_PAGES.filter((page) => page.slug !== slug);
+}
+
+/**
+ * The full hreflang cluster: every regional page plus x-default for the hub.
+ * Each page in the cluster has to list all the others, so this map is shared
+ * by the hub page and every country page rather than rebuilt per route.
+ */
+export function buildHreflangMap(siteUrl: string, academyPath: string): Record<string, string> {
+  const map: Record<string, string> = {
+    en: `${siteUrl}${academyPath}`,
+    'x-default': `${siteUrl}${academyPath}`,
+  };
+  for (const page of COUNTRY_PAGES) {
+    map[page.hreflang] = `${siteUrl}${academyPath}/${page.slug}`;
+  }
+  return map;
 }

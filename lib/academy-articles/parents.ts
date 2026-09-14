@@ -5,6 +5,7 @@ const PUBLISHED = '2026-09-14';
 export const teachChildAtHome: Article = {
   slug: 'teach-your-child-quran-at-home',
   title: 'How to teach your child to read the Quran at home',
+  seoTitle: 'Teach Your Child to Read the Quran at Home',
   description:
     'A practical order of work for parents teaching Quran at home: what to start with, how long sessions should be, and the mistakes that stall children.',
   excerpt:
