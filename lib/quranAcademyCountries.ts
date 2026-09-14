@@ -8,6 +8,8 @@
  * "what does this look like for a family in *my* country" are what rank.
  */
 
+import { COUNTRY_LOCAL_CONTEXT } from '@/lib/quranAcademyLocalContext';
+
 export type CountryFaq = { q: string; a: string };
 
 export type CountryPage = {
@@ -28,12 +30,20 @@ export type CountryPage = {
   currency: { code: string; symbol: string; note: string };
   /** One or two sentences of genuinely local context. */
   intro: string;
+  /**
+   * Long-form local context, one string per paragraph. Lives in
+   * quranAcademyLocalContext.ts and is merged in by `getCountryPage`; it is the
+   * bulk of what keeps these pages from reading as one template repeated.
+   */
+  localContext: string[];
   /** Three locally specific reasons, not generic selling points. */
   highlights: string[];
   faqs: CountryFaq[];
 };
 
-export const COUNTRY_PAGES: CountryPage[] = [
+type CountryPageSource = Omit<CountryPage, 'localContext'>;
+
+export const COUNTRY_PAGES: CountryPageSource[] = [
   {
     slug: 'uk',
     hreflang: 'en-GB',
@@ -557,11 +567,13 @@ export const COUNTRY_PAGES: CountryPage[] = [
 export const COUNTRY_SLUGS = COUNTRY_PAGES.map((page) => page.slug);
 
 export function getCountryPage(slug: string): CountryPage | undefined {
-  return COUNTRY_PAGES.find((page) => page.slug === slug);
+  const page = COUNTRY_PAGES.find((entry) => entry.slug === slug);
+  if (!page) return undefined;
+  return { ...page, localContext: COUNTRY_LOCAL_CONTEXT[slug] ?? [] };
 }
 
 /** Other countries, for the cross-links at the foot of each country page. */
-export function otherCountries(slug: string): CountryPage[] {
+export function otherCountries(slug: string): CountryPageSource[] {
   return COUNTRY_PAGES.filter((page) => page.slug !== slug);
 }
 

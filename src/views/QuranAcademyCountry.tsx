@@ -231,6 +231,33 @@ export const QuranAcademyCountry = ({ page }: { page: CountryPage }) => {
         </div>
       </section>
 
+      {/* ── Local context ────────────────────────────────────────────
+          The substantive country-specific prose. This is what stops the
+          14 country pages reading as one template with the name swapped. */}
+      {page.localContext.length > 0 && (
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-3xl">
+            <motion.h2
+              {...fadeUp}
+              className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+            >
+              Learning Quran in {page.country}
+            </motion.h2>
+            <div className="mt-8 space-y-6">
+              {page.localContext.map((paragraph, i) => (
+                <motion.p
+                  key={i}
+                  {...fadeUp}
+                  className="text-[17px] leading-[1.75] text-ink/75"
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Courses ──────────────────────────────────────────────────── */}
       <section id="country-courses" className="scroll-mt-24 px-6 py-20">
         <div className="mx-auto max-w-7xl">
@@ -260,10 +287,13 @@ export const QuranAcademyCountry = ({ page }: { page: CountryPage }) => {
                     <h3 className="font-display text-lg font-bold text-ink group-hover:text-pine">
                       {course.title}
                     </h3>
+                    {/* The course blurb deliberately is not repeated here. It
+                        is identical on all 14 country pages, which both inflates
+                        their duplication against each other and competes with the
+                        course page that should actually rank for it. */}
                     <p className="mt-1 text-sm text-mist">
                       {course.level} · {course.duration}
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/70">{course.blurb}</p>
                   </div>
                 </Link>
               );
