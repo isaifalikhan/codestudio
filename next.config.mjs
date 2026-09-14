@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Lets a production build run into a separate directory while `next dev`
+  // holds `.next` open — building into a live dev server's output directory
+  // causes spurious "Cannot find module for page" errors on Windows.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },

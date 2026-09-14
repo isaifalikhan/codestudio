@@ -7,9 +7,114 @@ import {
   longformUiUxConversions,
   longformWebDevTrends2026,
 } from '@/src/data/blog-featured-longform';
+import {
+  longformImageCompression,
+  longformCoreWebVitals,
+  longformJwtExplained,
+  longformPasswordSecurity,
+} from '@/src/data/blog-longform-2026';
+import {
+  longformNotIndexed,
+  longformPdfCompression,
+  longformCharacterEncoding,
+  longformMarginMarkup,
+} from '@/src/data/blog-longform-2026-b';
 import type { BlogPost } from '@/src/data/blog-types';
 
 export const blogPosts: BlogPost[] = [
+  {
+    title: 'Why Google Is Not Indexing Your Pages (And How to Read Search Console)',
+    seoTitle: 'Why Google Is Not Indexing Your Pages',
+    slug: 'why-google-is-not-indexing-your-pages',
+    excerpt:
+      'Submitting a sitemap does not get pages indexed. What "discovered" and "crawled – currently not indexed" actually mean, and why blocking a page keeps it in the index.',
+    category: 'SEO',
+    author: 'CodexStudio Team',
+    date: 'Sep 14, 2026',
+    lastModified: '2026-09-14',
+    image: 'https://images.unsplash.com/photo-1562577309-2592ab84b1bc?auto=format&fit=crop&q=80&w=1200',
+    content: longformNotIndexed,
+  },
+  {
+    title: 'How to Shrink a PDF Without Destroying the Text Layer',
+    seoTitle: 'How to Shrink a PDF Without Destroying the Text',
+    slug: 'how-to-shrink-a-pdf-without-destroying-text',
+    excerpt:
+      'Where the megabytes actually are, why some compressors quietly rasterise your document, and the thirty-second test that tells you which happened.',
+    category: 'Tools',
+    author: 'CodexStudio Team',
+    date: 'Sep 14, 2026',
+    lastModified: '2026-09-14',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=1200',
+    content: longformPdfCompression,
+  },
+  {
+    title: 'Why Your Text Turns Into Question Marks: A Practical Guide to Character Encoding',
+    seoTitle: 'Why Your Text Turns Into Question Marks',
+    slug: 'character-encoding-explained',
+    excerpt:
+      'Mojibake is diagnostic — the shape of the corruption tells you the mistake. Plus why MySQL utf8 is not UTF-8, and what %2520 in a URL means.',
+    category: 'Development',
+    author: 'CodexStudio Team',
+    date: 'Sep 14, 2026',
+    lastModified: '2026-09-14',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=1200',
+    content: longformCharacterEncoding,
+  },
+  {
+    title: 'Margin Is Not Markup: The Pricing Mistake That Quietly Costs You Money',
+    seoTitle: 'Margin Is Not Markup: The Pricing Mistake',
+    slug: 'margin-is-not-markup',
+    excerpt:
+      'A 30% markup is a 23% margin. Why a 10% discount can cut your profit by a third, and the one formula worth memorising.',
+    category: 'Business',
+    author: 'CodexStudio Team',
+    date: 'Sep 14, 2026',
+    lastModified: '2026-09-14',
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200',
+    content: longformMarginMarkup,
+  },
+
+  {
+    title: 'How to Compress Images for the Web Without Wrecking the Quality',
+    seoTitle: 'How to Compress Images for the Web',
+    slug: 'how-to-compress-images-for-the-web',
+    excerpt:
+      'Why re-saving a JPEG degrades it, what the quality slider actually controls, and why resizing matters more than any compression setting.',
+    category: 'Tools',
+    author: 'CodexStudio Team',
+    date: 'Sep 14, 2026',
+    lastModified: '2026-09-14',
+    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=1200',
+    content: longformImageCompression,
+  },
+  {
+    title: 'Core Web Vitals in 2026: What Actually Moves LCP, INP and CLS',
+    seoTitle: 'Core Web Vitals: What Actually Moves LCP, INP and CLS',
+    slug: 'core-web-vitals-what-actually-moves-them',
+    excerpt:
+      'Three metrics, three different causes, three different fixes — plus why lab data and field data disagree and which one Google actually uses.',
+    category: 'SEO',
+    author: 'CodexStudio Team',
+    date: 'Sep 14, 2026',
+    lastModified: '2026-09-14',
+    image: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=1200',
+    content: longformCoreWebVitals,
+  },
+  {
+    title: 'What Is Actually Inside a JWT (And Why You Should Never Put Secrets in One)',
+    seoTitle: 'What Is Actually Inside a JWT',
+    slug: 'what-is-inside-a-jwt',
+    excerpt:
+      'A JWT payload is encoded, not encrypted — anyone holding the token can read it. What the signature really protects, and why tokens expire.',
+    category: 'Development',
+    author: 'CodexStudio Team',
+    date: 'Sep 14, 2026',
+    lastModified: '2026-09-14',
+    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1200',
+    content: longformJwtExplained,
+  },
+
   {
     title: 'Why Every Business Needs a Website in 2026',
     slug: 'why-every-business-needs-a-website',
@@ -268,25 +373,7 @@ Need a website that’s built for SEO from the start? CodexStudio builds fast, s
     author: 'CodexStudio Team',
     date: 'Mar 11, 2026',
     image: 'https://images.unsplash.com/photo-1633265486064-086b31f3c8c8?auto=format&fit=crop&q=80&w=1200',
-    content: `Weak or reused passwords are still the main cause of account takeovers and data breaches. A strong, unique password for each site dramatically reduces your risk. Password generators and strength checkers make it easy to create and verify them—and the best ones run in your browser so your password never leaves your device.
-
-## The Problem with Weak Passwords
-
-Short, simple passwords (e.g. \`password123\`, \`companyname2026\`) are easy to guess or crack with brute force. Reusing the same password across sites means one leaked database can unlock your email, bank, or work accounts. Many people reuse because remembering dozens of strong passwords is hard—so they pick something simple and repeat it. The solution is to use a **password manager** and **generate** strong, random passwords for every account.
-
-## How a Password Generator Helps
-
-A **Password Generator** creates random passwords with configurable length and character types (uppercase, lowercase, numbers, symbols). You choose the length (e.g. 16 or 20 characters), click generate, and copy the result into your password manager or signup form. Because it’s random, the password is strong and unique. When the tool runs entirely in your browser (client-side), the password is never sent to any server—you stay in control.
-
-## Check Your Existing Passwords
-
-A **Password Strength Checker** lets you paste a password (ideally in a private window and only for testing) and see a strength score, estimated crack time, and tips to improve. Use it to see why \`MyDog123!\` is weak and what makes a long, random string strong. Don’t type your real passwords into unknown sites—use a trusted, client-side checker or the one in our Tools section that runs locally.
-
-## Best Practices in 2026
-
-Use a different password for every important account. Prefer long, random passwords (16+ characters). Store them in a reputable password manager (e.g. Bitwarden, 1Password). Enable two-factor authentication (2FA) wherever possible. Check haveibeenpwned.com to see if your email appeared in a breach, and change any reused passwords.
-
-You can use our free Password Generator and Password Strength Checker in the Security Tools section—no signup, no server upload. For secure web apps and business software, CodexStudio builds with security in mind. Contact us for a free quote.`,
+    content: longformPasswordSecurity,
   },
   {
     title: 'Free Developer Tools for Web Design and Code',
