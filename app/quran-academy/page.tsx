@@ -109,7 +109,7 @@ const organizationSchema = {
     areaServed: COUNTRIES_SERVED,
   },
   availableLanguage: ['English', 'Arabic', 'Urdu'],
-  sameAs: [BRAND.social.facebook, BRAND.social.instagram, BRAND.social.youtube],
+  sameAs: [BRAND.social.facebook, BRAND.social.instagram, BRAND.social.youtube].filter(Boolean),
   // NOTE: no aggregateRating here on purpose. Review markup must reflect real,
   // collected reviews — inventing one is a manual-action risk with Google and
   // gets the whole page's rich results dropped. Add it once real ratings exist.

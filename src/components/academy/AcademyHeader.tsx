@@ -6,14 +6,19 @@ import { Menu, X, MessageCircle } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { BRAND, WHATSAPP_LINK } from '@/lib/quranAcademyData';
 
-const LINKS = [
+const LINKS: { label: string; href: string; absolute?: boolean }[] = [
   { label: 'Courses', href: '#courses' },
   { label: 'Why us', href: '#why-us' },
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Teachers', href: '#teachers' },
   { label: 'Fees', href: '#fees' },
+  { label: 'Guides', href: '/quran-academy/articles', absolute: true },
   { label: 'FAQ', href: '#faq' },
 ];
+
+/** Anchors are relative to the hub page; real paths are used as they are. */
+const linkHref = (link: (typeof LINKS)[number], prefix: string) =>
+  link.absolute ? link.href : `${prefix}${link.href}`;
 
 /** Brand mark: an open Mushaf on a stand, drawn rather than imported so it
  *  inherits the scope palette and stays crisp at any size. */
@@ -88,7 +93,7 @@ export const AcademyHeader = ({ hrefPrefix = '' }: { hrefPrefix?: string }) => {
           {LINKS.map((link) => (
             <a
               key={link.href}
-              href={`${hrefPrefix}${link.href}`}
+              href={linkHref(link, hrefPrefix)}
               className="group relative text-sm font-semibold text-ink/70 transition-colors hover:text-pine"
             >
               {link.label}
@@ -147,7 +152,7 @@ export const AcademyHeader = ({ hrefPrefix = '' }: { hrefPrefix?: string }) => {
             {LINKS.map((link, i) => (
               <li key={link.href} className="border-b border-paper/10">
                 <a
-                  href={`${hrefPrefix}${link.href}`}
+                  href={linkHref(link, hrefPrefix)}
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-4 py-4 font-display text-2xl font-semibold"
                 >

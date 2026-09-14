@@ -9,6 +9,7 @@ import {
   FAQS,
 } from '@/lib/quranAcademyData';
 import { COUNTRY_PAGES } from '@/lib/quranAcademyCountries';
+import { ARTICLES, ARTICLES_PATH } from '@/lib/academy-articles';
 
 /**
  * /llms.txt — the emerging convention for giving AI assistants a clean,
@@ -20,6 +21,8 @@ import { COUNTRY_PAGES } from '@/lib/quranAcademyCountries';
  * Generated from the same data the pages render, so it can never drift.
  */
 export const dynamic = 'force-static';
+
+const JOIN_NL = String.fromCharCode(10);
 
 function buildAcademySection(): string {
   const url = `${SITE_URL}${ACADEMY_PATH}`;
@@ -60,6 +63,10 @@ ${COVERAGE.map((area) => `- ${area.region} (${area.countries}): ${area.timing}`)
 **Country pages** (local timings, currency and FAQs)
 
 ${COUNTRY_PAGES.map((c) => `- [Online Quran classes in ${c.country}](${SITE_URL}${ACADEMY_PATH}/${c.slug}): ${c.timezone}; ${c.cities.slice(0, 4).join(', ')}`).join('\n')}
+
+**Guides** (written by the teaching faculty)
+
+${ARTICLES.map((a) => `- [${a.title}](${SITE_URL}${ARTICLES_PATH}/${a.slug}): ${a.description}`).join(JOIN_NL)}
 
 **Courses offered**
 

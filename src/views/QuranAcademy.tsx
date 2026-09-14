@@ -46,6 +46,7 @@ import {
   type FeatureIcon,
 } from '@/lib/quranAcademyData';
 import { COUNTRY_PAGES } from '@/lib/quranAcademyCountries';
+import { ARTICLES, ARTICLES_PATH } from '@/lib/academy-articles';
 
 const COURSE_ICONS: Record<CourseIcon, typeof BookOpen> = {
   qaida: BookOpen,
@@ -719,6 +720,57 @@ export const QuranAcademy = () => {
             </a>{' '}
             — we usually reply within the hour.
           </p>
+        </div>
+      </section>
+
+      {/* ── Guides ───────────────────────────────────────────────────
+          The content cluster. Linking it from the hub is what passes
+          authority down to the articles and keeps the section coherent. */}
+      <section id="guides" className="scroll-mt-24 px-6 pb-24">
+        <div className="mx-auto max-w-7xl">
+          <motion.div {...fadeUp} className="mx-auto max-w-2xl text-center">
+            <Eyebrow>Guides</Eyebrow>
+            <h2 className="mt-6 font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl">
+              Written by our teachers
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-ink/70">
+              How Quran learning actually works — what to teach first, how long each stage takes,
+              and how to tell whether it is going well.
+            </p>
+          </motion.div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {ARTICLES.slice(0, 3).map((article, i) => (
+              <motion.article
+                key={article.slug}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className="group flex flex-col rounded-2xl border border-ink/10 bg-paper p-7 transition-all hover:-translate-y-1 hover:border-pine/30 hover:shadow-lift"
+              >
+                <span className="text-xs font-bold uppercase tracking-[0.14em] text-pine">
+                  {article.category}
+                </span>
+                <h3 className="mt-4 font-display text-lg font-bold leading-snug text-ink group-hover:text-pine">
+                  <Link href={`${ARTICLES_PATH}/${article.slug}`}>{article.title}</Link>
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/70">{article.excerpt}</p>
+                <span className="mt-5 text-sm font-bold text-pine">
+                  {article.readingMinutes} min read →
+                </span>
+              </motion.article>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              href={ARTICLES_PATH}
+              className="inline-block rounded-xl border border-ink/15 px-7 py-3.5 font-bold text-ink transition-all hover:-translate-y-0.5 hover:border-pine hover:text-pine"
+            >
+              All {ARTICLES.length} guides
+            </Link>
+          </div>
         </div>
       </section>
 

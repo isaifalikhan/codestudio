@@ -4,10 +4,12 @@
  * Everything the page renders — brand details, courses, plans, FAQs — lives
  * here so copy can be edited without touching layout code.
  *
- * PLACEHOLDERS: the contact block below is dummy data. Swap `BRAND.phone`,
- * `BRAND.whatsapp`, `BRAND.email` and the social URLs for the real academy
- * details before this page goes live.
+ * Contact runs through the shared CodexStudio WhatsApp line. Social URLs are
+ * empty until the academy has its own profiles — the footer renders only the
+ * ones that are set.
  */
+
+import { WHATSAPP_DISPLAY, WHATSAPP_LINK_NUMBER } from '@/lib/constants';
 
 export const ACADEMY_PATH = '/quran-academy';
 
@@ -16,19 +18,19 @@ export const BRAND = {
   shortName: 'Al-Noor Academy',
   arabicName: 'أكاديمية النور',
   tagline: 'Learn the Quran at home, one-to-one, with certified teachers.',
-  // --- placeholders: replace before launch ---
-  phone: '+44 7000 000000',
-  whatsapp: '447000000000', // digits only, used for wa.me links
+  // Shared with the main CodexStudio line — same phone and WhatsApp inbox.
+  phone: WHATSAPP_DISPLAY,
+  whatsapp: WHATSAPP_LINK_NUMBER, // digits only, used for wa.me links
   // Not rendered anywhere right now — WhatsApp and phone are the only
   // published contact routes. Set a real address and re-add it to the footer
   // and schema if you want email enquiries.
-  email: 'admissions@al-noor-academy.com',
+  email: '',
+  /** Add the academy's own profile URLs here and the footer icons appear. */
   social: {
-    facebook: 'https://facebook.com/',
-    instagram: 'https://instagram.com/',
-    youtube: 'https://youtube.com/',
+    facebook: '',
+    instagram: '',
+    youtube: '',
   },
-  // -------------------------------------------
   foundedYear: 2016,
   studentsTaught: '3,500+',
   countries: '20+',

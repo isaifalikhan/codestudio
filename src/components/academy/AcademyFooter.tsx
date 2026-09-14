@@ -9,7 +9,7 @@ const SOCIALS = [
   { href: BRAND.social.facebook, label: 'Facebook', Icon: Facebook },
   { href: BRAND.social.instagram, label: 'Instagram', Icon: Instagram },
   { href: BRAND.social.youtube, label: 'YouTube', Icon: Youtube },
-];
+].filter((social): social is typeof social & { href: string } => Boolean(social.href));
 
 export const AcademyFooter = () => (
   <footer className="relative overflow-hidden border-t border-gold/20 bg-ink px-6 pb-10 pt-20 text-paper">
@@ -24,6 +24,7 @@ export const AcademyFooter = () => (
             One-to-one live Quran classes for children and adults, taught by certified male and
             female teachers since {BRAND.foundedYear}.
           </p>
+          {SOCIALS.length > 0 && (
           <ul className="mt-6 flex gap-3">
             {SOCIALS.map(({ href, label, Icon }) => (
               <li key={label}>
@@ -39,6 +40,7 @@ export const AcademyFooter = () => (
               </li>
             ))}
           </ul>
+          )}
         </div>
 
         <div>
@@ -62,6 +64,7 @@ export const AcademyFooter = () => (
               { label: 'How it works', href: '#how-it-works' },
               { label: 'Our teachers', href: '#teachers' },
               { label: 'Fees and plans', href: '#fees' },
+              { label: 'Guides and articles', href: '/quran-academy/articles' },
               { label: 'FAQ', href: '#faq' },
               { label: 'Book a free trial', href: '#enrol' },
             ].map((item) => (

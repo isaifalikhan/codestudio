@@ -5,6 +5,7 @@ import { categories } from '@/lib/resources-data';
 import { tools } from '@/lib/tools-data';
 import { blogPosts } from '@/src/data/blog';
 import { COUNTRY_SLUGS } from '@/lib/quranAcademyCountries';
+import { ARTICLE_SLUGS } from '@/lib/academy-articles';
 
 function parseBlogDate(dateStr: string): Date {
   const t = Date.parse(dateStr);
@@ -69,6 +70,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.75,
+    })),
+    { url: `${SITE_URL}/quran-academy/articles`, lastModified, changeFrequency: 'weekly', priority: 0.7 },
+    ...ARTICLE_SLUGS.map((slug) => ({
+      url: `${SITE_URL}/quran-academy/articles/${slug}`,
+      lastModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.65,
     })),
     { url: `${SITE_URL}/contact`, lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/privacy`, lastModified, changeFrequency: 'yearly', priority: 0.3 },
