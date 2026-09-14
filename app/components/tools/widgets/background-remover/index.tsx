@@ -1,7 +1,44 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { removeBackground } from '@imgly/background-removal';
+
+/**
+ * @imgly/background-removal is loaded from a CDN at runtime rather than
+ * bundled.
+ *
+ * Bundling it pulls in onnxruntime-web, whose output contains top-level
+ * `import.meta`. Next 14's SWC minifier parses chunks in script mode and
+ * hard-fails on that, and it offers no way to skip a single chunk — so the
+ * only way to keep this import was to disable minification for the entire
+ * client build, which cost every page on the site roughly 2.5x its JS size.
+ *
+ * `webpackIgnore` leaves the import for the browser to resolve natively, so
+ * onnxruntime never enters the build and minification stays on everywhere.
+ * The library already fetches its ~80MB model from a CDN at runtime, so this
+ * adds no new network dependency class — only the loader itself.
+ *
+ * Keep MODULE_VERSION in step with the @imgly/background-removal version in
+ * package.json; the dependency is retained there so the version this was
+ * tested against stays pinned and documented.
+ */
+const MODULE_VERSION = '1.7.0';
+const MODULE_URL = `https://cdn.jsdelivr.net/npm/@imgly/background-removal@${MODULE_VERSION}/+esm`;
+
+type RemoveBackground = (input: string | Blob) => Promise<Blob>;
+
+let modulePromise: Promise<{ removeBackground: RemoveBackground }> | null = null;
+
+/** Loaded once per page, then reused for every subsequent image. */
+function loadBackgroundRemoval(): Promise<{ removeBackground: RemoveBackground }> {
+  if (!modulePromise) {
+    modulePromise = import(/* webpackIgnore: true */ MODULE_URL).catch((e) => {
+      // Let the next attempt retry rather than caching a failed load.
+      modulePromise = null;
+      throw e;
+    }) as Promise<{ removeBackground: RemoveBackground }>;
+  }
+  return modulePromise;
+}
 
 export default function BackgroundRemoverWidget() {
   const [file, setFile] = useState<File | null>(null);
@@ -29,6 +66,7 @@ export default function BackgroundRemoverWidget() {
       // This runs AI entirely in the browser
       // First time takes 20-30 seconds (downloads AI model)
       // After that, 3-5 seconds per image
+      const { removeBackground } = await loadBackgroundRemoval();
       const blob = await removeBackground(imageUrl);
       const url = URL.createObjectURL(blob);
 
@@ -39,7 +77,15 @@ export default function BackgroundRemoverWidget() {
       if (typeof window !== 'undefined') window.localStorage.setItem('imgly_bg_model_loaded', '1');
       setIsFirstModelLoad(false);
     } catch (e) {
-      setError('Processing failed. Please try a different image.');
+      // Distinguish a blocked/failed library download from a bad image, so
+      // the user is not told to try another photo when the network is at fault.
+      const failedToLoad =
+        e instanceof Error && /import|fetch|network|Failed to load/i.test(e.message);
+      setError(
+        failedToLoad
+          ? 'Could not load the background-removal engine. Check your connection or any content blockers, then try again.'
+          : 'Processing failed. Please try a different image.'
+      );
     } finally {
       setLoading(false);
     }
