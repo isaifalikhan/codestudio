@@ -18,9 +18,14 @@ export function listingMetadata(categorySlug: string, page: number): Metadata {
   const url = `${SITE_URL}${blogHref(category?.slug ?? 'all', page)}`;
   const pageSuffix = page > 1 ? ` — Page ${page}` : '';
 
+  // The "— Islamabad" qualifier is worth having on page 1, where the title is
+  // the one competing in results. On page 2+ the "— Page N" suffix pushes the
+  // whole thing past 60 characters, so the location is dropped instead.
   const title = category
     ? `${category.label} Articles${pageSuffix} | CodexStudio`
-    : `Web Development & Design Blog${pageSuffix} | CodexStudio — Islamabad`;
+    : page > 1
+      ? `Web Development & Design Blog${pageSuffix} | CodexStudio`
+      : 'Web Development & Design Blog | CodexStudio — Islamabad';
 
   const description = category
     ? `${category.label} articles from the CodexStudio team in Islamabad: practical guides, tips and analysis for businesses building online.`
