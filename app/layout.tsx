@@ -38,11 +38,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'CodexStudio — Web Development & Digital Solutions Agency in Islamabad, Pakistan',
+    default: 'Web Development Agency in Islamabad, Pakistan | CodexStudio',
     template: '%s | CodexStudio',
   },
   description:
-    'CodexStudio is a web development agency in Islamabad, Pakistan. We build modern websites, web apps, e-commerce stores & 100+ free online tools. Get a free quote today.',
+    'Web development agency in Islamabad, Pakistan. Modern websites, web apps, e-commerce stores and 100+ free online tools. Get a free quote today.',
   keywords: [
     'web development agency islamabad',
     'website development pakistan',

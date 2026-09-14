@@ -11,12 +11,12 @@ const categoryMeta: Record<
   { title: string; description: string }
 > = {
   design: {
-    title: '6 Best Free Design Tools for Designers & Businesses | CodexStudio',
+    title: '6 Best Free Design Tools for Designers | CodexStudio',
     description:
       'Top free design tools including Canva, Figma, Coolors, Google Fonts, Flaticon, and Undraw. Free resources curated by CodexStudio.',
   },
   writing: {
-    title: '6 Best Free Writing & Productivity Tools | CodexStudio Resources',
+    title: '6 Best Free Writing & Productivity Tools | CodexStudio',
     description:
       'Free writing tools: Grammarly, QuillBot, Hemingway Editor, DeepL, Notion, and more. Handpicked by the CodexStudio team.',
   },
@@ -26,7 +26,7 @@ const categoryMeta: Record<
       'Essential free developer tools: VS Code, CodePen, GitHub, Postman, Regex101, JSONFormatter, Crontab Guru. Curated by CodexStudio.',
   },
   images: {
-    title: '6 Best Free Image Tools for Designers | CodexStudio Resources',
+    title: '6 Best Free Image Tools for Designers | CodexStudio',
     description:
       'Free image tools: Unsplash, Pexels, TinyPNG, Remove.bg, Squoosh, Favicon.io. Handpicked free resources by CodexStudio.',
   },
@@ -41,7 +41,7 @@ const categoryMeta: Record<
       'Free SEO tools: Google Search Console, Ahrefs Webmaster, PageSpeed Insights, Ubersuggest, GTmetrix. Curated by CodexStudio.',
   },
   convert: {
-    title: '5 Best Free File Converter Tools Online | CodexStudio Resources',
+    title: '5 Best Free File Converter Tools | CodexStudio',
     description:
       'Free file conversion tools: Smallpdf, ILovePDF, CloudConvert, Convertio, QR Code Generator. Curated by CodexStudio.',
   },
@@ -51,7 +51,7 @@ const categoryMeta: Record<
       'Free video tools: Loom, CapCut, Descript, OBS Studio. The best free video recording and editing tools curated by CodexStudio.',
   },
   utilities: {
-    title: '5 Best Free Utility Tools for Developers & Teams | CodexStudio',
+    title: '5 Best Free Utility Tools for Developers | CodexStudio',
     description:
       'Essential free utilities: Google Analytics, Calendly, Whimsical, VirusTotal, Have I Been Pwned. Curated by CodexStudio.',
   },

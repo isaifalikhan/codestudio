@@ -384,9 +384,11 @@ button:focus-visible,
     background: linear-gradient(to left, transparent, rgb(var(--c-gold) / 0.5));
   }
 
-  /* Arabic display text: taller line box so diacritics are never clipped. */
+  /* Arabic display text. Amiri is loaded by app/quran-academy/layout.tsx and
+     exposed as --font-amiri; the stack after it only matters if that request
+     fails. The taller line box keeps vocalisation marks from clipping. */
   .arabic {
-    font-family: 'Traditional Arabic', 'Amiri', 'Scheherazade New', serif;
+    font-family: var(--font-amiri), 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
     line-height: 2;
     direction: rtl;
   }

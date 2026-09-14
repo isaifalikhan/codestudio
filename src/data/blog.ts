@@ -43,6 +43,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     title: 'Website Development Cost in Pakistan: What Businesses Should Budget in 2026',
+    seoTitle: 'Website Development Cost in Pakistan 2026',
     slug: 'website-development-cost-in-pakistan-2026',
     excerpt: 'Learn what affects website development cost in Pakistan, from simple business sites to custom platforms, and how to budget for SEO, UX, and long-term growth.',
     category: 'Development',
@@ -83,6 +84,7 @@ CodexStudio provides website development in Pakistan for businesses that need fa
   },
   {
     title: 'Custom Web App Development for Businesses: When Off-the-Shelf Software Is Not Enough',
+    seoTitle: 'Custom Web App Development for Businesses',
     slug: 'custom-web-app-development-for-businesses',
     excerpt: 'Discover when custom web app development makes sense, which business problems it solves, and how a scalable product can save time, reduce errors, and support growth.',
     category: 'Development',
@@ -123,6 +125,7 @@ CodexStudio builds custom web applications for businesses that want to automate 
   },
   {
     title: 'Mobile App Development vs Web App Development: Which One Is Right for Your Business?',
+    seoTitle: 'Mobile App vs Web App Development',
     slug: 'mobile-app-development-vs-web-app-development',
     excerpt: 'Compare mobile app development and web app development to choose the right product for your business goals, budget, user experience, and launch strategy.',
     category: 'Development',
@@ -258,6 +261,7 @@ Need a website that’s built for SEO from the start? CodexStudio builds fast, s
   },
   {
     title: 'Why You Should Use a Password Generator (And How to Stay Secure)',
+    seoTitle: 'Why You Should Use a Password Generator',
     slug: 'why-use-password-generator-and-stay-secure',
     excerpt: 'Reusing weak passwords is one of the biggest security risks. Learn why generated passwords help and how to use free generators and strength checkers.',
     category: 'Tools',

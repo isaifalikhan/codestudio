@@ -26,6 +26,28 @@ const nextConfig = {
     return [
       { source: '/privacy-policy', destination: '/privacy', permanent: true },
       { source: '/terms-of-service', destination: '/terms', permanent: true },
+      // The blog listing moved from query strings to paths. Old links and any
+      // indexed ?category= / ?page= URLs are forwarded rather than dropped;
+      // the category route normalises casing to the canonical slug.
+      {
+        source: '/blog',
+        has: [{ type: 'query', key: 'category', value: '(?<blogCategory>[^&]+)' }],
+        destination: '/blog/category/:blogCategory',
+        permanent: true,
+      },
+      {
+        // Character class rather than \d: a backslash escape inside a
+        // single-quoted JS string is dropped before the router sees the
+        // pattern, which silently turns \d+ into "one or more letter d".
+        //
+        // The destination must be a different path from the source. Next
+        // forwards unmatched query params to the destination, so redirecting
+        // /blog?page=2 back to /blog would re-append ?page=2 and loop forever.
+        source: '/blog',
+        has: [{ type: 'query', key: 'page', value: '(?<blogPage>[0-9]+)' }],
+        destination: '/blog/page/:blogPage',
+        permanent: true,
+      },
     ];
   },
   async headers() {

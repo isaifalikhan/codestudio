@@ -30,19 +30,36 @@ export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
+/**
+ * Meta descriptions are cut off around 160 characters. Trim at a word
+ * boundary so the snippet ends cleanly rather than mid-word.
+ */
+function clampDescription(text: string, max = 155): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max).replace(/[,;:–—-]$/, '')}…`;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return {};
   const toolSlug = slug.startsWith('tool-') ? slug.replace(/^tool-/, '') : null;
   const canonical = toolSlug ? `https://www.codexstudio2026.com/tools/${toolSlug}` : `https://www.codexstudio2026.com/blog/${post.slug}`;
+  // Headline first; the brand is appended only when the result still fits the
+  // ~60 characters Google shows. The H1 on the page keeps the full headline.
+  const headline = post.seoTitle ?? post.title;
+  const blogTitle =
+    `${headline} | CodexStudio`.length <= 60 ? `${headline} | CodexStudio` : headline;
+
   return {
-    title: { absolute: `${post.title} | CodexStudio Blog` },
-    description: post.excerpt,
+    title: { absolute: blogTitle },
+    description: clampDescription(post.excerpt),
     alternates: { canonical },
     openGraph: {
       title: post.title,
-      description: post.excerpt,
+      description: clampDescription(post.excerpt),
       url: `https://www.codexstudio2026.com/blog/${post.slug}`,
       images: [{ url: post.image, width: 1200, height: 630 }],
       type: 'article',
@@ -76,7 +93,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
-    description: post.excerpt,
+    description: clampDescription(post.excerpt),
     image: post.image,
     datePublished: post.date,
     dateModified: post.lastModified ?? post.date,

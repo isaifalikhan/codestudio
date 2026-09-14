@@ -3,7 +3,7 @@ import { Home } from '@/src/views/Home';
 import { JsonLd } from './components/JsonLd';
 
 export const metadata: Metadata = {
-  title: { absolute: 'CodexStudio — Web Development & Digital Solutions Agency in Islamabad, Pakistan' },
+  title: { absolute: 'Web Development Agency in Islamabad, Pakistan | CodexStudio' },
   description:
     'CodexStudio is a web development agency in Islamabad, Pakistan. We build fast Next.js websites, web apps, and 100+ free online tools.',
   keywords: [

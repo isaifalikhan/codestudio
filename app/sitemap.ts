@@ -7,6 +7,7 @@ import { blogPosts } from '@/src/data/blog';
 import { COUNTRY_SLUGS } from '@/lib/quranAcademyCountries';
 import { ARTICLE_SLUGS } from '@/lib/academy-articles';
 import { COURSE_DETAIL_SLUGS } from '@/lib/academy-courses';
+import { allBlogListingPaths } from '@/lib/blog-routes';
 import { hasTeachers } from '@/lib/quranAcademyTeachers';
 
 function parseBlogDate(dateStr: string): Date {
@@ -56,7 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...toolEntries,
     ...serviceEntries,
     { url: `${SITE_URL}/portfolio`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE_URL}/blog`, lastModified, changeFrequency: 'weekly', priority: 0.8 },
+    // Blog index, its paginated pages and each category listing.
+    ...allBlogListingPaths().map((path) => ({
+      url: `${SITE_URL}${path}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: path === '/blog' ? 0.8 : 0.6,
+    })),
     ...blogPosts.map((post) => ({
       url: `${SITE_URL}/blog/${post.slug}`,
       lastModified: post.lastModified ? new Date(post.lastModified) : parseBlogDate(post.date),

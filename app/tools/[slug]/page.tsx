@@ -24,7 +24,7 @@ export async function generateMetadata({
 
   if (slug === 'tiktok-downloader') {
     return {
-      title: { absolute: 'TikTok Video Downloader (No Watermark, HD) Free Online | CodexStudio' },
+      title: { absolute: 'TikTok Video Downloader — No Watermark, HD | CodexStudio' },
       description:
         'TikTok video download made easy. Download TikTok videos without watermark in HD MP4, plus audio options. Free online TikTok downloader — no signup.',
       keywords: [
@@ -56,12 +56,24 @@ export async function generateMetadata({
   }
 
   const usesServer = isServerBackedTool(slug);
+  const shortCategory = tool.category.replace(' Tools', '');
+  // Google truncates titles around 60 characters. Try the fullest form
+  // first and fall back until one fits, rather than shipping 72 titles
+  // that get cut mid-phrase in the results.
+  const pageTitle =
+    [
+      `${tool.name} — Free Online ${shortCategory} Tool | CodexStudio`,
+      `${tool.name} — Free Online ${shortCategory} Tool`,
+      `${tool.name} — Free Online Tool | CodexStudio`,
+      `${tool.name} — Free Online Tool`,
+      tool.name,
+    ].find((candidate) => candidate.length <= 60) ?? tool.name;
   const privacyLine = usesServer
     ? 'Uses our secure servers for processing. No signup required.'
     : 'Runs in your browser — no signup required. Privacy-friendly.';
 
   return {
-    title: { absolute: `${tool.name} — Free Online ${tool.category.replace(' Tools', '')} Tool | CodexStudio` },
+    title: { absolute: pageTitle },
     description: `Free online ${tool.name}. ${tool.tagline}. ${privacyLine}`,
     keywords: tool.keywords,
     alternates: { canonical: `${SITE}/tools/${tool.slug}` },

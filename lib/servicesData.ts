@@ -50,7 +50,7 @@ This service is ideal for companies rebuilding outdated sites, startups launchin
     details: ['Custom UI sections', 'SEO-ready architecture', 'CMS integration', 'Analytics + events', 'Responsive performance', 'Technical QA'],
     process: ['Discovery and website strategy', 'UI planning and wireframes', 'Development and SEO implementation', 'QA, launch, and handover'],
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800',
-    metaTitle: 'Custom Website Development Services in Pakistan',
+    metaTitle: 'Website Development Services in Pakistan',
     metaDescription: 'Professional custom website development in Pakistan. We build fast, scalable websites using Next.js, React, and modern tech. Get a free quote.',
     faqs: [
       { question: 'How long does a custom website project take?', answer: 'Most projects take 3 to 8 weeks depending on pages, features, and content readiness.' },
@@ -96,7 +96,7 @@ Beyond launch, we help you improve conversion rates through landing pages, upsel
     details: ['Shopify and WooCommerce', 'Custom storefronts', 'Secure checkout setup', 'Analytics tracking', 'Mobile-first UX', 'Conversion improvements'],
     process: ['Store strategy and platform choice', 'Design and product architecture', 'Development and payment integration', 'Testing, launch, and CRO support'],
     image: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800',
-    metaTitle: 'E-Commerce Development Services | Shopify & Custom Stores',
+    metaTitle: 'E-Commerce & Shopify Development Services',
     metaDescription: 'Build your online store with CodexStudio. We develop Shopify, WooCommerce, and custom e-commerce solutions with secure checkout.',
     faqs: [
       { question: 'Which platform is best for my store?', answer: 'We recommend Shopify, WooCommerce, or custom development based on product complexity and budget.' },
@@ -185,7 +185,7 @@ Quality assurance is built into every sprint so your app works consistently acro
     details: ['iOS and Android apps', 'Cross-platform builds', 'Secure API integration', 'Push notifications', 'App store readiness', 'Post-launch support'],
     process: ['Product discovery and roadmap', 'UI/UX and prototyping', 'Development and testing', 'Store launch and iteration'],
     image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&q=80&w=800',
-    metaTitle: 'Mobile App Development Services | iOS & Android',
+    metaTitle: 'Mobile App Development | iOS & Android',
     metaDescription: 'Native and cross-platform mobile app development. We build iOS and Android apps for startups and businesses. Get a free consultation.',
     faqs: [
       { question: 'Do you build both iOS and Android apps?', answer: 'Yes, we build cross-platform and platform-specific apps depending on requirements.' },

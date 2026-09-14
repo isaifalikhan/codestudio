@@ -7,38 +7,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CTA } from '../components/CTA';
 import { blogPosts } from '../data/blog';
-
-const POSTS_PER_PAGE = 12;
-
-function buildBlogHref(category: string, page: number): string {
-  const params = new URLSearchParams();
-  if (category !== 'all') params.set('category', category);
-  if (page > 1) params.set('page', String(page));
-  const qs = params.toString();
-  return qs ? `/blog?${qs}` : '/blog';
-}
+import {
+  BLOG_CATEGORIES,
+  blogHref,
+  featuredPost,
+  getCategory,
+  pagePostsFor,
+  totalPagesFor,
+} from '@/lib/blog-routes';
 
 type BlogPageProps = {
   page?: number;
+  /** Category slug, or 'all' for the unfiltered listing. */
   category?: string;
 };
 
 export const BlogPage = ({ page = 1, category = 'all' }: BlogPageProps) => {
-  const categories = ['all', ...Array.from(new Set(blogPosts.map((p) => p.category))).sort()];
-  const activeCategory = categories.find((c) => c.toLowerCase() === category.toLowerCase()) ?? 'all';
+  const activeCategory = getCategory(category)?.slug ?? 'all';
+  const activeLabel = getCategory(category)?.label ?? 'all';
 
-  const isDefaultView = activeCategory === 'all';
-  const featuredPost = isDefaultView && page === 1 ? blogPosts.find((p) => p.featured) : undefined;
-
-  const pool = blogPosts.filter((p) => {
-    if (featuredPost && p.slug === featuredPost.slug) return false;
-    if (activeCategory === 'all') return true;
-    return p.category.toLowerCase() === activeCategory.toLowerCase();
-  });
-
-  const totalPages = Math.max(1, Math.ceil(pool.length / POSTS_PER_PAGE));
+  const totalPages = totalPagesFor(activeCategory);
   const pageNum = Math.min(Math.max(1, page), totalPages);
-  const regularPosts = pool.slice((pageNum - 1) * POSTS_PER_PAGE, pageNum * POSTS_PER_PAGE);
+
+  // Featured post sits above the grid on the first unfiltered page only, and is
+  // kept out of the grid pool on every page so paging stays consistent.
+  const featured = featuredPost();
+  const featuredPostToShow = activeCategory === 'all' && pageNum === 1 ? featured : undefined;
+  const regularPosts = pagePostsFor(activeCategory, pageNum);
 
   return (
     <motion.div
@@ -57,19 +52,34 @@ export const BlogPage = ({ page = 1, category = 'all' }: BlogPageProps) => {
           >
             Our Journal
           </motion.span>
+          {/* One H1 per view: a category page that repeats the generic blog
+              heading gives Google nothing to tell the pages apart. */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-5xl sm:text-7xl md:text-9xl font-display font-bold text-[#14171F]"
           >
-            Latest <span className="text-[#14171F]/40 italic">Insights</span>
+            {activeCategory === 'all' ? (
+              <>
+                Latest <span className="text-[#14171F]/40 italic">Insights</span>
+              </>
+            ) : (
+              <>
+                {activeLabel} <span className="text-[#14171F]/40 italic">Articles</span>
+              </>
+            )}
           </motion.h1>
+          {pageNum > 1 && (
+            <p className="text-[#14171F]/60 text-lg">
+              Page {pageNum} of {totalPages}
+            </p>
+          )}
         </div>
       </section>
 
       {/* Featured Post */}
-      {featuredPost && (
+      {featuredPostToShow && (
         <section className="pb-24 px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -80,8 +90,8 @@ export const BlogPage = ({ page = 1, category = 'all' }: BlogPageProps) => {
             >
               <div className="flex-1 aspect-[16/10] lg:aspect-auto overflow-hidden relative">
                 <Image
-                  src={featuredPost.image}
-                  alt={`${featuredPost.title} - CodexStudio blog featured`}
+                  src={featuredPostToShow.image}
+                  alt={`${featuredPostToShow.title} - CodexStudio blog featured`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-1000"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -89,20 +99,20 @@ export const BlogPage = ({ page = 1, category = 'all' }: BlogPageProps) => {
               </div>
               <div className="flex-1 p-8 md:p-16 flex flex-col justify-center space-y-8">
                 <div className="flex items-center gap-6 text-[#F6F4EC]/60 text-sm font-bold uppercase tracking-widest">
-                  <span className="flex items-center gap-2"><Tag className="w-4 h-4" /> {featuredPost.category}</span>
-                  <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {featuredPost.date}</span>
+                  <span className="flex items-center gap-2"><Tag className="w-4 h-4" /> {featuredPostToShow.category}</span>
+                  <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {featuredPostToShow.date}</span>
                 </div>
                 <h2 className="text-4xl md:text-5xl font-display font-bold text-[#F6F4EC] group-hover:text-[#D98A2C] transition-colors">
-                  {featuredPost.title}
+                  {featuredPostToShow.title}
                 </h2>
                 <p className="text-xl text-[#F6F4EC]/60 leading-relaxed">
-                  {featuredPost.excerpt}
+                  {featuredPostToShow.excerpt}
                 </p>
                 <div className="flex items-center gap-4 text-[#F6F4EC]">
                   <User className="w-5 h-5 text-[#D98A2C]" />
-                  <span className="font-bold">{featuredPost.author}</span>
+                  <span className="font-bold">{featuredPostToShow.author}</span>
                 </div>
-                <Link href={`/blog/${featuredPost.slug}`} className="inline-flex items-center gap-3 text-[#F6F4EC] font-bold group/btn">
+                <Link href={`/blog/${featuredPostToShow.slug}`} className="inline-flex items-center gap-3 text-[#F6F4EC] font-bold group/btn">
                   Read Full Article 
                   <div className="w-12 h-12 rounded-full border border-[#F6F4EC]/20 flex items-center justify-center group-hover/btn:bg-[#F6F4EC] group-hover/btn:text-[#14171F] transition-all">
                     <ArrowRight className="w-6 h-6" />
@@ -117,19 +127,19 @@ export const BlogPage = ({ page = 1, category = 'all' }: BlogPageProps) => {
       {/* Category Filter Tabs */}
       <section className="pb-12 px-6" aria-label="Filter by category">
         <div className="max-w-7xl mx-auto flex flex-wrap gap-3">
-          {categories.map((cat) => {
-            const isActive = cat === activeCategory;
+          {[{ slug: 'all', label: 'All Posts' }, ...BLOG_CATEGORIES].map((cat) => {
+            const isActive = cat.slug === activeCategory;
             return (
               <Link
-                key={cat}
-                href={buildBlogHref(cat, 1)}
+                key={cat.slug}
+                href={blogHref(cat.slug)}
                 className={
                   isActive
                     ? 'px-5 py-2 rounded-full text-sm font-bold bg-[#14171F] text-[#F6F4EC] transition-colors'
                     : 'px-5 py-2 rounded-full text-sm font-bold bg-[#F6F4EC] text-[#14171F] border border-[#14171F]/15 hover:border-[#D98A2C] hover:text-[#D98A2C] transition-colors'
                 }
               >
-                {cat === 'all' ? 'All Posts' : cat}
+                {cat.label}
               </Link>
             );
           })}
@@ -179,7 +189,7 @@ export const BlogPage = ({ page = 1, category = 'all' }: BlogPageProps) => {
           <div className="max-w-7xl mx-auto flex items-center justify-center gap-4 mt-16">
             {pageNum > 1 ? (
               <Link
-                href={buildBlogHref(activeCategory, pageNum - 1)}
+                href={blogHref(activeCategory, pageNum - 1)}
                 className="px-6 py-3 rounded-full text-sm font-bold border border-[#14171F]/20 text-[#14171F] hover:border-[#D98A2C] hover:text-[#D98A2C] transition-colors"
               >
                 ← Previous
@@ -194,7 +204,7 @@ export const BlogPage = ({ page = 1, category = 'all' }: BlogPageProps) => {
             </span>
             {pageNum < totalPages ? (
               <Link
-                href={buildBlogHref(activeCategory, pageNum + 1)}
+                href={blogHref(activeCategory, pageNum + 1)}
                 className="px-6 py-3 rounded-full text-sm font-bold border border-[#14171F]/20 text-[#14171F] hover:border-[#D98A2C] hover:text-[#D98A2C] transition-colors"
               >
                 Next →

@@ -5,6 +5,7 @@ const PUBLISHED = '2026-09-14';
 export const howLongDoesHifzTake: Article = {
   slug: 'how-long-does-hifz-take',
   title: 'How long does it take to memorise the Quran?',
+  seoTitle: 'How Long Does Hifz Take?',
   description:
     'Realistic hifz timelines by age and hours per day, why revision takes more time than new memorisation, and how to tell whether a plan is sustainable.',
   excerpt:
