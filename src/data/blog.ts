@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     seoTitle: 'Why Google Is Not Indexing Your Pages',
     slug: 'why-google-is-not-indexing-your-pages',
     excerpt:
-      'Submitting a sitemap does not get pages indexed. What "discovered" and "crawled – currently not indexed" actually mean, and why blocking a page keeps it in the index.',
+      'Submitting a sitemap does not get pages indexed. What "discovered" and "crawled – currently not indexed" mean, and why blocking a page keeps it listed.',
     category: 'SEO',
     author: 'CodexStudio Team',
     date: 'Sep 14, 2026',

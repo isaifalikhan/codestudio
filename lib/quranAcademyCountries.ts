@@ -467,10 +467,10 @@ export const COUNTRY_PAGES: CountryPageSource[] = [
     communityLanguages: ['English', 'Arabic', 'Urdu', 'Bengali'],
     currency: { code: 'USD', symbol: '$', note: 'Pay by card, bank transfer, Zelle or PayPal.' },
     intro:
-      'American families are spread across four mainland time zones, so a single evening timetable never works. Each student is scheduled in their own local time, whether that is Eastern, Central, Mountain or Pacific.',
+      'American families are spread across four mainland time zones, so a single evening schedule never works. Each student is scheduled in their own local time, whether that is Eastern, Central, Mountain or Pacific.',
     highlights: [
       'Classes scheduled in EST, CST, MST or PST — not converted from someone else’s clock',
-      'Early-morning hifz slots before school, a common choice for serious memorisation',
+      'Early-morning hifz slots before school, a common choice for serious memorization',
       'Teachers familiar with students raised speaking only English',
     ],
     faqs: [
@@ -480,7 +480,7 @@ export const COUNTRY_PAGES: CountryPageSource[] = [
       },
       {
         q: 'Can my child do hifz alongside full-time school?',
-        a: 'Yes. The common pattern is a 30 to 45-minute class before school for new memorisation, plus a second short session for revision. Your supervisor sets a daily target the child can actually sustain.',
+        a: 'Yes. The common pattern is a 30 to 45-minute class before school for new memorization, plus a second short session for revision. Your supervisor sets a daily target the child can actually sustain.',
       },
       {
         q: 'How do we pay in the US?',

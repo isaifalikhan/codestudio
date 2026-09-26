@@ -185,6 +185,22 @@ export const QuranAcademyCountry = ({ page }: { page: CountryPage }) => {
                   </dd>
                 </div>
                 <div>
+                  {/*
+                    Surfaced as its own labelled fact rather than left as a
+                    pricing-plan bullet. For a large share of parents this is
+                    the deciding question, and "female Quran teacher online"
+                    is high-intent in every market we target. It sits inside
+                    the `speakable` block so assistants can quote it.
+                  */}
+                  <dt className="text-xs font-bold uppercase tracking-[0.16em] text-mist">
+                    Male or female teacher
+                  </dt>
+                  <dd className="mt-1 font-medium text-ink">
+                    Your choice, on every plan. Female students in {page.country} are most often
+                    matched with a female teacher, and you can change teacher at any time.
+                  </dd>
+                </div>
+                <div>
                   <dt className="text-xs font-bold uppercase tracking-[0.16em] text-mist">
                     Fees and payment
                   </dt>
