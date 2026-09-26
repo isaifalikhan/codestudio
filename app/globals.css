@@ -43,6 +43,7 @@
   background-color: rgb(var(--c-paper));
 }
 
+
 /* The three hard-coded hex values still scattered through the homepage
    components, remapped so the scope stays consistent. */
 .theme-glass .bg-\[\#F6F4EC\] { background-color: rgb(var(--c-paper)); }
@@ -352,6 +353,22 @@ button:focus-visible,
 
   color: rgb(var(--c-ink));
   background-color: rgb(var(--c-paper));
+}
+
+/*
+  `@layer base` sets `h1..h6 { @apply text-ink }`. A type selector always beats
+  an inherited value, so every heading inside a dark `bg-ink ... text-paper`
+  band was painted ink-on-ink and rendered invisible: the trial CTA heading on
+  the hub, and two per country page and course page ("Start this week in the
+  United Kingdom", "Built around the British week", and their equivalents).
+
+  Restoring inheritance is the narrow fix. Headings on light cards nested
+  inside those dark bands are unaffected, because they inherit ink from the
+  card, not cream from the band - verified on the hub trial form, which keeps
+  rgb(13 42 33). This rule is deliberately unlayered so it outranks @layer base.
+*/
+.theme-academy :is(h1, h2, h3, h4, h5, h6) {
+  color: inherit;
 }
 
 @layer utilities {

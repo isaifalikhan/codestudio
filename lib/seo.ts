@@ -16,6 +16,10 @@ export function buildOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    // Stable node id. Without it, pages that declare their own Organization
+    // inside an @graph (/about) emit a second, unmergeable Organization node
+    // instead of referencing this one.
+    '@id': `${SITE_URL}#organization`,
     name: BRAND_NAME,
     url: SITE_URL,
     logo: {
@@ -54,6 +58,7 @@ export function buildLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@id': `${SITE_URL}#localbusiness`,
     name: BRAND_NAME,
     image: `${SITE_URL}/images/logo.png`,
     url: SITE_URL,
@@ -107,6 +112,7 @@ export function buildWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${SITE_URL}#website`,
     name: BRAND_NAME,
     url: SITE_URL,
     description: 'Free online tools and web development services from CodexStudio, Islamabad, Pakistan.',
