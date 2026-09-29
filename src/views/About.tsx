@@ -391,6 +391,68 @@ export const About = () => {
         </div>
       </section>
 
+      <section
+        id="how-we-work"
+        aria-labelledby="how-we-work-heading"
+        className="px-6 py-20 md:py-24"
+      >
+        <div className="mx-auto max-w-3xl">
+          <h2
+            id="how-we-work-heading"
+            className="font-display text-3xl font-bold text-[#14171F] md:text-4xl"
+          >
+            How the work actually runs
+          </h2>
+          <div className="mt-6 space-y-5 text-base leading-relaxed text-[#14171F]/70">
+            <p>
+              Projects start with scope rather than with design. Before anything is drawn we
+              establish what the site or application has to achieve, who maintains it afterwards, and
+              which constraints are real — an integration that must work, a launch date tied to
+              something external, a brand system that cannot be changed. Most projects that go badly
+              go badly because one of those surfaced late.
+            </p>
+            <p>
+              Design and build then run close together rather than as separate handover stages. Work
+              is shown early and often on a real URL you can open on your own phone, because a
+              staging link tells you things a static mockup cannot — how it feels on a slow
+              connection, whether the tap targets are reachable, whether the text still reads at the
+              size it will actually be.
+            </p>
+            <p>
+              Performance and search are handled during the build rather than bolted on afterwards.
+              Image sizing, layout stability, rendering strategy and crawlability are decisions made
+              while a page is being built; retrofitting them later means rebuilding the same page
+              twice. The same applies to accessibility basics — heading structure, contrast, keyboard
+              navigation and alternative text cost nothing when done as you go.
+            </p>
+          </div>
+
+          <h2 className="mt-12 font-display text-3xl font-bold text-[#14171F] md:text-4xl">
+            Choosing the stack
+          </h2>
+          <div className="mt-6 space-y-5 text-base leading-relaxed text-[#14171F]/70">
+            <p>
+              The default is a modern JavaScript stack because it suits most of what clients ask for,
+              but the default is not automatic. A brochure site for a business that updates it twice a
+              year does not need a custom application, and recommending one would be selling
+              complexity rather than solving a problem. WordPress or a managed platform is sometimes
+              the honest answer, and we will say so.
+            </p>
+            <p>
+              Where a custom build is right, the questions that matter are who edits the content, what
+              it has to integrate with, and what happens as it grows. Those determine the
+              architecture far more than any preference about frameworks.
+            </p>
+            <p>
+              Whatever gets built, it is yours. Standard technology, code you own, hosting you control
+              and no dependency on us to keep it running. Some clients stay on a maintenance
+              arrangement and others take the site and run it themselves — both are fine, and the
+              build is done the same way either way.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <CTA />
     </motion.div>
   );

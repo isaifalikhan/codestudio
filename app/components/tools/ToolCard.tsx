@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import type { Tool } from '@/lib/tools-data';
+import type { ToolSummary } from '@/lib/tools-data';
 import { isIncompleteTool } from '@/lib/tool-server-behavior';
 
 interface ToolCardProps {
-  tool: Tool;
+  tool: ToolSummary;
 }
 
 export function ToolCard({ tool }: ToolCardProps) {

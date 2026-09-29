@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { RESOURCE_CATEGORY_INTROS } from '@/lib/category-intros';
 import { SITE_URL } from '@/lib/constants';
 import { tools, categories } from '@/lib/resources-data';
 import { ResourceCard } from '@/app/components/ResourceCard';
@@ -82,11 +83,15 @@ export async function generateMetadata({
       siteName: 'CodexStudio',
       type: 'website',
       locale: 'en_US',
+      // Declaring openGraph here replaces the root layout's block entirely,
+      // so the image has to be repeated or the share card renders blank.
+      images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
       title: meta.title,
       description: meta.description,
+      images: ['/og-image.png'],
     },
   };
 }
@@ -151,6 +156,23 @@ export default async function ResourceCategoryPage({
           </div>
         </div>
       </section>
+
+      {RESOURCE_CATEGORY_INTROS[category] && (
+        <section className="pb-16 px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-display font-bold text-[#14171F]">
+              Choosing {cat.label.toLowerCase()} tools
+            </h2>
+            <div className="mt-4 space-y-4">
+              {RESOURCE_CATEGORY_INTROS[category].map((para, i) => (
+                <p key={i} className="text-[15px] leading-relaxed text-[#14171F]/75">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="py-16 px-6 border-t border-[#14171F]/10">
         <div className="max-w-3xl mx-auto text-center">

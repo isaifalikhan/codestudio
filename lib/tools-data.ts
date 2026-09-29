@@ -577,6 +577,32 @@ const rawTools: ToolCore[] = [
 
 export const tools: Tool[] = rawTools.map(enrichToolSeo);
 
+/**
+ * The subset of a tool that listing surfaces actually render.
+ *
+ * `/tools` passes its list to a client component, so every field crosses the
+ * server/client boundary and gets serialised into the inline RSC payload in the
+ * HTML. Passing full `Tool` objects shipped all 139 `longDescription` bodies
+ * (~300 words each) to every visitor of the hub — 386KB of the page's 565KB —
+ * even though the grid only shows a name, emoji and tagline.
+ */
+export type ToolSummary = Pick<
+  Tool,
+  'slug' | 'name' | 'category' | 'emoji' | 'tagline' | 'description' | 'keywords'
+>;
+
+export const toolSummaries: ToolSummary[] = tools.map(
+  ({ slug, name, category, emoji, tagline, description, keywords }) => ({
+    slug,
+    name,
+    category,
+    emoji,
+    tagline,
+    description,
+    keywords,
+  })
+);
+
 export const toolCategories = [
   { id: 'all', label: 'All Tools', count: tools.length },
   { id: 'Image Tools', label: 'Image Tools', count: 5 },

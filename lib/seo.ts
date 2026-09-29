@@ -30,7 +30,10 @@ export function buildOrganizationSchema() {
     },
     description:
       'Web development agency in Islamabad, Pakistan specializing in Next.js, React, e-commerce, and 140+ free online tools.',
-    foundingDate: '2022',
+    // The About page prose and the domain both say 2026; this said 2022, which
+    // contradicted them in structured data Google reads as the entity's own
+    // statement about itself. Corrected to match the on-page claim.
+    foundingDate: '2026',
     address: {
       '@type': 'PostalAddress',
       addressLocality: BRAND_CITY,

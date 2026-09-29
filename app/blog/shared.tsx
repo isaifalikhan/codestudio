@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { BlogPage } from '@/src/views/BlogPage';
 import { JsonLd } from '@/app/components/JsonLd';
+import { BLOG_CATEGORY_INTROS } from '@/lib/category-intros';
 import { AdPlacement } from '@/app/components/AdPlacement';
 import { SITE_URL } from '@/lib/constants';
 import { blogHref, getCategory, pagePostsFor, totalPagesFor } from '@/lib/blog-routes';
@@ -27,9 +28,14 @@ export function listingMetadata(categorySlug: string, page: number): Metadata {
       ? `Web Development & Design Blog${pageSuffix} | CodexStudio`
       : 'Web Development & Design Blog | CodexStudio — Islamabad';
 
+  // The page qualifier belongs in the description as well as the title.
+  // Without it, /blog and /blog/page/2 ship byte-identical descriptions, which
+  // is a duplicate-meta signal on two pages that are deliberately both indexed.
+  const descriptionSuffix = page > 1 ? ` Page ${page} of the archive.` : '';
+
   const description = category
-    ? `${category.label} articles from the CodexStudio team in Islamabad: practical guides, tips and analysis for businesses building online.`
-    : 'Read the CodexStudio blog for web development tips, UI/UX design insights, SEO strategies and digital marketing advice for Pakistani businesses.';
+    ? `${category.label} articles from the CodexStudio team in Islamabad: practical guides, tips and analysis for businesses building online.${descriptionSuffix}`
+    : `Read the CodexStudio blog for web development tips, UI/UX design insights, SEO strategies and digital marketing advice for Pakistani businesses.${descriptionSuffix}`;
 
   return {
     title: { absolute: title },
@@ -108,6 +114,24 @@ export function BlogListing({
         <AdPlacement slot="top" />
       </div>
       <BlogPage page={page} category={categorySlug} />
+      {/* Category intro sits below the listing: the posts are what the visitor
+          came for, but the page still needs to say something a search snippet
+          does not already show. Page 1 only — repeating it on /page/2 would
+          re-introduce the duplicate content the pagination suffix just fixed. */}
+      {page === 1 && BLOG_CATEGORY_INTROS[categorySlug.toLowerCase()] && (
+        <section className="max-w-3xl mx-auto px-6 mt-4 mb-16">
+          <h2 className="font-display text-2xl font-bold text-[#14171F]">
+            About {getCategory(categorySlug)?.label ?? 'these'} articles
+          </h2>
+          <div className="mt-4 space-y-4">
+            {BLOG_CATEGORY_INTROS[categorySlug.toLowerCase()].map((para, i) => (
+              <p key={i} className="text-[15px] leading-relaxed text-[#14171F]/75">
+                {para}
+              </p>
+            ))}
+          </div>
+        </section>
+      )}
       <div className="max-w-7xl mx-auto px-6">
         <AdPlacement slot="bottom" />
       </div>

@@ -129,9 +129,64 @@ export const ContactPage = () => {
           </div>
           <p className="mt-3 text-sm text-[#14171F]/60">CodexStudio · {BRAND_CITY}, Pakistan · {BRAND_PHONE} · {BRAND_EMAIL}</p>
         </div>
-        <div className="max-w-7xl mx-auto mt-16 pt-10 border-t border-[#14171F]/10 text-center">
-          <p className="text-[#14171F]/70">
-            While you wait, try our free tools: <Link href="/tools" className="text-[#D98A2C] font-semibold hover:underline">100+ free online tools →</Link>
+        <div className="max-w-3xl mx-auto mt-16 pt-12 border-t border-[#14171F]/10">
+          <h2 className="font-display text-2xl font-bold text-[#14171F]">What happens after you get in touch</h2>
+          <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#14171F]/75">
+            <p>
+              You get a reply from the person who would actually do the work, usually within one
+              working day. There is no qualification call with a salesperson and no automated
+              sequence — the first response is a real answer to what you asked.
+            </p>
+            <p>
+              If the project looks like a fit, the next step is a scoping conversation of thirty to
+              forty-five minutes. That covers what the site or application has to achieve, what
+              already exists, who needs to be able to update it afterwards, and any deadline that is
+              genuinely fixed rather than aspirational. A written proposal with a fixed quote follows
+              within a few days.
+            </p>
+            <p>
+              If it is not a fit, we say so directly and point you somewhere more suitable. Projects
+              needing a larger team working in parallel, or a specialism outside design and web
+              engineering, are better served elsewhere and it wastes everyone&apos;s time to pretend
+              otherwise.
+            </p>
+          </div>
+
+          <h2 className="mt-10 font-display text-2xl font-bold text-[#14171F]">What to include in your message</h2>
+          <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#14171F]/75">
+            <p>
+              The more of this you can answer, the more useful the first reply will be: what the
+              business does, what you want the site to achieve, whether you are replacing something
+              existing or starting fresh, roughly what budget range you are working to, and when you
+              need it live.
+            </p>
+            <p>
+              Budget in particular is worth stating even approximately. It is not used to inflate a
+              quote — it is what lets us tell you in the first reply whether the thing you want is
+              achievable at that level, rather than after two weeks of conversation.
+            </p>
+          </div>
+
+          <h2 className="mt-10 font-display text-2xl font-bold text-[#14171F]">Where we work</h2>
+          <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-[#14171F]/75">
+            <p>
+              CodexStudio is based in {BRAND_CITY}, Pakistan, and works with clients there and
+              internationally — currently across the UK, United States, Europe and the Gulf. Quotes
+              are in USD for every client regardless of location.
+            </p>
+            <p>
+              Pakistan Standard Time is UTC+5, which overlaps comfortably with a European or Gulf
+              working day and covers the morning for clients on the US East Coast. Most of the work
+              happens asynchronously, with calls scheduled where a conversation is genuinely faster
+              than writing.
+            </p>
+          </div>
+
+          <p className="mt-10 text-[#14171F]/70">
+            While you wait, try our free tools:{' '}
+            <Link href="/tools" className="text-[#D98A2C] font-semibold hover:underline">
+              100+ free online tools →
+            </Link>
           </p>
         </div>
       </section>

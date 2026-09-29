@@ -3,11 +3,11 @@
 import React, { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import { ToolCard } from './ToolCard';
-import type { Tool } from '@/lib/tools-data';
+import type { ToolSummary } from '@/lib/tools-data';
 import { toolCategories } from '@/lib/tools-data';
 
 interface ToolsHubClientProps {
-  tools: Tool[];
+  tools: ToolSummary[];
 }
 
 export function ToolsHubClient({ tools }: ToolsHubClientProps) {
@@ -35,7 +35,7 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
     () =>
       ['word-counter', 'image-compressor', 'password-generator', 'merge-pdf', 'qr-code-generator', 'tiktok-downloader']
         .map((slug) => tools.find((tool) => tool.slug === slug))
-        .filter(Boolean) as Tool[],
+        .filter(Boolean) as ToolSummary[],
     [tools]
   );
 

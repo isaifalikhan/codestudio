@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/constants';
-import { tools } from '@/lib/tools-data';
+import { tools, toolSummaries } from '@/lib/tools-data';
 import { ToolsHubClient } from '@/app/components/tools/ToolsHubClient';
 import { JsonLd } from '@/app/components/JsonLd';
 import { ArrowRight } from 'lucide-react';
@@ -115,7 +115,7 @@ export default function ToolsHubPage() {
       {/* Filter + Grid */}
       <section id="tools-grid" className="py-8 px-6">
         <div className="max-w-7xl mx-auto">
-          <ToolsHubClient tools={tools} />
+          <ToolsHubClient tools={toolSummaries} />
         </div>
       </section>
 

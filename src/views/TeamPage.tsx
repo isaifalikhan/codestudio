@@ -39,7 +39,8 @@ export const TeamPage = () => {
             transition={{ delay: 0.2 }}
             className="text-xl text-[#14171F]/60 leading-relaxed max-w-2xl mx-auto"
           >
-            The passionate designers and developers behind CodexStudio.
+            CodexStudio is a founder-led studio in Islamabad. You work with the person who
+            builds the thing, not an account manager relaying messages to a team you never meet.
           </motion.p>
         </div>
       </section>
@@ -91,6 +92,55 @@ export const TeamPage = () => {
                 Get in touch
               </Link>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-24">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="font-display text-3xl font-bold text-[#14171F]">How a small studio works</h2>
+          <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-[#14171F]/75">
+            <p>
+              Most agencies of this size present themselves as larger than they are. We would rather
+              be straightforward about it, because the structure is the point rather than something to
+              apologise for. A founder-led studio means the person who scopes your project is the
+              person who writes the code, and the person who is still there when something needs
+              fixing six months later.
+            </p>
+            <p>
+              The practical difference shows up in the parts of a project that normally go wrong.
+              Nothing is lost in translation between a salesperson who promised something and a
+              developer who has to build it. Decisions get made in one conversation rather than three.
+              And when a requirement turns out to be more complicated than it looked, you hear that
+              directly and early rather than discovering it at the deadline.
+            </p>
+            <p>
+              The honest trade-off is capacity. We take on a limited number of projects at a time,
+              which means we occasionally cannot start when you would like us to. For work that needs
+              a larger team — a long-running product with several parallel workstreams — we will say
+              so rather than stretch to fit.
+            </p>
+            <p>
+              For specialist work outside the core of design and web engineering we bring in trusted
+              collaborators — illustration, photography, copywriting, motion — and tell you when that
+              is happening and who is doing it.
+            </p>
+          </div>
+
+          <h2 className="mt-12 font-display text-3xl font-bold text-[#14171F]">Who we work with</h2>
+          <div className="mt-6 space-y-5 text-[15px] leading-relaxed text-[#14171F]/75">
+            <p>
+              Clients are generally in one of three situations. Some are established businesses whose
+              site has fallen behind — slow, awkward on a phone, or invisible in search. Some are
+              earlier stage and need a first real presence rather than a social profile and a WhatsApp
+              number. Others have outgrown spreadsheets and need an internal tool built around how
+              they actually work.
+            </p>
+            <p>
+              We work with clients in Pakistan and internationally, and quote in USD in both cases.
+              Most collaboration happens asynchronously, with scheduled calls at the points where a
+              conversation is genuinely faster than writing.
+            </p>
           </div>
         </div>
       </section>
