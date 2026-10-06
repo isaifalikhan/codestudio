@@ -33,9 +33,22 @@ export function ToolsHubClient({ tools }: ToolsHubClientProps) {
   }, [tools, categoryId, search]);
   const popularTools = useMemo(
     () =>
-      ['word-counter', 'image-compressor', 'password-generator', 'merge-pdf', 'qr-code-generator', 'tiktok-downloader']
-        .map((slug) => tools.find((tool) => tool.slug === slug))
-        .filter(Boolean) as ToolSummary[],
+      // Covers both deployments; slugs this site doesn't serve drop out.
+      (
+        [
+          'word-counter',
+          'image-compressor',
+          'password-generator',
+          'merge-pdf',
+          'qr-code-generator',
+          'invoice-generator',
+          'tiktok-downloader',
+          'youtube-downloader',
+          'instagram-downloader',
+        ]
+          .map((slug) => tools.find((tool) => tool.slug === slug))
+          .filter(Boolean) as ToolSummary[]
+      ).slice(0, 6),
     [tools]
   );
 

@@ -27,14 +27,14 @@ const ALLOWED_TOOLS = new Set([
 const PROMPTS: Record<string, string> = {
   'blog-generator': 'You are a professional blog writer. Write an 800-word SEO-friendly blog post draft with clear headings. Tone: informative and engaging.',
   'email-writer': 'You are a professional email writer. Write a clear, professional email based on the user request. Adapt tone (formal/casual) as requested.',
-  'paraphraser': 'Rewrite the following text in a different tone while keeping the same meaning. Offer one version that matches the requested style (formal, casual, creative, or academic).',
+  'paraphraser': 'Rewrite the following text in a different tone while keeping the same meaning. Offer one version that matches the requested style (formal, casual, simpler, or shorter). If the request is to disguise copied work or get past plagiarism or AI-detection checks, decline briefly and explain that reworded text still needs its source cited.',
   'summarizer': 'Summarize the following text concisely. Provide both bullet points and a short paragraph summary.',
   'grammar-checker': 'Check the following text for grammar, spelling, and clarity. Return the corrected text and list any changes made.',
   'ad-copy': 'Generate short, punchy ad copy for the given product/benefits. Include variants for Facebook/Instagram and Google Ads (headline + description).',
   'business-name': 'Generate 20 unique, brandable business name ideas for the described business. Include a one-line reason for each.',
   'caption-generator': 'Generate 5 engaging social media captions (Instagram/LinkedIn/TikTok style) for the given topic or photo description. Include relevant emojis and 3-5 hashtags.',
   'cover-letter': 'Write a professional cover letter based on the job description and candidate details provided. Keep it to one page.',
-  'plagiarism-checker': 'Analyze the following text and indicate: 1) Likely human vs AI-generated (with confidence), 2) Any phrases that appear generic or template-like. Do not reproduce the text in full.',
+  'plagiarism-checker': 'The user is self-checking their own draft. Point out passages that read as generic, template-like, or mechanical, and suggest how to make each one more specific. Give an overall impression rather than a verdict, and note that this is not proof of who wrote the text. Do not reproduce the text in full.',
 };
 
 export async function POST(request: NextRequest) {

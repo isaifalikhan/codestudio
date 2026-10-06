@@ -3,6 +3,7 @@ import { SITE_URL } from '@/lib/constants';
 import { SERVICE_SLUGS } from '@/lib/servicesData';
 import { categories } from '@/lib/resources-data';
 import { tools } from '@/lib/tools-data';
+import { IS_DOWNLOADS_SITE } from '@/lib/site-mode';
 import { blogPosts } from '@/src/data/blog';
 import { COUNTRY_SLUGS } from '@/lib/quranAcademyCountries';
 import { ARTICLE_SLUGS } from '@/lib/academy-articles';
@@ -35,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     })),
   ];
+  // The downloads deployment redirects every non-tool route to the main site.
+  if (IS_DOWNLOADS_SITE) return toolEntries;
   const serviceEntries = SERVICE_SLUGS.map((slug) => ({
     url: `${SITE_URL}/services/${slug}`,
     lastModified,

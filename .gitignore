@@ -55,3 +55,4 @@ Thumbs.db
 # next.config.mjs) — build artefacts, never source.
 .next-verify/
 .next-build-check/
+.next-downloads/

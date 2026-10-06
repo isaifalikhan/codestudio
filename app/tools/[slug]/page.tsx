@@ -6,8 +6,7 @@ import { ToolWidgetLoader } from '@/app/components/tools/ToolWidgetLoader';
 import { JsonLd } from '@/app/components/JsonLd';
 import { isServerBackedTool } from '@/lib/tool-server-behavior';
 import { getToolFaqItems } from '@/lib/tool-faqs';
-
-const SITE = 'https://www.codexstudio2026.com';
+import { SITE_URL as SITE } from '@/lib/constants';
 
 export async function generateStaticParams() {
   return tools.map((tool) => ({ slug: tool.slug }));

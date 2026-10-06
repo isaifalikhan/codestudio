@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/constants';
-import { tools, toolSummaries } from '@/lib/tools-data';
+import { IS_DOWNLOADS_SITE } from '@/lib/site-mode';
+import { tools, toolSummaries, toolCategories } from '@/lib/tools-data';
 import { ToolsHubClient } from '@/app/components/tools/ToolsHubClient';
 import { JsonLd } from '@/app/components/JsonLd';
 import { ArrowRight } from 'lucide-react';
@@ -9,7 +10,7 @@ import { AdPlacement } from '@/app/components/AdPlacement';
 import { TagChip } from '@/src/components/TagChip';
 import { BracketLink } from '@/src/components/BracketLink';
 
-const SITE = 'https://www.codexstudio2026.com';
+const SITE = SITE_URL;
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -19,23 +20,31 @@ const breadcrumbSchema = {
   ],
 };
 
+const HUB_TITLE = IS_DOWNLOADS_SITE
+  ? 'Free Video Downloaders & Document Generators'
+  : '100+ Free Online Tools — Image, PDF, AI & More';
+const HUB_DESCRIPTION = IS_DOWNLOADS_SITE
+  ? 'Free video downloaders for TikTok, YouTube, Instagram, Facebook, X, Pinterest and Vimeo, plus receipt and pay stub generators. No signup.'
+  : '100+ free online tools: image compressor, PDF merger, password generator, invoice maker, AI writer and more. No signup, runs in your browser.';
+
 export const metadata: Metadata = {
-  title: { absolute: '100+ Free Online Tools — Image, PDF, AI & Video' },
-  description:
-    '100+ free online tools: image compressor, PDF merger, password generator, invoice maker, AI writer and more. No signup, runs in your browser.',
-  keywords: [
-    'free online tools',
-    'image compressor free',
-    'pdf merger online',
-    'password generator',
-    'word counter online',
-    'qr code generator free',
-  ],
-  alternates: { canonical: 'https://www.codexstudio2026.com/tools' },
+  title: { absolute: HUB_TITLE },
+  description: HUB_DESCRIPTION,
+  keywords: IS_DOWNLOADS_SITE
+    ? ['video downloader', 'tiktok downloader', 'youtube downloader', 'instagram downloader']
+    : [
+        'free online tools',
+        'image compressor free',
+        'pdf merger online',
+        'password generator',
+        'word counter online',
+        'qr code generator free',
+      ],
+  alternates: { canonical: `${SITE}/tools` },
   openGraph: {
-    title: '100+ Free Online Tools — No Signup | CodexStudio',
-    description: '100+ free browser tools. Image, PDF, video, AI, finance, health & more. All free.',
-    url: 'https://www.codexstudio2026.com/tools',
+    title: HUB_TITLE,
+    description: HUB_DESCRIPTION,
+    url: `${SITE}/tools`,
     images: [{ url: '/og-tools.png', width: 1200, height: 630 }],
     type: 'website',
     siteName: 'CodexStudio',
@@ -46,9 +55,8 @@ export const metadata: Metadata = {
 const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: '100+ Free Online Tools — No Signup, Works in Browser',
-  description:
-    'Free online tools built by CodexStudio. Image compressor, PDF merger, video downloaders, password generator, word counter, QR code maker and more. Most calculators and file tools run in your browser; video and AI tools use our secure APIs.',
+  name: HUB_TITLE,
+  description: HUB_DESCRIPTION,
   url: `${SITE_URL}/tools`,
   publisher: { '@type': 'Organization', name: 'CodexStudio', url: SITE_URL },
   mainEntity: {
@@ -77,11 +85,14 @@ export default function ToolsHubPage() {
             <TagChip name="FreeTools" />
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-ink mb-6 leading-tight">
-            {tools.length}+ free online tools — no signup, works in browser
+            {IS_DOWNLOADS_SITE
+              ? 'Free video downloaders & document generators'
+              : `${tools.length}+ free online tools — no signup, works in browser`}
           </h1>
           <p className="max-w-3xl mx-auto text-lg text-ink/70 leading-relaxed mb-10">
-            CodexStudio built these tools for developers, designers, and businesses. Most tools run in your browser with no signup. Video downloaders and AI
-            writers use our secure servers only to complete those tasks — see each tool&apos;s page for details.
+            {IS_DOWNLOADS_SITE
+              ? 'Paste a public video link and download it, or create a printable receipt or pay stub. Only download content you have the right to use.'
+              : 'CodexStudio built these tools for developers, designers, and businesses. Most tools run in your browser with no signup. AI writers use our secure servers only to complete those tasks — see each tool’s page for details.'}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <BracketLink href="#tools-grid" variant="solid">
@@ -99,7 +110,7 @@ export default function ToolsHubPage() {
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8 md:gap-12 text-center font-mono text-sm">
           <span className="text-ink font-bold">{tools.length}+ tools</span>
           <span className="text-ink/30">·</span>
-          <span className="text-ink font-bold">17 categories</span>
+          <span className="text-ink font-bold">{toolCategories.length - 1} categories</span>
           <span className="text-ink/30">·</span>
           <span className="text-ink font-bold">100% free</span>
           <span className="text-ink/30">·</span>
@@ -119,7 +130,27 @@ export default function ToolsHubPage() {
         </div>
       </section>
 
+      {IS_DOWNLOADS_SITE && (
+        <section className="py-16 px-6 border-t border-[#14171F]/10">
+          <div className="max-w-3xl mx-auto prose prose-lg prose-[#14171F]">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-0 mb-4">
+              Video Downloaders — TikTok, YouTube, Instagram &amp; More
+            </h2>
+            <p className="text-[#14171F]/80 leading-relaxed">
+              Download videos from TikTok without watermark, save YouTube videos in MP4 or MP3, and
+              grab Instagram Reels, photos, and stories. Our Facebook, Twitter/X, Pinterest, and
+              Vimeo downloaders work the same way: paste the URL and download.
+            </p>
+            <p className="text-[#14171F]/80 leading-relaxed mt-4">
+              <strong className="text-[#14171F]">Responsible use:</strong> Only download or reuse content you have the right to use. Respect copyright and each
+              platform&apos;s terms of service. CodexStudio does not encourage infringement or unauthorized redistribution.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* SEO content ~400 words */}
+      {!IS_DOWNLOADS_SITE && (
       <section className="py-16 px-6 border-t border-[#14171F]/10">
         <div className="max-w-3xl mx-auto prose prose-lg prose-[#14171F]">
           <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-0 mb-4">
@@ -179,18 +210,13 @@ export default function ToolsHubPage() {
           </p>
 
           <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
-            Video Downloaders — TikTok, YouTube, Instagram &amp; More
+            Video &amp; Audio Tools — GIFs and Trimming
           </h2>
           <p className="text-[#14171F]/80 leading-relaxed">
-            Download videos from TikTok without watermark, save YouTube videos in MP4 or MP3, and
-            grab Instagram Reels, photos, and stories. Our Facebook, Twitter/X, Pinterest, and
-            Vimeo downloaders work the same way: paste the URL and download. We also offer a
-            YouTube thumbnail downloader, video-to-GIF converter, and audio trimmer. All run in
-            your browser — no software to install.
-          </p>
-          <p className="text-[#14171F]/80 leading-relaxed mt-4">
-            <strong className="text-[#14171F]">Responsible use:</strong> Only download or reuse content you have the right to use. Respect copyright and each
-            platform&apos;s terms of service. CodexStudio does not encourage infringement or unauthorized redistribution.
+            Turn a clip from your own video into an animated GIF, choosing the start time, length,
+            frame rate, and size. Trim MP3, WAV, or OGG files to the exact section you need. Both
+            tools work on files you upload from your device and run in your browser — no software
+            to install.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
@@ -234,6 +260,7 @@ export default function ToolsHubPage() {
           </p>
         </div>
       </section>
+      )}
 
       {/* Ad placement */}
       <div className="max-w-7xl mx-auto px-6 py-4">

@@ -126,7 +126,7 @@ Length is the other edit. Short emails get replies; long ones get postponed. If 
 
 Your input is sent to an AI model server-side to generate the draft and is not stored afterwards. Do not paste confidential client information or credentials into the prompt.`,
 
-  'ai-paraphraser': `The AI Paraphrasing Tool rewrites text while preserving its meaning, with control over the tone — more formal, more casual, simpler, shorter.
+  'ai-tone-rewriter': `The AI Tone Rewriter rewrites your own text while preserving its meaning, with control over the tone — more formal, more casual, simpler, shorter.
 
 The legitimate uses are real and worth separating from the illegitimate one. Rewriting your own writing to fit a different audience, simplifying a dense technical explanation for a general reader, tightening a paragraph that runs long, adapting one piece of copy for several channels, or getting unstuck on a sentence you have rewritten four times — these are ordinary editing tasks that a rewriter genuinely speeds up.
 
@@ -204,13 +204,13 @@ Keep it to one page. The letter's job is to make someone read the CV, not to dup
 
 Your details are sent to an AI model to generate the letter and are not retained.`,
 
-  'ai-plagiarism-checker': `This tool analyses text for statistical patterns associated with AI-generated writing and for phrasing that appears to be reproduced from elsewhere, returning an assessment rather than a verdict.
+  'ai-writing-checker': `The AI Writing Self-Check reads your own draft and points out passages that read as generic, template-like, or machine-written, returning an assessment rather than a verdict. It does not search the web or compare your text against other sources, so it cannot tell you whether something was copied.
 
 It is important to be honest about reliability, because a great deal of harm has been done by treating these tools as authoritative. AI-detection classifiers work by measuring statistical properties of text — how predictable each word is given the ones before it — and human writing that happens to be clear, formulaic, or plainly structured scores as machine-generated with uncomfortable frequency. The documented bias against non-native English writers is particularly well-established, since writing in a second language tends toward more conventional phrasing, exactly the signal these classifiers read as artificial. OpenAI withdrew its own detector in 2023 citing low accuracy, and no detector since has solved the underlying problem.
 
 The practical consequence: a high score is a reason to look more closely, never evidence on its own. Accusing a student or a writer of misconduct on the basis of a detector score is unsafe, and institutions that have done so have had to reverse those findings. Process evidence — draft history, version control, the ability to discuss the work — is far more reliable than any classifier output.
 
-Where the tool is genuinely useful is self-checking: reviewing your own draft before submission, spotting passages that read as unattributed from a source, or seeing which sections of your own writing read as mechanical and could use a human pass.
+Where the tool is genuinely useful is self-checking: reviewing your own draft before you publish or send it, and seeing which sections read as mechanical and could use a human pass.
 
 Your text is sent to a model for analysis and is not retained.`,
 };
@@ -276,8 +276,8 @@ export const HOW_TO_STEPS: Record<string, [string, string, string]> = {
     'Generate the draft, then delete the opening pleasantry and add the specific details only you know.',
     'Cut it until the ask is clear in the first two lines, then send.',
   ],
-  'ai-paraphraser': [
-    'Paste the text you want rewritten and choose a tone.',
+  'ai-tone-rewriter': [
+    'Paste your own draft and choose a tone: more formal, more casual, simpler, or shorter.',
     'Run one pass only — repeated rewriting drifts from the meaning and flattens the writing.',
     'Read the output against the original to check no qualifier was dropped, and cite the source if the ideas are not yours.',
   ],
@@ -311,9 +311,9 @@ export const HOW_TO_STEPS: Record<string, [string, string, string]> = {
     'Generate the letter, then replace the generic opening with something specific to this employer.',
     'Trim to one page — the letter exists to make someone read your CV, not repeat it.',
   ],
-  'ai-plagiarism-checker': [
-    'Paste the text you want to check.',
-    'Read the score as a prompt to look closer, never as evidence — false positives are common, especially for non-native English writers.',
-    'Use it on your own drafts; do not make an accusation on the basis of a detector score.',
+  'ai-writing-checker': [
+    'Paste your own draft.',
+    'Read the flagged passages as places to revise, not as a verdict — clear, plain writing is often flagged too.',
+    'Rewrite the flagged sections in your own voice, then check again if you want.',
   ],
 };

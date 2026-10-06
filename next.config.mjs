@@ -26,6 +26,8 @@ const nextConfig = {
     return [
       { source: '/privacy-policy', destination: '/privacy', permanent: true },
       { source: '/terms-of-service', destination: '/terms', permanent: true },
+      { source: '/tools/ai-plagiarism-checker', destination: '/tools/ai-writing-checker', permanent: true },
+      { source: '/tools/ai-paraphraser', destination: '/tools/ai-tone-rewriter', permanent: true },
       // The blog listing moved from query strings to paths. Old links and any
       // indexed ?category= / ?page= URLs are forwarded rather than dropped;
       // the category route normalises casing to the canonical slug.

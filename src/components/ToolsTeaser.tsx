@@ -12,7 +12,7 @@ const popularTools = [
   { slug: 'password-generator', name: 'Password Generator', emoji: '🔐', tagline: 'Strong random passwords instantly' },
   { slug: 'image-compressor', name: 'Image Compressor', emoji: '🗜️', tagline: 'Compress images up to 80%' },
   { slug: 'qr-code-generator', name: 'QR Code Generator', emoji: '📱', tagline: 'URLs, WiFi, vCards' },
-  { slug: 'tiktok-downloader', name: 'TikTok Downloader', emoji: '🎵', tagline: 'Download TikTok videos without watermark' },
+  { slug: 'merge-pdf', name: 'Merge PDF', emoji: '📎', tagline: 'Combine PDF files in your browser' },
   { slug: 'invoice-generator', name: 'Invoice Generator', emoji: '🧾', tagline: 'Create professional invoices, download PDF' },
 ];
 

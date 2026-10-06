@@ -1,4 +1,5 @@
 import { enrichToolSeo } from '@/lib/tool-seo-copy';
+import { isToolOnThisSite } from '@/lib/site-mode';
 
 export type ToolCore = {
   slug: string;
@@ -503,14 +504,14 @@ const rawTools: ToolCore[] = [
   // ── AI TOOLS ──────────────────────────────────────────
   { slug: 'ai-blog-generator', name: 'AI Blog Post Generator', category: 'AI Tools', emoji: '📝', tagline: 'Generate a full blog post draft with AI', description: 'Free AI blog post generator. Enter your topic and keywords to generate a 800-word SEO-optimized blog post draft with headings. Powered by Claude AI.', keywords: ['ai blog post generator', 'ai content generator free', 'auto blog writer', 'ai article generator'], buildType: 'client' },
   { slug: 'ai-email-writer', name: 'AI Email Writer', category: 'AI Tools', emoji: '📧', tagline: 'Write professional emails instantly with AI', description: 'Free AI email writer. Describe your email purpose and tone to generate a professional email in seconds. Formal, casual, follow-up, cold outreach and more.', keywords: ['ai email writer', 'ai email generator free', 'write email with ai', 'professional email generator'], buildType: 'client' },
-  { slug: 'ai-paraphraser', name: 'AI Paraphrasing Tool', category: 'AI Tools', emoji: '💬', tagline: 'Rewrite any text in different tones with AI', description: 'Free AI paraphrasing tool. Paste any text and rewrite it in formal, casual, creative, or academic tone. Powered by Claude AI. 100% free.', keywords: ['ai paraphrasing tool', 'paraphrase text online free', 'rewrite text ai', 'best paraphrase tool 2026'], buildType: 'client' },
+  { slug: 'ai-tone-rewriter', name: 'AI Tone Rewriter', category: 'AI Tools', emoji: '💬', tagline: 'Rewrite your own writing in a different tone', description: 'Free AI tone rewriter. Paste your own draft and make it more formal, more casual, simpler, or shorter while keeping your meaning. For emails, posts, and web copy.', keywords: ['change tone of text', 'make text more formal', 'rewrite my email', 'simplify text ai'], buildType: 'client' },
   { slug: 'ai-summarizer', name: 'AI Text Summarizer', category: 'AI Tools', emoji: '📑', tagline: 'Summarize any long text in seconds with AI', description: 'Free AI text summarizer. Paste any article, essay, or document and get a concise summary in bullet points or paragraph form. Powered by Claude AI.', keywords: ['ai text summarizer', 'summarize text online free', 'automatic text summarizer', 'article summarizer ai'], buildType: 'client' },
   { slug: 'ai-grammar-checker', name: 'AI Grammar Checker', category: 'AI Tools', emoji: '🔍', tagline: 'Fix grammar, spelling, and clarity with AI', description: 'Free AI grammar checker. Paste your text to find and fix grammar errors, spelling mistakes, and clarity issues. Powered by Claude AI. No signup.', keywords: ['ai grammar checker', 'grammar checker free online', 'check grammar online', 'ai grammar correction'], buildType: 'client' },
   { slug: 'ai-ad-copy', name: 'AI Ad Copy Generator', category: 'AI Tools', emoji: '🎯', tagline: 'Generate Facebook, Google, Instagram ad copy', description: 'Free AI ad copy generator. Enter your product name and benefits to generate compelling ad copy for Facebook Ads, Google Ads, and Instagram. Multiple formats.', keywords: ['ai ad copy generator', 'facebook ad copy generator', 'google ad copy ai', 'ad copy generator free'], buildType: 'client' },
   { slug: 'ai-business-name', name: 'AI Business Name Generator', category: 'AI Tools', emoji: '📊', tagline: 'Generate unique business name ideas with AI', description: 'Free AI business name generator. Describe your business and industry to get 20 unique, brandable name ideas. Check domain availability instantly.', keywords: ['business name generator', 'ai business name ideas', 'company name generator free', 'startup name generator'], buildType: 'client' },
   { slug: 'ai-caption-generator', name: 'AI Caption Generator', category: 'AI Tools', emoji: '📱', tagline: 'Generate Instagram and LinkedIn captions with AI', description: 'Free AI caption generator. Describe your photo or topic to generate 5 engaging Instagram, LinkedIn, or TikTok captions with relevant emojis and hashtags.', keywords: ['ai caption generator', 'instagram caption generator free', 'social media caption generator ai', 'caption maker ai'], buildType: 'client' },
   { slug: 'ai-cover-letter', name: 'AI Cover Letter Writer', category: 'AI Tools', emoji: '📃', tagline: 'Generate a tailored cover letter with AI', description: 'Free AI cover letter generator. Paste a job description and your skills to generate a personalized, professional cover letter in seconds. Download as PDF.', keywords: ['ai cover letter generator', 'cover letter writer free', 'generate cover letter ai', 'automatic cover letter maker'], buildType: 'client' },
-  { slug: 'ai-plagiarism-checker', name: 'AI Content Detector', category: 'AI Tools', emoji: '🔎', tagline: 'Detect AI-generated text and plagiarism', description: 'Free AI content detector. Check if text was written by AI (ChatGPT, Claude) or copied from other sources. Get an originality score with highlighted sections.', keywords: ['ai detector', 'ai content detector free', 'ai writing detector', 'chatgpt text detector'], buildType: 'client' },
+  { slug: 'ai-writing-checker', name: 'AI Writing Self-Check', category: 'AI Tools', emoji: '🔎', tagline: 'Find generic, mechanical passages in your own draft', description: 'Free writing self-check. Paste your own draft to see which passages read as generic, template-like, or machine-written, so you know where to revise before publishing.', keywords: ['writing self check', 'find generic writing', 'improve draft before publishing', 'ai writing pattern checker'], buildType: 'client' },
   // ── WRITING & DOCUMENT TOOLS ──────────────────────────
   { slug: 'resume-builder', name: 'Resume / CV Builder', category: 'Writing', emoji: '📄', tagline: 'Build a professional resume and download as PDF free', description: 'Free resume builder. Create a professional CV/resume with modern templates. Add work experience, skills, education, and projects. Download as PDF for free.', keywords: ['resume builder free', 'cv maker online', 'free resume maker', 'create resume online free', 'professional cv builder'], buildType: 'client' },
   { slug: 'text-repeater', name: 'Text Repeater', category: 'Writing', emoji: '🔡', tagline: 'Repeat any text N times with custom separator', description: 'Free text repeater. Repeat any word, phrase, or text a specified number of times. Choose separator (newline, comma, space). Used for WhatsApp and social media.', keywords: ['text repeater', 'repeat text online free', 'word repeater tool', 'text duplicator'], buildType: 'client' },
@@ -575,7 +576,8 @@ const rawTools: ToolCore[] = [
   { slug: 'logic-puzzle-generator', name: 'Sudoku & Puzzle Generator', category: 'Education', emoji: '🧩', tagline: 'Generate and play Sudoku puzzles online', description: 'Free online Sudoku generator. Generate easy, medium, hard, and expert Sudoku puzzles. Play in browser or print. New puzzle every time you load.', keywords: ['sudoku generator', 'free sudoku online', 'printable sudoku puzzles', 'sudoku puzzle maker free'], buildType: 'client' },
 ];
 
-export const tools: Tool[] = rawTools.map(enrichToolSeo);
+/** Only the tools this deployment serves; see lib/site-mode.ts. */
+export const tools: Tool[] = rawTools.filter((t) => isToolOnThisSite(t.slug)).map(enrichToolSeo);
 
 /**
  * The subset of a tool that listing surfaces actually render.
@@ -603,24 +605,31 @@ export const toolSummaries: ToolSummary[] = tools.map(
   })
 );
 
+const categoryLabels = [
+  { id: 'Image Tools', label: 'Image Tools' },
+  { id: 'PDF Tools', label: 'PDF Tools' },
+  { id: 'Text Tools', label: 'Text Tools' },
+  { id: 'Security Tools', label: 'Security' },
+  { id: 'Developer Tools', label: 'Dev Tools' },
+  { id: 'Calculators', label: 'Calculators' },
+  { id: 'SEO & Marketing', label: 'SEO' },
+  { id: 'Video Tools', label: 'Video & Audio' },
+  { id: 'Social Media', label: 'Social Media' },
+  { id: 'Finance', label: 'Finance' },
+  { id: 'AI Tools', label: 'AI Tools' },
+  { id: 'Writing', label: 'Writing' },
+  { id: 'Image Editing', label: 'Image Editing' },
+  { id: 'Health', label: 'Health' },
+  { id: 'Business', label: 'Business' },
+  { id: 'Education', label: 'Education' },
+];
+
+// Counted rather than hard-coded: the tool set differs per deployment.
 export const toolCategories = [
   { id: 'all', label: 'All Tools', count: tools.length },
-  { id: 'Image Tools', label: 'Image Tools', count: 5 },
-  { id: 'PDF Tools', label: 'PDF Tools', count: 5 },
-  { id: 'Text Tools', label: 'Text Tools', count: 6 },
-  { id: 'Security Tools', label: 'Security', count: 4 },
-  { id: 'Developer Tools', label: 'Dev Tools', count: 19 },
-  { id: 'Calculators', label: 'Calculators', count: 6 },
-  { id: 'SEO & Marketing', label: 'SEO', count: 5 },
-  { id: 'Video Tools', label: 'Video & Audio', count: 12 },
-  { id: 'Social Media', label: 'Social Media', count: 9 },
-  { id: 'Finance', label: 'Finance', count: 12 },
-  { id: 'AI Tools', label: 'AI Tools', count: 10 },
-  { id: 'Writing', label: 'Writing', count: 10 },
-  { id: 'Image Editing', label: 'Image Editing', count: 10 },
-  { id: 'Health', label: 'Health', count: 8 },
-  { id: 'Business', label: 'Business', count: 10 },
-  { id: 'Education', label: 'Education', count: 8 },
+  ...categoryLabels
+    .map((c) => ({ ...c, count: tools.filter((t) => t.category === c.id).length }))
+    .filter((c) => c.count > 0),
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {

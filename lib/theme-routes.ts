@@ -1,3 +1,5 @@
+import { ADS_ENABLED } from '@/lib/site-mode';
+
 /**
  * Routes that render in the dark-glass theme.
  *
@@ -38,5 +40,5 @@ export function isStandaloneRoute(pathname: string | null): boolean {
  * than reusing `isStandaloneRoute`, so the two can diverge later.
  */
 export function isAdFreeRoute(pathname: string | null): boolean {
-  return isStandaloneRoute(pathname);
+  return !ADS_ENABLED || isStandaloneRoute(pathname);
 }

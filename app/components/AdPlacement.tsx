@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { readConsent, subscribeConsent } from '@/lib/consent';
+import { ADS_ENABLED } from '@/lib/site-mode';
 
 const AD_CLIENT = 'ca-pub-7165996801022980';
 
@@ -34,7 +35,7 @@ export function AdPlacement({ slot }: { slot: 'top' | 'bottom' | 'sidebar' }) {
   }, []);
 
   useEffect(() => {
-    if (!adSlot || !adRef.current || hasRequestedAd.current) return;
+    if (!ADS_ENABLED || !adSlot || !adRef.current || hasRequestedAd.current) return;
 
     hasRequestedAd.current = true;
 
@@ -50,7 +51,7 @@ export function AdPlacement({ slot }: { slot: 'top' | 'bottom' | 'sidebar' }) {
     }
   }, [adSlot, personalized]);
 
-  if (!adSlot) return null;
+  if (!adSlot || !ADS_ENABLED) return null;
 
   return (
     <div

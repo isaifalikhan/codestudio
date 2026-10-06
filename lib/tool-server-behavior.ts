@@ -10,14 +10,14 @@ export const SERVER_BACKED_TOOL_SLUGS = new Set([
   'vimeo-downloader',
   'ai-blog-generator',
   'ai-email-writer',
-  'ai-paraphraser',
+  'ai-tone-rewriter',
   'ai-summarizer',
   'ai-grammar-checker',
   'ai-ad-copy',
   'ai-business-name',
   'ai-caption-generator',
   'ai-cover-letter',
-  'ai-plagiarism-checker',
+  'ai-writing-checker',
 ]);
 
 export function isServerBackedTool(slug: string): boolean {

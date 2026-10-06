@@ -6,6 +6,7 @@ import { Navbar } from '@/src/components/Navbar';
 import { Footer } from '@/src/components/Footer';
 import { DeferredTopWidgets, DeferredBottomWidgets } from '@/app/components/DeferredLayoutWidgets';
 import { ConsentAwareTracking } from '@/app/components/ConsentAwareTracking';
+import { ADS_ENABLED } from '@/lib/site-mode';
 import {
   SITE_URL,
   defaultOgImage,
@@ -129,7 +130,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <meta name="google-adsense-account" content="ca-pub-7165996801022980" />
+        {ADS_ENABLED && <meta name="google-adsense-account" content="ca-pub-7165996801022980" />}
         {/* Google Consent Mode v2 defaults. Must execute before AdSense or GA
             loads, so it is inlined here rather than shipped via next/script. */}
         <script
@@ -155,7 +156,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-paper flex flex-col antialiased font-sans text-base leading-relaxed">
         <ConsentAwareTracking 
           gaId={gaId} 
-          adsensePublisherId="ca-pub-7165996801022980" 
+          adsensePublisherId={ADS_ENABLED ? 'ca-pub-7165996801022980' : undefined}
         />
         <a
           href="#main-content"
