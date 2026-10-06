@@ -24,7 +24,7 @@ const HUB_TITLE = IS_DOWNLOADS_SITE
   ? 'Free Video Downloaders & Document Generators'
   : '100+ Free Online Tools — Image, PDF, AI & More';
 const HUB_DESCRIPTION = IS_DOWNLOADS_SITE
-  ? 'Free video downloaders for TikTok, YouTube, Instagram, Facebook, X, Pinterest and Vimeo, plus receipt and pay stub generators. No signup.'
+  ? 'Free video downloaders for TikTok, YouTube, Instagram, Facebook, X, Pinterest and Vimeo, plus receipt and pay stub generators, an open port checker and a URL shortener. No signup.'
   : '100+ free online tools: image compressor, PDF merger, password generator, invoice maker, AI writer and more. No signup, runs in your browser.';
 
 export const metadata: Metadata = {
@@ -250,10 +250,10 @@ export default function ToolsHubPage() {
           </p>
 
           <h2 className="text-2xl md:text-3xl font-display font-bold text-[#14171F] mt-12 mb-4">
-            Business Tools — Pomodoro Timer, URL Shortener &amp; More
+            Business Tools — Pomodoro Timer, Meeting Costs &amp; More
           </h2>
           <p className="text-[#14171F]/80 leading-relaxed">
-            Stay productive with our Pomodoro timer, URL shortener, and meeting cost calculator.
+            Stay productive with our Pomodoro timer and meeting cost calculator.
             Create professional quotes and invoices, generate placeholder content, and manage
             simple project lists. These free business tools help freelancers and small teams work
             smarter without extra software or signup.

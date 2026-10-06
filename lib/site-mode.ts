@@ -4,7 +4,8 @@
  * - `main` (default) — codexstudio2026.com. Carries AdSense, so it must not
  *   host tools that conflict with Google Publisher Policies: downloaders for
  *   third-party platforms (copyrighted content / platform ToS) and generators
- *   for documents that can be passed off as genuine (pay stubs, receipts).
+ *   for documents that can be passed off as genuine (pay stubs, receipts),
+ *   plus unfinished or security-adjacent utilities.
  * - `downloads` — a separate domain that serves only those tools, with no
  *   AdSense. Every other route redirects back to the main site.
  *
@@ -44,6 +45,10 @@ export const DOWNLOADS_SITE_TOOL_SLUGS: readonly string[] = [
   'spotify-to-mp3',
   'pay-stub-generator',
   'receipt-generator',
+  // Unfinished (see INCOMPLETE_TOOL_SLUGS) — thin pages count against AdSense
+  // review — and a port scanner reads as hacking tooling to a reviewer.
+  'port-scanner',
+  'url-shortener',
 ];
 
 const DOWNLOADS_SITE_TOOLS = new Set(DOWNLOADS_SITE_TOOL_SLUGS);
